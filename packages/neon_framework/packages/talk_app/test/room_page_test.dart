@@ -121,6 +121,7 @@ void main() {
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage1.systemMessage).thenReturn('');
     when(() => chatMessage1.isReplyable).thenReturn(true);
+    when(() => chatMessage1.markdown).thenReturn(false);
 
     final chatMessage2 = MockChatMessageWithParent();
     when(() => chatMessage2.id).thenReturn(2);
@@ -134,6 +135,7 @@ void main() {
     when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage2.systemMessage).thenReturn('');
     when(() => chatMessage2.isReplyable).thenReturn(true);
+    when(() => chatMessage2.markdown).thenReturn(false);
 
     final chatMessage3 = MockChatMessageWithParent();
     when(() => chatMessage3.id).thenReturn(3);
@@ -147,6 +149,7 @@ void main() {
     when(() => chatMessage3.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage3.systemMessage).thenReturn('');
     when(() => chatMessage3.isReplyable).thenReturn(true);
+    when(() => chatMessage3.markdown).thenReturn(false);
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
@@ -252,6 +255,7 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
       when(() => chatMessage.isReplyable).thenReturn(true);
+      when(() => chatMessage.markdown).thenReturn(false);
 
       when(() => bloc.messages).thenAnswer(
         (_) => BehaviorSubject.seeded(

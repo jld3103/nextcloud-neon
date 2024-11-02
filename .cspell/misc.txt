@@ -9,6 +9,7 @@ deeplinking
 flathub
 foss
 fullscreen
+noto
 persistences
 pkgs
 playstore
@@ -17,8 +18,12 @@ provokateurin
 punycode
 rescan
 STRFTIME
+strikethrough
 subroutes
+tbody
 testexample
+thead
+tilda
 uncategorized
 upsert
 viewbox
