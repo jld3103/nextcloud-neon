@@ -15,9 +15,9 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@e630b99d28a3b71860378cafdc2a067c71107f94 # v1
         with:
-          sdk: 3.5
+          sdk: 3.6
       - name: Install commitlint_cli
-        run: dart pub get
+        run: dart pub global activate commitlint_cli 0.8.1
 
       - name: Lint conventional commits
-        run: dart run commitlint_cli --from=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to=${{ github.event.pull_request.head.sha }}
+        run: dart pub global run commitlint_cli --from=${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to=${{ github.event.pull_request.head.sha }}

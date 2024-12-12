@@ -1,9 +1,10 @@
 name: files_app
 version: 1.0.0
 publish_to: 'none'
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.27.0
 
 dependencies:
@@ -23,9 +24,7 @@ dependencies:
   logging: ^1.0.0
   meta: ^1.0.0
   neon_framework:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework
+    path: ../..
   nextcloud: ^8.1.0
   open_filex: ^4.4.0
   path: ^1.0.0
@@ -41,9 +40,7 @@ dev_dependencies:
   custom_lint: ^0.7.0
   go_router_builder: ^2.7.3
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../../../neon_lints
   vector_graphics_compiler: ^1.1.16
 
 flutter:

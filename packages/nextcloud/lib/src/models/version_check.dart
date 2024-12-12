@@ -27,7 +27,7 @@ class VersionCheck {
   /// Only one of the [versions] has to be supported to return `true`.
   bool get isSupported {
     if (_isSupportedOverride != null) {
-      return _isSupportedOverride!;
+      return _isSupportedOverride;
     }
 
     if (versions == null || versions!.isEmpty) {

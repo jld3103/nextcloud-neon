@@ -2,11 +2,36 @@ name: neon_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
+  flutter: ^3.27.0
+
+workspace:
+  - packages/cookie_store
+  - packages/cookie_store/packages/cookie_store_conformance_tests
+  - packages/dynamite
+  - packages/dynamite/example
+  - packages/dynamite/packages/dynamite_end_to_end_test
+  - packages/dynamite/packages/dynamite_runtime
+  - packages/interceptor_http_client
+  - packages/neon_framework
+  - packages/neon_framework/example
+  - packages/neon_framework/packages/account_repository
+  - packages/neon_framework/packages/dashboard_app
+  - packages/neon_framework/packages/files_app
+  - packages/neon_framework/packages/neon_http_client
+  - packages/neon_framework/packages/neon_rich_text
+  - packages/neon_framework/packages/neon_storage
+  - packages/neon_framework/packages/news_app
+  - packages/neon_framework/packages/notes_app
+  - packages/neon_framework/packages/notifications_app
+  - packages/neon_framework/packages/notifications_push_repository
+  - packages/neon_framework/packages/sort_box
+  - packages/neon_framework/packages/talk_app
+  - packages/neon_lints
+  - packages/neon_lints/example
+  - packages/nextcloud
+  - packages/nextcloud/packages/nextcloud_test
+  - packages/nextcloud/packages/nextcloud_test_presets
 
 dev_dependencies:
-  commitlint_cli: ^0.8.1
-  fvm: ^3.2.1
   melos: 6.0.0
-  custom_lint: ^0.7.0
-  coverage: ^1.11.1

@@ -1,6 +1,0 @@
-# melos_managed_dependency_overrides: cookie_store_conformance_tests,neon_lints
-dependency_overrides:
-  cookie_store_conformance_tests:
-    path: packages/cookie_store_conformance_tests
-  neon_lints:
-    path: ../neon_lints

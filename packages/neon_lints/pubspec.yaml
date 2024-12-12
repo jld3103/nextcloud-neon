@@ -2,9 +2,10 @@ name: neon_lints
 description: Linting package used in the nextcloud-neon project
 version: 1.0.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   analyzer: ^6.4.1

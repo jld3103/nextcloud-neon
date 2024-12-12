@@ -5,8 +5,8 @@
 If you need to add a new package to the Neon project please make sure to execute all the following steps:
 1. Use the according template by running `fvm dart create -t package package_name` or `fvm flutter create -t package package_name`.
 2. Make sure to activate our strict linting by adding it to the package.
-3. Regenerate the dependency overrides by executing `melos bootstrap`.
-4. Add a Symlink to our main [license](../assets/AGPL-3.0.txt).
+3. Add a Symlink to our main [license](../assets/AGPL-3.0.txt).
+4. Update the workspace [pubspec.yaml](../pubspec.yaml) by adding the new package path.
 5. Update [commitlint.yaml](../commitlint.yaml) by adding the new package name.
 6. Remove the package `.gitignore` (a global `.gitignore` for all packages is used instead).
 

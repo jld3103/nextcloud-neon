@@ -1,51 +1,36 @@
 name: example
 version: 1.0.0
 publish_to: 'none'
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.27.0
 
 dependencies:
   built_collection: ^5.0.0
   dashboard_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/dashboard_app
+    path: ../packages/dashboard_app
   files_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/files_app
+    path: ../packages/files_app
   flutter:
     sdk: flutter
   neon_framework:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework
+    path: ..
   news_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/news_app
+    path: ../packages/news_app
   notes_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/notes_app
+    path: ../packages/notes_app
   notifications_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/notifications_app
+    path: ../packages/notifications_app
   talk_app:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/talk_app
+    path: ../packages/talk_app
   vector_graphics: any
 
 dev_dependencies:
   custom_lint: ^0.7.0
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../../neon_lints
   vector_graphics_compiler: any
 
 flutter:
