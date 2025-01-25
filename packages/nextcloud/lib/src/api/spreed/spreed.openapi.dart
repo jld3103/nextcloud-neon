@@ -22818,7 +22818,10 @@ sealed class $CallJoinCallRequestApplicationJsonInterface {
   /// Join the call silently.
   bool get silent;
 
-  /// When the user ticked a checkbox and agreed with being recorded (Only needed when the `config => call => recording-consent` capability is set to {@see RecordingService::CONSENT_REQUIRED_YES} or the capability is {@see RecordingService::CONSENT_REQUIRED_OPTIONAL} and the conversation `recordingConsent` value is {@see RecordingService::CONSENT_REQUIRED_YES} ).
+  /// When the user ticked a checkbox and agreed with being recorded.
+  /// (Only needed when the `config => call => recording-consent` capability is set to {@see RecordingService::CONSENT_REQUIRED_YES}.
+  /// or the capability is {@see RecordingService::CONSENT_REQUIRED_OPTIONAL}.
+  /// and the conversation `recordingConsent` value is {@see RecordingService::CONSENT_REQUIRED_YES} ).
   bool get recordingConsent;
 
   /// Rebuilds the instance.
@@ -45280,7 +45283,8 @@ class _$RoomSetRecordingConsentApiVersionSerializer implements PrimitiveSerializ
 
 @BuiltValue(instantiable: false)
 sealed class $RoomSetRecordingConsentRequestApplicationJsonInterface {
-  /// New consent setting for the conversation (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
+  /// New consent setting for the conversation.
+  /// (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
   int get recordingConsent;
 
   /// Rebuilds the instance.

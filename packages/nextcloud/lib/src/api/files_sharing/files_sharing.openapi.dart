@@ -4332,7 +4332,8 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   /// Send the password for the share over Talk.
   String? get sendPasswordByTalk;
 
-  /// The expiry date of the share in the user's timezone at 00:00. If $expireDate is not supplied or set to `null`, the system default will be used.
+  /// The expiry date of the share in the user's timezone at 00:00.
+  /// If $expireDate is not supplied or set to `null`, the system default will be used.
   String? get expireDate;
 
   /// Note for the share.
@@ -5015,7 +5016,9 @@ sealed class $ShareapiUpdateShareRequestApplicationJsonInterface {
   /// New additional attributes.
   String? get attributes;
 
-  /// if the share should be send by mail. Considering the share already exists, no mail will be send after the share is updated. You will have to use the sendMail action to send the mail.
+  /// if the share should be send by mail.
+  /// Considering the share already exists, no mail will be send after the share is updated.
+  /// You will have to use the sendMail action to send the mail.
   String? get sendMail;
 
   /// Rebuilds the instance.

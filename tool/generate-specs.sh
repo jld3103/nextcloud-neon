@@ -8,7 +8,8 @@ mkdir -p /tmp/nextcloud-neon
 function generate_spec() {
     path="$1"
     codename="$2"
-    ../nextcloud-openapi-extractor/generate-spec "$path" "/tmp/nextcloud-neon/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
+
+    composer exec generate-spec -- "$path" "/tmp/nextcloud-neon/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
 
     # Use the full spec if it exists, otherwise use the default spec which is already the full spec.
     if [ -f "/tmp/nextcloud-neon/$codename.openapi-full.json" ]; then
@@ -20,12 +21,9 @@ function generate_spec() {
 }
 
 (
-  cd external/nextcloud-openapi-extractor
-  composer install
-)
-
-(
   cd external/nextcloud-server
+  composer install
+  git checkout lib/composer/composer # Don't leave a mess behind
 
   for path in core apps/*; do
     if [ ! -f "$path/.noopenapi" ] &&
@@ -40,18 +38,22 @@ function generate_spec() {
 
 (
   cd external/nextcloud-notifications
+  composer install
   generate_spec "." "notifications"
 )
 (
   cd external/nextcloud-spreed
+  composer install
   generate_spec "." "spreed"
 )
 (
   cd external/nextcloud-drop_account
+  composer install
   generate_spec "." "drop_account"
 )
 (
   cd external/nextcloud-tables
+  composer install
   generate_spec "." "tables"
 )
 (
@@ -77,7 +79,7 @@ for spec in /tmp/nextcloud-neon/*.openapi.json; do
 done
 
 
-./external/nextcloud-openapi-extractor/merge-specs \
+./external/nextcloud-server/vendor-bin/openapi-extractor/vendor/nextcloud/openapi-extractor/merge-specs \
   --core /tmp/nextcloud-neon/core.openapi.json \
   --merged /tmp/nextcloud-neon/merged.json \
   /tmp/nextcloud-neon/*.openapi.json \

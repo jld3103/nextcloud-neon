@@ -16,9 +16,6 @@
 [submodule "external/openapi-specification"]
 	path = external/openapi-specification
 	url = https://github.com/OAI/OpenAPI-Specification.git
-[submodule "external/nextcloud-openapi-extractor"]
-	path = external/nextcloud-openapi-extractor
-	url = https://github.com/nextcloud/openapi-extractor.git
 [submodule "external/nextcloud-drop_account"]
 	path = external/nextcloud-drop_account
 	url = https://framagit.org/framasoft/nextcloud/drop_account.git
