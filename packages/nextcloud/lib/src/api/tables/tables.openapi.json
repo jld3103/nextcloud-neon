@@ -55,6 +55,9 @@
                                     "type": "string"
                                 }
                             },
+                            "isCirclesEnabled": {
+                                "type": "boolean"
+                            },
                             "column_types": {
                                 "type": "array",
                                 "items": {
@@ -96,6 +99,7 @@
                     "usergroupMultipleItems",
                     "usergroupSelectUsers",
                     "usergroupSelectGroups",
+                    "usergroupSelectTeams",
                     "showUserStatus"
                 ],
                 "properties": {
@@ -189,6 +193,9 @@
                         "type": "boolean"
                     },
                     "usergroupSelectGroups": {
+                        "type": "boolean"
+                    },
+                    "usergroupSelectTeams": {
                         "type": "boolean"
                     },
                     "showUserStatus": {
@@ -2532,8 +2539,10 @@
                                     "displayMode": {
                                         "type": "integer",
                                         "format": "int64",
-                                        "default": 0,
-                                        "description": "context shares only, whether it should appear in nav bar. 0: no, 1: recipients, 2: all"
+                                        "default": 2,
+                                        "description": "context shares only, whether it should appear in nav bar. 0: no, 1: recipients, 2: all (default). Cf. Application::NAV_ENTRY_MODE_*.",
+                                        "minimum": 0,
+                                        "maximum": 2
                                     }
                                 }
                             }
@@ -2994,6 +3003,11 @@
                                         "nullable": true,
                                         "description": "Can select groups, if column type is usergroup"
                                     },
+                                    "usergroupSelectTeams": {
+                                        "type": "boolean",
+                                        "nullable": true,
+                                        "description": "Can select teams, if column type is usergroup"
+                                    },
                                     "usergroupShowUserStatus": {
                                         "type": "boolean",
                                         "nullable": true,
@@ -3343,6 +3357,11 @@
                                         "nullable": true,
                                         "description": "Can select groups, if column type is usergroup"
                                     },
+                                    "usergroupSelectTeams": {
+                                        "type": "boolean",
+                                        "nullable": true,
+                                        "description": "Can select teams, if column type is usergroup"
+                                    },
                                     "usergroupShowUserStatus": {
                                         "type": "boolean",
                                         "nullable": true,
@@ -3556,6 +3575,11 @@
                                         "type": "boolean",
                                         "nullable": true,
                                         "description": "Can select groups, if column type is usergroup"
+                                    },
+                                    "usergroupSelectTeams": {
+                                        "type": "boolean",
+                                        "nullable": true,
+                                        "description": "Can select teams, if column type is usergroup"
                                     },
                                     "usergroupShowUserStatus": {
                                         "type": "boolean",
@@ -7891,6 +7915,10 @@
                                         "type": "boolean",
                                         "description": "Whether you can select groups"
                                     },
+                                    "usergroupSelectTeams": {
+                                        "type": "boolean",
+                                        "description": "Whether you can select teams"
+                                    },
                                     "showUserStatus": {
                                         "type": "boolean",
                                         "description": "Whether to show the user's status"
@@ -10047,5 +10075,10 @@
             }
         }
     },
-    "tags": []
+    "tags": [
+        {
+            "name": "navigation",
+            "description": "This is a workaround until https://github.com/nextcloud/server/pull/49904 is settled in all covered NC versions; expected >= 31."
+        }
+    ]
 }

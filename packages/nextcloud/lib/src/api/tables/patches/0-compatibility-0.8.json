@@ -1,0 +1,13 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/tables/required",
+    "value": [
+      "enabled",
+      "version",
+      "apiVersions",
+      "features",
+      "column_types"
+    ]
+  }
+]

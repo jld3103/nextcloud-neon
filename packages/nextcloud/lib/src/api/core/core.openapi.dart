@@ -15994,6 +15994,7 @@ sealed class $TablesCapabilities_TablesInterface {
   String get version;
   BuiltList<String> get apiVersions;
   BuiltList<String> get features;
+  bool? get isCirclesEnabled;
   @BuiltValueField(wireName: 'column_types')
   BuiltList<String> get columnTypes;
 

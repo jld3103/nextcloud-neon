@@ -2055,6 +2055,9 @@
                                     "type": "string"
                                 }
                             },
+                            "isCirclesEnabled": {
+                                "type": "boolean"
+                            },
                             "column_types": {
                                 "type": "array",
                                 "items": {

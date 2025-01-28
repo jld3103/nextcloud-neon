@@ -8240,7 +8240,7 @@ sealed class $Api1CreateShareRequestApplicationJsonInterface {
   )! as bool;
 
   static final _$displayMode = _$jsonSerializers.deserialize(
-    0,
+    2,
     specifiedType: const FullType(int),
   )! as int;
 
@@ -8271,7 +8271,7 @@ sealed class $Api1CreateShareRequestApplicationJsonInterface {
   /// Permission if receiver can manage node.
   bool get permissionManage;
 
-  /// context shares only, whether it should appear in nav bar. 0: no, 1: recipients, 2: all.
+  /// context shares only, whether it should appear in nav bar. 0: no, 1: recipients, 2: all (default). Cf. Application::NAV_ENTRY_MODE_*.
   int get displayMode;
 
   /// Rebuilds the instance.
@@ -8295,7 +8295,14 @@ sealed class $Api1CreateShareRequestApplicationJsonInterface {
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Api1CreateShareRequestApplicationJsonInterfaceBuilder b) {}
+  static void _validate($Api1CreateShareRequestApplicationJsonInterfaceBuilder b) {
+    _i6.checkNumber(
+      b.displayMode,
+      'displayMode',
+      maximum: 2,
+      minimum: 0,
+    );
+  }
 }
 
 abstract class Api1CreateShareRequestApplicationJson
@@ -8582,6 +8589,7 @@ sealed class $ColumnInterface {
   bool get usergroupMultipleItems;
   bool get usergroupSelectUsers;
   bool get usergroupSelectGroups;
+  bool get usergroupSelectTeams;
   bool get showUserStatus;
 
   /// Rebuilds the instance.
@@ -8811,6 +8819,9 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
 
   /// Can select groups, if column type is usergroup.
   bool? get usergroupSelectGroups;
+
+  /// Can select teams, if column type is usergroup.
+  bool? get usergroupSelectTeams;
 
   /// Whether to show the user's status, if column type is usergroup.
   bool? get usergroupShowUserStatus;
@@ -9065,6 +9076,9 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
   /// Can select groups, if column type is usergroup.
   bool? get usergroupSelectGroups;
 
+  /// Can select teams, if column type is usergroup.
+  bool? get usergroupSelectTeams;
+
   /// Whether to show the user's status, if column type is usergroup.
   bool? get usergroupShowUserStatus;
 
@@ -9197,6 +9211,9 @@ sealed class $Api1UpdateColumnRequestApplicationJsonInterface {
 
   /// Can select groups, if column type is usergroup.
   bool? get usergroupSelectGroups;
+
+  /// Can select teams, if column type is usergroup.
+  bool? get usergroupSelectTeams;
 
   /// Whether to show the user's status, if column type is usergroup.
   bool? get usergroupShowUserStatus;
@@ -11874,6 +11891,9 @@ sealed class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface {
 
   /// Whether you can select groups.
   bool? get usergroupSelectGroups;
+
+  /// Whether you can select teams.
+  bool? get usergroupSelectTeams;
 
   /// Whether to show the user's status.
   bool? get showUserStatus;
@@ -15532,6 +15552,7 @@ sealed class $Capabilities_TablesInterface {
   String get version;
   BuiltList<String> get apiVersions;
   BuiltList<String> get features;
+  bool? get isCirclesEnabled;
   @BuiltValueField(wireName: 'column_types')
   BuiltList<String> get columnTypes;
 
