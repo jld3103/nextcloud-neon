@@ -15144,6 +15144,14 @@ sealed class $SpreedCapabilities_Config_CallInterface {
   bool get sipDialoutEnabled;
   @BuiltValueField(wireName: 'can-enable-sip')
   bool get canEnableSip;
+  @BuiltValueField(wireName: 'start-without-media')
+  bool? get startWithoutMedia;
+  @BuiltValueField(wireName: 'max-duration')
+  int? get maxDuration;
+  @BuiltValueField(wireName: 'blur-virtual-background')
+  bool? get blurVirtualBackground;
+  @BuiltValueField(wireName: 'end-to-end-encryption')
+  bool? get endToEndEncryption;
 
   /// Rebuilds the instance.
   ///
@@ -15210,8 +15218,12 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   int get readPrivacy;
   @BuiltValueField(wireName: 'has-translation-providers')
   bool get hasTranslationProviders;
+  @BuiltValueField(wireName: 'has-translation-task-providers')
+  bool? get hasTranslationTaskProviders;
   @BuiltValueField(wireName: 'typing-privacy')
   int get typingPrivacy;
+  @BuiltValueField(wireName: 'summary-threshold')
+  int? get summaryThreshold;
 
   /// Rebuilds the instance.
   ///
@@ -15226,7 +15238,13 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.summaryThreshold,
+      'summaryThreshold',
+      minimum: 1,
+    );
+  }
 }
 
 abstract class SpreedCapabilities_Config_Chat
@@ -15270,10 +15288,86 @@ abstract class SpreedCapabilities_Config_Chat
   }
 }
 
+class SpreedCapabilities_Config_Conversations_ListStyle extends EnumClass {
+  const SpreedCapabilities_Config_Conversations_ListStyle._(super.name);
+
+  /// `two-lines`
+  @BuiltValueEnumConst(wireName: 'two-lines')
+  static const SpreedCapabilities_Config_Conversations_ListStyle twoLines =
+      _$spreedCapabilitiesConfigConversationsListStyleTwoLines;
+
+  /// `compact`
+  static const SpreedCapabilities_Config_Conversations_ListStyle compact =
+      _$spreedCapabilitiesConfigConversationsListStyleCompact;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SpreedCapabilities_Config_Conversations_ListStyle> get values =>
+      _$spreedCapabilitiesConfigConversationsListStyleValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SpreedCapabilities_Config_Conversations_ListStyle valueOf(String name) =>
+      _$valueOfSpreedCapabilities_Config_Conversations_ListStyle(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SpreedCapabilities_Config_Conversations_ListStyle.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SpreedCapabilities_Config_Conversations_ListStyle> get serializer =>
+      const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+}
+
+class _$SpreedCapabilities_Config_Conversations_ListStyleSerializer
+    implements PrimitiveSerializer<SpreedCapabilities_Config_Conversations_ListStyle> {
+  const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+
+  static const Map<SpreedCapabilities_Config_Conversations_ListStyle, Object> _toWire =
+      <SpreedCapabilities_Config_Conversations_ListStyle, Object>{
+    SpreedCapabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+    SpreedCapabilities_Config_Conversations_ListStyle.compact: 'compact',
+  };
+
+  static const Map<Object, SpreedCapabilities_Config_Conversations_ListStyle> _fromWire =
+      <Object, SpreedCapabilities_Config_Conversations_ListStyle>{
+    'two-lines': SpreedCapabilities_Config_Conversations_ListStyle.twoLines,
+    'compact': SpreedCapabilities_Config_Conversations_ListStyle.compact,
+  };
+
+  @override
+  Iterable<Type> get types => const [SpreedCapabilities_Config_Conversations_ListStyle];
+
+  @override
+  String get wireName => 'SpreedCapabilities_Config_Conversations_ListStyle';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SpreedCapabilities_Config_Conversations_ListStyle object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SpreedCapabilities_Config_Conversations_ListStyle deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
+  @BuiltValueField(wireName: 'force-passwords')
+  bool? get forcePasswords;
+  @BuiltValueField(wireName: 'list-style')
+  SpreedCapabilities_Config_Conversations_ListStyle? get listStyle;
+  @BuiltValueField(wireName: 'description-length')
+  int? get descriptionLength;
 
   /// Rebuilds the instance.
   ///
@@ -15288,7 +15382,13 @@ sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.descriptionLength,
+      'descriptionLength',
+      minimum: 1,
+    );
+  }
 }
 
 abstract class SpreedCapabilities_Config_Conversations
@@ -15653,37 +15753,37 @@ abstract class SpreedCapabilities
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SpreedPublicCapabilities0Interface {
-  SpreedCapabilities get spreed;
+sealed class $SpreedPublicCapabilitiesInterface {
+  SpreedCapabilities? get spreed;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0Interface rebuild(void Function($SpreedPublicCapabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterface rebuild(void Function($SpreedPublicCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _defaults($SpreedPublicCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _validate($SpreedPublicCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0
-    implements $SpreedPublicCapabilities0Interface, Built<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder> {
-  /// Creates a new SpreedPublicCapabilities0 object using the builder pattern.
-  factory SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? b]) = _$SpreedPublicCapabilities0;
+abstract class SpreedPublicCapabilities
+    implements $SpreedPublicCapabilitiesInterface, Built<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder> {
+  /// Creates a new SpreedPublicCapabilities object using the builder pattern.
+  factory SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? b]) = _$SpreedPublicCapabilities;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0._();
+  const SpreedPublicCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0.fromJson(Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15694,24 +15794,19 @@ abstract class SpreedPublicCapabilities0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0.
-  static Serializer<SpreedPublicCapabilities0> get serializer => _$spreedPublicCapabilities0Serializer;
+  /// Serializer for SpreedPublicCapabilities.
+  static Serializer<SpreedPublicCapabilities> get serializer => _$spreedPublicCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._defaults(b);
+  static void _defaults(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._validate(b);
+  static void _validate(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._validate(b);
   }
 }
-
-typedef SpreedPublicCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
 
 class SystemtagsCapabilities_Systemtags_Enabled extends EnumClass {
   const SystemtagsCapabilities_Systemtags_Enabled._(super.name);
@@ -28143,18 +28238,6 @@ extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
   static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `SpreedPublicCapabilities`.
-extension $SpreedPublicCapabilitiesExtension on SpreedPublicCapabilities {
-  /// Serializer for SpreedPublicCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SpreedPublicCapabilities> get serializer => $06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static SpreedPublicCapabilities fromJson(Object? json) => $06c2e47196a84ebc3718dccf9eb4b29dExtension._fromJson(json);
-}
-
 /// Serialization extension for `OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities`.
 extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
     on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
@@ -28398,91 +28481,6 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
       )! as String;
     } catch (_) {}
     return ($int: $int, string: string);
-  }
-}
-
-typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
-  List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
-  List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$06c2e47196a84ebc3718dccf9eb4b29d> get _serializer =>
-      const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-  static _$06c2e47196a84ebc3718dccf9eb4b29d _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerializer<_$06c2e47196a84ebc3718dccf9eb4b29d> {
-  const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-
-  @override
-  Iterable<Type> get types => const [_$06c2e47196a84ebc3718dccf9eb4b29d];
-
-  @override
-  String get wireName => r'_$06c2e47196a84ebc3718dccf9eb4b29d';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$06c2e47196a84ebc3718dccf9eb4b29d object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.spreedPublicCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$06c2e47196a84ebc3718dccf9eb4b29d deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    SpreedPublicCapabilities0? spreedPublicCapabilities0;
-    try {
-      spreedPublicCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SpreedPublicCapabilities0),
-      )! as SpreedPublicCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, spreedPublicCapabilities0: spreedPublicCapabilities0);
   }
 }
 
@@ -28785,11 +28783,10 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = (serializers.deserialize(
+      spreedPublicCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(SpreedPublicCapabilities),
-      )! as SpreedPublicCapabilities)
-        ..validateOneOf();
+      )! as SpreedPublicCapabilities;
     } catch (_) {}
     SystemtagsCapabilities? systemtagsCapabilities;
     try {
@@ -29565,6 +29562,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SpreedCapabilities_Config_ConversationsBuilder.new,
       )
       ..add(SpreedCapabilities_Config_Conversations.serializer)
+      ..add(SpreedCapabilities_Config_Conversations_ListStyle.serializer)
       ..addBuilderFactory(
         const FullType(SpreedCapabilities_Config_Federation),
         SpreedCapabilities_Config_FederationBuilder.new,
@@ -29587,10 +29585,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<String>>.new,
       )
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
-      ..add(SpreedPublicCapabilities0.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
+      ..add(SpreedPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
       ..add(SystemtagsCapabilities.serializer)
       ..addBuilderFactory(
@@ -30504,7 +30500,6 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
           typesToLeaveAsList: const {
             _$87e48e5649cd72b4d2947aaaea13ccd8,
             _$b2c4857c0136baea42828d89c87c757d,
-            _$06c2e47196a84ebc3718dccf9eb4b29d,
             _$ff3cbb941adc0f0f38f18ba5aabd7f48,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,

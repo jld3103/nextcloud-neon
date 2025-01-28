@@ -13,7 +13,7 @@ extension SpreedVersionCheck on spreed.$Client {
   ///
   /// Also returns the supported version number.
   VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
-    final version = capabilities.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed.version;
+    final version = capabilities.capabilities.spreedPublicCapabilities?.spreed?.version;
     return VersionCheck(
       versions: version != null ? BuiltList([Version.parse(version)]) : null,
       minimumVersion: minVersion,

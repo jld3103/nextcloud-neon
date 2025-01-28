@@ -27,7 +27,7 @@ Map<String, dynamic> getRoom({
 }) =>
     {
       'actorId': '',
-      'actorType': spreed.ActorType.users.name,
+      'actorType': spreed.ActorTypes.users.name,
       'attendeeId': 0,
       'attendeePermissions': 0,
       'avatarVersion': '',
@@ -88,7 +88,7 @@ Map<String, dynamic> getChatMessage({
     {
       'actorDisplayName': '',
       'actorId': '',
-      'actorType': spreed.ActorType.users.value,
+      'actorType': spreed.ActorTypes.users.value,
       'expirationTimestamp': 0,
       'id': id ?? 0,
       'isReplyable': false,

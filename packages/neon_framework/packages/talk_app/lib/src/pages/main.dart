@@ -92,7 +92,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
     Widget? subtitle;
     Widget? trailing;
 
-    final lastChatMessage = room.lastMessage.chatMessage;
+    final lastChatMessage = room.lastMessage?.chatMessage;
     if (lastChatMessage != null) {
       subtitle = TalkMessagePreview(
         actorId: room.actorId,

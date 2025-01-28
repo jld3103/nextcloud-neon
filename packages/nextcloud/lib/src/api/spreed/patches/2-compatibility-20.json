@@ -1,0 +1,74 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/config/properties/call/required",
+    "value": [
+      "enabled",
+      "breakout-rooms",
+      "recording",
+      "recording-consent",
+      "supported-reactions",
+      "predefined-backgrounds",
+      "can-upload-background",
+      "sip-enabled",
+      "sip-dialout-enabled",
+      "can-enable-sip"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/config/properties/chat/required",
+    "value": [
+      "max-length",
+      "read-privacy",
+      "has-translation-providers",
+      "typing-privacy"
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/config/properties/conversations/required",
+    "value": [
+      "can-create"
+    ]
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/RoomLastMessage/anyOf/-",
+    "value": {
+      "type": "array",
+      "maxItems": 0
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room~1{token}~1message-expiration/post/responses/200/content/application~1json/schema/properties/ocs/properties/data",
+    "value": {
+      "oneOf": [
+        {
+          "type": "array",
+          "maxItems": 0
+        },
+        {
+          "$ref": "#/components/schemas/Room"
+        }
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/SignalingSettings/properties/federation",
+    "value": {
+      "nullable": true,
+      "anyOf": [
+        {
+          "type": "array",
+          "maxItems": 0
+        },
+        {
+          "$ref": "#/components/schemas/SignalingFederationSettings"
+        }
+      ]
+    }
+  }
+]

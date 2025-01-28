@@ -1849,6 +1849,19 @@
                                     },
                                     "can-enable-sip": {
                                         "type": "boolean"
+                                    },
+                                    "start-without-media": {
+                                        "type": "boolean"
+                                    },
+                                    "max-duration": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "blur-virtual-background": {
+                                        "type": "boolean"
+                                    },
+                                    "end-to-end-encryption": {
+                                        "type": "boolean"
                                     }
                                 }
                             },
@@ -1872,9 +1885,17 @@
                                     "has-translation-providers": {
                                         "type": "boolean"
                                     },
+                                    "has-translation-task-providers": {
+                                        "type": "boolean"
+                                    },
                                     "typing-privacy": {
                                         "type": "integer",
                                         "format": "int64"
+                                    },
+                                    "summary-threshold": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 1
                                     }
                                 }
                             },
@@ -1886,6 +1907,21 @@
                                 "properties": {
                                     "can-create": {
                                         "type": "boolean"
+                                    },
+                                    "force-passwords": {
+                                        "type": "boolean"
+                                    },
+                                    "list-style": {
+                                        "type": "string",
+                                        "enum": [
+                                            "two-lines",
+                                            "compact"
+                                        ]
+                                    },
+                                    "description-length": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "minimum": 1
                                     }
                                 }
                             },
@@ -1956,23 +1992,12 @@
                 }
             },
             "SpreedPublicCapabilities": {
-                "oneOf": [
-                    {
-                        "type": "object",
-                        "required": [
-                            "spreed"
-                        ],
-                        "properties": {
-                            "spreed": {
-                                "$ref": "#/components/schemas/SpreedCapabilities"
-                            }
-                        }
-                    },
-                    {
-                        "type": "array",
-                        "maxItems": 0
+                "type": "object",
+                "properties": {
+                    "spreed": {
+                        "$ref": "#/components/schemas/SpreedCapabilities"
                     }
-                ]
+                }
             },
             "SystemtagsCapabilities": {
                 "type": "object",

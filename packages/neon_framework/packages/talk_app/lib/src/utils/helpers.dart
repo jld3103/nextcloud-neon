@@ -42,8 +42,7 @@ extension $ReactionInterfaceHelpers on spreed.$ReactionInterface {
 /// Returns if the Talk [feature] is supported on the instance.
 bool hasFeature(BuildContext context, String feature) {
   final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
-  final capabilities = capabilitiesBloc
-      .capabilities.valueOrNull?.data?.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed;
+  final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data?.capabilities.spreedPublicCapabilities?.spreed;
 
   if (capabilities == null) {
     return false;

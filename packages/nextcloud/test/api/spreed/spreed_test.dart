@@ -173,9 +173,9 @@ void main() {
         const expiration = 1;
 
         final room = await createTestRoom();
-        expect(room.lastMessage.baseMessage, isNotNull);
-        expect(room.lastMessage.builtListNever, isNull);
-        expect(room.lastMessage.chatMessage, isNotNull);
+        expect(room.lastMessage!.baseMessage, isNotNull);
+        expect(room.lastMessage!.builtListNever, isNull);
+        expect(room.lastMessage!.chatMessage, isNotNull);
 
         await tester.client.spreed.room.setMessageExpiration(
           token: room.token,
@@ -194,9 +194,13 @@ void main() {
         final getRoomResponse = await tester.client.spreed.room.getSingleRoom(
           token: room.token,
         );
-        expect(getRoomResponse.body.ocs.data.lastMessage.baseMessage, isNull);
-        expect(getRoomResponse.body.ocs.data.lastMessage.builtListNever, isNotNull);
-        expect(getRoomResponse.body.ocs.data.lastMessage.chatMessage, isNull);
+        if (tester.version < Version(21, 0, 0)) {
+          expect(getRoomResponse.body.ocs.data.lastMessage!.baseMessage, isNull);
+          expect(getRoomResponse.body.ocs.data.lastMessage!.builtListNever, isNotNull);
+          expect(getRoomResponse.body.ocs.data.lastMessage!.chatMessage, isNull);
+        } else {
+          expect(getRoomResponse.body.ocs.data.lastMessage, isNull);
+        }
       });
     });
 
@@ -275,7 +279,7 @@ void main() {
           ),
         );
         expect(response.body.ocs.data!.id, isPositive);
-        expect(response.body.ocs.data!.actorType, spreed.ActorType.users);
+        expect(response.body.ocs.data!.actorType, spreed.ActorTypes.users);
         expect(response.body.ocs.data!.actorId, 'user1');
         expect(response.body.ocs.data!.actorDisplayName, 'User One');
         expect(response.body.ocs.data!.timestamp, closeTo(startTime.secondsSinceEpoch, 10));
@@ -304,14 +308,14 @@ void main() {
             ),
           );
           expect(response.body.ocs.data.id, isPositive);
-          expect(response.body.ocs.data.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data.actorId, 'user1');
           expect(response.body.ocs.data.actorDisplayName, 'User One');
           expect(response.body.ocs.data.message, 'You edited a message');
           expect(response.body.ocs.data.messageType, spreed.MessageType.system);
           expect(response.body.ocs.data.systemMessage, 'message_edited');
           expect(response.body.ocs.data.parent!.chatMessage!.id, messageResponse.body.ocs.data!.id);
-          expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data.parent!.chatMessage!.actorId, 'user1');
           expect(response.body.ocs.data.parent!.chatMessage!.actorDisplayName, 'User One');
           expect(response.body.ocs.data.parent!.chatMessage!.message, '123');
@@ -323,7 +327,7 @@ void main() {
           );
           expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorId, 'user1');
           expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorDisplayName, 'User One');
-          expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorType, spreed.ActorTypes.users);
         },
         skip: tester.version < Version(19, 0, 0),
       );
@@ -362,7 +366,7 @@ void main() {
           expect(response.body.ocs.data, hasLength(3));
 
           expect(response.body.ocs.data[0].id, isPositive);
-          expect(response.body.ocs.data[0].actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[0].actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data[0].actorId, 'user1');
           expect(response.body.ocs.data[0].actorDisplayName, 'User One');
           expect(response.body.ocs.data[0].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
@@ -370,7 +374,7 @@ void main() {
           expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment);
 
           expect(response.body.ocs.data[0].parent!.chatMessage!.id, isPositive);
-          expect(response.body.ocs.data[0].parent!.chatMessage!.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[0].parent!.chatMessage!.actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data[0].parent!.chatMessage!.actorId, 'user1');
           expect(response.body.ocs.data[0].parent!.chatMessage!.actorDisplayName, 'User One');
           expect(
@@ -381,7 +385,7 @@ void main() {
           expect(response.body.ocs.data[0].parent!.chatMessage!.messageType, spreed.MessageType.comment);
 
           expect(response.body.ocs.data[1].id, isPositive);
-          expect(response.body.ocs.data[1].actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[1].actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data[1].actorId, 'user1');
           expect(response.body.ocs.data[1].actorDisplayName, 'User One');
           expect(response.body.ocs.data[1].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
@@ -389,7 +393,7 @@ void main() {
           expect(response.body.ocs.data[1].messageType, spreed.MessageType.comment);
 
           expect(response.body.ocs.data[2].id, isPositive);
-          expect(response.body.ocs.data[2].actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[2].actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data[2].actorId, 'user1');
           expect(response.body.ocs.data[2].actorDisplayName, 'User One');
           expect(response.body.ocs.data[2].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
@@ -430,7 +434,7 @@ void main() {
           );
           expect(response.body.ocs.data, hasLength(1));
           expect(response.body.ocs.data[0].id, isPositive);
-          expect(response.body.ocs.data[0].actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[0].actorType, spreed.ActorTypes.users);
           expect(response.body.ocs.data[0].actorId, 'user1');
           expect(response.body.ocs.data[0].actorDisplayName, 'User One');
           expect(response.body.ocs.data[0].timestamp, closeTo(startTime.secondsSinceEpoch, 10));
@@ -479,14 +483,14 @@ void main() {
           messageId: messageResponse.body.ocs.data!.id,
         );
         expect(response.body.ocs.data.id, isPositive);
-        expect(response.body.ocs.data.actorType, spreed.ActorType.users);
+        expect(response.body.ocs.data.actorType, spreed.ActorTypes.users);
         expect(response.body.ocs.data.actorId, 'user1');
         expect(response.body.ocs.data.actorDisplayName, 'User One');
         expect(response.body.ocs.data.message, 'You deleted a message');
         expect(response.body.ocs.data.messageType, spreed.MessageType.system);
         expect(response.body.ocs.data.systemMessage, 'message_deleted');
         expect(response.body.ocs.data.parent!.chatMessage!.id, isPositive);
-        expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorType.users);
+        expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorTypes.users);
         expect(response.body.ocs.data.parent!.chatMessage!.actorId, 'user1');
         expect(response.body.ocs.data.parent!.chatMessage!.actorDisplayName, 'User One');
         expect(response.body.ocs.data.parent!.chatMessage!.message, 'Message deleted by you');
@@ -501,7 +505,7 @@ void main() {
           token: room.token,
         );
         expect(clearHistoryResponse.body.ocs.data.id, isPositive);
-        expect(clearHistoryResponse.body.ocs.data.actorType, spreed.ActorType.users);
+        expect(clearHistoryResponse.body.ocs.data.actorType, spreed.ActorTypes.users);
         expect(clearHistoryResponse.body.ocs.data.actorId, 'user1');
         expect(clearHistoryResponse.body.ocs.data.actorDisplayName, 'User One');
         expect(clearHistoryResponse.body.ocs.data.message, 'You cleared the history of the conversation');
@@ -514,7 +518,7 @@ void main() {
         );
         expect(receiveMessagesResponse.body.ocs.data, hasLength(1));
         expect(receiveMessagesResponse.body.ocs.data[0].id, isPositive);
-        expect(receiveMessagesResponse.body.ocs.data[0].actorType, spreed.ActorType.users);
+        expect(receiveMessagesResponse.body.ocs.data[0].actorType, spreed.ActorTypes.users);
         expect(receiveMessagesResponse.body.ocs.data[0].actorId, 'user1');
         expect(receiveMessagesResponse.body.ocs.data[0].actorDisplayName, 'User One');
         expect(receiveMessagesResponse.body.ocs.data[0].message, 'You cleared the history of the conversation');

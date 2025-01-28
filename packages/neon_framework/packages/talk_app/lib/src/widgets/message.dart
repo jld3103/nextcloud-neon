@@ -30,7 +30,7 @@ typedef TalkMessageAction = ({Widget icon, Widget child, VoidCallback onPressed}
 String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageInterface chatMessage) {
   final actorDisplayName = chatMessage.actorDisplayName;
 
-  if (actorDisplayName.isEmpty && chatMessage.actorType == spreed.ActorType.guests) {
+  if (actorDisplayName.isEmpty && chatMessage.actorType == spreed.ActorTypes.guests) {
     return localizations.actorGuest;
   }
 
