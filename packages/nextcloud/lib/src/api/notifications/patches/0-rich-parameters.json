@@ -4,42 +4,58 @@
     "path": "/components/schemas/RichObjectParameter"
   },
   {
+    "op": "remove",
+    "path": "/components/schemas/RichObjectParameters"
+  },
+  {
     "op": "replace",
-    "path": "/components/schemas/Notification/properties/subjectRichParameters/additionalProperties",
+    "path": "/components/schemas/Notification/properties/subjectRichParameters",
     "value": {
       "type": "object",
       "additionalProperties": {
-        "type": "object"
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
       }
     }
   },
   {
     "op": "replace",
-    "path": "/components/schemas/Notification/properties/messageRichParameters/additionalProperties",
+    "path": "/components/schemas/Notification/properties/messageRichParameters",
     "value": {
       "type": "object",
       "additionalProperties": {
-        "type": "object"
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
       }
     }
   },
   {
     "op": "replace",
-    "path": "/paths/~1ocs~1v2.php~1apps~1notifications~1api~1{apiVersion3}~1admin_notifications~1{userId}/post/requestBody/content/application~1json/schema/properties/subjectParameters/additionalProperties",
+    "path": "/paths/~1ocs~1v2.php~1apps~1notifications~1api~1{apiVersion3}~1admin_notifications~1{userId}/post/requestBody/content/application~1json/schema/properties/subjectParameters",
     "value": {
       "type": "object",
       "additionalProperties": {
-        "type": "object"
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
       }
     }
   },
   {
     "op": "replace",
-    "path": "/paths/~1ocs~1v2.php~1apps~1notifications~1api~1{apiVersion3}~1admin_notifications~1{userId}/post/requestBody/content/application~1json/schema/properties/messageParameters/additionalProperties",
+    "path": "/paths/~1ocs~1v2.php~1apps~1notifications~1api~1{apiVersion3}~1admin_notifications~1{userId}/post/requestBody/content/application~1json/schema/properties/messageParameters",
     "value": {
       "type": "object",
       "additionalProperties": {
-        "type": "object"
+        "type": "object",
+        "additionalProperties": {
+          "type": "object"
+        }
       }
     }
   }

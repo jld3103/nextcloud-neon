@@ -222,6 +222,12 @@ Serializer<ApiGenerateNotificationV3ResponseApplicationJson_Ocs>
 Serializer<ApiGenerateNotificationV3ResponseApplicationJson>
     _$apiGenerateNotificationV3ResponseApplicationJsonSerializer =
     _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer();
+Serializer<ApiSelfTestPushResponseApplicationJson_Ocs_Data> _$apiSelfTestPushResponseApplicationJsonOcsDataSerializer =
+    _$ApiSelfTestPushResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ApiSelfTestPushResponseApplicationJson_Ocs> _$apiSelfTestPushResponseApplicationJsonOcsSerializer =
+    _$ApiSelfTestPushResponseApplicationJson_OcsSerializer();
+Serializer<ApiSelfTestPushResponseApplicationJson> _$apiSelfTestPushResponseApplicationJsonSerializer =
+    _$ApiSelfTestPushResponseApplicationJsonSerializer();
 Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
 Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
@@ -511,20 +517,28 @@ class _$ApiGenerateNotificationV3RequestApplicationJsonSerializer
       serializers.serialize(object.subject, specifiedType: const FullType(String)),
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
-      'subjectParameters',
-      serializers.serialize(object.subjectParameters,
-          specifiedType: const FullType(BuiltMap, [
-            FullType(String),
-            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
-          ])),
-      'messageParameters',
-      serializers.serialize(object.messageParameters,
-          specifiedType: const FullType(BuiltMap, [
-            FullType(String),
-            FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
-          ])),
     ];
-
+    Object? value;
+    value = object.subjectParameters;
+    if (value != null) {
+      result
+        ..add('subjectParameters')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+            ])));
+    }
+    value = object.messageParameters;
+    if (value != null) {
+      result
+        ..add('messageParameters')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)])
+            ])));
+    }
     return result;
   }
 
@@ -697,6 +711,139 @@ class _$ApiGenerateNotificationV3ResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ApiGenerateNotificationV3ResponseApplicationJson_Ocs))!
               as ApiGenerateNotificationV3ResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiSelfTestPushResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ApiSelfTestPushResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ApiSelfTestPushResponseApplicationJson_Ocs_Data,
+    _$ApiSelfTestPushResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ApiSelfTestPushResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiSelfTestPushResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiSelfTestPushResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiSelfTestPushResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiSelfTestPushResponseApplicationJson_Ocs,
+    _$ApiSelfTestPushResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiSelfTestPushResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiSelfTestPushResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ApiSelfTestPushResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiSelfTestPushResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiSelfTestPushResponseApplicationJson_Ocs_Data))!
+              as ApiSelfTestPushResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiSelfTestPushResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiSelfTestPushResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ApiSelfTestPushResponseApplicationJson, _$ApiSelfTestPushResponseApplicationJson];
+  @override
+  final String wireName = 'ApiSelfTestPushResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiSelfTestPushResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiSelfTestPushResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiSelfTestPushResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ApiSelfTestPushResponseApplicationJson_Ocs))!
+                  as ApiSelfTestPushResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2644,23 +2791,19 @@ class _$ApiGenerateNotificationV3RequestApplicationJson extends ApiGenerateNotif
   @override
   final String message;
   @override
-  final BuiltMap<String, BuiltMap<String, JsonObject>> subjectParameters;
+  final BuiltMap<String, BuiltMap<String, JsonObject>>? subjectParameters;
   @override
-  final BuiltMap<String, BuiltMap<String, JsonObject>> messageParameters;
+  final BuiltMap<String, BuiltMap<String, JsonObject>>? messageParameters;
 
   factory _$ApiGenerateNotificationV3RequestApplicationJson(
           [void Function(ApiGenerateNotificationV3RequestApplicationJsonBuilder)? updates]) =>
       (ApiGenerateNotificationV3RequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGenerateNotificationV3RequestApplicationJson._(
-      {required this.subject, required this.message, required this.subjectParameters, required this.messageParameters})
+      {required this.subject, required this.message, this.subjectParameters, this.messageParameters})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject');
     BuiltValueNullFieldError.checkNotNull(message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message');
-    BuiltValueNullFieldError.checkNotNull(
-        subjectParameters, r'ApiGenerateNotificationV3RequestApplicationJson', 'subjectParameters');
-    BuiltValueNullFieldError.checkNotNull(
-        messageParameters, r'ApiGenerateNotificationV3RequestApplicationJson', 'messageParameters');
   }
 
   @override
@@ -2740,8 +2883,8 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
     if ($v != null) {
       _subject = $v.subject;
       _message = $v.message;
-      _subjectParameters = $v.subjectParameters.toBuilder();
-      _messageParameters = $v.messageParameters.toBuilder();
+      _subjectParameters = $v.subjectParameters?.toBuilder();
+      _messageParameters = $v.messageParameters?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2771,16 +2914,16 @@ class ApiGenerateNotificationV3RequestApplicationJsonBuilder
                 subject, r'ApiGenerateNotificationV3RequestApplicationJson', 'subject'),
             message: BuiltValueNullFieldError.checkNotNull(
                 message, r'ApiGenerateNotificationV3RequestApplicationJson', 'message'),
-            subjectParameters: subjectParameters.build(),
-            messageParameters: messageParameters.build(),
+            subjectParameters: _subjectParameters?.build(),
+            messageParameters: _messageParameters?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'subjectParameters';
-        subjectParameters.build();
+        _subjectParameters?.build();
         _$failedField = 'messageParameters';
-        messageParameters.build();
+        _messageParameters?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ApiGenerateNotificationV3RequestApplicationJson', _$failedField, e.toString());
@@ -3126,6 +3269,341 @@ class ApiGenerateNotificationV3ResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ApiGenerateNotificationV3ResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiSelfTestPushResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ApiSelfTestPushResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ApiSelfTestPushResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get message;
+  set message(String? message);
+}
+
+class _$ApiSelfTestPushResponseApplicationJson_Ocs_Data extends ApiSelfTestPushResponseApplicationJson_Ocs_Data {
+  @override
+  final String message;
+
+  factory _$ApiSelfTestPushResponseApplicationJson_Ocs_Data(
+          [void Function(ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ApiSelfTestPushResponseApplicationJson_Ocs_Data._({required this.message}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(message, r'ApiSelfTestPushResponseApplicationJson_Ocs_Data', 'message');
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiSelfTestPushResponseApplicationJson_Ocs_Data && message == other.message;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiSelfTestPushResponseApplicationJson_Ocs_Data')..add('message', message))
+        .toString();
+  }
+}
+
+class ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ApiSelfTestPushResponseApplicationJson_Ocs_Data,
+            ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder>,
+        $ApiSelfTestPushResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ApiSelfTestPushResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder() {
+    ApiSelfTestPushResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _message = $v.message;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiSelfTestPushResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiSelfTestPushResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ApiSelfTestPushResponseApplicationJson_Ocs_Data _build() {
+    ApiSelfTestPushResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$ApiSelfTestPushResponseApplicationJson_Ocs_Data._(
+          message: BuiltValueNullFieldError.checkNotNull(
+              message, r'ApiSelfTestPushResponseApplicationJson_Ocs_Data', 'message'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiSelfTestPushResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiSelfTestPushResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiSelfTestPushResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ApiSelfTestPushResponseApplicationJson_Ocs extends ApiSelfTestPushResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ApiSelfTestPushResponseApplicationJson_Ocs_Data data;
+
+  factory _$ApiSelfTestPushResponseApplicationJson_Ocs(
+          [void Function(ApiSelfTestPushResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiSelfTestPushResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiSelfTestPushResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiSelfTestPushResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiSelfTestPushResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs rebuild(
+          void Function(ApiSelfTestPushResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiSelfTestPushResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiSelfTestPushResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiSelfTestPushResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiSelfTestPushResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiSelfTestPushResponseApplicationJson_Ocs, ApiSelfTestPushResponseApplicationJson_OcsBuilder>,
+        $ApiSelfTestPushResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiSelfTestPushResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder? _data;
+  ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ApiSelfTestPushResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder() {
+    ApiSelfTestPushResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiSelfTestPushResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiSelfTestPushResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiSelfTestPushResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiSelfTestPushResponseApplicationJson_Ocs _build() {
+    ApiSelfTestPushResponseApplicationJson_Ocs._validate(this);
+    _$ApiSelfTestPushResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$ApiSelfTestPushResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ApiSelfTestPushResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiSelfTestPushResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiSelfTestPushResponseApplicationJsonInterface other);
+  void update(void Function($ApiSelfTestPushResponseApplicationJsonInterfaceBuilder) updates);
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiSelfTestPushResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiSelfTestPushResponseApplicationJson extends ApiSelfTestPushResponseApplicationJson {
+  @override
+  final ApiSelfTestPushResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiSelfTestPushResponseApplicationJson(
+          [void Function(ApiSelfTestPushResponseApplicationJsonBuilder)? updates]) =>
+      (ApiSelfTestPushResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiSelfTestPushResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiSelfTestPushResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson rebuild(
+          void Function(ApiSelfTestPushResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiSelfTestPushResponseApplicationJsonBuilder toBuilder() =>
+      ApiSelfTestPushResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiSelfTestPushResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiSelfTestPushResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ApiSelfTestPushResponseApplicationJsonBuilder
+    implements
+        Builder<ApiSelfTestPushResponseApplicationJson, ApiSelfTestPushResponseApplicationJsonBuilder>,
+        $ApiSelfTestPushResponseApplicationJsonInterfaceBuilder {
+  _$ApiSelfTestPushResponseApplicationJson? _$v;
+
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder? _ocs;
+  ApiSelfTestPushResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiSelfTestPushResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiSelfTestPushResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiSelfTestPushResponseApplicationJsonBuilder() {
+    ApiSelfTestPushResponseApplicationJson._defaults(this);
+  }
+
+  ApiSelfTestPushResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiSelfTestPushResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiSelfTestPushResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiSelfTestPushResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiSelfTestPushResponseApplicationJson build() => _build();
+
+  _$ApiSelfTestPushResponseApplicationJson _build() {
+    ApiSelfTestPushResponseApplicationJson._validate(this);
+    _$ApiSelfTestPushResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ApiSelfTestPushResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ApiSelfTestPushResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
