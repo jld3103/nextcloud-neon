@@ -88,7 +88,7 @@ dev_dependencies:
       path: packages/cookie_store_conformance_tests
   crypton: ^2.2.1
   custom_lint: ^0.7.0
-  dart_style: ^2.3.8
+  dart_style: ^3.0.1
   flutter_local_notifications_platform_interface: ^8.0.0
   flutter_test:
     sdk: flutter
