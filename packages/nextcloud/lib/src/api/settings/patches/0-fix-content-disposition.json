@@ -1,0 +1,6 @@
+[
+  {
+    "op": "remove",
+    "path": "/paths/~1index.php~1settings~1admin~1log~1download/get/responses/200/headers/Content-Disposition/schema/enum"
+  }
+]

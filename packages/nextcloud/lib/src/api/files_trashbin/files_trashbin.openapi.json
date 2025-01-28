@@ -35,6 +35,9 @@
                         "properties": {
                             "undelete": {
                                 "type": "boolean"
+                            },
+                            "delete_from_trash": {
+                                "type": "boolean"
                             }
                         }
                     }

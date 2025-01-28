@@ -38,6 +38,12 @@
                             },
                             "bulkupload": {
                                 "type": "string"
+                            },
+                            "absence-supported": {
+                                "type": "boolean"
+                            },
+                            "absence-replacement": {
+                                "type": "boolean"
                             }
                         }
                     }

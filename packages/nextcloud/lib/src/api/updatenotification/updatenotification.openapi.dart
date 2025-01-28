@@ -188,6 +188,7 @@ class $ApiClient {
   /// Status codes:
   ///   * 200: Changelog entry returned
   ///   * 404: No changelog found
+  ///   * 400: The `version` parameter is not a valid version format
   ///
   /// See:
   ///  * [getAppChangelogEntry] for a method executing this request and parsing the response.
@@ -256,6 +257,7 @@ class $ApiClient {
   /// Status codes:
   ///   * 200: Changelog entry returned
   ///   * 404: No changelog found
+  ///   * 400: The `version` parameter is not a valid version format
   ///
   /// See:
   ///  * [$getAppChangelogEntry_Request] for the request send by this method.

@@ -79,7 +79,7 @@ for spec in /tmp/nextcloud-neon/*.openapi.json; do
 done
 
 
-./external/nextcloud-server/vendor-bin/openapi-extractor/vendor/nextcloud/openapi-extractor/merge-specs \
+./external/nextcloud-server/vendor-bin/openapi-extractor/vendor/nextcloud/openapi-extractor/merge-specs.php \
   --core /tmp/nextcloud-neon/core.openapi.json \
   --merged /tmp/nextcloud-neon/merged.json \
   /tmp/nextcloud-neon/*.openapi.json \

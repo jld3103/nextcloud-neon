@@ -1216,6 +1216,18 @@ class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_
         ..add('bulkupload')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.absenceSupported;
+    if (value != null) {
+      result
+        ..add('absence-supported')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.absenceReplacement;
+    if (value != null) {
+      result
+        ..add('absence-replacement')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -1235,6 +1247,12 @@ class _$Capabilities_DavSerializer implements StructuredSerializer<Capabilities_
           break;
         case 'bulkupload':
           result.bulkupload = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'absence-supported':
+          result.absenceSupported = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'absence-replacement':
+          result.absenceReplacement = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -4088,6 +4106,12 @@ abstract mixin class $Capabilities_DavInterfaceBuilder {
 
   String? get bulkupload;
   set bulkupload(String? bulkupload);
+
+  bool? get absenceSupported;
+  set absenceSupported(bool? absenceSupported);
+
+  bool? get absenceReplacement;
+  set absenceReplacement(bool? absenceReplacement);
 }
 
 class _$Capabilities_Dav extends Capabilities_Dav {
@@ -4095,11 +4119,16 @@ class _$Capabilities_Dav extends Capabilities_Dav {
   final String chunking;
   @override
   final String? bulkupload;
+  @override
+  final bool? absenceSupported;
+  @override
+  final bool? absenceReplacement;
 
   factory _$Capabilities_Dav([void Function(Capabilities_DavBuilder)? updates]) =>
       (Capabilities_DavBuilder()..update(updates))._build();
 
-  _$Capabilities_Dav._({required this.chunking, this.bulkupload}) : super._() {
+  _$Capabilities_Dav._({required this.chunking, this.bulkupload, this.absenceSupported, this.absenceReplacement})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking');
   }
 
@@ -4112,7 +4141,11 @@ class _$Capabilities_Dav extends Capabilities_Dav {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_Dav && chunking == other.chunking && bulkupload == other.bulkupload;
+    return other is Capabilities_Dav &&
+        chunking == other.chunking &&
+        bulkupload == other.bulkupload &&
+        absenceSupported == other.absenceSupported &&
+        absenceReplacement == other.absenceReplacement;
   }
 
   @override
@@ -4120,6 +4153,8 @@ class _$Capabilities_Dav extends Capabilities_Dav {
     var _$hash = 0;
     _$hash = $jc(_$hash, chunking.hashCode);
     _$hash = $jc(_$hash, bulkupload.hashCode);
+    _$hash = $jc(_$hash, absenceSupported.hashCode);
+    _$hash = $jc(_$hash, absenceReplacement.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -4128,7 +4163,9 @@ class _$Capabilities_Dav extends Capabilities_Dav {
   String toString() {
     return (newBuiltValueToStringHelper(r'Capabilities_Dav')
           ..add('chunking', chunking)
-          ..add('bulkupload', bulkupload))
+          ..add('bulkupload', bulkupload)
+          ..add('absenceSupported', absenceSupported)
+          ..add('absenceReplacement', absenceReplacement))
         .toString();
   }
 }
@@ -4145,6 +4182,14 @@ class Capabilities_DavBuilder
   String? get bulkupload => _$this._bulkupload;
   set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
 
+  bool? _absenceSupported;
+  bool? get absenceSupported => _$this._absenceSupported;
+  set absenceSupported(covariant bool? absenceSupported) => _$this._absenceSupported = absenceSupported;
+
+  bool? _absenceReplacement;
+  bool? get absenceReplacement => _$this._absenceReplacement;
+  set absenceReplacement(covariant bool? absenceReplacement) => _$this._absenceReplacement = absenceReplacement;
+
   Capabilities_DavBuilder() {
     Capabilities_Dav._defaults(this);
   }
@@ -4154,6 +4199,8 @@ class Capabilities_DavBuilder
     if ($v != null) {
       _chunking = $v.chunking;
       _bulkupload = $v.bulkupload;
+      _absenceSupported = $v.absenceSupported;
+      _absenceReplacement = $v.absenceReplacement;
       _$v = null;
     }
     return this;
@@ -4179,6 +4226,8 @@ class Capabilities_DavBuilder
         _$Capabilities_Dav._(
           chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
           bulkupload: bulkupload,
+          absenceSupported: absenceSupported,
+          absenceReplacement: absenceReplacement,
         );
     replace(_$result);
     return _$result;

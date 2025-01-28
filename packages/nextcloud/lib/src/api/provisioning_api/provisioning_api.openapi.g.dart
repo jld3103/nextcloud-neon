@@ -2103,6 +2103,18 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
         ..add('headlineScope')
         ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
+    value = object.firstLoginTimestamp;
+    if (value != null) {
+      result
+        ..add('firstLoginTimestamp')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.lastLoginTimestamp;
+    if (value != null) {
+      result
+        ..add('lastLoginTimestamp')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.notifyEmail;
     if (value != null) {
       result
@@ -2125,6 +2137,18 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
     if (value != null) {
       result
         ..add('profile_enabledScope')
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
+    }
+    value = object.pronouns;
+    if (value != null) {
+      result
+        ..add('pronouns')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.pronounsScope;
+    if (value != null) {
+      result
+        ..add('pronounsScope')
         ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsScope)));
     }
     value = object.roleScope;
@@ -2242,6 +2266,12 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
         case 'language':
           result.language = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
+        case 'firstLoginTimestamp':
+          result.firstLoginTimestamp = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'lastLoginTimestamp':
+          result.lastLoginTimestamp = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
         case 'lastLogin':
           result.lastLogin = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
@@ -2273,6 +2303,13 @@ class _$UserDetailsSerializer implements StructuredSerializer<UserDetails> {
           break;
         case 'profile_enabledScope':
           result.profileEnabledScope =
+              serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
+          break;
+        case 'pronouns':
+          result.pronouns = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'pronounsScope':
+          result.pronounsScope =
               serializers.deserialize(value, specifiedType: const FullType(UserDetailsScope)) as UserDetailsScope?;
           break;
         case 'quota':
@@ -10231,6 +10268,12 @@ abstract mixin class $UserDetailsInterfaceBuilder {
   String? get language;
   set language(String? language);
 
+  int? get firstLoginTimestamp;
+  set firstLoginTimestamp(int? firstLoginTimestamp);
+
+  int? get lastLoginTimestamp;
+  set lastLoginTimestamp(int? lastLoginTimestamp);
+
   int? get lastLogin;
   set lastLogin(int? lastLogin);
 
@@ -10260,6 +10303,12 @@ abstract mixin class $UserDetailsInterfaceBuilder {
 
   UserDetailsScope? get profileEnabledScope;
   set profileEnabledScope(UserDetailsScope? profileEnabledScope);
+
+  String? get pronouns;
+  set pronouns(String? pronouns);
+
+  UserDetailsScope? get pronounsScope;
+  set pronounsScope(UserDetailsScope? pronounsScope);
 
   UserDetailsQuotaBuilder get quota;
   set quota(UserDetailsQuotaBuilder? quota);
@@ -10335,6 +10384,10 @@ class _$UserDetails extends UserDetails {
   @override
   final String language;
   @override
+  final int? firstLoginTimestamp;
+  @override
+  final int? lastLoginTimestamp;
+  @override
   final int lastLogin;
   @override
   final String locale;
@@ -10354,6 +10407,10 @@ class _$UserDetails extends UserDetails {
   final String profileEnabled;
   @override
   final UserDetailsScope? profileEnabledScope;
+  @override
+  final String? pronouns;
+  @override
+  final UserDetailsScope? pronounsScope;
   @override
   final UserDetailsQuota quota;
   @override
@@ -10399,6 +10456,8 @@ class _$UserDetails extends UserDetails {
       this.headlineScope,
       required this.id,
       required this.language,
+      this.firstLoginTimestamp,
+      this.lastLoginTimestamp,
       required this.lastLogin,
       required this.locale,
       required this.manager,
@@ -10409,6 +10468,8 @@ class _$UserDetails extends UserDetails {
       this.phoneScope,
       required this.profileEnabled,
       this.profileEnabledScope,
+      this.pronouns,
+      this.pronounsScope,
       required this.quota,
       required this.role,
       this.roleScope,
@@ -10476,6 +10537,8 @@ class _$UserDetails extends UserDetails {
         headlineScope == other.headlineScope &&
         id == other.id &&
         language == other.language &&
+        firstLoginTimestamp == other.firstLoginTimestamp &&
+        lastLoginTimestamp == other.lastLoginTimestamp &&
         lastLogin == other.lastLogin &&
         locale == other.locale &&
         manager == other.manager &&
@@ -10486,6 +10549,8 @@ class _$UserDetails extends UserDetails {
         phoneScope == other.phoneScope &&
         profileEnabled == other.profileEnabled &&
         profileEnabledScope == other.profileEnabledScope &&
+        pronouns == other.pronouns &&
+        pronounsScope == other.pronounsScope &&
         quota == other.quota &&
         role == other.role &&
         roleScope == other.roleScope &&
@@ -10522,6 +10587,8 @@ class _$UserDetails extends UserDetails {
     _$hash = $jc(_$hash, headlineScope.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, language.hashCode);
+    _$hash = $jc(_$hash, firstLoginTimestamp.hashCode);
+    _$hash = $jc(_$hash, lastLoginTimestamp.hashCode);
     _$hash = $jc(_$hash, lastLogin.hashCode);
     _$hash = $jc(_$hash, locale.hashCode);
     _$hash = $jc(_$hash, manager.hashCode);
@@ -10532,6 +10599,8 @@ class _$UserDetails extends UserDetails {
     _$hash = $jc(_$hash, phoneScope.hashCode);
     _$hash = $jc(_$hash, profileEnabled.hashCode);
     _$hash = $jc(_$hash, profileEnabledScope.hashCode);
+    _$hash = $jc(_$hash, pronouns.hashCode);
+    _$hash = $jc(_$hash, pronounsScope.hashCode);
     _$hash = $jc(_$hash, quota.hashCode);
     _$hash = $jc(_$hash, role.hashCode);
     _$hash = $jc(_$hash, roleScope.hashCode);
@@ -10570,6 +10639,8 @@ class _$UserDetails extends UserDetails {
           ..add('headlineScope', headlineScope)
           ..add('id', id)
           ..add('language', language)
+          ..add('firstLoginTimestamp', firstLoginTimestamp)
+          ..add('lastLoginTimestamp', lastLoginTimestamp)
           ..add('lastLogin', lastLogin)
           ..add('locale', locale)
           ..add('manager', manager)
@@ -10580,6 +10651,8 @@ class _$UserDetails extends UserDetails {
           ..add('phoneScope', phoneScope)
           ..add('profileEnabled', profileEnabled)
           ..add('profileEnabledScope', profileEnabledScope)
+          ..add('pronouns', pronouns)
+          ..add('pronounsScope', pronounsScope)
           ..add('quota', quota)
           ..add('role', role)
           ..add('roleScope', roleScope)
@@ -10688,6 +10761,14 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   String? get language => _$this._language;
   set language(covariant String? language) => _$this._language = language;
 
+  int? _firstLoginTimestamp;
+  int? get firstLoginTimestamp => _$this._firstLoginTimestamp;
+  set firstLoginTimestamp(covariant int? firstLoginTimestamp) => _$this._firstLoginTimestamp = firstLoginTimestamp;
+
+  int? _lastLoginTimestamp;
+  int? get lastLoginTimestamp => _$this._lastLoginTimestamp;
+  set lastLoginTimestamp(covariant int? lastLoginTimestamp) => _$this._lastLoginTimestamp = lastLoginTimestamp;
+
   int? _lastLogin;
   int? get lastLogin => _$this._lastLogin;
   set lastLogin(covariant int? lastLogin) => _$this._lastLogin = lastLogin;
@@ -10728,6 +10809,14 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
   UserDetailsScope? get profileEnabledScope => _$this._profileEnabledScope;
   set profileEnabledScope(covariant UserDetailsScope? profileEnabledScope) =>
       _$this._profileEnabledScope = profileEnabledScope;
+
+  String? _pronouns;
+  String? get pronouns => _$this._pronouns;
+  set pronouns(covariant String? pronouns) => _$this._pronouns = pronouns;
+
+  UserDetailsScope? _pronounsScope;
+  UserDetailsScope? get pronounsScope => _$this._pronounsScope;
+  set pronounsScope(covariant UserDetailsScope? pronounsScope) => _$this._pronounsScope = pronounsScope;
 
   UserDetailsQuotaBuilder? _quota;
   UserDetailsQuotaBuilder get quota => _$this._quota ??= UserDetailsQuotaBuilder();
@@ -10794,6 +10883,8 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
       _headlineScope = $v.headlineScope;
       _id = $v.id;
       _language = $v.language;
+      _firstLoginTimestamp = $v.firstLoginTimestamp;
+      _lastLoginTimestamp = $v.lastLoginTimestamp;
       _lastLogin = $v.lastLogin;
       _locale = $v.locale;
       _manager = $v.manager;
@@ -10804,6 +10895,8 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
       _phoneScope = $v.phoneScope;
       _profileEnabled = $v.profileEnabled;
       _profileEnabledScope = $v.profileEnabledScope;
+      _pronouns = $v.pronouns;
+      _pronounsScope = $v.pronounsScope;
       _quota = $v.quota.toBuilder();
       _role = $v.role;
       _roleScope = $v.roleScope;
@@ -10860,6 +10953,8 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
             headlineScope: headlineScope,
             id: BuiltValueNullFieldError.checkNotNull(id, r'UserDetails', 'id'),
             language: BuiltValueNullFieldError.checkNotNull(language, r'UserDetails', 'language'),
+            firstLoginTimestamp: firstLoginTimestamp,
+            lastLoginTimestamp: lastLoginTimestamp,
             lastLogin: BuiltValueNullFieldError.checkNotNull(lastLogin, r'UserDetails', 'lastLogin'),
             locale: BuiltValueNullFieldError.checkNotNull(locale, r'UserDetails', 'locale'),
             manager: BuiltValueNullFieldError.checkNotNull(manager, r'UserDetails', 'manager'),
@@ -10870,6 +10965,8 @@ class UserDetailsBuilder implements Builder<UserDetails, UserDetailsBuilder>, $U
             phoneScope: phoneScope,
             profileEnabled: BuiltValueNullFieldError.checkNotNull(profileEnabled, r'UserDetails', 'profileEnabled'),
             profileEnabledScope: profileEnabledScope,
+            pronouns: pronouns,
+            pronounsScope: pronounsScope,
             quota: quota.build(),
             role: BuiltValueNullFieldError.checkNotNull(role, r'UserDetails', 'role'),
             roleScope: roleScope,

@@ -50,7 +50,7 @@ void main() {
         expect(response.body.ocs.data.label, '');
         expect(
           response.body.ocs.data.mailSend,
-          tester.version < Version(30, 0, 0) ? files_sharing.Share_MailSend.$1 : files_sharing.Share_MailSend.$0,
+          tester.version == Version(30, 0, 0) ? files_sharing.Share_MailSend.$0 : files_sharing.Share_MailSend.$1,
         );
         expect(response.body.ocs.data.mimetype, 'image/png');
         expect(response.body.ocs.data.note, '');

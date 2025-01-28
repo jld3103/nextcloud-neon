@@ -2029,6 +2029,87 @@ class $ShareapiClient {
     final _serializer = $acceptShare_Serializer();
     return _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
+
+  /// Builds a serializer to parse the response of [$generateToken_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ShareapiGenerateTokenResponseApplicationJson, void> $generateToken_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ShareapiGenerateTokenResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get a unique share token.
+  ///
+  /// Returns a `DynamiteRequest` backing the [generateToken] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Token generated successfully
+  ///
+  /// See:
+  ///  * [generateToken] for a method executing this request and parsing the response.
+  ///  * [$generateToken_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $generateToken_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/token';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a unique share token.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Token generated successfully
+  ///
+  /// See:
+  ///  * [$generateToken_Request] for the request send by this method.
+  ///  * [$generateToken_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ShareapiGenerateTokenResponseApplicationJson, void>> generateToken({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $generateToken_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $generateToken_Serializer();
+    return _i1.ResponseConverter<ShareapiGenerateTokenResponseApplicationJson, void>(_serializer).convert(_response);
+  }
 }
 
 class $ShareesapiClient {
@@ -3987,6 +4068,8 @@ sealed class $ShareInterface {
   bool get hasPreview;
   @BuiltValueField(wireName: 'hide_download')
   Share_HideDownload get hideDownload;
+  @BuiltValueField(wireName: 'is-mount-root')
+  bool get isMountRoot;
   String get id;
   @BuiltValueField(wireName: 'item_mtime')
   int get itemMtime;
@@ -3998,10 +4081,12 @@ sealed class $ShareInterface {
   int get itemSource;
   @BuiltValueField(wireName: 'item_type')
   Share_ItemType get itemType;
-  String? get label;
+  String get label;
   @BuiltValueField(wireName: 'mail_send')
   Share_MailSend get mailSend;
   String get mimetype;
+  @BuiltValueField(wireName: 'mount-type')
+  String get mountType;
   String get note;
   JsonObject? get parent;
   String? get password;
@@ -4332,8 +4417,7 @@ sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
   /// Send the password for the share over Talk.
   String? get sendPasswordByTalk;
 
-  /// The expiry date of the share in the user's timezone at 00:00.
-  /// If $expireDate is not supplied or set to `null`, the system default will be used.
+  /// The expiry date of the share in the user's timezone at 00:00. If $expireDate is not supplied or set to `null`, the system default will be used.
   String? get expireDate;
 
   /// Note for the share.
@@ -4864,7 +4948,7 @@ class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<Sha
 @BuiltValue(instantiable: false)
 sealed class $ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  Share get data;
+  BuiltList<Share> get data;
 
   /// Rebuilds the instance.
   ///
@@ -5016,10 +5100,11 @@ sealed class $ShareapiUpdateShareRequestApplicationJsonInterface {
   /// New additional attributes.
   String? get attributes;
 
-  /// if the share should be send by mail.
-  /// Considering the share already exists, no mail will be send after the share is updated.
-  /// You will have to use the sendMail action to send the mail.
+  /// if the share should be send by mail. Considering the share already exists, no mail will be send after the share is updated. You will have to use the sendMail action to send the mail.
   String? get sendMail;
+
+  /// New token.
+  String? get token;
 
   /// Rebuilds the instance.
   ///
@@ -5661,6 +5746,198 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   }
 }
 
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface {
+  String get token;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
+    implements
+        $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs_Data([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ShareapiGenerateTokenResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs
+    implements
+        $ShareapiGenerateTokenResponseApplicationJson_OcsInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs,
+            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson_Ocs.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGenerateTokenResponseApplicationJsonInterface {
+  ShareapiGenerateTokenResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGenerateTokenResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGenerateTokenResponseApplicationJson
+    implements
+        $ShareapiGenerateTokenResponseApplicationJsonInterface,
+        Built<ShareapiGenerateTokenResponseApplicationJson, ShareapiGenerateTokenResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiGenerateTokenResponseApplicationJson object using the builder pattern.
+  factory ShareapiGenerateTokenResponseApplicationJson([
+    void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? b,
+  ]) = _$ShareapiGenerateTokenResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiGenerateTokenResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGenerateTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGenerateTokenResponseApplicationJson.
+  static Serializer<ShareapiGenerateTokenResponseApplicationJson> get serializer =>
+      _$shareapiGenerateTokenResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGenerateTokenResponseApplicationJsonBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGenerateTokenResponseApplicationJsonBuilder b) {
+    $ShareapiGenerateTokenResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
 
 class ShareesapiSearchLookup extends EnumClass {
@@ -5728,7 +6005,6 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
 
 @BuiltValue(instantiable: false)
 sealed class $ShareeInterface {
-  int? get count;
   String get label;
 
   /// Rebuilds the instance.
@@ -6027,6 +6303,67 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareeGroupInterface implements $ShareeInterface {
+  ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeGroupInterfaceBuilder].
+  @override
+  $ShareeGroupInterface rebuild(void Function($ShareeGroupInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeGroupInterfaceBuilder].
+  @override
+  $ShareeGroupInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeGroupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeGroupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
+}
+
+abstract class ShareeGroup implements $ShareeGroupInterface, Built<ShareeGroup, ShareeGroupBuilder> {
+  /// Creates a new ShareeGroup object using the builder pattern.
+  factory ShareeGroup([void Function(ShareeGroupBuilder)? b]) = _$ShareeGroup;
+
+  // coverage:ignore-start
+  const ShareeGroup._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareeGroup.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareeGroup.
+  static Serializer<ShareeGroup> get serializer => _$shareeGroupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeGroupBuilder b) {
+    $ShareeGroupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeGroupBuilder b) {
+    $ShareeGroupInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
 
@@ -6281,6 +6618,67 @@ abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemot
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareeRoomInterface implements $ShareeInterface {
+  ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRoomInterfaceBuilder].
+  @override
+  $ShareeRoomInterface rebuild(void Function($ShareeRoomInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRoomInterfaceBuilder].
+  @override
+  $ShareeRoomInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRoomInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRoomInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
+}
+
+abstract class ShareeRoom implements $ShareeRoomInterface, Built<ShareeRoom, ShareeRoomBuilder> {
+  /// Creates a new ShareeRoom object using the builder pattern.
+  factory ShareeRoom([void Function(ShareeRoomBuilder)? b]) = _$ShareeRoom;
+
+  // coverage:ignore-start
+  const ShareeRoom._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareeRoom.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareeRoom.
+  static Serializer<ShareeRoom> get serializer => _$shareeRoomSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRoomBuilder b) {
+    $ShareeRoomInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRoomBuilder b) {
+    $ShareeRoomInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareeUser_StatusInterface {
   String get status;
   String get message;
@@ -6407,11 +6805,11 @@ abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, Sha
 sealed class $ShareesSearchResult_ExactInterface {
   BuiltList<ShareeCircle> get circles;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
-  BuiltList<Sharee> get rooms;
+  BuiltList<ShareeRoom> get rooms;
   BuiltList<ShareeUser> get users;
 
   /// Rebuilds the instance.
@@ -6718,12 +7116,12 @@ sealed class $ShareesSearchResultInterface {
   ShareesSearchResult_Exact get exact;
   BuiltList<ShareeCircle> get circles;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   BuiltList<ShareeLookup> get lookup;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
-  BuiltList<Sharee> get rooms;
+  BuiltList<ShareeRoom> get rooms;
   BuiltList<ShareeUser> get users;
   bool get lookupEnabled;
 
@@ -6971,7 +7369,7 @@ typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int
 @BuiltValue(instantiable: false)
 sealed class $ShareesRecommendedResult_ExactInterface {
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
@@ -7038,7 +7436,7 @@ abstract class ShareesRecommendedResult_Exact
 sealed class $ShareesRecommendedResultInterface {
   ShareesRecommendedResult_Exact get exact;
   BuiltList<ShareeEmail> get emails;
-  BuiltList<Sharee> get groups;
+  BuiltList<ShareeGroup> get groups;
   @BuiltValueField(wireName: 'remote_groups')
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
@@ -7503,6 +7901,8 @@ sealed class $Capabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+  @BuiltValueField(wireName: 'custom_tokens')
+  bool? get customTokens;
 
   /// Rebuilds the instance.
   ///
@@ -8531,6 +8931,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson),
+        ShareapiGenerateTokenResponseApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
+        ShareapiGenerateTokenResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
+        ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
       ..add(ShareesapiSearchLookup.serializer)
@@ -8560,7 +8975,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeEmail), ShareeEmailBuilder.new)
       ..add(ShareeEmail.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeEmail)]), ListBuilder<ShareeEmail>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Sharee)]), ListBuilder<Sharee>.new)
+      ..addBuilderFactory(const FullType(ShareeGroup), ShareeGroupBuilder.new)
+      ..add(ShareeGroup.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeGroup)]), ListBuilder<ShareeGroup>.new)
       ..addBuilderFactory(const FullType(ShareeRemoteGroup), ShareeRemoteGroupBuilder.new)
       ..add(ShareeRemoteGroup.serializer)
       ..addBuilderFactory(const FullType(ShareeRemoteGroup_Value), ShareeRemoteGroup_ValueBuilder.new)
@@ -8571,6 +8988,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeRemote_Value), ShareeRemote_ValueBuilder.new)
       ..add(ShareeRemote_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemote)]), ListBuilder<ShareeRemote>.new)
+      ..addBuilderFactory(const FullType(ShareeRoom), ShareeRoomBuilder.new)
+      ..add(ShareeRoom.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRoom)]), ListBuilder<ShareeRoom>.new)
       ..addBuilderFactory(const FullType(ShareeUser), ShareeUserBuilder.new)
       ..add(ShareeUser.serializer)
       ..addBuilderFactory(const FullType(ShareeUser_Status), ShareeUser_StatusBuilder.new)

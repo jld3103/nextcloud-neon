@@ -7,7 +7,16 @@ part of 'files.openapi.dart';
 // **************************************************************************
 
 Serializer<FolderTree> _$folderTreeSerializer = _$FolderTreeSerializer();
+Serializer<ConversionApiConvertRequestApplicationJson> _$conversionApiConvertRequestApplicationJsonSerializer =
+    _$ConversionApiConvertRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<ConversionApiConvertResponseApplicationJson_Ocs_Data>
+    _$conversionApiConvertResponseApplicationJsonOcsDataSerializer =
+    _$ConversionApiConvertResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ConversionApiConvertResponseApplicationJson_Ocs> _$conversionApiConvertResponseApplicationJsonOcsSerializer =
+    _$ConversionApiConvertResponseApplicationJson_OcsSerializer();
+Serializer<ConversionApiConvertResponseApplicationJson> _$conversionApiConvertResponseApplicationJsonSerializer =
+    _$ConversionApiConvertResponseApplicationJsonSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
     _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer();
@@ -71,11 +80,14 @@ Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs>
 Serializer<OpenLocalEditorValidateResponseApplicationJson> _$openLocalEditorValidateResponseApplicationJsonSerializer =
     _$OpenLocalEditorValidateResponseApplicationJsonSerializer();
 Serializer<TemplateFileCreator> _$templateFileCreatorSerializer = _$TemplateFileCreatorSerializer();
+Serializer<TemplateField> _$templateFieldSerializer = _$TemplateFieldSerializer();
+Serializer<Template> _$templateSerializer = _$TemplateSerializer();
+Serializer<TemplateFileCreatorWithTemplates> _$templateFileCreatorWithTemplatesSerializer =
+    _$TemplateFileCreatorWithTemplatesSerializer();
 Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplicationJsonOcsSerializer =
     _$TemplateListResponseApplicationJson_OcsSerializer();
 Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
     _$TemplateListResponseApplicationJsonSerializer();
-Serializer<TemplateField> _$templateFieldSerializer = _$TemplateFieldSerializer();
 Serializer<TemplateCreateRequestApplicationJson> _$templateCreateRequestApplicationJsonSerializer =
     _$TemplateCreateRequestApplicationJsonSerializer();
 Serializer<TemplateFile> _$templateFileSerializer = _$TemplateFileSerializer();
@@ -110,6 +122,10 @@ Serializer<TransferOwnershipRejectResponseApplicationJson_Ocs>
     _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer();
 Serializer<TransferOwnershipRejectResponseApplicationJson> _$transferOwnershipRejectResponseApplicationJsonSerializer =
     _$TransferOwnershipRejectResponseApplicationJsonSerializer();
+Serializer<Capabilities_Files_ChunkedUpload> _$capabilitiesFilesChunkedUploadSerializer =
+    _$Capabilities_Files_ChunkedUploadSerializer();
+Serializer<Capabilities_Files_FileConversions> _$capabilitiesFilesFileConversionsSerializer =
+    _$Capabilities_Files_FileConversionsSerializer();
 Serializer<Capabilities_Files_DirectEditing> _$capabilitiesFilesDirectEditingSerializer =
     _$Capabilities_Files_DirectEditingSerializer();
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
@@ -165,6 +181,62 @@ class _$FolderTreeSerializer implements StructuredSerializer<FolderTree> {
         case 'children':
           result.children.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ConversionApiConvertRequestApplicationJsonSerializer
+    implements StructuredSerializer<ConversionApiConvertRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ConversionApiConvertRequestApplicationJson,
+    _$ConversionApiConvertRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ConversionApiConvertRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'fileId',
+      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
+      'targetMimeType',
+      serializers.serialize(object.targetMimeType, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.destination;
+    if (value != null) {
+      result
+        ..add('destination')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ConversionApiConvertRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConversionApiConvertRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'fileId':
+          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'targetMimeType':
+          result.targetMimeType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'destination':
+          result.destination = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -235,6 +307,148 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
           break;
         case 'itemsperpage':
           result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ConversionApiConvertResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ConversionApiConvertResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ConversionApiConvertResponseApplicationJson_Ocs_Data,
+    _$ConversionApiConvertResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ConversionApiConvertResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+      'fileId',
+      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fileId':
+          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ConversionApiConvertResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ConversionApiConvertResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ConversionApiConvertResponseApplicationJson_Ocs,
+    _$ConversionApiConvertResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ConversionApiConvertResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConversionApiConvertResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data))!
+              as ConversionApiConvertResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ConversionApiConvertResponseApplicationJsonSerializer
+    implements StructuredSerializer<ConversionApiConvertResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ConversionApiConvertResponseApplicationJson,
+    _$ConversionApiConvertResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ConversionApiConvertResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConversionApiConvertResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs))!
+              as ConversionApiConvertResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1610,6 +1824,289 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
   }
 }
 
+class _$TemplateFieldSerializer implements StructuredSerializer<TemplateField> {
+  @override
+  final Iterable<Type> types = const [TemplateField, _$TemplateField];
+  @override
+  final String wireName = 'TemplateField';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateField object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'index',
+      serializers.serialize(object.index, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.alias;
+    if (value != null) {
+      result
+        ..add('alias')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.tag;
+    if (value != null) {
+      result
+        ..add('tag')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.content;
+    if (value != null) {
+      result
+        ..add('content')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.checked;
+    if (value != null) {
+      result
+        ..add('checked')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  TemplateField deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateFieldBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'index':
+          result.index = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'alias':
+          result.alias = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'tag':
+          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'content':
+          result.content = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'checked':
+          result.checked = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TemplateSerializer implements StructuredSerializer<Template> {
+  @override
+  final Iterable<Type> types = const [Template, _$Template];
+  @override
+  final String wireName = 'Template';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Template object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'templateType',
+      serializers.serialize(object.templateType, specifiedType: const FullType(String)),
+      'templateId',
+      serializers.serialize(object.templateId, specifiedType: const FullType(String)),
+      'basename',
+      serializers.serialize(object.basename, specifiedType: const FullType(String)),
+      'etag',
+      serializers.serialize(object.etag, specifiedType: const FullType(String)),
+      'fileid',
+      serializers.serialize(object.fileid, specifiedType: const FullType(int)),
+      'filename',
+      serializers.serialize(object.filename, specifiedType: const FullType(String)),
+      'lastmod',
+      serializers.serialize(object.lastmod, specifiedType: const FullType(int)),
+      'mime',
+      serializers.serialize(object.mime, specifiedType: const FullType(String)),
+      'size',
+      serializers.serialize(object.size, specifiedType: const FullType(num)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'hasPreview',
+      serializers.serialize(object.hasPreview, specifiedType: const FullType(bool)),
+      'fields',
+      serializers.serialize(object.fields, specifiedType: const FullType(BuiltList, [FullType(TemplateField)])),
+    ];
+    Object? value;
+    value = object.previewUrl;
+    if (value != null) {
+      result
+        ..add('previewUrl')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Template deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'templateType':
+          result.templateType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'templateId':
+          result.templateId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'basename':
+          result.basename = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'etag':
+          result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fileid':
+          result.fileid = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'filename':
+          result.filename = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'lastmod':
+          result.lastmod = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'mime':
+          result.mime = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'size':
+          result.size = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'hasPreview':
+          result.hasPreview = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'previewUrl':
+          result.previewUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'fields':
+          result.fields.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TemplateField)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TemplateFileCreatorWithTemplatesSerializer implements StructuredSerializer<TemplateFileCreatorWithTemplates> {
+  @override
+  final Iterable<Type> types = const [TemplateFileCreatorWithTemplates, _$TemplateFileCreatorWithTemplates];
+  @override
+  final String wireName = 'TemplateFileCreatorWithTemplates';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateFileCreatorWithTemplates object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'templates',
+      serializers.serialize(object.templates, specifiedType: const FullType(BuiltList, [FullType(Template)])),
+      'app',
+      serializers.serialize(object.app, specifiedType: const FullType(String)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
+      'extension',
+      serializers.serialize(object.$extension, specifiedType: const FullType(String)),
+      'mimetypes',
+      serializers.serialize(object.mimetypes, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'actionLabel',
+      serializers.serialize(object.actionLabel, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.iconClass;
+    if (value != null) {
+      result
+        ..add('iconClass')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.iconSvgInline;
+    if (value != null) {
+      result
+        ..add('iconSvgInline')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.ratio;
+    if (value != null) {
+      result
+        ..add('ratio')
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+    }
+    return result;
+  }
+
+  @override
+  TemplateFileCreatorWithTemplates deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateFileCreatorWithTemplatesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'templates':
+          result.templates.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Template)]))! as BuiltList<Object?>);
+          break;
+        case 'app':
+          result.app = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'extension':
+          result.$extension = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'iconClass':
+          result.iconClass = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'iconSvgInline':
+          result.iconSvgInline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'mimetypes':
+          result.mimetypes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'ratio':
+          result.ratio = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          break;
+        case 'actionLabel':
+          result.actionLabel = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$TemplateListResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<TemplateListResponseApplicationJson_Ocs> {
   @override
@@ -1627,7 +2124,8 @@ class _$TemplateListResponseApplicationJson_OcsSerializer
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)])),
+      serializers.serialize(object.data,
+          specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreatorWithTemplates)])),
     ];
 
     return result;
@@ -1649,7 +2147,8 @@ class _$TemplateListResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreator)]))! as BuiltList<Object?>);
+                  specifiedType: const FullType(BuiltList, [FullType(TemplateFileCreatorWithTemplates)]))!
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -1691,54 +2190,6 @@ class _$TemplateListResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs))!
                   as TemplateListResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$TemplateFieldSerializer implements StructuredSerializer<TemplateField> {
-  @override
-  final Iterable<Type> types = const [TemplateField, _$TemplateField];
-  @override
-  final String wireName = 'TemplateField';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateField object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'index',
-      serializers.serialize(object.index, specifiedType: const FullType(String)),
-      'content',
-      serializers.serialize(object.content, specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  TemplateField deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = TemplateFieldBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'index':
-          result.index = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'content':
-          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -2480,6 +2931,103 @@ class _$TransferOwnershipRejectResponseApplicationJsonSerializer
   }
 }
 
+class _$Capabilities_Files_ChunkedUploadSerializer implements StructuredSerializer<Capabilities_Files_ChunkedUpload> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Files_ChunkedUpload, _$Capabilities_Files_ChunkedUpload];
+  @override
+  final String wireName = 'Capabilities_Files_ChunkedUpload';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_ChunkedUpload object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'max_size',
+      serializers.serialize(object.maxSize, specifiedType: const FullType(int)),
+      'max_parallel_count',
+      serializers.serialize(object.maxParallelCount, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_Files_ChunkedUpload deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_Files_ChunkedUploadBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'max_size':
+          result.maxSize = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'max_parallel_count':
+          result.maxParallelCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities_Files_FileConversionsSerializer
+    implements StructuredSerializer<Capabilities_Files_FileConversions> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Files_FileConversions, _$Capabilities_Files_FileConversions];
+  @override
+  final String wireName = 'Capabilities_Files_FileConversions';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_FileConversions object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'from',
+      serializers.serialize(object.from, specifiedType: const FullType(String)),
+      'to',
+      serializers.serialize(object.to, specifiedType: const FullType(String)),
+      'extension',
+      serializers.serialize(object.$extension, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_Files_FileConversions deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_Files_FileConversionsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'from':
+          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'to':
+          result.to = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'extension':
+          result.$extension = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$Capabilities_Files_DirectEditingSerializer implements StructuredSerializer<Capabilities_Files_DirectEditing> {
   @override
   final Iterable<Type> types = const [Capabilities_Files_DirectEditing, _$Capabilities_Files_DirectEditing];
@@ -2563,6 +3111,19 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
         ..add('\$comment')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.chunkedUpload;
+    if (value != null) {
+      result
+        ..add('chunked_upload')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Capabilities_Files_ChunkedUpload)));
+    }
+    value = object.fileConversions;
+    if (value != null) {
+      result
+        ..add('file_conversions')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(Capabilities_Files_FileConversions)])));
+    }
     return result;
   }
 
@@ -2602,6 +3163,15 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
         case 'forbidden_filename_extensions':
           result.forbiddenFilenameExtensions.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'chunked_upload':
+          result.chunkedUpload.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_Files_ChunkedUpload))! as Capabilities_Files_ChunkedUpload);
+          break;
+        case 'file_conversions':
+          result.fileConversions.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, [FullType(Capabilities_Files_FileConversions)]))!
+              as BuiltList<Object?>);
           break;
         case 'directEditing':
           result.directEditing.replace(serializers.deserialize(value,
@@ -2800,6 +3370,138 @@ class FolderTreeBuilder implements Builder<FolderTree, FolderTreeBuilder>, $Fold
   }
 }
 
+abstract mixin class $ConversionApiConvertRequestApplicationJsonInterfaceBuilder {
+  void replace($ConversionApiConvertRequestApplicationJsonInterface other);
+  void update(void Function($ConversionApiConvertRequestApplicationJsonInterfaceBuilder) updates);
+  int? get fileId;
+  set fileId(int? fileId);
+
+  String? get targetMimeType;
+  set targetMimeType(String? targetMimeType);
+
+  String? get destination;
+  set destination(String? destination);
+}
+
+class _$ConversionApiConvertRequestApplicationJson extends ConversionApiConvertRequestApplicationJson {
+  @override
+  final int fileId;
+  @override
+  final String targetMimeType;
+  @override
+  final String? destination;
+
+  factory _$ConversionApiConvertRequestApplicationJson(
+          [void Function(ConversionApiConvertRequestApplicationJsonBuilder)? updates]) =>
+      (ConversionApiConvertRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ConversionApiConvertRequestApplicationJson._({required this.fileId, required this.targetMimeType, this.destination})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(fileId, r'ConversionApiConvertRequestApplicationJson', 'fileId');
+    BuiltValueNullFieldError.checkNotNull(
+        targetMimeType, r'ConversionApiConvertRequestApplicationJson', 'targetMimeType');
+  }
+
+  @override
+  ConversionApiConvertRequestApplicationJson rebuild(
+          void Function(ConversionApiConvertRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConversionApiConvertRequestApplicationJsonBuilder toBuilder() =>
+      ConversionApiConvertRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConversionApiConvertRequestApplicationJson &&
+        fileId == other.fileId &&
+        targetMimeType == other.targetMimeType &&
+        destination == other.destination;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, fileId.hashCode);
+    _$hash = $jc(_$hash, targetMimeType.hashCode);
+    _$hash = $jc(_$hash, destination.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConversionApiConvertRequestApplicationJson')
+          ..add('fileId', fileId)
+          ..add('targetMimeType', targetMimeType)
+          ..add('destination', destination))
+        .toString();
+  }
+}
+
+class ConversionApiConvertRequestApplicationJsonBuilder
+    implements
+        Builder<ConversionApiConvertRequestApplicationJson, ConversionApiConvertRequestApplicationJsonBuilder>,
+        $ConversionApiConvertRequestApplicationJsonInterfaceBuilder {
+  _$ConversionApiConvertRequestApplicationJson? _$v;
+
+  int? _fileId;
+  int? get fileId => _$this._fileId;
+  set fileId(covariant int? fileId) => _$this._fileId = fileId;
+
+  String? _targetMimeType;
+  String? get targetMimeType => _$this._targetMimeType;
+  set targetMimeType(covariant String? targetMimeType) => _$this._targetMimeType = targetMimeType;
+
+  String? _destination;
+  String? get destination => _$this._destination;
+  set destination(covariant String? destination) => _$this._destination = destination;
+
+  ConversionApiConvertRequestApplicationJsonBuilder() {
+    ConversionApiConvertRequestApplicationJson._defaults(this);
+  }
+
+  ConversionApiConvertRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _fileId = $v.fileId;
+      _targetMimeType = $v.targetMimeType;
+      _destination = $v.destination;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConversionApiConvertRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConversionApiConvertRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ConversionApiConvertRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConversionApiConvertRequestApplicationJson build() => _build();
+
+  _$ConversionApiConvertRequestApplicationJson _build() {
+    ConversionApiConvertRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ConversionApiConvertRequestApplicationJson._(
+          fileId:
+              BuiltValueNullFieldError.checkNotNull(fileId, r'ConversionApiConvertRequestApplicationJson', 'fileId'),
+          targetMimeType: BuiltValueNullFieldError.checkNotNull(
+              targetMimeType, r'ConversionApiConvertRequestApplicationJson', 'targetMimeType'),
+          destination: destination,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $OCSMetaInterfaceBuilder {
   void replace($OCSMetaInterface other);
   void update(void Function($OCSMetaInterfaceBuilder) updates);
@@ -2944,6 +3646,362 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
           totalitems: totalitems,
           itemsperpage: itemsperpage,
         );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ConversionApiConvertResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ConversionApiConvertResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ConversionApiConvertResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get path;
+  set path(String? path);
+
+  int? get fileId;
+  set fileId(int? fileId);
+}
+
+class _$ConversionApiConvertResponseApplicationJson_Ocs_Data
+    extends ConversionApiConvertResponseApplicationJson_Ocs_Data {
+  @override
+  final String path;
+  @override
+  final int fileId;
+
+  factory _$ConversionApiConvertResponseApplicationJson_Ocs_Data(
+          [void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ConversionApiConvertResponseApplicationJson_Ocs_Data._({required this.path, required this.fileId}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(path, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'path');
+    BuiltValueNullFieldError.checkNotNull(fileId, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'fileId');
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConversionApiConvertResponseApplicationJson_Ocs_Data &&
+        path == other.path &&
+        fileId == other.fileId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jc(_$hash, fileId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConversionApiConvertResponseApplicationJson_Ocs_Data')
+          ..add('path', path)
+          ..add('fileId', fileId))
+        .toString();
+  }
+}
+
+class ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ConversionApiConvertResponseApplicationJson_Ocs_Data,
+            ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder>,
+        $ConversionApiConvertResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ConversionApiConvertResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  int? _fileId;
+  int? get fileId => _$this._fileId;
+  set fileId(covariant int? fileId) => _$this._fileId = fileId;
+
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder() {
+    ConversionApiConvertResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _path = $v.path;
+      _fileId = $v.fileId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConversionApiConvertResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConversionApiConvertResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ConversionApiConvertResponseApplicationJson_Ocs_Data _build() {
+    ConversionApiConvertResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$ConversionApiConvertResponseApplicationJson_Ocs_Data._(
+          path: BuiltValueNullFieldError.checkNotNull(
+              path, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'path'),
+          fileId: BuiltValueNullFieldError.checkNotNull(
+              fileId, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'fileId'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ConversionApiConvertResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ConversionApiConvertResponseApplicationJson_OcsInterface other);
+  void update(void Function($ConversionApiConvertResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ConversionApiConvertResponseApplicationJson_Ocs extends ConversionApiConvertResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ConversionApiConvertResponseApplicationJson_Ocs_Data data;
+
+  factory _$ConversionApiConvertResponseApplicationJson_Ocs(
+          [void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ConversionApiConvertResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ConversionApiConvertResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ConversionApiConvertResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ConversionApiConvertResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs rebuild(
+          void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConversionApiConvertResponseApplicationJson_OcsBuilder toBuilder() =>
+      ConversionApiConvertResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConversionApiConvertResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConversionApiConvertResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ConversionApiConvertResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ConversionApiConvertResponseApplicationJson_Ocs,
+            ConversionApiConvertResponseApplicationJson_OcsBuilder>,
+        $ConversionApiConvertResponseApplicationJson_OcsInterfaceBuilder {
+  _$ConversionApiConvertResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder? _data;
+  ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ConversionApiConvertResponseApplicationJson_OcsBuilder() {
+    ConversionApiConvertResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ConversionApiConvertResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConversionApiConvertResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConversionApiConvertResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson_Ocs build() => _build();
+
+  _$ConversionApiConvertResponseApplicationJson_Ocs _build() {
+    ConversionApiConvertResponseApplicationJson_Ocs._validate(this);
+    _$ConversionApiConvertResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$ConversionApiConvertResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ConversionApiConvertResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ConversionApiConvertResponseApplicationJsonInterfaceBuilder {
+  void replace($ConversionApiConvertResponseApplicationJsonInterface other);
+  void update(void Function($ConversionApiConvertResponseApplicationJsonInterfaceBuilder) updates);
+  ConversionApiConvertResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ConversionApiConvertResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ConversionApiConvertResponseApplicationJson extends ConversionApiConvertResponseApplicationJson {
+  @override
+  final ConversionApiConvertResponseApplicationJson_Ocs ocs;
+
+  factory _$ConversionApiConvertResponseApplicationJson(
+          [void Function(ConversionApiConvertResponseApplicationJsonBuilder)? updates]) =>
+      (ConversionApiConvertResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ConversionApiConvertResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ConversionApiConvertResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson rebuild(
+          void Function(ConversionApiConvertResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConversionApiConvertResponseApplicationJsonBuilder toBuilder() =>
+      ConversionApiConvertResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConversionApiConvertResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConversionApiConvertResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ConversionApiConvertResponseApplicationJsonBuilder
+    implements
+        Builder<ConversionApiConvertResponseApplicationJson, ConversionApiConvertResponseApplicationJsonBuilder>,
+        $ConversionApiConvertResponseApplicationJsonInterfaceBuilder {
+  _$ConversionApiConvertResponseApplicationJson? _$v;
+
+  ConversionApiConvertResponseApplicationJson_OcsBuilder? _ocs;
+  ConversionApiConvertResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ConversionApiConvertResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ConversionApiConvertResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ConversionApiConvertResponseApplicationJsonBuilder() {
+    ConversionApiConvertResponseApplicationJson._defaults(this);
+  }
+
+  ConversionApiConvertResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConversionApiConvertResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConversionApiConvertResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ConversionApiConvertResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConversionApiConvertResponseApplicationJson build() => _build();
+
+  _$ConversionApiConvertResponseApplicationJson _build() {
+    ConversionApiConvertResponseApplicationJson._validate(this);
+    _$ConversionApiConvertResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$ConversionApiConvertResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ConversionApiConvertResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -6376,21 +7434,736 @@ class TemplateFileCreatorBuilder
   }
 }
 
+abstract mixin class $TemplateFieldInterfaceBuilder {
+  void replace($TemplateFieldInterface other);
+  void update(void Function($TemplateFieldInterfaceBuilder) updates);
+  String? get index;
+  set index(String? index);
+
+  String? get type;
+  set type(String? type);
+
+  String? get alias;
+  set alias(String? alias);
+
+  String? get tag;
+  set tag(String? tag);
+
+  int? get id;
+  set id(int? id);
+
+  String? get content;
+  set content(String? content);
+
+  bool? get checked;
+  set checked(bool? checked);
+}
+
+class _$TemplateField extends TemplateField {
+  @override
+  final String index;
+  @override
+  final String type;
+  @override
+  final String? alias;
+  @override
+  final String? tag;
+  @override
+  final int? id;
+  @override
+  final String? content;
+  @override
+  final bool? checked;
+
+  factory _$TemplateField([void Function(TemplateFieldBuilder)? updates]) =>
+      (TemplateFieldBuilder()..update(updates))._build();
+
+  _$TemplateField._(
+      {required this.index, required this.type, this.alias, this.tag, this.id, this.content, this.checked})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index');
+    BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type');
+  }
+
+  @override
+  TemplateField rebuild(void Function(TemplateFieldBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateFieldBuilder toBuilder() => TemplateFieldBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateField &&
+        index == other.index &&
+        type == other.type &&
+        alias == other.alias &&
+        tag == other.tag &&
+        id == other.id &&
+        content == other.content &&
+        checked == other.checked;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, index.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, alias.hashCode);
+    _$hash = $jc(_$hash, tag.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, content.hashCode);
+    _$hash = $jc(_$hash, checked.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateField')
+          ..add('index', index)
+          ..add('type', type)
+          ..add('alias', alias)
+          ..add('tag', tag)
+          ..add('id', id)
+          ..add('content', content)
+          ..add('checked', checked))
+        .toString();
+  }
+}
+
+class TemplateFieldBuilder implements Builder<TemplateField, TemplateFieldBuilder>, $TemplateFieldInterfaceBuilder {
+  _$TemplateField? _$v;
+
+  String? _index;
+  String? get index => _$this._index;
+  set index(covariant String? index) => _$this._index = index;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  String? _alias;
+  String? get alias => _$this._alias;
+  set alias(covariant String? alias) => _$this._alias = alias;
+
+  String? _tag;
+  String? get tag => _$this._tag;
+  set tag(covariant String? tag) => _$this._tag = tag;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _content;
+  String? get content => _$this._content;
+  set content(covariant String? content) => _$this._content = content;
+
+  bool? _checked;
+  bool? get checked => _$this._checked;
+  set checked(covariant bool? checked) => _$this._checked = checked;
+
+  TemplateFieldBuilder() {
+    TemplateField._defaults(this);
+  }
+
+  TemplateFieldBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _index = $v.index;
+      _type = $v.type;
+      _alias = $v.alias;
+      _tag = $v.tag;
+      _id = $v.id;
+      _content = $v.content;
+      _checked = $v.checked;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateField other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TemplateField;
+  }
+
+  @override
+  void update(void Function(TemplateFieldBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateField build() => _build();
+
+  _$TemplateField _build() {
+    TemplateField._validate(this);
+    final _$result = _$v ??
+        _$TemplateField._(
+          index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
+          type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'),
+          alias: alias,
+          tag: tag,
+          id: id,
+          content: content,
+          checked: checked,
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TemplateInterfaceBuilder {
+  void replace($TemplateInterface other);
+  void update(void Function($TemplateInterfaceBuilder) updates);
+  String? get templateType;
+  set templateType(String? templateType);
+
+  String? get templateId;
+  set templateId(String? templateId);
+
+  String? get basename;
+  set basename(String? basename);
+
+  String? get etag;
+  set etag(String? etag);
+
+  int? get fileid;
+  set fileid(int? fileid);
+
+  String? get filename;
+  set filename(String? filename);
+
+  int? get lastmod;
+  set lastmod(int? lastmod);
+
+  String? get mime;
+  set mime(String? mime);
+
+  num? get size;
+  set size(num? size);
+
+  String? get type;
+  set type(String? type);
+
+  bool? get hasPreview;
+  set hasPreview(bool? hasPreview);
+
+  String? get previewUrl;
+  set previewUrl(String? previewUrl);
+
+  ListBuilder<TemplateField> get fields;
+  set fields(ListBuilder<TemplateField>? fields);
+}
+
+class _$Template extends Template {
+  @override
+  final String templateType;
+  @override
+  final String templateId;
+  @override
+  final String basename;
+  @override
+  final String etag;
+  @override
+  final int fileid;
+  @override
+  final String filename;
+  @override
+  final int lastmod;
+  @override
+  final String mime;
+  @override
+  final num size;
+  @override
+  final String type;
+  @override
+  final bool hasPreview;
+  @override
+  final String? previewUrl;
+  @override
+  final BuiltList<TemplateField> fields;
+
+  factory _$Template([void Function(TemplateBuilder)? updates]) => (TemplateBuilder()..update(updates))._build();
+
+  _$Template._(
+      {required this.templateType,
+      required this.templateId,
+      required this.basename,
+      required this.etag,
+      required this.fileid,
+      required this.filename,
+      required this.lastmod,
+      required this.mime,
+      required this.size,
+      required this.type,
+      required this.hasPreview,
+      this.previewUrl,
+      required this.fields})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(templateType, r'Template', 'templateType');
+    BuiltValueNullFieldError.checkNotNull(templateId, r'Template', 'templateId');
+    BuiltValueNullFieldError.checkNotNull(basename, r'Template', 'basename');
+    BuiltValueNullFieldError.checkNotNull(etag, r'Template', 'etag');
+    BuiltValueNullFieldError.checkNotNull(fileid, r'Template', 'fileid');
+    BuiltValueNullFieldError.checkNotNull(filename, r'Template', 'filename');
+    BuiltValueNullFieldError.checkNotNull(lastmod, r'Template', 'lastmod');
+    BuiltValueNullFieldError.checkNotNull(mime, r'Template', 'mime');
+    BuiltValueNullFieldError.checkNotNull(size, r'Template', 'size');
+    BuiltValueNullFieldError.checkNotNull(type, r'Template', 'type');
+    BuiltValueNullFieldError.checkNotNull(hasPreview, r'Template', 'hasPreview');
+    BuiltValueNullFieldError.checkNotNull(fields, r'Template', 'fields');
+  }
+
+  @override
+  Template rebuild(void Function(TemplateBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateBuilder toBuilder() => TemplateBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Template &&
+        templateType == other.templateType &&
+        templateId == other.templateId &&
+        basename == other.basename &&
+        etag == other.etag &&
+        fileid == other.fileid &&
+        filename == other.filename &&
+        lastmod == other.lastmod &&
+        mime == other.mime &&
+        size == other.size &&
+        type == other.type &&
+        hasPreview == other.hasPreview &&
+        previewUrl == other.previewUrl &&
+        fields == other.fields;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, templateType.hashCode);
+    _$hash = $jc(_$hash, templateId.hashCode);
+    _$hash = $jc(_$hash, basename.hashCode);
+    _$hash = $jc(_$hash, etag.hashCode);
+    _$hash = $jc(_$hash, fileid.hashCode);
+    _$hash = $jc(_$hash, filename.hashCode);
+    _$hash = $jc(_$hash, lastmod.hashCode);
+    _$hash = $jc(_$hash, mime.hashCode);
+    _$hash = $jc(_$hash, size.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, hasPreview.hashCode);
+    _$hash = $jc(_$hash, previewUrl.hashCode);
+    _$hash = $jc(_$hash, fields.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Template')
+          ..add('templateType', templateType)
+          ..add('templateId', templateId)
+          ..add('basename', basename)
+          ..add('etag', etag)
+          ..add('fileid', fileid)
+          ..add('filename', filename)
+          ..add('lastmod', lastmod)
+          ..add('mime', mime)
+          ..add('size', size)
+          ..add('type', type)
+          ..add('hasPreview', hasPreview)
+          ..add('previewUrl', previewUrl)
+          ..add('fields', fields))
+        .toString();
+  }
+}
+
+class TemplateBuilder implements Builder<Template, TemplateBuilder>, $TemplateInterfaceBuilder {
+  _$Template? _$v;
+
+  String? _templateType;
+  String? get templateType => _$this._templateType;
+  set templateType(covariant String? templateType) => _$this._templateType = templateType;
+
+  String? _templateId;
+  String? get templateId => _$this._templateId;
+  set templateId(covariant String? templateId) => _$this._templateId = templateId;
+
+  String? _basename;
+  String? get basename => _$this._basename;
+  set basename(covariant String? basename) => _$this._basename = basename;
+
+  String? _etag;
+  String? get etag => _$this._etag;
+  set etag(covariant String? etag) => _$this._etag = etag;
+
+  int? _fileid;
+  int? get fileid => _$this._fileid;
+  set fileid(covariant int? fileid) => _$this._fileid = fileid;
+
+  String? _filename;
+  String? get filename => _$this._filename;
+  set filename(covariant String? filename) => _$this._filename = filename;
+
+  int? _lastmod;
+  int? get lastmod => _$this._lastmod;
+  set lastmod(covariant int? lastmod) => _$this._lastmod = lastmod;
+
+  String? _mime;
+  String? get mime => _$this._mime;
+  set mime(covariant String? mime) => _$this._mime = mime;
+
+  num? _size;
+  num? get size => _$this._size;
+  set size(covariant num? size) => _$this._size = size;
+
+  String? _type;
+  String? get type => _$this._type;
+  set type(covariant String? type) => _$this._type = type;
+
+  bool? _hasPreview;
+  bool? get hasPreview => _$this._hasPreview;
+  set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
+
+  String? _previewUrl;
+  String? get previewUrl => _$this._previewUrl;
+  set previewUrl(covariant String? previewUrl) => _$this._previewUrl = previewUrl;
+
+  ListBuilder<TemplateField>? _fields;
+  ListBuilder<TemplateField> get fields => _$this._fields ??= ListBuilder<TemplateField>();
+  set fields(covariant ListBuilder<TemplateField>? fields) => _$this._fields = fields;
+
+  TemplateBuilder() {
+    Template._defaults(this);
+  }
+
+  TemplateBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _templateType = $v.templateType;
+      _templateId = $v.templateId;
+      _basename = $v.basename;
+      _etag = $v.etag;
+      _fileid = $v.fileid;
+      _filename = $v.filename;
+      _lastmod = $v.lastmod;
+      _mime = $v.mime;
+      _size = $v.size;
+      _type = $v.type;
+      _hasPreview = $v.hasPreview;
+      _previewUrl = $v.previewUrl;
+      _fields = $v.fields.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Template other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Template;
+  }
+
+  @override
+  void update(void Function(TemplateBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Template build() => _build();
+
+  _$Template _build() {
+    Template._validate(this);
+    _$Template _$result;
+    try {
+      _$result = _$v ??
+          _$Template._(
+            templateType: BuiltValueNullFieldError.checkNotNull(templateType, r'Template', 'templateType'),
+            templateId: BuiltValueNullFieldError.checkNotNull(templateId, r'Template', 'templateId'),
+            basename: BuiltValueNullFieldError.checkNotNull(basename, r'Template', 'basename'),
+            etag: BuiltValueNullFieldError.checkNotNull(etag, r'Template', 'etag'),
+            fileid: BuiltValueNullFieldError.checkNotNull(fileid, r'Template', 'fileid'),
+            filename: BuiltValueNullFieldError.checkNotNull(filename, r'Template', 'filename'),
+            lastmod: BuiltValueNullFieldError.checkNotNull(lastmod, r'Template', 'lastmod'),
+            mime: BuiltValueNullFieldError.checkNotNull(mime, r'Template', 'mime'),
+            size: BuiltValueNullFieldError.checkNotNull(size, r'Template', 'size'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Template', 'type'),
+            hasPreview: BuiltValueNullFieldError.checkNotNull(hasPreview, r'Template', 'hasPreview'),
+            previewUrl: previewUrl,
+            fields: fields.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'fields';
+        fields.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'Template', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TemplateFileCreatorWithTemplatesInterfaceBuilder implements $TemplateFileCreatorInterfaceBuilder {
+  void replace(covariant $TemplateFileCreatorWithTemplatesInterface other);
+  void update(void Function($TemplateFileCreatorWithTemplatesInterfaceBuilder) updates);
+  ListBuilder<Template> get templates;
+  set templates(covariant ListBuilder<Template>? templates);
+
+  String? get app;
+  set app(covariant String? app);
+
+  String? get label;
+  set label(covariant String? label);
+
+  String? get $extension;
+  set $extension(covariant String? $extension);
+
+  String? get iconClass;
+  set iconClass(covariant String? iconClass);
+
+  String? get iconSvgInline;
+  set iconSvgInline(covariant String? iconSvgInline);
+
+  ListBuilder<String> get mimetypes;
+  set mimetypes(covariant ListBuilder<String>? mimetypes);
+
+  double? get ratio;
+  set ratio(covariant double? ratio);
+
+  String? get actionLabel;
+  set actionLabel(covariant String? actionLabel);
+}
+
+class _$TemplateFileCreatorWithTemplates extends TemplateFileCreatorWithTemplates {
+  @override
+  final BuiltList<Template> templates;
+  @override
+  final String app;
+  @override
+  final String label;
+  @override
+  final String $extension;
+  @override
+  final String? iconClass;
+  @override
+  final String? iconSvgInline;
+  @override
+  final BuiltList<String> mimetypes;
+  @override
+  final double? ratio;
+  @override
+  final String actionLabel;
+
+  factory _$TemplateFileCreatorWithTemplates([void Function(TemplateFileCreatorWithTemplatesBuilder)? updates]) =>
+      (TemplateFileCreatorWithTemplatesBuilder()..update(updates))._build();
+
+  _$TemplateFileCreatorWithTemplates._(
+      {required this.templates,
+      required this.app,
+      required this.label,
+      required this.$extension,
+      this.iconClass,
+      this.iconSvgInline,
+      required this.mimetypes,
+      this.ratio,
+      required this.actionLabel})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(templates, r'TemplateFileCreatorWithTemplates', 'templates');
+    BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreatorWithTemplates', 'app');
+    BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreatorWithTemplates', 'label');
+    BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreatorWithTemplates', '\$extension');
+    BuiltValueNullFieldError.checkNotNull(mimetypes, r'TemplateFileCreatorWithTemplates', 'mimetypes');
+    BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreatorWithTemplates', 'actionLabel');
+  }
+
+  @override
+  TemplateFileCreatorWithTemplates rebuild(void Function(TemplateFileCreatorWithTemplatesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateFileCreatorWithTemplatesBuilder toBuilder() => TemplateFileCreatorWithTemplatesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateFileCreatorWithTemplates &&
+        templates == other.templates &&
+        app == other.app &&
+        label == other.label &&
+        $extension == other.$extension &&
+        iconClass == other.iconClass &&
+        iconSvgInline == other.iconSvgInline &&
+        mimetypes == other.mimetypes &&
+        ratio == other.ratio &&
+        actionLabel == other.actionLabel;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, templates.hashCode);
+    _$hash = $jc(_$hash, app.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
+    _$hash = $jc(_$hash, $extension.hashCode);
+    _$hash = $jc(_$hash, iconClass.hashCode);
+    _$hash = $jc(_$hash, iconSvgInline.hashCode);
+    _$hash = $jc(_$hash, mimetypes.hashCode);
+    _$hash = $jc(_$hash, ratio.hashCode);
+    _$hash = $jc(_$hash, actionLabel.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateFileCreatorWithTemplates')
+          ..add('templates', templates)
+          ..add('app', app)
+          ..add('label', label)
+          ..add('\$extension', $extension)
+          ..add('iconClass', iconClass)
+          ..add('iconSvgInline', iconSvgInline)
+          ..add('mimetypes', mimetypes)
+          ..add('ratio', ratio)
+          ..add('actionLabel', actionLabel))
+        .toString();
+  }
+}
+
+class TemplateFileCreatorWithTemplatesBuilder
+    implements
+        Builder<TemplateFileCreatorWithTemplates, TemplateFileCreatorWithTemplatesBuilder>,
+        $TemplateFileCreatorWithTemplatesInterfaceBuilder {
+  _$TemplateFileCreatorWithTemplates? _$v;
+
+  ListBuilder<Template>? _templates;
+  ListBuilder<Template> get templates => _$this._templates ??= ListBuilder<Template>();
+  set templates(covariant ListBuilder<Template>? templates) => _$this._templates = templates;
+
+  String? _app;
+  String? get app => _$this._app;
+  set app(covariant String? app) => _$this._app = app;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
+
+  String? _$extension;
+  String? get $extension => _$this._$extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
+
+  String? _iconClass;
+  String? get iconClass => _$this._iconClass;
+  set iconClass(covariant String? iconClass) => _$this._iconClass = iconClass;
+
+  String? _iconSvgInline;
+  String? get iconSvgInline => _$this._iconSvgInline;
+  set iconSvgInline(covariant String? iconSvgInline) => _$this._iconSvgInline = iconSvgInline;
+
+  ListBuilder<String>? _mimetypes;
+  ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
+  set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
+
+  double? _ratio;
+  double? get ratio => _$this._ratio;
+  set ratio(covariant double? ratio) => _$this._ratio = ratio;
+
+  String? _actionLabel;
+  String? get actionLabel => _$this._actionLabel;
+  set actionLabel(covariant String? actionLabel) => _$this._actionLabel = actionLabel;
+
+  TemplateFileCreatorWithTemplatesBuilder() {
+    TemplateFileCreatorWithTemplates._defaults(this);
+  }
+
+  TemplateFileCreatorWithTemplatesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _templates = $v.templates.toBuilder();
+      _app = $v.app;
+      _label = $v.label;
+      _$extension = $v.$extension;
+      _iconClass = $v.iconClass;
+      _iconSvgInline = $v.iconSvgInline;
+      _mimetypes = $v.mimetypes.toBuilder();
+      _ratio = $v.ratio;
+      _actionLabel = $v.actionLabel;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateFileCreatorWithTemplates other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TemplateFileCreatorWithTemplates;
+  }
+
+  @override
+  void update(void Function(TemplateFileCreatorWithTemplatesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateFileCreatorWithTemplates build() => _build();
+
+  _$TemplateFileCreatorWithTemplates _build() {
+    TemplateFileCreatorWithTemplates._validate(this);
+    _$TemplateFileCreatorWithTemplates _$result;
+    try {
+      _$result = _$v ??
+          _$TemplateFileCreatorWithTemplates._(
+            templates: templates.build(),
+            app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreatorWithTemplates', 'app'),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreatorWithTemplates', 'label'),
+            $extension:
+                BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreatorWithTemplates', '\$extension'),
+            iconClass: iconClass,
+            iconSvgInline: iconSvgInline,
+            mimetypes: mimetypes.build(),
+            ratio: ratio,
+            actionLabel:
+                BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreatorWithTemplates', 'actionLabel'),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'templates';
+        templates.build();
+
+        _$failedField = 'mimetypes';
+        mimetypes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TemplateFileCreatorWithTemplates', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $TemplateListResponseApplicationJson_OcsInterfaceBuilder {
   void replace($TemplateListResponseApplicationJson_OcsInterface other);
   void update(void Function($TemplateListResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  ListBuilder<TemplateFileCreator> get data;
-  set data(ListBuilder<TemplateFileCreator>? data);
+  ListBuilder<TemplateFileCreatorWithTemplates> get data;
+  set data(ListBuilder<TemplateFileCreatorWithTemplates>? data);
 }
 
 class _$TemplateListResponseApplicationJson_Ocs extends TemplateListResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
-  final BuiltList<TemplateFileCreator> data;
+  final BuiltList<TemplateFileCreatorWithTemplates> data;
 
   factory _$TemplateListResponseApplicationJson_Ocs(
           [void Function(TemplateListResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -6444,9 +8217,10 @@ class TemplateListResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  ListBuilder<TemplateFileCreator>? _data;
-  ListBuilder<TemplateFileCreator> get data => _$this._data ??= ListBuilder<TemplateFileCreator>();
-  set data(covariant ListBuilder<TemplateFileCreator>? data) => _$this._data = data;
+  ListBuilder<TemplateFileCreatorWithTemplates>? _data;
+  ListBuilder<TemplateFileCreatorWithTemplates> get data =>
+      _$this._data ??= ListBuilder<TemplateFileCreatorWithTemplates>();
+  set data(covariant ListBuilder<TemplateFileCreatorWithTemplates>? data) => _$this._data = data;
 
   TemplateListResponseApplicationJson_OcsBuilder() {
     TemplateListResponseApplicationJson_Ocs._defaults(this);
@@ -6603,125 +8377,6 @@ class TemplateListResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $TemplateFieldInterfaceBuilder {
-  void replace($TemplateFieldInterface other);
-  void update(void Function($TemplateFieldInterfaceBuilder) updates);
-  String? get index;
-  set index(String? index);
-
-  String? get content;
-  set content(String? content);
-
-  String? get type;
-  set type(String? type);
-}
-
-class _$TemplateField extends TemplateField {
-  @override
-  final String index;
-  @override
-  final String content;
-  @override
-  final String type;
-
-  factory _$TemplateField([void Function(TemplateFieldBuilder)? updates]) =>
-      (TemplateFieldBuilder()..update(updates))._build();
-
-  _$TemplateField._({required this.index, required this.content, required this.type}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index');
-    BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content');
-    BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type');
-  }
-
-  @override
-  TemplateField rebuild(void Function(TemplateFieldBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  TemplateFieldBuilder toBuilder() => TemplateFieldBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TemplateField && index == other.index && content == other.content && type == other.type;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, index.hashCode);
-    _$hash = $jc(_$hash, content.hashCode);
-    _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TemplateField')
-          ..add('index', index)
-          ..add('content', content)
-          ..add('type', type))
-        .toString();
-  }
-}
-
-class TemplateFieldBuilder implements Builder<TemplateField, TemplateFieldBuilder>, $TemplateFieldInterfaceBuilder {
-  _$TemplateField? _$v;
-
-  String? _index;
-  String? get index => _$this._index;
-  set index(covariant String? index) => _$this._index = index;
-
-  String? _content;
-  String? get content => _$this._content;
-  set content(covariant String? content) => _$this._content = content;
-
-  String? _type;
-  String? get type => _$this._type;
-  set type(covariant String? type) => _$this._type = type;
-
-  TemplateFieldBuilder() {
-    TemplateField._defaults(this);
-  }
-
-  TemplateFieldBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _index = $v.index;
-      _content = $v.content;
-      _type = $v.type;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant TemplateField other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TemplateField;
-  }
-
-  @override
-  void update(void Function(TemplateFieldBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TemplateField build() => _build();
-
-  _$TemplateField _build() {
-    TemplateField._validate(this);
-    final _$result = _$v ??
-        _$TemplateField._(
-          index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
-          content: BuiltValueNullFieldError.checkNotNull(content, r'TemplateField', 'content'),
-          type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'),
-        );
     replace(_$result);
     return _$result;
   }
@@ -8647,6 +10302,263 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $Capabilities_Files_ChunkedUploadInterfaceBuilder {
+  void replace($Capabilities_Files_ChunkedUploadInterface other);
+  void update(void Function($Capabilities_Files_ChunkedUploadInterfaceBuilder) updates);
+  int? get maxSize;
+  set maxSize(int? maxSize);
+
+  int? get maxParallelCount;
+  set maxParallelCount(int? maxParallelCount);
+}
+
+class _$Capabilities_Files_ChunkedUpload extends Capabilities_Files_ChunkedUpload {
+  @override
+  final int maxSize;
+  @override
+  final int maxParallelCount;
+
+  factory _$Capabilities_Files_ChunkedUpload([void Function(Capabilities_Files_ChunkedUploadBuilder)? updates]) =>
+      (Capabilities_Files_ChunkedUploadBuilder()..update(updates))._build();
+
+  _$Capabilities_Files_ChunkedUpload._({required this.maxSize, required this.maxParallelCount}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(maxSize, r'Capabilities_Files_ChunkedUpload', 'maxSize');
+    BuiltValueNullFieldError.checkNotNull(maxParallelCount, r'Capabilities_Files_ChunkedUpload', 'maxParallelCount');
+  }
+
+  @override
+  Capabilities_Files_ChunkedUpload rebuild(void Function(Capabilities_Files_ChunkedUploadBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Capabilities_Files_ChunkedUploadBuilder toBuilder() => Capabilities_Files_ChunkedUploadBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Capabilities_Files_ChunkedUpload &&
+        maxSize == other.maxSize &&
+        maxParallelCount == other.maxParallelCount;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, maxSize.hashCode);
+    _$hash = $jc(_$hash, maxParallelCount.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Capabilities_Files_ChunkedUpload')
+          ..add('maxSize', maxSize)
+          ..add('maxParallelCount', maxParallelCount))
+        .toString();
+  }
+}
+
+class Capabilities_Files_ChunkedUploadBuilder
+    implements
+        Builder<Capabilities_Files_ChunkedUpload, Capabilities_Files_ChunkedUploadBuilder>,
+        $Capabilities_Files_ChunkedUploadInterfaceBuilder {
+  _$Capabilities_Files_ChunkedUpload? _$v;
+
+  int? _maxSize;
+  int? get maxSize => _$this._maxSize;
+  set maxSize(covariant int? maxSize) => _$this._maxSize = maxSize;
+
+  int? _maxParallelCount;
+  int? get maxParallelCount => _$this._maxParallelCount;
+  set maxParallelCount(covariant int? maxParallelCount) => _$this._maxParallelCount = maxParallelCount;
+
+  Capabilities_Files_ChunkedUploadBuilder() {
+    Capabilities_Files_ChunkedUpload._defaults(this);
+  }
+
+  Capabilities_Files_ChunkedUploadBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _maxSize = $v.maxSize;
+      _maxParallelCount = $v.maxParallelCount;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Capabilities_Files_ChunkedUpload other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Capabilities_Files_ChunkedUpload;
+  }
+
+  @override
+  void update(void Function(Capabilities_Files_ChunkedUploadBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Capabilities_Files_ChunkedUpload build() => _build();
+
+  _$Capabilities_Files_ChunkedUpload _build() {
+    Capabilities_Files_ChunkedUpload._validate(this);
+    final _$result = _$v ??
+        _$Capabilities_Files_ChunkedUpload._(
+          maxSize: BuiltValueNullFieldError.checkNotNull(maxSize, r'Capabilities_Files_ChunkedUpload', 'maxSize'),
+          maxParallelCount: BuiltValueNullFieldError.checkNotNull(
+              maxParallelCount, r'Capabilities_Files_ChunkedUpload', 'maxParallelCount'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $Capabilities_Files_FileConversionsInterfaceBuilder {
+  void replace($Capabilities_Files_FileConversionsInterface other);
+  void update(void Function($Capabilities_Files_FileConversionsInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get to;
+  set to(String? to);
+
+  String? get $extension;
+  set $extension(String? $extension);
+
+  String? get displayName;
+  set displayName(String? displayName);
+}
+
+class _$Capabilities_Files_FileConversions extends Capabilities_Files_FileConversions {
+  @override
+  final String from;
+  @override
+  final String to;
+  @override
+  final String $extension;
+  @override
+  final String displayName;
+
+  factory _$Capabilities_Files_FileConversions([void Function(Capabilities_Files_FileConversionsBuilder)? updates]) =>
+      (Capabilities_Files_FileConversionsBuilder()..update(updates))._build();
+
+  _$Capabilities_Files_FileConversions._(
+      {required this.from, required this.to, required this.$extension, required this.displayName})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(from, r'Capabilities_Files_FileConversions', 'from');
+    BuiltValueNullFieldError.checkNotNull(to, r'Capabilities_Files_FileConversions', 'to');
+    BuiltValueNullFieldError.checkNotNull($extension, r'Capabilities_Files_FileConversions', '\$extension');
+    BuiltValueNullFieldError.checkNotNull(displayName, r'Capabilities_Files_FileConversions', 'displayName');
+  }
+
+  @override
+  Capabilities_Files_FileConversions rebuild(void Function(Capabilities_Files_FileConversionsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  Capabilities_Files_FileConversionsBuilder toBuilder() => Capabilities_Files_FileConversionsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Capabilities_Files_FileConversions &&
+        from == other.from &&
+        to == other.to &&
+        $extension == other.$extension &&
+        displayName == other.displayName;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, from.hashCode);
+    _$hash = $jc(_$hash, to.hashCode);
+    _$hash = $jc(_$hash, $extension.hashCode);
+    _$hash = $jc(_$hash, displayName.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Capabilities_Files_FileConversions')
+          ..add('from', from)
+          ..add('to', to)
+          ..add('\$extension', $extension)
+          ..add('displayName', displayName))
+        .toString();
+  }
+}
+
+class Capabilities_Files_FileConversionsBuilder
+    implements
+        Builder<Capabilities_Files_FileConversions, Capabilities_Files_FileConversionsBuilder>,
+        $Capabilities_Files_FileConversionsInterfaceBuilder {
+  _$Capabilities_Files_FileConversions? _$v;
+
+  String? _from;
+  String? get from => _$this._from;
+  set from(covariant String? from) => _$this._from = from;
+
+  String? _to;
+  String? get to => _$this._to;
+  set to(covariant String? to) => _$this._to = to;
+
+  String? _$extension;
+  String? get $extension => _$this._$extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
+
+  String? _displayName;
+  String? get displayName => _$this._displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
+
+  Capabilities_Files_FileConversionsBuilder() {
+    Capabilities_Files_FileConversions._defaults(this);
+  }
+
+  Capabilities_Files_FileConversionsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _from = $v.from;
+      _to = $v.to;
+      _$extension = $v.$extension;
+      _displayName = $v.displayName;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Capabilities_Files_FileConversions other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Capabilities_Files_FileConversions;
+  }
+
+  @override
+  void update(void Function(Capabilities_Files_FileConversionsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Capabilities_Files_FileConversions build() => _build();
+
+  _$Capabilities_Files_FileConversions _build() {
+    Capabilities_Files_FileConversions._validate(this);
+    final _$result = _$v ??
+        _$Capabilities_Files_FileConversions._(
+          from: BuiltValueNullFieldError.checkNotNull(from, r'Capabilities_Files_FileConversions', 'from'),
+          to: BuiltValueNullFieldError.checkNotNull(to, r'Capabilities_Files_FileConversions', 'to'),
+          $extension:
+              BuiltValueNullFieldError.checkNotNull($extension, r'Capabilities_Files_FileConversions', '\$extension'),
+          displayName:
+              BuiltValueNullFieldError.checkNotNull(displayName, r'Capabilities_Files_FileConversions', 'displayName'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $Capabilities_Files_DirectEditingInterfaceBuilder {
   void replace($Capabilities_Files_DirectEditingInterface other);
   void update(void Function($Capabilities_Files_DirectEditingInterfaceBuilder) updates);
@@ -8799,6 +10711,12 @@ abstract mixin class $Capabilities_FilesInterfaceBuilder {
   ListBuilder<String> get forbiddenFilenameExtensions;
   set forbiddenFilenameExtensions(ListBuilder<String>? forbiddenFilenameExtensions);
 
+  Capabilities_Files_ChunkedUploadBuilder get chunkedUpload;
+  set chunkedUpload(Capabilities_Files_ChunkedUploadBuilder? chunkedUpload);
+
+  ListBuilder<Capabilities_Files_FileConversions> get fileConversions;
+  set fileConversions(ListBuilder<Capabilities_Files_FileConversions>? fileConversions);
+
   Capabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(Capabilities_Files_DirectEditingBuilder? directEditing);
 }
@@ -8819,6 +10737,10 @@ class _$Capabilities_Files extends Capabilities_Files {
   @override
   final BuiltList<String> forbiddenFilenameExtensions;
   @override
+  final Capabilities_Files_ChunkedUpload? chunkedUpload;
+  @override
+  final BuiltList<Capabilities_Files_FileConversions>? fileConversions;
+  @override
   final Capabilities_Files_DirectEditing directEditing;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
@@ -8832,6 +10754,8 @@ class _$Capabilities_Files extends Capabilities_Files {
       required this.forbiddenFilenameBasenames,
       required this.forbiddenFilenameCharacters,
       required this.forbiddenFilenameExtensions,
+      this.chunkedUpload,
+      this.fileConversions,
       required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking');
@@ -8864,6 +10788,8 @@ class _$Capabilities_Files extends Capabilities_Files {
         forbiddenFilenameBasenames == other.forbiddenFilenameBasenames &&
         forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
         forbiddenFilenameExtensions == other.forbiddenFilenameExtensions &&
+        chunkedUpload == other.chunkedUpload &&
+        fileConversions == other.fileConversions &&
         directEditing == other.directEditing;
   }
 
@@ -8877,6 +10803,8 @@ class _$Capabilities_Files extends Capabilities_Files {
     _$hash = $jc(_$hash, forbiddenFilenameBasenames.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameExtensions.hashCode);
+    _$hash = $jc(_$hash, chunkedUpload.hashCode);
+    _$hash = $jc(_$hash, fileConversions.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -8892,6 +10820,8 @@ class _$Capabilities_Files extends Capabilities_Files {
           ..add('forbiddenFilenameBasenames', forbiddenFilenameBasenames)
           ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
           ..add('forbiddenFilenameExtensions', forbiddenFilenameExtensions)
+          ..add('chunkedUpload', chunkedUpload)
+          ..add('fileConversions', fileConversions)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -8934,6 +10864,18 @@ class Capabilities_FilesBuilder
   set forbiddenFilenameExtensions(covariant ListBuilder<String>? forbiddenFilenameExtensions) =>
       _$this._forbiddenFilenameExtensions = forbiddenFilenameExtensions;
 
+  Capabilities_Files_ChunkedUploadBuilder? _chunkedUpload;
+  Capabilities_Files_ChunkedUploadBuilder get chunkedUpload =>
+      _$this._chunkedUpload ??= Capabilities_Files_ChunkedUploadBuilder();
+  set chunkedUpload(covariant Capabilities_Files_ChunkedUploadBuilder? chunkedUpload) =>
+      _$this._chunkedUpload = chunkedUpload;
+
+  ListBuilder<Capabilities_Files_FileConversions>? _fileConversions;
+  ListBuilder<Capabilities_Files_FileConversions> get fileConversions =>
+      _$this._fileConversions ??= ListBuilder<Capabilities_Files_FileConversions>();
+  set fileConversions(covariant ListBuilder<Capabilities_Files_FileConversions>? fileConversions) =>
+      _$this._fileConversions = fileConversions;
+
   Capabilities_Files_DirectEditingBuilder? _directEditing;
   Capabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= Capabilities_Files_DirectEditingBuilder();
@@ -8954,6 +10896,8 @@ class Capabilities_FilesBuilder
       _forbiddenFilenameBasenames = $v.forbiddenFilenameBasenames.toBuilder();
       _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
       _forbiddenFilenameExtensions = $v.forbiddenFilenameExtensions.toBuilder();
+      _chunkedUpload = $v.chunkedUpload?.toBuilder();
+      _fileConversions = $v.fileConversions?.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -8988,6 +10932,8 @@ class Capabilities_FilesBuilder
             forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
             forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
             forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
+            chunkedUpload: _chunkedUpload?.build(),
+            fileConversions: _fileConversions?.build(),
             directEditing: directEditing.build(),
           );
     } catch (_) {
@@ -9003,6 +10949,10 @@ class Capabilities_FilesBuilder
         forbiddenFilenameCharacters.build();
         _$failedField = 'forbiddenFilenameExtensions';
         forbiddenFilenameExtensions.build();
+        _$failedField = 'chunkedUpload';
+        _chunkedUpload?.build();
+        _$failedField = 'fileConversions';
+        _fileConversions?.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {

@@ -1,0 +1,9 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/files/required",
+    "value": [
+      "undelete"
+    ]
+  }
+]
