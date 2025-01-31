@@ -3,19 +3,17 @@ description: >-
   A library that tests whether implementations of package:cookie_store's `CookieStore`
   class behave as expected.
 publish_to: none
+resolution: workspace
+
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   cookie_store:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store
+    path: ../..
   meta: ^1.0.0
   test: ^1.21.2
 
 dev_dependencies:
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../../../neon_lints

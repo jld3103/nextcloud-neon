@@ -1,25 +1,22 @@
 name: neon_framework
 version: 1.0.0
 publish_to: 'none'
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.27.0
 
 dependencies:
   account_repository:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/account_repository
+    path: packages/account_repository
   bloc: ^9.0.0
   bloc_concurrency: ^0.3.0
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
   cookie_store:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store
+    path: ../cookie_store
   crypto: ^3.0.0
   cupertino_icons: ^1.0.0 # Do not remove this, is it needed on iOS/macOS. It will not include icons on other platforms because Apple forbids it.
   dynamic_color: ^1.0.0
@@ -45,14 +42,10 @@ dependencies:
   logging: ^1.0.0
   meta: ^1.0.0
   neon_http_client:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_http_client
+    path: packages/neon_http_client
   nextcloud: ^8.1.0
   notifications_push_repository:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/notifications_push_repository
+    path: packages/notifications_push_repository
   package_info_plus: ^8.0.0
   path: ^1.0.0
   path_provider: ^2.1.0
@@ -63,9 +56,7 @@ dependencies:
   scrollable_positioned_list: ^0.3.0
   shared_preferences_platform_interface: ^2.3.2
   sort_box:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/sort_box
+    path: packages/sort_box
   sqflite: ^2.3.0
   sqflite_common_ffi: ^2.3.2
   sqflite_common_ffi_web: ^0.4.2+3
@@ -83,9 +74,7 @@ dev_dependencies:
   built_value_generator: ^8.9.3
   code_builder: ^4.10.1
   cookie_store_conformance_tests:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store_conformance_tests
+    path: ../cookie_store/packages/cookie_store_conformance_tests
   crypton: ^2.2.1
   custom_lint: ^0.7.0
   dart_style: ^2.3.8
@@ -95,9 +84,7 @@ dev_dependencies:
   go_router_builder: ^2.7.5
   mocktail: ^1.0.4
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../neon_lints
   package_info_plus_platform_interface: ^3.0.2
   permission_handler_platform_interface: ^4.2.3
   plugin_platform_interface: ^2.1.8

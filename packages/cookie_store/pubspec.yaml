@@ -2,9 +2,10 @@ name: cookie_store
 description: A RFC compliant cookie store
 version: 0.1.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   meta: ^1.0.0
@@ -12,11 +13,7 @@ dependencies:
 
 dev_dependencies:
   cookie_store_conformance_tests:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store/packages/cookie_store_conformance_tests
+    path: packages/cookie_store_conformance_tests
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
-  test: ^1.25.8
+    path: ../neon_lints
+  test: ^1.24.0

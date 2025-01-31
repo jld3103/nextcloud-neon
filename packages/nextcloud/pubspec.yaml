@@ -7,9 +7,10 @@ topics:
   - nextcloud
   - openapi
   - webdav
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   built_collection: ^5.0.0
@@ -44,17 +45,13 @@ dev_dependencies:
       ref: 76512c4cbf987361421030349fd1946e63e33359
   mocktail: ^1.0.4
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../neon_lints
   nextcloud_test:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/nextcloud/packages/nextcloud_test
-  path: ^1.9.1
+    path: packages/nextcloud_test
+  path: ^1.9.0
   process_run: ^1.2.2
-  test: ^1.25.8
-  test_api: ^0.7.3
+  test: ^1.25.7
+  test_api: ^0.7.2
   xml_serializable: ^2.5.3
 
 platforms:

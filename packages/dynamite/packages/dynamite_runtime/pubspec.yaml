@@ -7,9 +7,10 @@ topics:
   - openapi
   - codegen
   - build-runner
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   built_collection: ^5.0.0
@@ -24,10 +25,9 @@ dev_dependencies:
   build_runner: ^2.4.14
   built_value_generator: ^8.9.3
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
-  test: ^1.25.8
+    path: ../../../neon_lints
+  test: ^1.24.0
+
 
 platforms:
   windows:

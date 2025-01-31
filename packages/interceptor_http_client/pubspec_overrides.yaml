@@ -1,6 +1,0 @@
-# melos_managed_dependency_overrides: cookie_store,neon_lints
-dependency_overrides:
-  cookie_store:
-    path: ../cookie_store
-  neon_lints:
-    path: ../neon_lints

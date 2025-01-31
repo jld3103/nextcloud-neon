@@ -37,7 +37,7 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@e630b99d28a3b71860378cafdc2a067c71107f94 # v1
         with:
-          sdk: 3.5
+          sdk: 3.6
       - name: Setup
         run: ./tool/setup.sh
 
@@ -48,7 +48,7 @@ jobs:
         if: ${{ matrix.dependencies == 'downgrade' }}
         run: |
           git apply .github/workflows/dependency_overrides.patch
-          melos exec dart pub downgrade
+          fvm dart pub downgrade
       - name: Check formatting
         run: melos run format:check
       - name: Lint code

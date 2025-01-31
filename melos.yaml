@@ -24,9 +24,6 @@ command:
       post: melos run format
   version:
     hooks:
-      preCommit: |
-        melos bootstrap
-        git add packages/neon_framework/example/pubspec.lock
       # Needed until https://github.com/invertase/melos/issues/591 is supported
       post: |
         git commit --amend --signoff --no-edit
@@ -44,7 +41,7 @@ scripts:
   test:dart: >
     melos exec --no-flutter --concurrency=1 --fail-fast --dir-exists=test -- "
       dart test --concurrency=$(nproc --all) --coverage=coverage &&
-      dart pub global run coverage:format_coverage --packages=.dart_tool/package_config.json --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage
+      dart pub global run coverage:format_coverage --packages=MELOS_ROOT_PATH/.dart_tool/package_config.json --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage
     "
   test:flutter: melos exec --flutter --concurrency=1 --fail-fast --dir-exists=test -- flutter test --concurrency=$(nproc --all) --coverage
   generate:neon:build_runner: melos exec --scope="neon*" --file-exists="build.yaml" -- dart run build_runner build --delete-conflicting-outputs && melos run format

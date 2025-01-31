@@ -2,22 +2,19 @@ name: neon_http_client
 description: A http client for the Neon framework.
 version: 0.1.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   built_collection: ^5.0.0
   cookie_store:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store
+    path: ../../../cookie_store
   http: ^1.0.0
   http_parser: ^4.0.0
   interceptor_http_client:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/interceptor_http_client
+    path: ../../../interceptor_http_client
   logging: ^1.0.0
   meta: ^1.0.0
   nextcloud: ^8.1.0
@@ -30,7 +27,6 @@ dev_dependencies:
       ref: 76512c4cbf987361421030349fd1946e63e33359
   mocktail: ^1.0.4
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
-  test: ^1.25.8
+    path: ../../../neon_lints
+  test: ^1.24.0
+

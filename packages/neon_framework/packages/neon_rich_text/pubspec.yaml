@@ -2,9 +2,10 @@ name: neon_rich_text
 description: A package for rendering rich text from Nextcloud
 version: 0.1.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.27.0
 
 dependencies:
@@ -16,9 +17,7 @@ dependencies:
   intersperse: ^2.0.0
   meta: ^1.0.0
   neon_framework:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework
+    path: ../..
   nextcloud: ^8.1.0
 
 dev_dependencies:
@@ -27,9 +26,7 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^1.0.4
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../../../neon_lints
   provider: ^6.1.2
   rxdart: ^0.28.0
   url_launcher_platform_interface: ^2.3.2

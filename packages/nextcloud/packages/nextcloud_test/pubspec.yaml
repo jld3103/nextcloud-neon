@@ -1,23 +1,20 @@
 name: nextcloud_test
 version: 1.0.0
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   built_collection: ^5.1.1
   collection: ^1.0.0
   cookie_store:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/cookie_store
+    path: ../../../cookie_store
   glob: ^2.1.2
   http: ^1.2.0
   interceptor_http_client:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/interceptor_http_client
+    path: ../../../interceptor_http_client
   matcher: ^0.12.0
   meta: ^1.0.0
   nextcloud: ^8.1.0
@@ -31,6 +28,4 @@ dependencies:
 
 dev_dependencies:
   neon_lints:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_lints
+    path: ../../../neon_lints

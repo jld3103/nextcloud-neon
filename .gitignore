@@ -1,19 +1,16 @@
 .dart_tool
-pubspec.lock
+.flutter-plugins
+.flutter-plugins-dependencies
 
 packages/**/.idea
 packages/**/*.iml
 packages/**/*.symbols
 packages/**/*.log
-packages/**/.flutter-plugins
-packages/**/.flutter-plugins-dependencies
 packages/**/coverage
 packages/**/build
 packages/**/build-dir
 packages/**/.flatpak-builder
 packages/**/doc/api
-
-!packages/neon_framework/example/pubspec.lock
 
 # Melos recommends adding them, but renovate does not generate them which would end up with broken lockfiles
 # **/pubspec_overrides.yaml
