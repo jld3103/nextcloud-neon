@@ -1,7 +1,7 @@
 import 'package:account_repository/src/models/models.dart';
 import 'package:account_repository/testing.dart';
 import 'package:built_value_test/matcher.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Credentials', () {

@@ -1,5 +1,5 @@
 import 'package:account_repository/src/models/models.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('LoginQRcode', () {

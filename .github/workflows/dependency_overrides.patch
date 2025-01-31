@@ -118,10 +118,10 @@ diff --git a/packages/interceptor_http_client/pubspec_overrides.yaml b/packages/
 diff --git a/packages/neon_framework/packages/account_repository/pubspec.yaml b/packages/neon_framework/packages/account_repository/pubspec.yaml
 --- a/packages/neon_framework/packages/account_repository/pubspec.yaml
 +++ b/packages/neon_framework/packages/account_repository/pubspec.yaml
-@@ -37,3 +37,10 @@ dev_dependencies:
+@@ -38,3 +38,10 @@ dev_dependencies:
+     git:
        url: https://github.com/nextcloud/neon
        path: packages/neon_lints
-   test: ^1.25.2
 +
 +dependency_overrides:
 +  archive: ^3.5.0
@@ -150,7 +150,7 @@ diff --git a/packages/neon_framework/packages/account_repository/pubspec_overrid
 diff --git a/packages/neon_framework/packages/dashboard_app/pubspec.yaml b/packages/neon_framework/packages/dashboard_app/pubspec.yaml
 --- a/packages/neon_framework/packages/dashboard_app/pubspec.yaml
 +++ b/packages/neon_framework/packages/dashboard_app/pubspec.yaml
-@@ -39,6 +39,13 @@ dev_dependencies:
+@@ -38,6 +38,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
  
@@ -271,7 +271,7 @@ diff --git a/packages/neon_framework/packages/neon_storage/pubspec_overrides.yam
 diff --git a/packages/neon_framework/packages/notifications_app/pubspec.yaml b/packages/neon_framework/packages/notifications_app/pubspec.yaml
 --- a/packages/neon_framework/packages/notifications_app/pubspec.yaml
 +++ b/packages/neon_framework/packages/notifications_app/pubspec.yaml
-@@ -48,6 +48,13 @@ dev_dependencies:
+@@ -47,6 +47,13 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
  
@@ -358,7 +358,7 @@ diff --git a/packages/neon_framework/packages/sort_box/pubspec_overrides.yaml b/
 diff --git a/packages/neon_framework/packages/talk_app/pubspec.yaml b/packages/neon_framework/packages/talk_app/pubspec.yaml
 --- a/packages/neon_framework/packages/talk_app/pubspec.yaml
 +++ b/packages/neon_framework/packages/talk_app/pubspec.yaml
-@@ -51,6 +51,14 @@ dev_dependencies:
+@@ -50,6 +50,14 @@ dev_dependencies:
    url_launcher_platform_interface: ^2.3.2
    vector_graphics_compiler: ^1.1.16
  
@@ -395,7 +395,7 @@ diff --git a/packages/neon_framework/packages/talk_app/pubspec_overrides.yaml b/
 diff --git a/packages/neon_framework/pubspec.yaml b/packages/neon_framework/pubspec.yaml
 --- a/packages/neon_framework/pubspec.yaml
 +++ b/packages/neon_framework/pubspec.yaml
-@@ -107,6 +107,13 @@ dev_dependencies:
+@@ -111,6 +111,13 @@ dev_dependencies:
    vector_graphics_compiler: ^1.1.16
    version: ^3.0.2
  
