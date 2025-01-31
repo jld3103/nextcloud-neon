@@ -22,7 +22,12 @@ dependencies:
       path: packages/cookie_store
   crypto: ^3.0.0
   cupertino_icons: ^1.0.0 # Do not remove this, is it needed on iOS/macOS. It will not include icons on other platforms because Apple forbids it.
-  dynamic_color: ^1.0.0
+  dynamic_color:
+    git:
+      url: https://github.com/provokateurin/flutter-packages
+      path: packages/dynamic_color
+      # dynamic_color/flutter_test
+      ref: faeecdf6c6b748af308c8eece8b3681c8cb6fbd8
   dynamite_runtime: ^0.5.0+1
   equatable: ^2.0.0
   file_picker: ^8.0.0+1
