@@ -41,7 +41,7 @@ dependencies:
   vector_graphics: any
 
 dev_dependencies:
-  custom_lint: ^0.7.0
+  custom_lint: ^0.7.3
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon

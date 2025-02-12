@@ -8,5 +8,5 @@ dev_dependencies:
   commitlint_cli: ^0.8.1
   fvm: ^3.2.1
   melos: 6.0.0
-  custom_lint: ^0.7.0
+  custom_lint: ^0.7.3
   coverage: ^1.11.1
