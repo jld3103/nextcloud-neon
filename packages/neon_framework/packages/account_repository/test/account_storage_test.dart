@@ -1,8 +1,8 @@
 import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/storage.dart';
-import 'package:test/test.dart';
 
 // ignore: avoid_implementing_value_types
 class _FakeBuiltList extends Fake implements BuiltList<String> {}

@@ -1,6 +1,6 @@
 import 'package:account_repository/src/utils/utils.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('AuthenticationClient', () {

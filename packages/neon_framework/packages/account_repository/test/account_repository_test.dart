@@ -5,13 +5,13 @@ import 'package:account_repository/src/testing/testing.dart';
 import 'package:account_repository/src/utils/authentication_client.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value_test/matcher.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/testing.dart' show MockNeonStorage;
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
-import 'package:test/test.dart';
 
 class _FakeStatus extends Fake implements core.Status {}
 
