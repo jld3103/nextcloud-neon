@@ -40,6 +40,12 @@ class _UsersClientMock extends Mock implements provisioning_api.$UsersClient {}
 
 class _AccountStorageMock extends Mock implements AccountStorage {}
 
+class _FakeAccount extends Fake implements Account {}
+
+class _BeforeLogOutCallbackMock extends Mock {
+  Future<void> call(Account account);
+}
+
 typedef _AccountStream = ({BuiltList<Account> accounts, Account? active});
 
 void main() {
@@ -54,6 +60,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(_FakeUri());
     registerFallbackValue(_FakePollRequest());
+    registerFallbackValue(_FakeAccount());
     MockNeonStorage();
   });
 
@@ -506,6 +513,20 @@ void main() {
         when(() => appPassword.deleteAppPassword()).thenAnswer(
           (_) async => _DynamiteResponseMock<core.AppPasswordDeleteAppPasswordResponseApplicationJson, void>(),
         );
+
+        final callback1 = _BeforeLogOutCallbackMock();
+        when(() => callback1.call(any())).thenAnswer((_) async {});
+        repository.registerBeforeLogOutCallback(callback1.call);
+
+        final callback2 = _BeforeLogOutCallbackMock();
+        repository
+          ..registerBeforeLogOutCallback(callback2.call)
+          ..unregisterBeforeLogOutCallback(callback2.call);
+
+        final callback3 = _BeforeLogOutCallbackMock();
+        when(() => callback3.call(any())).thenAnswer((_) async {});
+        repository.registerBeforeLogOutCallback(callback3.call);
+
         await repository.logOut(credentialsList.first.id);
 
         await expectLater(
@@ -516,6 +537,10 @@ void main() {
                 .having((e) => e.active, 'active', equals(accountsList[1])),
           ),
         );
+
+        verify(() => callback1(accountsList.first)).called(1);
+        verifyNever(() => callback2(accountsList.first));
+        verify(() => callback3(accountsList.first)).called(1);
 
         verify(() => appPassword.deleteAppPassword()).called(1);
         verify(() => storage.saveLastAccount(credentialsList[1].id)).called(1);

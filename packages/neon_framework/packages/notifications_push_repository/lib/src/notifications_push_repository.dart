@@ -29,7 +29,9 @@ class NotificationsPushRepository {
     required OnMessageCallback onMessage,
   })  : _accountRepository = accountRepository,
         _storage = storage,
-        _onMessage = onMessage;
+        _onMessage = onMessage {
+    _accountRepository.registerBeforeLogOutCallback(_beforeLogOutCallback);
+  }
 
   final AccountRepository _accountRepository;
   final NotificationsPushStorage _storage;
@@ -48,6 +50,28 @@ class NotificationsPushRepository {
   /// Closes all open resources of the repository.
   void close() {
     unawaited(_accountsListener?.cancel());
+    _accountRepository.unregisterBeforeLogOutCallback(_beforeLogOutCallback);
+  }
+
+  Future<void> _beforeLogOutCallback(Account account) async {
+    final subscriptions = await _storage.readSubscriptions();
+    var subscription = subscriptions[account.id];
+    if (subscription == null) {
+      return;
+    }
+
+    final pushDevice = subscription.pushDevice;
+    if (pushDevice != null) {
+      await _unregisterNextcloud(account.id, account, pushDevice);
+      subscription = subscription.rebuild((b) => b.pushDevice = null);
+    }
+
+    if (subscription.endpoint != null) {
+      await _unregisterUnifiedPush(account.id);
+      subscription = subscription.rebuild((b) => b.endpoint = null);
+    }
+
+    await _storage.updateSubscription(account.id, subscription);
   }
 
   /// Changes the used distributor to the new [distributor].
@@ -146,21 +170,21 @@ class NotificationsPushRepository {
     if (_selectedDistributor == null) {
       _log.fine('Push notifications disabled, removing all subscriptions');
 
-      await _unregisterUnifiedPush();
+      await _unregisterAllUnifiedPush();
       return;
     }
 
     if (distributorChanged) {
       _log.finer('UnifiedPush distributor changed to $_selectedDistributor');
 
-      await _unregisterUnifiedPush();
+      await _unregisterAllUnifiedPush();
       await UnifiedPush.saveDistributor(_selectedDistributor!);
     }
 
-    await _registerUnifiedPush();
+    await _registerAllUnifiedPush();
   }
 
-  Future<void> _registerUnifiedPush() async {
+  Future<void> _registerAllUnifiedPush() async {
     // Notifications will only work on accounts with app password
     final accounts = (await _accountRepository.accounts.first).accounts;
     for (final account in accounts.where((a) => a.credentials.appPassword != null)) {
@@ -170,7 +194,7 @@ class NotificationsPushRepository {
     }
   }
 
-  Future<void> _unregisterUnifiedPush() async {
+  Future<void> _unregisterAllUnifiedPush() async {
     final subscriptions = await _storage.readSubscriptions();
     for (final entry in subscriptions.entries) {
       final accountID = entry.key;
@@ -184,10 +208,7 @@ class NotificationsPushRepository {
       }
 
       if (subscription.endpoint != null) {
-        _log.finer('Unregistering $accountID from UnifiedPush');
-
-        await UnifiedPush.unregister(accountID);
-
+        await _unregisterUnifiedPush(accountID);
         subscription = subscription.rebuild((b) => b.endpoint = null);
       }
 
@@ -228,5 +249,11 @@ class NotificationsPushRepository {
     } on http.ClientException catch (error) {
       _log.warning('Failed to unregister $accountID at Nextcloud', error);
     }
+  }
+
+  Future<void> _unregisterUnifiedPush(String accountID) async {
+    _log.finer('Unregistering $accountID from UnifiedPush');
+
+    await UnifiedPush.unregister(accountID);
   }
 }

@@ -60,6 +60,7 @@ void main() {
     void Function(String, String)? unifiedPushOnNewEndpoint;
     void Function(String)? unifiedPushOnUnregistered;
     void Function(Uint8List, String)? unifiedPushOnMessage;
+    late List<BeforeLogOutCallback> beforeLogOutCallbacks;
 
     setUpAll(() {
       registerFallbackValue(RSAPrivateKey(BigInt.zero, BigInt.zero, BigInt.zero, BigInt.zero));
@@ -72,6 +73,7 @@ void main() {
     });
 
     setUp(() {
+      beforeLogOutCallbacks = [];
       accountsSubject = BehaviorSubject();
       accountRepository = _AccountRepositoryMock();
       when(() => accountRepository.accounts).thenAnswer((_) => accountsSubject.map((e) => (active: null, accounts: e)));
@@ -81,6 +83,12 @@ void main() {
           return accountsSubject.value.singleWhereOrNull((account) => account.id == accountID);
         },
       );
+      when(() => accountRepository.registerBeforeLogOutCallback(any())).thenAnswer((invocation) {
+        beforeLogOutCallbacks.add(invocation.positionalArguments.first as BeforeLogOutCallback);
+      });
+      when(() => accountRepository.unregisterBeforeLogOutCallback(any())).thenAnswer((invocation) {
+        beforeLogOutCallbacks.remove(invocation.positionalArguments.first as BeforeLogOutCallback);
+      });
 
       storage = _StorageMock();
 
@@ -104,6 +112,7 @@ void main() {
 
     tearDown(() {
       repository.close();
+      expect(beforeLogOutCallbacks, isEmpty);
       unawaited(accountsSubject.close());
     });
 
@@ -1726,6 +1735,122 @@ void main() {
               verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
               verifyNever(() => storage.updateSubscription(any(), any()));
             });
+          });
+        });
+
+        group('Removes subscription when account is deleted', () {
+          test('Success at Nextcloud', () async {
+            when(
+              () => httpRequest(
+                'DELETE',
+                Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
+                any(),
+                any(),
+              ),
+            ).thenAnswer(
+              (_) => http.StreamedResponse(
+                Stream.value(
+                  utf8.encode(
+                    json.encode(
+                      {
+                        'ocs': {
+                          'meta': {
+                            'status': '',
+                            'statuscode': 0,
+                          },
+                          'data': <dynamic, dynamic>{},
+                        },
+                      },
+                    ),
+                  ),
+                ),
+                200,
+                headers: {
+                  'content-type': 'application/json; charset=utf-8',
+                },
+              ),
+            );
+
+            repository = NotificationsPushRepository(
+              accountRepository: accountRepository,
+              storage: storage,
+              onMessage: onMessageCallback,
+            );
+            await repository.initialize();
+
+            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
+            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+
+            for (final callback in beforeLogOutCallbacks) {
+              await callback(account);
+            }
+
+            verify(() => unifiedPushPlatform.unregister(account.id)).called(1);
+            verifyNever(() => unifiedPushPlatform.unregister(any()));
+            verify(
+              () => httpRequest(
+                'DELETE',
+                Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
+                BuiltMap(
+                  {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  },
+                ),
+                Uint8List(0),
+              ),
+            ).called(1);
+            verifyNever(() => httpRequest(any(), any(), any(), any()));
+            verify(() => storage.updateSubscription(account.id, PushSubscription())).called(1);
+            verifyNever(() => storage.updateSubscription(any(), any()));
+          });
+
+          test('Failure at Nextcloud', () async {
+            when(
+              () => httpRequest(
+                'DELETE',
+                Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
+                any(),
+                any(),
+              ),
+            ).thenAnswer((_) => http.StreamedResponse(const Stream.empty(), 500));
+
+            repository = NotificationsPushRepository(
+              accountRepository: accountRepository,
+              storage: storage,
+              onMessage: onMessageCallback,
+            );
+            await repository.initialize();
+
+            verify(() => unifiedPushPlatform.registerApp(account.id, [])).called(1);
+            verifyNever(() => unifiedPushPlatform.registerApp(any(), any()));
+
+            for (final callback in beforeLogOutCallbacks) {
+              await callback(account);
+            }
+
+            verify(() => unifiedPushPlatform.unregister(account.id)).called(1);
+            verifyNever(() => unifiedPushPlatform.unregister(any()));
+            verify(
+              () => httpRequest(
+                'DELETE',
+                Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
+                BuiltMap(
+                  {
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  },
+                ),
+                Uint8List(0),
+              ),
+            ).called(1);
+            verifyNever(() => httpRequest(any(), any(), any(), any()));
+            verify(() => storage.updateSubscription(account.id, PushSubscription())).called(1);
+            verifyNever(() => storage.updateSubscription(any(), any()));
           });
         });
       });

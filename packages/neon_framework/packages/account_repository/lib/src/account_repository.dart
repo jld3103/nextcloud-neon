@@ -14,6 +14,9 @@ import 'package:rxdart/rxdart.dart';
 
 part 'account_storage.dart';
 
+/// Signature of a callback that executed right before the [account] is logged out.
+typedef BeforeLogOutCallback = Future<void> Function(Account account);
+
 /// {@template account_failure}
 /// A base failure for the account repository failures.
 /// {@endtemplate}
@@ -86,6 +89,7 @@ class AccountRepository {
   final String _userAgent;
   final http.Client _httpClient;
   final AccountStorage _storage;
+  final List<BeforeLogOutCallback> _beforeLogOutCallbacks = [];
 
   final BehaviorSubject<({String? active, BuiltMap<String, Account> accounts})> _accounts =
       BehaviorSubject.seeded((active: null, accounts: BuiltMap()));
@@ -272,6 +276,18 @@ class AccountRepository {
     ]);
   }
 
+  /// Registers a new [callback] that is executed right before an account is logged out.
+  ///
+  /// The callback must not throw any exceptions and handle them gracefully itself.
+  void registerBeforeLogOutCallback(BeforeLogOutCallback callback) {
+    _beforeLogOutCallbacks.add(callback);
+  }
+
+  /// Unregisters a [callback] that was previously registered with [registerBeforeLogOutCallback].
+  void unregisterBeforeLogOutCallback(BeforeLogOutCallback callback) {
+    _beforeLogOutCallbacks.remove(callback);
+  }
+
   /// Logs out the user from the server.
   ///
   /// May throw a [DeleteCredentialsFailure].
@@ -299,8 +315,12 @@ class AccountRepository {
 
     _accounts.add((active: active, accounts: accounts));
 
+    for (final callback in _beforeLogOutCallbacks) {
+      await callback(account!);
+    }
+
     try {
-      await account?.client.authentication.appPassword.deleteAppPassword();
+      await account!.client.authentication.appPassword.deleteAppPassword();
     } on http.ClientException catch (error, stackTrace) {
       Error.throwWithStackTrace(DeleteCredentialsFailure(error), stackTrace);
     }
