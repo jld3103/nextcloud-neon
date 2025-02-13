@@ -14,7 +14,6 @@ linter:
     always_specify_types: false
     always_use_package_imports: true
     annotate_overrides: true
-    annotate_redeclares: true
     avoid_annotating_with_dynamic: false
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: false
@@ -80,15 +79,12 @@ linter:
     empty_constructor_bodies: true
     empty_statements: true
     eol_at_end_of_file: true
-    erase_dart_type_extension_types: true
     exhaustive_cases: true
     file_names: true
     flutter_style_todos: true
     hash_and_equals: true
     implementation_imports: true
     implicit_call_tearoffs: true
-    implicit_reopen: true
-    invalid_case_patterns: true
     invalid_runtime_check_with_js_interop_types: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
@@ -102,7 +98,6 @@ linter:
     missing_code_block_language_in_doc_comment: true
     missing_whitespace_between_adjacent_strings: true
     no_adjacent_strings_in_list: true
-    no_default_cases: false
     no_duplicate_case_values: true
     no_leading_underscores_for_library_prefixes: true
     no_leading_underscores_for_local_identifiers: true
@@ -119,7 +114,6 @@ linter:
     one_member_abstracts: false
     only_throw_errors: true
     overridden_fields: true
-    package_api_docs: true
     package_names: true
     package_prefixed_library_names: true
     parameter_assignments: true
@@ -196,7 +190,6 @@ linter:
     unnecessary_new: true
     unnecessary_null_aware_assignments: true
     unnecessary_null_aware_operator_on_extension_on_nullable: true
-    unnecessary_null_checks: true
     unnecessary_null_in_if_null_operators: true
     unnecessary_nullable_for_final_variable_declarations: true
     unnecessary_overrides: true
@@ -209,7 +202,6 @@ linter:
     unnecessary_to_list_in_spreads: true
     unreachable_from_main: true
     unrelated_type_equality_checks: true
-    unsafe_html: true
     use_build_context_synchronously: true
     use_colored_box: true
     use_decorated_box: true
@@ -219,16 +211,15 @@ linter:
     use_if_null_to_convert_nulls_to_bools: true
     use_is_even_rather_than_modulo: true
     use_key_in_widget_constructors: true
-    use_late_for_private_fields_and_variables: true
     use_named_constants: true
     use_raw_strings: true
     use_rethrow_when_possible: true
     use_setters_to_change_properties: true
     use_string_buffers: true
     use_string_in_part_of_directives: true
-    use_super_parameters: true
     use_test_throws_matchers: true
     use_to_and_as_if_applicable: true
     valid_regexps: true
     void_checks: true
     avoid_as: false
+    no_default_cases: false
