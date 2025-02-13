@@ -590,12 +590,11 @@ class WebDavClient extends DynamiteClient {
   ///
   /// The props in [set] will be added/updated.
   /// The props in [remove] will be removed.
-  /// Returns true if the update was successful.
   ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   ///   * [proppatch_Request] for the request sent by this method.
-  Future<bool> proppatch(
+  Future<WebDavMultistatus> proppatch(
     PathUri path, {
     WebDavProp? set,
     WebDavPropWithoutValues? remove,
@@ -612,15 +611,7 @@ class WebDavClient extends DynamiteClient {
       throw DynamiteStatusCodeException(response);
     }
 
-    final data = const WebDavResponseConverter().convert(response);
-    for (final a in data.responses) {
-      for (final b in a.propstats) {
-        if (!b.status.contains('200')) {
-          return false;
-        }
-      }
-    }
-    return true;
+    return const WebDavResponseConverter().convert(response);
   }
 
   /// Returns a request to move the resource from [sourcePath] to [destinationPath].

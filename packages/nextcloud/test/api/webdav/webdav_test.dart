@@ -618,13 +618,16 @@ void main() {
         created: createdDate,
       );
 
-      final updated = await tester.client.webdav.proppatch(
+      final response = await tester.client.webdav.proppatch(
         PathUri.parse('test/set-props.txt'),
         set: const WebDavProp(
           ocFavorite: true,
         ),
       );
-      expect(updated, isTrue);
+      expect(
+        response.responses.where((r) => r.propstats.where((ps) => !ps.status.contains('200 OK')).isNotEmpty),
+        isEmpty,
+      );
 
       final props = (await tester.client.webdav.propfind(
         PathUri.parse('test/set-props.txt'),
@@ -649,13 +652,16 @@ void main() {
     test('Remove properties', () async {
       await tester.client.webdav.put(utf8.encode('test'), PathUri.parse('test/remove-props.txt'));
 
-      var updated = await tester.client.webdav.proppatch(
+      var response = await tester.client.webdav.proppatch(
         PathUri.parse('test/remove-props.txt'),
         set: const WebDavProp(
           ocFavorite: true,
         ),
       );
-      expect(updated, isTrue);
+      expect(
+        response.responses.where((r) => r.propstats.where((ps) => !ps.status.contains('200 OK')).isNotEmpty),
+        isEmpty,
+      );
 
       var props = (await tester.client.webdav.propfind(
         PathUri.parse('test/remove-props.txt'),
@@ -672,13 +678,16 @@ void main() {
           .prop;
       expect(props.ocFavorite, true);
 
-      updated = await tester.client.webdav.proppatch(
+      response = await tester.client.webdav.proppatch(
         PathUri.parse('test/remove-props.txt'),
         remove: const WebDavPropWithoutValues.fromBools(
           ocFavorite: true,
         ),
       );
-      expect(updated, isFalse);
+      expect(
+        response.responses.where((r) => r.propstats.where((ps) => !ps.status.contains('200 OK')).isNotEmpty),
+        isNotEmpty,
+      );
 
       props = (await tester.client.webdav.propfind(
         PathUri.parse('test/remove-props.txt'),
@@ -700,15 +709,18 @@ void main() {
         PathUri.parse('test/tags.txt'),
       );
 
-      final updated = await tester.client.webdav.proppatch(
+      var response = await tester.client.webdav.proppatch(
         PathUri.parse('test/tags.txt'),
         set: const WebDavProp(
           ocTags: WebDavOcTags(tags: ['example']),
         ),
       );
-      expect(updated, isTrue);
+      expect(
+        response.responses.where((r) => r.propstats.where((ps) => !ps.status.contains('200 OK')).isNotEmpty),
+        isEmpty,
+      );
 
-      final response = await tester.client.webdav.propfind(
+      response = await tester.client.webdav.propfind(
         PathUri.parse('test/tags.txt'),
         prop: const WebDavPropWithoutValues.fromBools(
           ocTags: true,
