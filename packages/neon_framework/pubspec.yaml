@@ -68,7 +68,7 @@ dependencies:
       path: packages/neon_framework/packages/sort_box
   sqflite: ^2.3.0
   sqflite_common_ffi: ^2.3.2
-  sqflite_common_ffi_web: ^0.4.2+3
+  sqflite_common_ffi_web: ^1.0.0
   timezone: ^0.10.0
   universal_io: ^2.0.0
   url_launcher: ^6.1.4
