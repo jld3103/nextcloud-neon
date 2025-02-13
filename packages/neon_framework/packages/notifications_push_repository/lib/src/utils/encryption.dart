@@ -27,7 +27,20 @@ Future<BuiltList<PushNotification>> parseEncryptedPushNotifications(
   Uint8List notifications,
   String accountID,
 ) async {
-  final privateKey = await getDevicePrivateKey(storage);
+  final subscriptions = await storage.readSubscriptions();
+
+  final subscription = subscriptions[accountID];
+  if (subscription == null) {
+    throw Exception('Subscription for account $accountID not found.');
+  }
+
+  final pushDevice = subscription.pushDevice;
+  if (pushDevice == null) {
+    throw Exception('Push device for account $accountID not found.');
+  }
+
+  final userPublicKey = RSAPublicKey.fromPEM(pushDevice.publicKey);
+  final devicePrivateKey = await getDevicePrivateKey(storage);
 
   final builder = ListBuilder<PushNotification>();
 
@@ -37,7 +50,8 @@ Future<BuiltList<PushNotification>> parseEncryptedPushNotifications(
       PushNotification.fromEncrypted(
         data,
         accountID,
-        privateKey,
+        devicePrivateKey,
+        userPublicKey,
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -19,16 +21,28 @@ abstract class PushNotification implements Built<PushNotification, PushNotificat
   factory PushNotification.fromEncrypted(
     Map<String, dynamic> json,
     String accountID,
-    RSAPrivateKey privateKey,
+    RSAPrivateKey devicePrivateKey,
+    RSAPublicKey userPublicKey,
   ) {
-    final subject = notifications.DecryptedSubject.fromEncrypted(privateKey, json['subject'] as String);
+    final subject = json['subject'] as String;
+    final signature = json['signature'] as String;
+
+    final valid = userPublicKey.verifySHA512Signature(
+      base64.decode(subject),
+      base64.decode(signature),
+    );
+    if (!valid) {
+      throw Exception('Failed to verify push notification signature!');
+    }
+
+    final decryptedSubject = notifications.DecryptedSubject.fromEncrypted(devicePrivateKey, subject);
 
     return PushNotification(
       (b) => b
         ..accountID = accountID
         ..priority = json['priority'] as String
         ..type = json['type'] as String
-        ..subject.replace(subject),
+        ..subject.replace(decryptedSubject),
     );
   }
 

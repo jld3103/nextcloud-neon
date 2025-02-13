@@ -124,8 +124,8 @@ PushNotification {
       );
     });
 
-    test('fromEncrypted', () {
-      const privateKeyPEM = '''
+    group('fromEncrypted', () {
+      const devicePrivateKeyPEM = '''
 -----BEGIN RSA PRIVATE KEY-----
 MIICHwIBADANBgkqhkiG9w0BAQEFAASCAgkwggIFAgEAAm4BELTz808T8iAkvBkg
 tnWs4a1aNcCFAAX54ePLK40YAL/tQjUGoIe0+zO7yzMT0bydk6BFOdyrIP2iwALN
@@ -140,21 +140,65 @@ VQI3BH+FwRTRntc3caGF4qVixb+Wu6OLwHg77MjdvKEo8KqTiQjxgAjmUkXPaS8N
 4FkEfiY9QA36EQI3AKxizo9goAHnTmY1OVi+4GLp0HroWP64RjW8R/cUemggMqEa
 UJYvEQEss8/UoYhOACOm5PEqNg==
 -----END RSA PRIVATE KEY-----''';
-      final privateKey = RSAPrivateKey.fromPEM(privateKeyPEM);
+      final devicePrivateKey = RSAPrivateKey.fromPEM(devicePrivateKeyPEM);
+
+      const userPrivateKeyPEM = '''
+-----BEGIN RSA PRIVATE KEY-----
+MIIB1wIBADANBgkqhkiG9w0BAQEFAASCAcEwggG9AgEAAl4BimSPD4wH/LwlJk3H
+dj6FCPqwZDBgLQQGVZsC6iZuCRMOH9paXuCOSBMw6l9IDrHy23jEasfu6tOnA/vy
+QP01oPa0Kkp7qUFdN/eVHOdfBp0KKEPhr6bGGr1Lh+BJAgMBAAECXgFFGmWPVEgV
+PuaEr6LXRuwVHckfnXz6PpIWKQR7DZiw5ENFYJIUGZlPsnolCMv2JzvKc66MYlnK
+G+I+Lpm9mc2bPbj3aq8vh25mjiyn2mgB9AdlGoDNcW4QN8pisQ0CLxnR3uq23oPB
+1hpR/eU+vU5iQ1/ZwKZUf24CihDFGpS9je1X43TYCRDMH3sMFttXAi8PRlpU/AdO
+xpqZYcoilhhu/numcU1qEBgiDiTuTHizVGw/OwmDeq3SHjJLhMV9XwIvAVwonbxc
+JByFpoVDFlwjpIlQezABEcHJpIXFt/Rp3gPOAf5rILBwac4WqmiMm6kCLwSYBgbV
+HWWFuW0zydUJCyQmiQ2PudaSLI/hbR32Bb75PuztVnkiZjBxQHMR5UtFAi8TXKJV
+4gkQHdyTMlUgtwTItoS5AWmZU5FUJbDva9S3JerKrTkbeslJiHEhSYrbZw==
+-----END RSA PRIVATE KEY-----
+''';
+      final userPrivateKey = RSAPrivateKey.fromPEM(userPrivateKeyPEM);
 
       const subject =
           'AOXrekPv+79XU82vEXx5WiA9WREus8uYYkfijtKdl4ggWRvvykaY5hQP7OT5P7iKSCzjmO7yNQTuXDJXYtWo/1Pq0AYSVrA3y37pNYr8d/WZklfvQtxIB6o/HTG6pUd1kER7QxVkP7RSHvw/9PU=';
 
-      expect(
-        PushNotification.fromEncrypted(
-          json.decode(
-            '{"priority":"priority","type":"type","subject":"$subject"}',
-          ) as Map<String, dynamic>,
-          'accountID',
-          privateKey,
-        ),
-        equalsBuilt(createPushNotification()),
-      );
+      test('Valid signature', () {
+        const signature =
+            'AFhc8Bp2PFwbrsqr9Ygk9T4JRwaqnsojvJ0MnkMIKpX8TYe0/SWj1bVQhWamMQ1uQ3xeFIOFHP3AkoqJ+id7f9CpqETOSqTrUHDFDedCbb8Lwoa95q4lnchDvI6Hbw==';
+
+        expect(
+          PushNotification.fromEncrypted(
+            json.decode(
+              '{"priority":"priority","type":"type","subject":"$subject","signature":"$signature"}',
+            ) as Map<String, dynamic>,
+            'accountID',
+            devicePrivateKey,
+            userPrivateKey.publicKey,
+          ),
+          equalsBuilt(createPushNotification()),
+        );
+      });
+
+      test('Invalid signature', () {
+        const signature = 'abcd';
+
+        expect(
+          () => PushNotification.fromEncrypted(
+            json.decode(
+              '{"priority":"priority","type":"type","subject":"$subject","signature":"$signature"}',
+            ) as Map<String, dynamic>,
+            'accountID',
+            devicePrivateKey,
+            userPrivateKey.publicKey,
+          ),
+          throwsA(
+            isA<Exception>().having(
+              (e) => e.toString(),
+              'toString',
+              'Exception: Failed to verify push notification signature!',
+            ),
+          ),
+        );
+      });
     });
   });
 }
