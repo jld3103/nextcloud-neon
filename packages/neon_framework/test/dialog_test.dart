@@ -386,6 +386,7 @@ void main() {
               filesVersionsCapabilities: null,
               notesCapabilities: null,
               notificationsCapabilities: null,
+              passwordPolicyCapabilities: null,
               provisioningApiCapabilities: null,
               sharebymailCapabilities: null,
               spreedCapabilities: null,

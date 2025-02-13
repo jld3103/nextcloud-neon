@@ -1574,6 +1574,59 @@
                     }
                 }
             },
+            "PasswordPolicyCapabilities": {
+                "type": "object",
+                "required": [
+                    "password_policy"
+                ],
+                "properties": {
+                    "password_policy": {
+                        "type": "object",
+                        "required": [
+                            "minLength",
+                            "enforceNonCommonPassword",
+                            "enforceNumericCharacters",
+                            "enforceSpecialCharacters",
+                            "enforceUpperLowerCase",
+                            "api"
+                        ],
+                        "properties": {
+                            "minLength": {
+                                "type": "integer",
+                                "format": "int64",
+                                "minimum": 0
+                            },
+                            "enforceNonCommonPassword": {
+                                "type": "boolean"
+                            },
+                            "enforceNumericCharacters": {
+                                "type": "boolean"
+                            },
+                            "enforceSpecialCharacters": {
+                                "type": "boolean"
+                            },
+                            "enforceUpperLowerCase": {
+                                "type": "boolean"
+                            },
+                            "api": {
+                                "type": "object",
+                                "required": [
+                                    "generate",
+                                    "validate"
+                                ],
+                                "properties": {
+                                    "generate": {
+                                        "type": "string"
+                                    },
+                                    "validate": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "ProvisioningApiCapabilities": {
                 "type": "object",
                 "required": [
@@ -4172,6 +4225,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/NotificationsCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/PasswordPolicyCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/ProvisioningApiCapabilities"

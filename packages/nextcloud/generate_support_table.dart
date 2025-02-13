@@ -10,6 +10,7 @@ final labels = <String, String>{
   'news': '[News app](https://github.com/nextcloud/news)',
   'notes': '[Notes app](https://github.com/nextcloud/notes)',
   'notifications': '[Notifications app](https://github.com/nextcloud/notifications)',
+  'password_policy': '[Password Policy app](https://github.com/nextcloud/password_policy)',
   'spreed': '[Talk app](https://github.com/nextcloud/spreed)',
   'tables': '[Tables app](https://github.com/nextcloud/tables)',
   'uppush': '[NextPush app](https://codeberg.org/NextPush/uppush)',
@@ -36,6 +37,7 @@ void main() {
   }
 
   support['notifications'] = support['server']!;
+  support['password_policy'] = support['server']!;
 
   support = Map.fromEntries(
     support.entries.sorted((a, b) {

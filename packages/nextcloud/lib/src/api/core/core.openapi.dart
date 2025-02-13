@@ -14031,6 +14031,204 @@ abstract class NotificationsCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface {
+  String get generate;
+  String get validate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface rebuild(
+    void Function($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilities_PasswordPolicy_ApiInterfaceBuilder b) {}
+}
+
+abstract class PasswordPolicyCapabilities_PasswordPolicy_Api
+    implements
+        $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface,
+        Built<PasswordPolicyCapabilities_PasswordPolicy_Api, PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder> {
+  /// Creates a new PasswordPolicyCapabilities_PasswordPolicy_Api object using the builder pattern.
+  factory PasswordPolicyCapabilities_PasswordPolicy_Api([
+    void Function(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder)? b,
+  ]) = _$PasswordPolicyCapabilities_PasswordPolicy_Api;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities_PasswordPolicy_Api._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities_PasswordPolicy_Api.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities_PasswordPolicy_Api.
+  static Serializer<PasswordPolicyCapabilities_PasswordPolicy_Api> get serializer =>
+      _$passwordPolicyCapabilitiesPasswordPolicyApiSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicy_ApiInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilities_PasswordPolicyInterface {
+  int get minLength;
+  bool get enforceNonCommonPassword;
+  bool get enforceNumericCharacters;
+  bool get enforceSpecialCharacters;
+  bool get enforceUpperLowerCase;
+  PasswordPolicyCapabilities_PasswordPolicy_Api get api;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicyInterface rebuild(
+    void Function($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder].
+  $PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilities_PasswordPolicyInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.minLength,
+      'minLength',
+      minimum: 0,
+    );
+  }
+}
+
+abstract class PasswordPolicyCapabilities_PasswordPolicy
+    implements
+        $PasswordPolicyCapabilities_PasswordPolicyInterface,
+        Built<PasswordPolicyCapabilities_PasswordPolicy, PasswordPolicyCapabilities_PasswordPolicyBuilder> {
+  /// Creates a new PasswordPolicyCapabilities_PasswordPolicy object using the builder pattern.
+  factory PasswordPolicyCapabilities_PasswordPolicy([
+    void Function(PasswordPolicyCapabilities_PasswordPolicyBuilder)? b,
+  ]) = _$PasswordPolicyCapabilities_PasswordPolicy;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities_PasswordPolicy._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities_PasswordPolicy.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities_PasswordPolicy.
+  static Serializer<PasswordPolicyCapabilities_PasswordPolicy> get serializer =>
+      _$passwordPolicyCapabilitiesPasswordPolicySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilities_PasswordPolicyBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicyInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilities_PasswordPolicyBuilder b) {
+    $PasswordPolicyCapabilities_PasswordPolicyInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PasswordPolicyCapabilitiesInterface {
+  @BuiltValueField(wireName: 'password_policy')
+  PasswordPolicyCapabilities_PasswordPolicy get passwordPolicy;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PasswordPolicyCapabilitiesInterfaceBuilder].
+  $PasswordPolicyCapabilitiesInterface rebuild(void Function($PasswordPolicyCapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PasswordPolicyCapabilitiesInterfaceBuilder].
+  $PasswordPolicyCapabilitiesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PasswordPolicyCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PasswordPolicyCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class PasswordPolicyCapabilities
+    implements
+        $PasswordPolicyCapabilitiesInterface,
+        Built<PasswordPolicyCapabilities, PasswordPolicyCapabilitiesBuilder> {
+  /// Creates a new PasswordPolicyCapabilities object using the builder pattern.
+  factory PasswordPolicyCapabilities([void Function(PasswordPolicyCapabilitiesBuilder)? b]) =
+      _$PasswordPolicyCapabilities;
+
+  // coverage:ignore-start
+  const PasswordPolicyCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PasswordPolicyCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PasswordPolicyCapabilities.
+  static Serializer<PasswordPolicyCapabilities> get serializer => _$passwordPolicyCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PasswordPolicyCapabilitiesBuilder b) {
+    $PasswordPolicyCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PasswordPolicyCapabilitiesBuilder b) {
+    $PasswordPolicyCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ProvisioningApiCapabilities_ProvisioningApiInterface {
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
@@ -16000,6 +16198,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   FilesVersionsCapabilities? filesVersionsCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
+  PasswordPolicyCapabilities? passwordPolicyCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedCapabilities? spreedCapabilities,
@@ -27064,13 +27263,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer;
+      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._fromJson(json);
+      $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._fromJson(json);
 }
 
 /// Serialization extension for `TaskProcessingTaskType_InputShapeDefaults`.
@@ -27474,7 +27673,7 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
+typedef _$f800ec38bc53f35ef8f05fc4ee2dc2b1 = ({
   CommentsCapabilities? commentsCapabilities,
   CoreCapabilities? coreCapabilities,
   CorePublicCapabilities? corePublicCapabilities,
@@ -27486,6 +27685,7 @@ typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
   FilesVersionsCapabilities? filesVersionsCapabilities,
   NotesCapabilities? notesCapabilities,
   NotificationsCapabilities? notificationsCapabilities,
+  PasswordPolicyCapabilities? passwordPolicyCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
   SpreedCapabilities? spreedCapabilities,
@@ -27499,7 +27699,7 @@ typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18ba5aabd7f48 {
+extension $f800ec38bc53f35ef8f05fc4ee2dc2b1Extension on _$f800ec38bc53f35ef8f05fc4ee2dc2b1 {
   List<dynamic> get _values => [
         commentsCapabilities,
         coreCapabilities,
@@ -27512,6 +27712,7 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
         filesVersionsCapabilities,
         notesCapabilities,
         notificationsCapabilities,
+        passwordPolicyCapabilities,
         provisioningApiCapabilities,
         sharebymailCapabilities,
         spreedCapabilities,
@@ -27534,6 +27735,7 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
         'filesVersionsCapabilities',
         'notesCapabilities',
         'notificationsCapabilities',
+        'passwordPolicyCapabilities',
         'provisioningApiCapabilities',
         'sharebymailCapabilities',
         'spreedCapabilities',
@@ -27556,9 +27758,9 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
         _values,
         _names,
       );
-  static Serializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> get _serializer =>
-      const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
-  static _$ff3cbb941adc0f0f38f18ba5aabd7f48 _fromJson(Object? json) =>
+  static Serializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> get _serializer =>
+      const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
+  static _$f800ec38bc53f35ef8f05fc4ee2dc2b1 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -27567,19 +27769,19 @@ extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18b
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> {
-  const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
+class _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer implements PrimitiveSerializer<_$f800ec38bc53f35ef8f05fc4ee2dc2b1> {
+  const _$f800ec38bc53f35ef8f05fc4ee2dc2b1Serializer();
 
   @override
-  Iterable<Type> get types => const [_$ff3cbb941adc0f0f38f18ba5aabd7f48];
+  Iterable<Type> get types => const [_$f800ec38bc53f35ef8f05fc4ee2dc2b1];
 
   @override
-  String get wireName => r'_$ff3cbb941adc0f0f38f18ba5aabd7f48';
+  String get wireName => r'_$f800ec38bc53f35ef8f05fc4ee2dc2b1';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$ff3cbb941adc0f0f38f18ba5aabd7f48 object, {
+    _$f800ec38bc53f35ef8f05fc4ee2dc2b1 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -27627,6 +27829,10 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(NotificationsCapabilities))!;
     }
+    value = object.passwordPolicyCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(PasswordPolicyCapabilities))!;
+    }
     value = object.provisioningApiCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ProvisioningApiCapabilities))!;
@@ -27668,7 +27874,7 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$ff3cbb941adc0f0f38f18ba5aabd7f48 deserialize(
+  _$f800ec38bc53f35ef8f05fc4ee2dc2b1 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -27750,6 +27956,13 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
         specifiedType: const FullType(NotificationsCapabilities),
       )! as NotificationsCapabilities;
     } catch (_) {}
+    PasswordPolicyCapabilities? passwordPolicyCapabilities;
+    try {
+      passwordPolicyCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(PasswordPolicyCapabilities),
+      )! as PasswordPolicyCapabilities;
+    } catch (_) {}
     ProvisioningApiCapabilities? provisioningApiCapabilities;
     try {
       provisioningApiCapabilities = serializers.deserialize(
@@ -27827,6 +28040,7 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
       filesVersionsCapabilities: filesVersionsCapabilities,
       notesCapabilities: notesCapabilities,
       notificationsCapabilities: notificationsCapabilities,
+      passwordPolicyCapabilities: passwordPolicyCapabilities,
       provisioningApiCapabilities: provisioningApiCapabilities,
       sharebymailCapabilities: sharebymailCapabilities,
       spreedCapabilities: spreedCapabilities,
@@ -28488,6 +28702,18 @@ final Serializers _$serializers = (Serializers().toBuilder()
         NotificationsCapabilities_NotificationsBuilder.new,
       )
       ..add(NotificationsCapabilities_Notifications.serializer)
+      ..addBuilderFactory(const FullType(PasswordPolicyCapabilities), PasswordPolicyCapabilitiesBuilder.new)
+      ..add(PasswordPolicyCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(PasswordPolicyCapabilities_PasswordPolicy),
+        PasswordPolicyCapabilities_PasswordPolicyBuilder.new,
+      )
+      ..add(PasswordPolicyCapabilities_PasswordPolicy.serializer)
+      ..addBuilderFactory(
+        const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api),
+        PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder.new,
+      )
+      ..add(PasswordPolicyCapabilities_PasswordPolicy_Api.serializer)
       ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilitiesBuilder.new)
       ..add(ProvisioningApiCapabilities.serializer)
       ..addBuilderFactory(
@@ -28604,7 +28830,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer)
+      ..add($f800ec38bc53f35ef8f05fc4ee2dc2b1Extension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
       ..add(PreviewGetPreviewMode.serializer)
@@ -29432,7 +29658,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$ff3cbb941adc0f0f38f18ba5aabd7f48,
+            _$f800ec38bc53f35ef8f05fc4ee2dc2b1,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,
           },

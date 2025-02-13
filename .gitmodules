@@ -31,3 +31,6 @@
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
+[submodule "external/nextcloud-password_policy"]
+	path = external/nextcloud-password_policy
+	url = https://github.com/nextcloud/password_policy.git

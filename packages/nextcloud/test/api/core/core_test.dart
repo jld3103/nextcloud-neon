@@ -71,6 +71,7 @@ void main() {
         expect(response.body.ocs.data.capabilities.filesVersionsCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.notesCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.notificationsCapabilities, isNotNull);
+        expect(response.body.ocs.data.capabilities.passwordPolicyCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
         expect(response.body.ocs.data.capabilities.spreedPublicCapabilities, isNotNull);

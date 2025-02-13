@@ -82,6 +82,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities() =>
           filesVersionsCapabilities: null,
           notesCapabilities: null,
           notificationsCapabilities: null,
+          passwordPolicyCapabilities: null,
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
           spreedCapabilities: null,
