@@ -35,7 +35,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install libsqlite3-0 libsqlite3-dev -y --no-install-recommends
 
       - name: Install dart
-        uses: dart-lang/setup-dart@e630b99d28a3b71860378cafdc2a067c71107f94 # v1
+        uses: dart-lang/setup-dart@e51d8e571e22473a2ddebf0ef8a2123f0ab2c02c # v1
         with:
           sdk: 3.5
       - name: Setup
