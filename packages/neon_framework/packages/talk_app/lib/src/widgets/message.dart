@@ -83,11 +83,13 @@ class TalkMessagePreview extends StatelessWidget {
               ),
             ),
           buildRichTextSpan(
+            account: NeonProvider.of<Account>(context),
             text: chatMessage.message,
+            isMarkdown: false,
             parameters: chatMessage.messageParameters,
             references: BuiltList(),
             isPreview: true,
-            style: Theme.of(context).textTheme.bodyMedium!,
+            textStyle: Theme.of(context).textTheme.bodyMedium!,
             onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
         ],
@@ -174,10 +176,12 @@ class TalkSystemMessage extends StatelessWidget {
       child: Center(
         child: RichText(
           text: buildRichTextSpan(
+            account: NeonProvider.of<Account>(context),
             text: chatMessage.message,
+            isMarkdown: chatMessage.markdown,
             parameters: chatMessage.messageParameters,
             references: BuiltList(),
-            style: Theme.of(context).textTheme.labelSmall!,
+            textStyle: Theme.of(context).textTheme.labelSmall!,
             onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
         ),
@@ -377,11 +381,13 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
 
         Widget text = Text.rich(
           buildRichTextSpan(
+            account: NeonProvider.of<Account>(context),
             text: widget.chatMessage.message,
+            isMarkdown: widget.chatMessage.markdown && !widget.isParent,
             parameters: widget.chatMessage.messageParameters,
             isPreview: widget.isParent,
             references: references.keys.toBuiltList(),
-            style: textTheme.bodyLarge!.copyWith(
+            textStyle: textTheme.bodyLarge!.copyWith(
               color: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
                   ? labelColor
                   : null,

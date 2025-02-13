@@ -25,10 +25,12 @@ class NotificationsNotification extends StatelessWidget {
     final subject = notification.subjectRichParameters!.isNotEmpty
         ? Text.rich(
             buildRichTextSpan(
+              account: NeonProvider.of<Account>(context),
               text: notification.subjectRich!,
+              isMarkdown: false,
               parameters: notification.subjectRichParameters!,
               references: BuiltList(),
-              style: Theme.of(context).textTheme.bodyLarge!,
+              textStyle: Theme.of(context).textTheme.bodyLarge!,
               onReferenceClicked: (_) {},
             ),
           )
@@ -37,10 +39,12 @@ class NotificationsNotification extends StatelessWidget {
     final message = notification.messageRichParameters!.isNotEmpty
         ? Text.rich(
             buildRichTextSpan(
+              account: NeonProvider.of<Account>(context),
               text: notification.messageRich!,
+              isMarkdown: false,
               parameters: notification.messageRichParameters!,
               references: BuiltList(),
-              style: Theme.of(context).textTheme.bodyMedium!,
+              textStyle: Theme.of(context).textTheme.bodyMedium!,
               onReferenceClicked: (_) {},
             ),
             overflow: TextOverflow.ellipsis,
