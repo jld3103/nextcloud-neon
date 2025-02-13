@@ -96,6 +96,8 @@ class $Client extends _i1.DynamiteClient {
 
   late final $TranslationApiClient translationApi = $TranslationApiClient(this);
 
+  late final $TwoFactorApiClient twoFactorApi = $TwoFactorApiClient(this);
+
   late final $UnifiedSearchClient unifiedSearch = $UnifiedSearchClient(this);
 
   late final $WhatsNewClient whatsNew = $WhatsNewClient(this);
@@ -2890,6 +2892,83 @@ class $PreviewClient {
 
     final _serializer = $getPreviewByFileId_Serializer();
     return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$getMimeIconUrl_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, PreviewPreviewGetMimeIconUrlHeaders> $getMimeIconUrl_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: const FullType(PreviewPreviewGetMimeIconUrlHeaders),
+        serializers: _$jsonSerializers,
+        validStatuses: const {303},
+      );
+
+  /// Get a preview by mime.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getMimeIconUrl] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mime] Mime type. Defaults to `"application/octet-stream"`.
+  ///
+  /// Status codes:
+  ///   * 303: The mime icon url
+  ///
+  /// See:
+  ///  * [getMimeIconUrl] for a method executing this request and parsing the response.
+  ///  * [$getMimeIconUrl_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getMimeIconUrl_Request({String? mime}) {
+    final _parameters = <String, Object?>{};
+    var __mime = _$jsonSerializers.serialize(mime, specifiedType: const FullType(String));
+    __mime ??= 'application/octet-stream';
+    _parameters['mime'] = __mime;
+
+    final _path = _i6.UriTemplate('/index.php/core/mimeicon{?mime*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a preview by mime.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [mime] Mime type. Defaults to `"application/octet-stream"`.
+  ///
+  /// Status codes:
+  ///   * 303: The mime icon url
+  ///
+  /// See:
+  ///  * [$getMimeIconUrl_Request] for the request send by this method.
+  ///  * [$getMimeIconUrl_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, PreviewPreviewGetMimeIconUrlHeaders>> getMimeIconUrl({String? mime}) async {
+    final _request = $getMimeIconUrl_Request(
+      mime: mime,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $getMimeIconUrl_Serializer();
+    return _i1.ResponseConverter<void, PreviewPreviewGetMimeIconUrlHeaders>(_serializer).convert(_response);
   }
 }
 
@@ -6629,6 +6708,302 @@ class $TranslationApiClient {
 
     final _serializer = $translate_Serializer();
     return _i1.ResponseConverter<TranslationApiTranslateResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+}
+
+class $TwoFactorApiClient {
+  /// Creates a new `DynamiteClient` for two_factor_api requests.
+  $TwoFactorApiClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$state_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiStateResponseApplicationJson, void> $state_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiStateResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get two factor authentication provider states.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [state] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [user] system user id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [state] for a method executing this request and parsing the response.
+  ///  * [$state_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $state_Request({
+    required String user,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __user = _$jsonSerializers.serialize(user, specifiedType: const FullType(String));
+    _parameters['user'] = __user;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/twofactor/state{?user*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get two factor authentication provider states.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [user] system user id.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$state_Request] for the request send by this method.
+  ///  * [$state_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiStateResponseApplicationJson, void>> state({
+    required String user,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $state_Request(
+      user: user,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $state_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiStateResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$enable_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiEnableResponseApplicationJson, void> $enable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiEnableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Enable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [enable] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [enable] for a method executing this request and parsing the response.
+  ///  * [$enable_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $enable_Request({
+    required TwoFactorApiEnableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/twofactor/enable';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TwoFactorApiEnableRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Enable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$enable_Request] for the request send by this method.
+  ///  * [$enable_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiEnableResponseApplicationJson, void>> enable({
+    required TwoFactorApiEnableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $enable_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $enable_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiEnableResponseApplicationJson, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$disable_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TwoFactorApiDisableResponseApplicationJson, void> $disable_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TwoFactorApiDisableResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Disable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [disable] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [disable] for a method executing this request and parsing the response.
+  ///  * [$disable_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $disable_Request({
+    required TwoFactorApiDisableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) {
+    const _path = '/ocs/v2.php/twofactor/disable';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
+
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TwoFactorApiDisableRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Disable two factor authentication providers for specific user.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: provider states
+  ///   * 404: user not found
+  ///
+  /// See:
+  ///  * [$disable_Request] for the request send by this method.
+  ///  * [$disable_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TwoFactorApiDisableResponseApplicationJson, void>> disable({
+    required TwoFactorApiDisableRequestApplicationJson $body,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $disable_Request(
+      oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $disable_Serializer();
+    return _i1.ResponseConverter<TwoFactorApiDisableResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -12196,6 +12571,10 @@ abstract class CommentsCapabilities
 sealed class $DavCapabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
+  @BuiltValueField(wireName: 'absence-supported')
+  bool? get absenceSupported;
+  @BuiltValueField(wireName: 'absence-replacement')
+  bool? get absenceReplacement;
 
   /// Rebuilds the instance.
   ///
@@ -12491,6 +12870,137 @@ abstract class DropAccountCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $FilesCapabilities_Files_ChunkedUploadInterface {
+  @BuiltValueField(wireName: 'max_size')
+  int get maxSize;
+  @BuiltValueField(wireName: 'max_parallel_count')
+  int get maxParallelCount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FilesCapabilities_Files_ChunkedUploadInterfaceBuilder].
+  $FilesCapabilities_Files_ChunkedUploadInterface rebuild(
+    void Function($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$FilesCapabilities_Files_ChunkedUploadInterfaceBuilder].
+  $FilesCapabilities_Files_ChunkedUploadInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder b) {}
+}
+
+abstract class FilesCapabilities_Files_ChunkedUpload
+    implements
+        $FilesCapabilities_Files_ChunkedUploadInterface,
+        Built<FilesCapabilities_Files_ChunkedUpload, FilesCapabilities_Files_ChunkedUploadBuilder> {
+  /// Creates a new FilesCapabilities_Files_ChunkedUpload object using the builder pattern.
+  factory FilesCapabilities_Files_ChunkedUpload([void Function(FilesCapabilities_Files_ChunkedUploadBuilder)? b]) =
+      _$FilesCapabilities_Files_ChunkedUpload;
+
+  // coverage:ignore-start
+  const FilesCapabilities_Files_ChunkedUpload._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FilesCapabilities_Files_ChunkedUpload.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FilesCapabilities_Files_ChunkedUpload.
+  static Serializer<FilesCapabilities_Files_ChunkedUpload> get serializer =>
+      _$filesCapabilitiesFilesChunkedUploadSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FilesCapabilities_Files_ChunkedUploadBuilder b) {
+    $FilesCapabilities_Files_ChunkedUploadInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FilesCapabilities_Files_ChunkedUploadBuilder b) {
+    $FilesCapabilities_Files_ChunkedUploadInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $FilesCapabilities_Files_FileConversionsInterface {
+  String get from;
+  String get to;
+  @BuiltValueField(wireName: 'extension')
+  String get $extension;
+  String get displayName;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FilesCapabilities_Files_FileConversionsInterfaceBuilder].
+  $FilesCapabilities_Files_FileConversionsInterface rebuild(
+    void Function($FilesCapabilities_Files_FileConversionsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$FilesCapabilities_Files_FileConversionsInterfaceBuilder].
+  $FilesCapabilities_Files_FileConversionsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FilesCapabilities_Files_FileConversionsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FilesCapabilities_Files_FileConversionsInterfaceBuilder b) {}
+}
+
+abstract class FilesCapabilities_Files_FileConversions
+    implements
+        $FilesCapabilities_Files_FileConversionsInterface,
+        Built<FilesCapabilities_Files_FileConversions, FilesCapabilities_Files_FileConversionsBuilder> {
+  /// Creates a new FilesCapabilities_Files_FileConversions object using the builder pattern.
+  factory FilesCapabilities_Files_FileConversions([void Function(FilesCapabilities_Files_FileConversionsBuilder)? b]) =
+      _$FilesCapabilities_Files_FileConversions;
+
+  // coverage:ignore-start
+  const FilesCapabilities_Files_FileConversions._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FilesCapabilities_Files_FileConversions.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FilesCapabilities_Files_FileConversions.
+  static Serializer<FilesCapabilities_Files_FileConversions> get serializer =>
+      _$filesCapabilitiesFilesFileConversionsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FilesCapabilities_Files_FileConversionsBuilder b) {
+    $FilesCapabilities_Files_FileConversionsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FilesCapabilities_Files_FileConversionsBuilder b) {
+    $FilesCapabilities_Files_FileConversionsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
@@ -12569,6 +13079,10 @@ sealed class $FilesCapabilities_FilesInterface {
   BuiltList<String> get forbiddenFilenameCharacters;
   @BuiltValueField(wireName: 'forbidden_filename_extensions')
   BuiltList<String> get forbiddenFilenameExtensions;
+  @BuiltValueField(wireName: 'chunked_upload')
+  FilesCapabilities_Files_ChunkedUpload? get chunkedUpload;
+  @BuiltValueField(wireName: 'file_conversions')
+  BuiltList<FilesCapabilities_Files_FileConversions>? get fileConversions;
   FilesCapabilities_Files_DirectEditing get directEditing;
 
   /// Rebuilds the instance.
@@ -12958,6 +13472,8 @@ sealed class $FilesSharingCapabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+  @BuiltValueField(wireName: 'custom_tokens')
+  bool? get customTokens;
 
   /// Rebuilds the instance.
   ///
@@ -13673,6 +14189,8 @@ abstract class FilesSharingCapabilities
 @BuiltValue(instantiable: false)
 sealed class $FilesTrashbinCapabilities_FilesInterface {
   bool get undelete;
+  @BuiltValueField(wireName: 'delete_from_trash')
+  bool? get deleteFromTrash;
 
   /// Rebuilds the instance.
   ///
@@ -14160,44 +14678,44 @@ abstract class ProvisioningApiCapabilities
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
+        $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14208,126 +14726,61 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailUploadFilesDropSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface {
-  bool get enabled;
-  bool get enforced;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-}
-
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
-    implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_Password object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
-
-  // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_Password._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_Password.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailPasswordSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
     implements
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate([
-    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
+        $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_Password object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14338,67 +14791,132 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailExpireDateSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_Password.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharing_SharebymailInterface {
+sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+  bool get enabled;
+  bool get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+}
+
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    implements
+        $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
+    void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+
+  // coverage:ignore-start
+  const SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $SharebymailCapabilities_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
   @BuiltValueField(wireName: 'upload_files_drop')
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  SharebymailCapabilities0_FilesSharing_Sharebymail_Password get password;
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_SharebymailInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_SharebymailInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
+abstract class SharebymailCapabilities_FilesSharing_Sharebymail
     implements
-        $SharebymailCapabilities0_FilesSharing_SharebymailInterface,
-        Built<SharebymailCapabilities0_FilesSharing_Sharebymail,
-            SharebymailCapabilities0_FilesSharing_SharebymailBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing_Sharebymail object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail([
-    void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail;
+        $SharebymailCapabilities_FilesSharing_SharebymailInterface,
+        Built<SharebymailCapabilities_FilesSharing_Sharebymail,
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing_Sharebymail([
+    void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
+  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing_Sharebymail._();
+  const SharebymailCapabilities_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14409,58 +14927,58 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing_Sharebymail.
-  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSharebymailSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing_Sharebymail.
+  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSharebymailSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharing_SharebymailBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_SharebymailInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharing_SharebymailBuilder b) {
+    $SharebymailCapabilities_FilesSharing_SharebymailInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharing_SharebymailBuilder b) {
-    $SharebymailCapabilities0_FilesSharing_SharebymailInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharing_SharebymailBuilder b) {
+    $SharebymailCapabilities_FilesSharing_SharebymailInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0_FilesSharingInterface {
-  SharebymailCapabilities0_FilesSharing_Sharebymail get sharebymail;
+sealed class $SharebymailCapabilities_FilesSharingInterface {
+  SharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0_FilesSharingInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharingInterface rebuild(
-    void Function($SharebymailCapabilities0_FilesSharingInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$SharebymailCapabilities_FilesSharingInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharingInterface rebuild(
+    void Function($SharebymailCapabilities_FilesSharingInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0_FilesSharingInterfaceBuilder].
-  $SharebymailCapabilities0_FilesSharingInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilities_FilesSharingInterfaceBuilder].
+  $SharebymailCapabilities_FilesSharingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilities_FilesSharingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilities_FilesSharingInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0_FilesSharing
+abstract class SharebymailCapabilities_FilesSharing
     implements
-        $SharebymailCapabilities0_FilesSharingInterface,
-        Built<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder> {
-  /// Creates a new SharebymailCapabilities0_FilesSharing object using the builder pattern.
-  factory SharebymailCapabilities0_FilesSharing([void Function(SharebymailCapabilities0_FilesSharingBuilder)? b]) =
-      _$SharebymailCapabilities0_FilesSharing;
+        $SharebymailCapabilities_FilesSharingInterface,
+        Built<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder> {
+  /// Creates a new SharebymailCapabilities_FilesSharing object using the builder pattern.
+  factory SharebymailCapabilities_FilesSharing([void Function(SharebymailCapabilities_FilesSharingBuilder)? b]) =
+      _$SharebymailCapabilities_FilesSharing;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0_FilesSharing._();
+  const SharebymailCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14471,54 +14989,54 @@ abstract class SharebymailCapabilities0_FilesSharing
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0_FilesSharing.
-  static Serializer<SharebymailCapabilities0_FilesSharing> get serializer =>
-      _$sharebymailCapabilities0FilesSharingSerializer;
+  /// Serializer for SharebymailCapabilities_FilesSharing.
+  static Serializer<SharebymailCapabilities_FilesSharing> get serializer =>
+      _$sharebymailCapabilitiesFilesSharingSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0_FilesSharingBuilder b) {
-    $SharebymailCapabilities0_FilesSharingInterface._defaults(b);
+  static void _defaults(SharebymailCapabilities_FilesSharingBuilder b) {
+    $SharebymailCapabilities_FilesSharingInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0_FilesSharingBuilder b) {
-    $SharebymailCapabilities0_FilesSharingInterface._validate(b);
+  static void _validate(SharebymailCapabilities_FilesSharingBuilder b) {
+    $SharebymailCapabilities_FilesSharingInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SharebymailCapabilities0Interface {
+sealed class $SharebymailCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
-  SharebymailCapabilities0_FilesSharing get filesSharing;
+  SharebymailCapabilities_FilesSharing? get filesSharing;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SharebymailCapabilities0InterfaceBuilder].
-  $SharebymailCapabilities0Interface rebuild(void Function($SharebymailCapabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$SharebymailCapabilitiesInterfaceBuilder].
+  $SharebymailCapabilitiesInterface rebuild(void Function($SharebymailCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SharebymailCapabilities0InterfaceBuilder].
-  $SharebymailCapabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SharebymailCapabilitiesInterfaceBuilder].
+  $SharebymailCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SharebymailCapabilities0InterfaceBuilder b) {}
+  static void _defaults($SharebymailCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SharebymailCapabilities0InterfaceBuilder b) {}
+  static void _validate($SharebymailCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SharebymailCapabilities0
-    implements $SharebymailCapabilities0Interface, Built<SharebymailCapabilities0, SharebymailCapabilities0Builder> {
-  /// Creates a new SharebymailCapabilities0 object using the builder pattern.
-  factory SharebymailCapabilities0([void Function(SharebymailCapabilities0Builder)? b]) = _$SharebymailCapabilities0;
+abstract class SharebymailCapabilities
+    implements $SharebymailCapabilitiesInterface, Built<SharebymailCapabilities, SharebymailCapabilitiesBuilder> {
+  /// Creates a new SharebymailCapabilities object using the builder pattern.
+  factory SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? b]) = _$SharebymailCapabilities;
 
   // coverage:ignore-start
-  const SharebymailCapabilities0._();
+  const SharebymailCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SharebymailCapabilities0.fromJson(Map<String, dynamic> json) =>
+  factory SharebymailCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14529,24 +15047,19 @@ abstract class SharebymailCapabilities0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SharebymailCapabilities0.
-  static Serializer<SharebymailCapabilities0> get serializer => _$sharebymailCapabilities0Serializer;
+  /// Serializer for SharebymailCapabilities.
+  static Serializer<SharebymailCapabilities> get serializer => _$sharebymailCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SharebymailCapabilities0Builder b) {
-    $SharebymailCapabilities0Interface._defaults(b);
+  static void _defaults(SharebymailCapabilitiesBuilder b) {
+    $SharebymailCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SharebymailCapabilities0Builder b) {
-    $SharebymailCapabilities0Interface._validate(b);
+  static void _validate(SharebymailCapabilitiesBuilder b) {
+    $SharebymailCapabilitiesInterface._validate(b);
   }
 }
-
-typedef SharebymailCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SharebymailCapabilities0? sharebymailCapabilities0
-});
 
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_Config_AttachmentsInterface {
@@ -14631,6 +15144,14 @@ sealed class $SpreedCapabilities_Config_CallInterface {
   bool get sipDialoutEnabled;
   @BuiltValueField(wireName: 'can-enable-sip')
   bool get canEnableSip;
+  @BuiltValueField(wireName: 'start-without-media')
+  bool? get startWithoutMedia;
+  @BuiltValueField(wireName: 'max-duration')
+  int? get maxDuration;
+  @BuiltValueField(wireName: 'blur-virtual-background')
+  bool? get blurVirtualBackground;
+  @BuiltValueField(wireName: 'end-to-end-encryption')
+  bool? get endToEndEncryption;
 
   /// Rebuilds the instance.
   ///
@@ -14697,8 +15218,12 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   int get readPrivacy;
   @BuiltValueField(wireName: 'has-translation-providers')
   bool get hasTranslationProviders;
+  @BuiltValueField(wireName: 'has-translation-task-providers')
+  bool? get hasTranslationTaskProviders;
   @BuiltValueField(wireName: 'typing-privacy')
   int get typingPrivacy;
+  @BuiltValueField(wireName: 'summary-threshold')
+  int? get summaryThreshold;
 
   /// Rebuilds the instance.
   ///
@@ -14713,7 +15238,13 @@ sealed class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.summaryThreshold,
+      'summaryThreshold',
+      minimum: 1,
+    );
+  }
 }
 
 abstract class SpreedCapabilities_Config_Chat
@@ -14757,10 +15288,86 @@ abstract class SpreedCapabilities_Config_Chat
   }
 }
 
+class SpreedCapabilities_Config_Conversations_ListStyle extends EnumClass {
+  const SpreedCapabilities_Config_Conversations_ListStyle._(super.name);
+
+  /// `two-lines`
+  @BuiltValueEnumConst(wireName: 'two-lines')
+  static const SpreedCapabilities_Config_Conversations_ListStyle twoLines =
+      _$spreedCapabilitiesConfigConversationsListStyleTwoLines;
+
+  /// `compact`
+  static const SpreedCapabilities_Config_Conversations_ListStyle compact =
+      _$spreedCapabilitiesConfigConversationsListStyleCompact;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SpreedCapabilities_Config_Conversations_ListStyle> get values =>
+      _$spreedCapabilitiesConfigConversationsListStyleValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SpreedCapabilities_Config_Conversations_ListStyle valueOf(String name) =>
+      _$valueOfSpreedCapabilities_Config_Conversations_ListStyle(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SpreedCapabilities_Config_Conversations_ListStyle.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SpreedCapabilities_Config_Conversations_ListStyle> get serializer =>
+      const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+}
+
+class _$SpreedCapabilities_Config_Conversations_ListStyleSerializer
+    implements PrimitiveSerializer<SpreedCapabilities_Config_Conversations_ListStyle> {
+  const _$SpreedCapabilities_Config_Conversations_ListStyleSerializer();
+
+  static const Map<SpreedCapabilities_Config_Conversations_ListStyle, Object> _toWire =
+      <SpreedCapabilities_Config_Conversations_ListStyle, Object>{
+    SpreedCapabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+    SpreedCapabilities_Config_Conversations_ListStyle.compact: 'compact',
+  };
+
+  static const Map<Object, SpreedCapabilities_Config_Conversations_ListStyle> _fromWire =
+      <Object, SpreedCapabilities_Config_Conversations_ListStyle>{
+    'two-lines': SpreedCapabilities_Config_Conversations_ListStyle.twoLines,
+    'compact': SpreedCapabilities_Config_Conversations_ListStyle.compact,
+  };
+
+  @override
+  Iterable<Type> get types => const [SpreedCapabilities_Config_Conversations_ListStyle];
+
+  @override
+  String get wireName => 'SpreedCapabilities_Config_Conversations_ListStyle';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SpreedCapabilities_Config_Conversations_ListStyle object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SpreedCapabilities_Config_Conversations_ListStyle deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
+  @BuiltValueField(wireName: 'force-passwords')
+  bool? get forcePasswords;
+  @BuiltValueField(wireName: 'list-style')
+  SpreedCapabilities_Config_Conversations_ListStyle? get listStyle;
+  @BuiltValueField(wireName: 'description-length')
+  int? get descriptionLength;
 
   /// Rebuilds the instance.
   ///
@@ -14775,7 +15382,13 @@ sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.descriptionLength,
+      'descriptionLength',
+      minimum: 1,
+    );
+  }
 }
 
 abstract class SpreedCapabilities_Config_Conversations
@@ -15140,37 +15753,37 @@ abstract class SpreedCapabilities
 }
 
 @BuiltValue(instantiable: false)
-sealed class $SpreedPublicCapabilities0Interface {
-  SpreedCapabilities get spreed;
+sealed class $SpreedPublicCapabilitiesInterface {
+  SpreedCapabilities? get spreed;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0Interface rebuild(void Function($SpreedPublicCapabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterface rebuild(void Function($SpreedPublicCapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$SpreedPublicCapabilities0InterfaceBuilder].
-  $SpreedPublicCapabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$SpreedPublicCapabilitiesInterfaceBuilder].
+  $SpreedPublicCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _defaults($SpreedPublicCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0InterfaceBuilder b) {}
+  static void _validate($SpreedPublicCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0
-    implements $SpreedPublicCapabilities0Interface, Built<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder> {
-  /// Creates a new SpreedPublicCapabilities0 object using the builder pattern.
-  factory SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? b]) = _$SpreedPublicCapabilities0;
+abstract class SpreedPublicCapabilities
+    implements $SpreedPublicCapabilitiesInterface, Built<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder> {
+  /// Creates a new SpreedPublicCapabilities object using the builder pattern.
+  factory SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? b]) = _$SpreedPublicCapabilities;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0._();
+  const SpreedPublicCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0.fromJson(Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15181,24 +15794,19 @@ abstract class SpreedPublicCapabilities0
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0.
-  static Serializer<SpreedPublicCapabilities0> get serializer => _$spreedPublicCapabilities0Serializer;
+  /// Serializer for SpreedPublicCapabilities.
+  static Serializer<SpreedPublicCapabilities> get serializer => _$spreedPublicCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._defaults(b);
+  static void _defaults(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0Builder b) {
-    $SpreedPublicCapabilities0Interface._validate(b);
+  static void _validate(SpreedPublicCapabilitiesBuilder b) {
+    $SpreedPublicCapabilitiesInterface._validate(b);
   }
 }
-
-typedef SpreedPublicCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
 
 class SystemtagsCapabilities_Systemtags_Enabled extends EnumClass {
   const SystemtagsCapabilities_Systemtags_Enabled._(super.name);
@@ -15386,6 +15994,7 @@ sealed class $TablesCapabilities_TablesInterface {
   String get version;
   BuiltList<String> get apiVersions;
   BuiltList<String> get features;
+  bool? get isCirclesEnabled;
   @BuiltValueField(wireName: 'column_types')
   BuiltList<String> get columnTypes;
 
@@ -16710,6 +17319,68 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PreviewPreviewGetMimeIconUrlHeadersInterface {
+  String? get location;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder].
+  $PreviewPreviewGetMimeIconUrlHeadersInterface rebuild(
+    void Function($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder].
+  $PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder b) {}
+}
+
+abstract class PreviewPreviewGetMimeIconUrlHeaders
+    implements
+        $PreviewPreviewGetMimeIconUrlHeadersInterface,
+        Built<PreviewPreviewGetMimeIconUrlHeaders, PreviewPreviewGetMimeIconUrlHeadersBuilder> {
+  /// Creates a new PreviewPreviewGetMimeIconUrlHeaders object using the builder pattern.
+  factory PreviewPreviewGetMimeIconUrlHeaders([void Function(PreviewPreviewGetMimeIconUrlHeadersBuilder)? b]) =
+      _$PreviewPreviewGetMimeIconUrlHeaders;
+
+  // coverage:ignore-start
+  const PreviewPreviewGetMimeIconUrlHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreviewPreviewGetMimeIconUrlHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreviewPreviewGetMimeIconUrlHeaders.
+  static Serializer<PreviewPreviewGetMimeIconUrlHeaders> get serializer =>
+      _$previewPreviewGetMimeIconUrlHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreviewPreviewGetMimeIconUrlHeadersBuilder b) {
+    $PreviewPreviewGetMimeIconUrlHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreviewPreviewGetMimeIconUrlHeadersBuilder b) {
+    $PreviewPreviewGetMimeIconUrlHeadersInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19341,16 +20012,16 @@ abstract class TaskProcessingTaskType_OptionalOutputShapeEnumValues
 sealed class $TaskProcessingTaskTypeInterface {
   String get name;
   String get description;
-  BuiltList<TaskProcessingShape> get inputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get inputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
   BuiltMap<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults;
-  BuiltList<TaskProcessingShape> get optionalInputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get optionalInputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
   BuiltMap<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults;
-  BuiltList<TaskProcessingShape> get outputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
-  BuiltList<TaskProcessingShape> get optionalOutputShape;
-  BuiltList<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get outputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
+  BuiltMap<String, TaskProcessingShape> get optionalOutputShape;
+  BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
 
   /// Rebuilds the instance.
   ///
@@ -19791,6 +20462,9 @@ sealed class $TaskProcessingTaskInterface {
   String? get customId;
   int? get completionExpectedAt;
   double? get progress;
+  int? get scheduledAt;
+  int? get startedAt;
+  int? get endedAt;
 
   /// Rebuilds the instance.
   ///
@@ -25382,6 +26056,537 @@ abstract class TranslationApiTranslateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $TwoFactorApiStateResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiStateResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiStateResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiStateResponseApplicationJson_Ocs, TwoFactorApiStateResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiStateResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiStateResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiStateResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiStateResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiStateResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiStateResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiStateResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiStateResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiStateResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiStateResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiStateResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiStateResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiStateResponseApplicationJsonInterface {
+  TwoFactorApiStateResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiStateResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiStateResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiStateResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiStateResponseApplicationJson
+    implements
+        $TwoFactorApiStateResponseApplicationJsonInterface,
+        Built<TwoFactorApiStateResponseApplicationJson, TwoFactorApiStateResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiStateResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiStateResponseApplicationJson([
+    void Function(TwoFactorApiStateResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiStateResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiStateResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiStateResponseApplicationJson.
+  static Serializer<TwoFactorApiStateResponseApplicationJson> get serializer =>
+      _$twoFactorApiStateResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiStateResponseApplicationJsonBuilder b) {
+    $TwoFactorApiStateResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiStateResponseApplicationJsonBuilder b) {
+    $TwoFactorApiStateResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableRequestApplicationJsonInterface {
+  static final _$providers = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  /// system user identifier.
+  String get user;
+
+  /// collection of TFA provider ids.
+  BuiltList<String> get providers;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableRequestApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder b) {
+    b.providers.replace(_$providers);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableRequestApplicationJson
+    implements
+        $TwoFactorApiEnableRequestApplicationJsonInterface,
+        Built<TwoFactorApiEnableRequestApplicationJson, TwoFactorApiEnableRequestApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiEnableRequestApplicationJson object using the builder pattern.
+  factory TwoFactorApiEnableRequestApplicationJson([
+    void Function(TwoFactorApiEnableRequestApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiEnableRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableRequestApplicationJson.
+  static Serializer<TwoFactorApiEnableRequestApplicationJson> get serializer =>
+      _$twoFactorApiEnableRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiEnableRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiEnableRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiEnableResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiEnableResponseApplicationJson_Ocs, TwoFactorApiEnableResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiEnableResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiEnableResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiEnableResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiEnableResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiEnableResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiEnableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiEnableResponseApplicationJsonInterface {
+  TwoFactorApiEnableResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiEnableResponseApplicationJson
+    implements
+        $TwoFactorApiEnableResponseApplicationJsonInterface,
+        Built<TwoFactorApiEnableResponseApplicationJson, TwoFactorApiEnableResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiEnableResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiEnableResponseApplicationJson([
+    void Function(TwoFactorApiEnableResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiEnableResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiEnableResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiEnableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiEnableResponseApplicationJson.
+  static Serializer<TwoFactorApiEnableResponseApplicationJson> get serializer =>
+      _$twoFactorApiEnableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiEnableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiEnableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiEnableResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableRequestApplicationJsonInterface {
+  static final _$providers = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  /// system user identifier.
+  String get user;
+
+  /// collection of TFA provider ids.
+  BuiltList<String> get providers;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableRequestApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder b) {
+    b.providers.replace(_$providers);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableRequestApplicationJson
+    implements
+        $TwoFactorApiDisableRequestApplicationJsonInterface,
+        Built<TwoFactorApiDisableRequestApplicationJson, TwoFactorApiDisableRequestApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiDisableRequestApplicationJson object using the builder pattern.
+  factory TwoFactorApiDisableRequestApplicationJson([
+    void Function(TwoFactorApiDisableRequestApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiDisableRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableRequestApplicationJson.
+  static Serializer<TwoFactorApiDisableRequestApplicationJson> get serializer =>
+      _$twoFactorApiDisableRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiDisableRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableRequestApplicationJsonBuilder b) {
+    $TwoFactorApiDisableRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltMap<String, bool> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJson_OcsInterface rebuild(
+    void Function($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableResponseApplicationJson_Ocs
+    implements
+        $TwoFactorApiDisableResponseApplicationJson_OcsInterface,
+        Built<TwoFactorApiDisableResponseApplicationJson_Ocs, TwoFactorApiDisableResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TwoFactorApiDisableResponseApplicationJson_Ocs object using the builder pattern.
+  factory TwoFactorApiDisableResponseApplicationJson_Ocs([
+    void Function(TwoFactorApiDisableResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TwoFactorApiDisableResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableResponseApplicationJson_Ocs.
+  static Serializer<TwoFactorApiDisableResponseApplicationJson_Ocs> get serializer =>
+      _$twoFactorApiDisableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableResponseApplicationJson_OcsBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TwoFactorApiDisableResponseApplicationJsonInterface {
+  TwoFactorApiDisableResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJsonInterface rebuild(
+    void Function($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder].
+  $TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TwoFactorApiDisableResponseApplicationJson
+    implements
+        $TwoFactorApiDisableResponseApplicationJsonInterface,
+        Built<TwoFactorApiDisableResponseApplicationJson, TwoFactorApiDisableResponseApplicationJsonBuilder> {
+  /// Creates a new TwoFactorApiDisableResponseApplicationJson object using the builder pattern.
+  factory TwoFactorApiDisableResponseApplicationJson([
+    void Function(TwoFactorApiDisableResponseApplicationJsonBuilder)? b,
+  ]) = _$TwoFactorApiDisableResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TwoFactorApiDisableResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TwoFactorApiDisableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TwoFactorApiDisableResponseApplicationJson.
+  static Serializer<TwoFactorApiDisableResponseApplicationJson> get serializer =>
+      _$twoFactorApiDisableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TwoFactorApiDisableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TwoFactorApiDisableResponseApplicationJsonBuilder b) {
+    $TwoFactorApiDisableResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UnifiedSearchProviderInterface {
   String get id;
   String get appId;
@@ -27034,30 +28239,6 @@ extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
   static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `SharebymailCapabilities`.
-extension $SharebymailCapabilitiesExtension on SharebymailCapabilities {
-  /// Serializer for SharebymailCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SharebymailCapabilities> get serializer => $46564992d3ed3482aa6c1162698aac99Extension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static SharebymailCapabilities fromJson(Object? json) => $46564992d3ed3482aa6c1162698aac99Extension._fromJson(json);
-}
-
-/// Serialization extension for `SpreedPublicCapabilities`.
-extension $SpreedPublicCapabilitiesExtension on SpreedPublicCapabilities {
-  /// Serializer for SpreedPublicCapabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SpreedPublicCapabilities> get serializer => $06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static SpreedPublicCapabilities fromJson(Object? json) => $06c2e47196a84ebc3718dccf9eb4b29dExtension._fromJson(json);
-}
-
 /// Serialization extension for `OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities`.
 extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
     on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
@@ -27301,176 +28482,6 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
       )! as String;
     } catch (_) {}
     return ($int: $int, string: string);
-  }
-}
-
-typedef _$46564992d3ed3482aa6c1162698aac99 = ({
-  BuiltList<Never>? builtListNever,
-  SharebymailCapabilities0? sharebymailCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c1162698aac99 {
-  List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
-  List<String> get _names => const ['builtListNever', 'sharebymailCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$46564992d3ed3482aa6c1162698aac99> get _serializer =>
-      const _$46564992d3ed3482aa6c1162698aac99Serializer();
-  static _$46564992d3ed3482aa6c1162698aac99 _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$46564992d3ed3482aa6c1162698aac99Serializer implements PrimitiveSerializer<_$46564992d3ed3482aa6c1162698aac99> {
-  const _$46564992d3ed3482aa6c1162698aac99Serializer();
-
-  @override
-  Iterable<Type> get types => const [_$46564992d3ed3482aa6c1162698aac99];
-
-  @override
-  String get wireName => r'_$46564992d3ed3482aa6c1162698aac99';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$46564992d3ed3482aa6c1162698aac99 object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.sharebymailCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$46564992d3ed3482aa6c1162698aac99 deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    SharebymailCapabilities0? sharebymailCapabilities0;
-    try {
-      sharebymailCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities0),
-      )! as SharebymailCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, sharebymailCapabilities0: sharebymailCapabilities0);
-  }
-}
-
-typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
-  List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
-  List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i5.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i5.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$06c2e47196a84ebc3718dccf9eb4b29d> get _serializer =>
-      const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-  static _$06c2e47196a84ebc3718dccf9eb4b29d _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerializer<_$06c2e47196a84ebc3718dccf9eb4b29d> {
-  const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
-
-  @override
-  Iterable<Type> get types => const [_$06c2e47196a84ebc3718dccf9eb4b29d];
-
-  @override
-  String get wireName => r'_$06c2e47196a84ebc3718dccf9eb4b29d';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$06c2e47196a84ebc3718dccf9eb4b29d object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.spreedPublicCapabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$06c2e47196a84ebc3718dccf9eb4b29d deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    SpreedPublicCapabilities0? spreedPublicCapabilities0;
-    try {
-      spreedPublicCapabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SpreedPublicCapabilities0),
-      )! as SpreedPublicCapabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, spreedPublicCapabilities0: spreedPublicCapabilities0);
   }
 }
 
@@ -27759,11 +28770,10 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = (serializers.deserialize(
+      sharebymailCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(SharebymailCapabilities),
-      )! as SharebymailCapabilities)
-        ..validateOneOf();
+      )! as SharebymailCapabilities;
     } catch (_) {}
     SpreedCapabilities? spreedCapabilities;
     try {
@@ -27774,11 +28784,10 @@ class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerialize
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = (serializers.deserialize(
+      spreedPublicCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(SpreedPublicCapabilities),
-      )! as SpreedPublicCapabilities)
-        ..validateOneOf();
+      )! as SpreedPublicCapabilities;
     } catch (_) {}
     SystemtagsCapabilities? systemtagsCapabilities;
     try {
@@ -28397,6 +29406,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(FilesCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(
+        const FullType(FilesCapabilities_Files_ChunkedUpload),
+        FilesCapabilities_Files_ChunkedUploadBuilder.new,
+      )
+      ..add(FilesCapabilities_Files_ChunkedUpload.serializer)
+      ..addBuilderFactory(
+        const FullType(FilesCapabilities_Files_FileConversions),
+        FilesCapabilities_Files_FileConversionsBuilder.new,
+      )
+      ..add(FilesCapabilities_Files_FileConversions.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)]),
+        ListBuilder<FilesCapabilities_Files_FileConversions>.new,
+      )
+      ..addBuilderFactory(
         const FullType(FilesCapabilities_Files_DirectEditing),
         FilesCapabilities_Files_DirectEditingBuilder.new,
       )
@@ -28495,35 +29518,33 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
       )
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0Builder.new)
-      ..add(SharebymailCapabilities0.serializer)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
+      ..add(SharebymailCapabilities.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing),
-        SharebymailCapabilities0_FilesSharingBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing),
+        SharebymailCapabilities_FilesSharingBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing.serializer)
+      ..add(SharebymailCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail),
-        SharebymailCapabilities0_FilesSharing_SharebymailBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
+        SharebymailCapabilities_FilesSharing_SharebymailBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
+        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_Password.serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
+        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
+        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
-      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($46564992d3ed3482aa6c1162698aac99Extension._serializer)
+      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(SpreedCapabilities), SpreedCapabilitiesBuilder.new)
       ..add(SpreedCapabilities.serializer)
       ..addBuilderFactory(const FullType(SpreedCapabilities_Config), SpreedCapabilities_ConfigBuilder.new)
@@ -28542,6 +29563,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SpreedCapabilities_Config_ConversationsBuilder.new,
       )
       ..add(SpreedCapabilities_Config_Conversations.serializer)
+      ..add(SpreedCapabilities_Config_Conversations_ListStyle.serializer)
       ..addBuilderFactory(
         const FullType(SpreedCapabilities_Config_Federation),
         SpreedCapabilities_Config_FederationBuilder.new,
@@ -28564,9 +29586,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<String>>.new,
       )
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
-      ..add(SpreedPublicCapabilities0.serializer)
-      ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
+      ..add(SpreedPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
       ..add(SystemtagsCapabilities.serializer)
       ..addBuilderFactory(
@@ -28613,6 +29634,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
       ..add(PreviewGetPreviewByFileIdMode.serializer)
       ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
+      ..addBuilderFactory(
+        const FullType(PreviewPreviewGetMimeIconUrlHeaders),
+        PreviewPreviewGetMimeIconUrlHeadersBuilder.new,
+      )
+      ..add(PreviewPreviewGetMimeIconUrlHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityRequestApplicationJson),
         ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
@@ -28798,8 +29824,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TaskProcessingShape.serializer)
       ..add(TaskProcessingShape_Type.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingShape)]),
-        ListBuilder<TaskProcessingShape>.new,
+        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]),
+        MapBuilder<String, TaskProcessingShape>.new,
       )
       ..addBuilderFactory(
         const FullType(TaskProcessingTaskType_InputShapeEnumValues),
@@ -28811,10 +29837,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_InputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
       )
       ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
       ..addBuilderFactory(
@@ -28831,10 +29858,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OptionalInputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]),
@@ -28850,10 +29878,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OutputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues),
@@ -28865,10 +29894,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TaskProcessingTaskType_OptionalOutputShapeEnumValues>.new,
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [
+        const FullType(BuiltMap, [
+          FullType(String),
           FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
         ]),
-        ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
+        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]),
@@ -29317,6 +30347,47 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(TwoFactorApiStateResponseApplicationJson),
+        TwoFactorApiStateResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiStateResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiStateResponseApplicationJson_Ocs),
+        TwoFactorApiStateResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiStateResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(bool)]), MapBuilder<String, bool>.new)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableRequestApplicationJson),
+        TwoFactorApiEnableRequestApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiEnableRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableResponseApplicationJson),
+        TwoFactorApiEnableResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiEnableResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs),
+        TwoFactorApiEnableResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiEnableResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableRequestApplicationJson),
+        TwoFactorApiDisableRequestApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiDisableRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableResponseApplicationJson),
+        TwoFactorApiDisableResponseApplicationJsonBuilder.new,
+      )
+      ..add(TwoFactorApiDisableResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs),
+        TwoFactorApiDisableResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TwoFactorApiDisableResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
         const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
         UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
       )
@@ -29430,8 +30501,6 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
           typesToLeaveAsList: const {
             _$87e48e5649cd72b4d2947aaaea13ccd8,
             _$b2c4857c0136baea42828d89c87c757d,
-            _$46564992d3ed3482aa6c1162698aac99,
-            _$06c2e47196a84ebc3718dccf9eb4b29d,
             _$ff3cbb941adc0f0f38f18ba5aabd7f48,
             _$b6d67dc2a96424d2f407f8e51557f3de,
             _$17b504aaa197cb55522acb1f128f183a,

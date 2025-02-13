@@ -3,4 +3,4 @@ accept: application/json
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"roomType":3,"invite":"","roomName":"abc","source":"","objectType":"","objectId":""\}
+\{"roomType":3,"invite":"","roomName":"abc","source":"","objectType":"","objectId":"","password":""\}

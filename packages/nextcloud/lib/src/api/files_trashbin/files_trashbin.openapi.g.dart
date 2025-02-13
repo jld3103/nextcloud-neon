@@ -41,7 +41,13 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       'undelete',
       serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.deleteFromTrash;
+    if (value != null) {
+      result
+        ..add('delete_from_trash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -58,6 +64,9 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       switch (key) {
         case 'undelete':
           result.undelete = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'delete_from_trash':
+          result.deleteFromTrash = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -110,16 +119,21 @@ abstract mixin class $Capabilities_FilesInterfaceBuilder {
   void update(void Function($Capabilities_FilesInterfaceBuilder) updates);
   bool? get undelete;
   set undelete(bool? undelete);
+
+  bool? get deleteFromTrash;
+  set deleteFromTrash(bool? deleteFromTrash);
 }
 
 class _$Capabilities_Files extends Capabilities_Files {
   @override
   final bool undelete;
+  @override
+  final bool? deleteFromTrash;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
       (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$Capabilities_Files._({required this.undelete}) : super._() {
+  _$Capabilities_Files._({required this.undelete, this.deleteFromTrash}) : super._() {
     BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete');
   }
 
@@ -133,20 +147,24 @@ class _$Capabilities_Files extends Capabilities_Files {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Capabilities_Files && undelete == other.undelete;
+    return other is Capabilities_Files && undelete == other.undelete && deleteFromTrash == other.deleteFromTrash;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, undelete.hashCode);
+    _$hash = $jc(_$hash, deleteFromTrash.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_Files')..add('undelete', undelete)).toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_Files')
+          ..add('undelete', undelete)
+          ..add('deleteFromTrash', deleteFromTrash))
+        .toString();
   }
 }
 
@@ -158,6 +176,10 @@ class Capabilities_FilesBuilder
   bool? get undelete => _$this._undelete;
   set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
+  bool? _deleteFromTrash;
+  bool? get deleteFromTrash => _$this._deleteFromTrash;
+  set deleteFromTrash(covariant bool? deleteFromTrash) => _$this._deleteFromTrash = deleteFromTrash;
+
   Capabilities_FilesBuilder() {
     Capabilities_Files._defaults(this);
   }
@@ -166,6 +188,7 @@ class Capabilities_FilesBuilder
     final $v = _$v;
     if ($v != null) {
       _undelete = $v.undelete;
+      _deleteFromTrash = $v.deleteFromTrash;
       _$v = null;
     }
     return this;
@@ -190,6 +213,7 @@ class Capabilities_FilesBuilder
     final _$result = _$v ??
         _$Capabilities_Files._(
           undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'),
+          deleteFromTrash: deleteFromTrash,
         );
     replace(_$result);
     return _$result;

@@ -291,6 +291,11 @@ class $StatusesClient {
     _parameters['limit'] = __limit;
 
     final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _i5.checkNumber(
+      __offset,
+      'offset',
+      minimum: 0,
+    );
     _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
@@ -746,6 +751,7 @@ class $UserStatusClient {
   /// Status codes:
   ///   * 200: The message was updated successfully
   ///   * 400: The clearAt or icon is invalid or the message is too long
+  ///   * 404: No status for the current user
   ///
   /// See:
   ///  * [setCustomMessage] for a method executing this request and parsing the response.
@@ -808,6 +814,7 @@ class $UserStatusClient {
   /// Status codes:
   ///   * 200: The message was updated successfully
   ///   * 400: The clearAt or icon is invalid or the message is too long
+  ///   * 404: No status for the current user
   ///
   /// See:
   ///  * [$setCustomMessage_Request] for the request send by this method.
@@ -1642,7 +1649,6 @@ sealed class $PredefinedInterface {
   String get icon;
   String get message;
   ClearAt? get clearAt;
-  bool? get visible;
 
   /// Rebuilds the instance.
   ///

@@ -64,12 +64,9 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.S
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
           spreedCapabilities: null,
-          spreedPublicCapabilities: (
-            builtListNever: null,
-            spreedPublicCapabilities0: core.SpreedPublicCapabilities0(
-              (b) => b.spreed.replace(spreedCapabilities),
-            ),
-          ) as core.SpreedPublicCapabilities,
+          spreedPublicCapabilities: core.SpreedPublicCapabilities(
+            (b) => b.spreed.replace(spreedCapabilities),
+          ),
           systemtagsCapabilities: null,
           tablesCapabilities: null,
           themingPublicCapabilities: null,
@@ -158,7 +155,7 @@ void main() {
     test('Guest without name', () {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.actorDisplayName).thenReturn('');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.guests);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.guests);
 
       expect(getActorDisplayName(localizations, chatMessage), localizations.actorGuest);
     });
@@ -315,7 +312,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('');
       when(() => chatMessage.message).thenReturn('');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
@@ -397,7 +394,7 @@ void main() {
     when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage.timestamp).thenReturn(0);
     when(() => chatMessage.actorId).thenReturn('test');
-    when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+    when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('abc');
     when(() => chatMessage.reactions).thenReturn(BuiltMap());
@@ -432,7 +429,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -484,7 +481,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -536,7 +533,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.commentDeleted);
       when(() => chatMessage.message).thenReturn('abc');
@@ -624,7 +621,7 @@ void main() {
       final chatMessage = MockChatMessageWithParent();
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
@@ -695,7 +692,7 @@ void main() {
       when(() => chatMessage.id).thenReturn(0);
       when(() => chatMessage.timestamp).thenReturn(0);
       when(() => chatMessage.actorId).thenReturn('test');
-      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('a b c');
@@ -760,7 +757,7 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -810,7 +807,7 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(300);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -859,7 +856,7 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -909,7 +906,7 @@ void main() {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
@@ -964,7 +961,7 @@ void main() {
         chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
         when(() => chatMessage.actorId).thenReturn('test');
-        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorTypes.users);
         when(() => chatMessage.actorDisplayName).thenReturn('test');
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');

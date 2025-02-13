@@ -1,0 +1,33 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/UserDetails/required",
+    "value": [
+      "additional_mail",
+      "address",
+      "backend",
+      "backendCapabilities",
+      "biography",
+      "display-name",
+      "displayname",
+      "email",
+      "fediverse",
+      "groups",
+      "headline",
+      "id",
+      "language",
+      "lastLogin",
+      "locale",
+      "manager",
+      "notify_email",
+      "organisation",
+      "phone",
+      "profile_enabled",
+      "quota",
+      "role",
+      "subadmin",
+      "twitter",
+      "website"
+    ]
+  }
+]

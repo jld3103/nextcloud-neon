@@ -21,7 +21,7 @@ import 'testing.dart';
 
 spreed.Reaction getReaction() {
   final reaction = MockReaction();
-  when(() => reaction.actorType).thenReturn(spreed.ActorType.users);
+  when(() => reaction.actorType).thenReturn(spreed.ActorTypes.users);
   when(() => reaction.actorId).thenReturn('actorId');
   when(() => reaction.actorDisplayName).thenReturn('actorDisplayName');
   when(() => reaction.timestamp).thenReturn(0);

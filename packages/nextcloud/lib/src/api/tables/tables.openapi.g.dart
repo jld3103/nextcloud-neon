@@ -2483,6 +2483,8 @@ class _$ColumnSerializer implements StructuredSerializer<Column> {
       serializers.serialize(object.usergroupSelectUsers, specifiedType: const FullType(bool)),
       'usergroupSelectGroups',
       serializers.serialize(object.usergroupSelectGroups, specifiedType: const FullType(bool)),
+      'usergroupSelectTeams',
+      serializers.serialize(object.usergroupSelectTeams, specifiedType: const FullType(bool)),
       'showUserStatus',
       serializers.serialize(object.showUserStatus, specifiedType: const FullType(bool)),
     ];
@@ -2584,6 +2586,9 @@ class _$ColumnSerializer implements StructuredSerializer<Column> {
           break;
         case 'usergroupSelectGroups':
           result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'usergroupSelectTeams':
+          result.usergroupSelectTeams = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'showUserStatus':
           result.showUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -2726,6 +2731,12 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
         ..add('usergroupSelectGroups')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.usergroupSelectTeams;
+    if (value != null) {
+      result
+        ..add('usergroupSelectTeams')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.usergroupShowUserStatus;
     if (value != null) {
       result
@@ -2816,6 +2827,9 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
           break;
         case 'usergroupSelectGroups':
           result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectTeams':
+          result.usergroupSelectTeams = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'usergroupShowUserStatus':
           result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -2970,6 +2984,12 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
         ..add('usergroupSelectGroups')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.usergroupSelectTeams;
+    if (value != null) {
+      result
+        ..add('usergroupSelectTeams')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.usergroupShowUserStatus;
     if (value != null) {
       result
@@ -3066,6 +3086,9 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
           break;
         case 'usergroupSelectGroups':
           result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectTeams':
+          result.usergroupSelectTeams = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'usergroupShowUserStatus':
           result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -3210,6 +3233,12 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
         ..add('usergroupSelectGroups')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.usergroupSelectTeams;
+    if (value != null) {
+      result
+        ..add('usergroupSelectTeams')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.usergroupShowUserStatus;
     if (value != null) {
       result
@@ -3289,6 +3318,9 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
           break;
         case 'usergroupSelectGroups':
           result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectTeams':
+          result.usergroupSelectTeams = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'usergroupShowUserStatus':
           result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -4851,6 +4883,12 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
         ..add('usergroupSelectGroups')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.usergroupSelectTeams;
+    if (value != null) {
+      result
+        ..add('usergroupSelectTeams')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.showUserStatus;
     if (value != null) {
       result
@@ -4901,6 +4939,9 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
           break;
         case 'usergroupSelectGroups':
           result.usergroupSelectGroups = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'usergroupSelectTeams':
+          result.usergroupSelectTeams = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'showUserStatus':
           result.showUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -7502,7 +7543,13 @@ class _$Capabilities_TablesSerializer implements StructuredSerializer<Capabiliti
       'column_types',
       serializers.serialize(object.columnTypes, specifiedType: const FullType(BuiltList, [FullType(String)])),
     ];
-
+    Object? value;
+    value = object.isCirclesEnabled;
+    if (value != null) {
+      result
+        ..add('isCirclesEnabled')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -7530,6 +7577,9 @@ class _$Capabilities_TablesSerializer implements StructuredSerializer<Capabiliti
         case 'features':
           result.features.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'isCirclesEnabled':
+          result.isCirclesEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'column_types':
           result.columnTypes.replace(serializers.deserialize(value,
@@ -11410,6 +11460,9 @@ abstract mixin class $ColumnInterfaceBuilder {
   bool? get usergroupSelectGroups;
   set usergroupSelectGroups(bool? usergroupSelectGroups);
 
+  bool? get usergroupSelectTeams;
+  set usergroupSelectTeams(bool? usergroupSelectTeams);
+
   bool? get showUserStatus;
   set showUserStatus(bool? showUserStatus);
 }
@@ -11472,6 +11525,8 @@ class _$Column extends Column {
   @override
   final bool usergroupSelectGroups;
   @override
+  final bool usergroupSelectTeams;
+  @override
   final bool showUserStatus;
 
   factory _$Column([void Function(ColumnBuilder)? updates]) => (ColumnBuilder()..update(updates))._build();
@@ -11505,6 +11560,7 @@ class _$Column extends Column {
       required this.usergroupMultipleItems,
       required this.usergroupSelectUsers,
       required this.usergroupSelectGroups,
+      required this.usergroupSelectTeams,
       required this.showUserStatus})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Column', 'id');
@@ -11535,6 +11591,7 @@ class _$Column extends Column {
     BuiltValueNullFieldError.checkNotNull(usergroupMultipleItems, r'Column', 'usergroupMultipleItems');
     BuiltValueNullFieldError.checkNotNull(usergroupSelectUsers, r'Column', 'usergroupSelectUsers');
     BuiltValueNullFieldError.checkNotNull(usergroupSelectGroups, r'Column', 'usergroupSelectGroups');
+    BuiltValueNullFieldError.checkNotNull(usergroupSelectTeams, r'Column', 'usergroupSelectTeams');
     BuiltValueNullFieldError.checkNotNull(showUserStatus, r'Column', 'showUserStatus');
   }
 
@@ -11576,6 +11633,7 @@ class _$Column extends Column {
         usergroupMultipleItems == other.usergroupMultipleItems &&
         usergroupSelectUsers == other.usergroupSelectUsers &&
         usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupSelectTeams == other.usergroupSelectTeams &&
         showUserStatus == other.showUserStatus;
   }
 
@@ -11610,6 +11668,7 @@ class _$Column extends Column {
     _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
     _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
     _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectTeams.hashCode);
     _$hash = $jc(_$hash, showUserStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -11646,6 +11705,7 @@ class _$Column extends Column {
           ..add('usergroupMultipleItems', usergroupMultipleItems)
           ..add('usergroupSelectUsers', usergroupSelectUsers)
           ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupSelectTeams', usergroupSelectTeams)
           ..add('showUserStatus', showUserStatus))
         .toString();
   }
@@ -11768,6 +11828,10 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
   set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
       _$this._usergroupSelectGroups = usergroupSelectGroups;
 
+  bool? _usergroupSelectTeams;
+  bool? get usergroupSelectTeams => _$this._usergroupSelectTeams;
+  set usergroupSelectTeams(covariant bool? usergroupSelectTeams) => _$this._usergroupSelectTeams = usergroupSelectTeams;
+
   bool? _showUserStatus;
   bool? get showUserStatus => _$this._showUserStatus;
   set showUserStatus(covariant bool? showUserStatus) => _$this._showUserStatus = showUserStatus;
@@ -11807,6 +11871,7 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
       _usergroupMultipleItems = $v.usergroupMultipleItems;
       _usergroupSelectUsers = $v.usergroupSelectUsers;
       _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupSelectTeams = $v.usergroupSelectTeams;
       _showUserStatus = $v.showUserStatus;
       _$v = null;
     }
@@ -11863,6 +11928,8 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
               BuiltValueNullFieldError.checkNotNull(usergroupSelectUsers, r'Column', 'usergroupSelectUsers'),
           usergroupSelectGroups:
               BuiltValueNullFieldError.checkNotNull(usergroupSelectGroups, r'Column', 'usergroupSelectGroups'),
+          usergroupSelectTeams:
+              BuiltValueNullFieldError.checkNotNull(usergroupSelectTeams, r'Column', 'usergroupSelectTeams'),
           showUserStatus: BuiltValueNullFieldError.checkNotNull(showUserStatus, r'Column', 'showUserStatus'),
         );
     replace(_$result);
@@ -11936,6 +12003,9 @@ abstract mixin class $Api1CreateTableColumnRequestApplicationJsonInterfaceBuilde
   bool? get usergroupSelectGroups;
   set usergroupSelectGroups(bool? usergroupSelectGroups);
 
+  bool? get usergroupSelectTeams;
+  set usergroupSelectTeams(bool? usergroupSelectTeams);
+
   bool? get usergroupShowUserStatus;
   set usergroupShowUserStatus(bool? usergroupShowUserStatus);
 
@@ -11987,6 +12057,8 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
   @override
   final bool? usergroupSelectGroups;
   @override
+  final bool? usergroupSelectTeams;
+  @override
   final bool? usergroupShowUserStatus;
   @override
   final BuiltList<int>? selectedViewIds;
@@ -12017,6 +12089,7 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
       this.usergroupMultipleItems,
       this.usergroupSelectUsers,
       this.usergroupSelectGroups,
+      this.usergroupSelectTeams,
       this.usergroupShowUserStatus,
       this.selectedViewIds})
       : super._() {
@@ -12059,6 +12132,7 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
         usergroupMultipleItems == other.usergroupMultipleItems &&
         usergroupSelectUsers == other.usergroupSelectUsers &&
         usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupSelectTeams == other.usergroupSelectTeams &&
         usergroupShowUserStatus == other.usergroupShowUserStatus &&
         selectedViewIds == other.selectedViewIds;
   }
@@ -12087,6 +12161,7 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
     _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
     _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
     _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectTeams.hashCode);
     _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jc(_$hash, selectedViewIds.hashCode);
     _$hash = $jf(_$hash);
@@ -12117,6 +12192,7 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
           ..add('usergroupMultipleItems', usergroupMultipleItems)
           ..add('usergroupSelectUsers', usergroupSelectUsers)
           ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupSelectTeams', usergroupSelectTeams)
           ..add('usergroupShowUserStatus', usergroupShowUserStatus)
           ..add('selectedViewIds', selectedViewIds))
         .toString();
@@ -12215,6 +12291,10 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
   set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
       _$this._usergroupSelectGroups = usergroupSelectGroups;
 
+  bool? _usergroupSelectTeams;
+  bool? get usergroupSelectTeams => _$this._usergroupSelectTeams;
+  set usergroupSelectTeams(covariant bool? usergroupSelectTeams) => _$this._usergroupSelectTeams = usergroupSelectTeams;
+
   bool? _usergroupShowUserStatus;
   bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
   set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
@@ -12252,6 +12332,7 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
       _usergroupMultipleItems = $v.usergroupMultipleItems;
       _usergroupSelectUsers = $v.usergroupSelectUsers;
       _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupSelectTeams = $v.usergroupSelectTeams;
       _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _selectedViewIds = $v.selectedViewIds?.toBuilder();
       _$v = null;
@@ -12302,6 +12383,7 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
             usergroupMultipleItems: usergroupMultipleItems,
             usergroupSelectUsers: usergroupSelectUsers,
             usergroupSelectGroups: usergroupSelectGroups,
+            usergroupSelectTeams: usergroupSelectTeams,
             usergroupShowUserStatus: usergroupShowUserStatus,
             selectedViewIds: _selectedViewIds?.build(),
           );
@@ -12392,6 +12474,9 @@ abstract mixin class $Api1CreateColumnRequestApplicationJsonInterfaceBuilder {
   bool? get usergroupSelectGroups;
   set usergroupSelectGroups(bool? usergroupSelectGroups);
 
+  bool? get usergroupSelectTeams;
+  set usergroupSelectTeams(bool? usergroupSelectTeams);
+
   bool? get usergroupShowUserStatus;
   set usergroupShowUserStatus(bool? usergroupShowUserStatus);
 
@@ -12447,6 +12532,8 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
   @override
   final bool? usergroupSelectGroups;
   @override
+  final bool? usergroupSelectTeams;
+  @override
   final bool? usergroupShowUserStatus;
   @override
   final BuiltList<int>? selectedViewIds;
@@ -12479,6 +12566,7 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
       this.usergroupMultipleItems,
       this.usergroupSelectUsers,
       this.usergroupSelectGroups,
+      this.usergroupSelectTeams,
       this.usergroupShowUserStatus,
       this.selectedViewIds})
       : super._() {
@@ -12523,6 +12611,7 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
         usergroupMultipleItems == other.usergroupMultipleItems &&
         usergroupSelectUsers == other.usergroupSelectUsers &&
         usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupSelectTeams == other.usergroupSelectTeams &&
         usergroupShowUserStatus == other.usergroupShowUserStatus &&
         selectedViewIds == other.selectedViewIds;
   }
@@ -12553,6 +12642,7 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
     _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
     _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
     _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectTeams.hashCode);
     _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jc(_$hash, selectedViewIds.hashCode);
     _$hash = $jf(_$hash);
@@ -12585,6 +12675,7 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
           ..add('usergroupMultipleItems', usergroupMultipleItems)
           ..add('usergroupSelectUsers', usergroupSelectUsers)
           ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupSelectTeams', usergroupSelectTeams)
           ..add('usergroupShowUserStatus', usergroupShowUserStatus)
           ..add('selectedViewIds', selectedViewIds))
         .toString();
@@ -12691,6 +12782,10 @@ class Api1CreateColumnRequestApplicationJsonBuilder
   set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
       _$this._usergroupSelectGroups = usergroupSelectGroups;
 
+  bool? _usergroupSelectTeams;
+  bool? get usergroupSelectTeams => _$this._usergroupSelectTeams;
+  set usergroupSelectTeams(covariant bool? usergroupSelectTeams) => _$this._usergroupSelectTeams = usergroupSelectTeams;
+
   bool? _usergroupShowUserStatus;
   bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
   set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
@@ -12730,6 +12825,7 @@ class Api1CreateColumnRequestApplicationJsonBuilder
       _usergroupMultipleItems = $v.usergroupMultipleItems;
       _usergroupSelectUsers = $v.usergroupSelectUsers;
       _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupSelectTeams = $v.usergroupSelectTeams;
       _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _selectedViewIds = $v.selectedViewIds?.toBuilder();
       _$v = null;
@@ -12781,6 +12877,7 @@ class Api1CreateColumnRequestApplicationJsonBuilder
             usergroupMultipleItems: usergroupMultipleItems,
             usergroupSelectUsers: usergroupSelectUsers,
             usergroupSelectGroups: usergroupSelectGroups,
+            usergroupSelectTeams: usergroupSelectTeams,
             usergroupShowUserStatus: usergroupShowUserStatus,
             selectedViewIds: _selectedViewIds?.build(),
           );
@@ -12862,6 +12959,9 @@ abstract mixin class $Api1UpdateColumnRequestApplicationJsonInterfaceBuilder {
   bool? get usergroupSelectGroups;
   set usergroupSelectGroups(bool? usergroupSelectGroups);
 
+  bool? get usergroupSelectTeams;
+  set usergroupSelectTeams(bool? usergroupSelectTeams);
+
   bool? get usergroupShowUserStatus;
   set usergroupShowUserStatus(bool? usergroupShowUserStatus);
 }
@@ -12908,6 +13008,8 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
   @override
   final bool? usergroupSelectGroups;
   @override
+  final bool? usergroupSelectTeams;
+  @override
   final bool? usergroupShowUserStatus;
 
   factory _$Api1UpdateColumnRequestApplicationJson(
@@ -12935,6 +13037,7 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
       this.usergroupMultipleItems,
       this.usergroupSelectUsers,
       this.usergroupSelectGroups,
+      this.usergroupSelectTeams,
       this.usergroupShowUserStatus})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(mandatory, r'Api1UpdateColumnRequestApplicationJson', 'mandatory');
@@ -12973,6 +13076,7 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
         usergroupMultipleItems == other.usergroupMultipleItems &&
         usergroupSelectUsers == other.usergroupSelectUsers &&
         usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupSelectTeams == other.usergroupSelectTeams &&
         usergroupShowUserStatus == other.usergroupShowUserStatus;
   }
 
@@ -12999,6 +13103,7 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
     _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
     _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
     _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectTeams.hashCode);
     _$hash = $jc(_$hash, usergroupShowUserStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -13027,6 +13132,7 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
           ..add('usergroupMultipleItems', usergroupMultipleItems)
           ..add('usergroupSelectUsers', usergroupSelectUsers)
           ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupSelectTeams', usergroupSelectTeams)
           ..add('usergroupShowUserStatus', usergroupShowUserStatus))
         .toString();
   }
@@ -13120,6 +13226,10 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
   set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
       _$this._usergroupSelectGroups = usergroupSelectGroups;
 
+  bool? _usergroupSelectTeams;
+  bool? get usergroupSelectTeams => _$this._usergroupSelectTeams;
+  set usergroupSelectTeams(covariant bool? usergroupSelectTeams) => _$this._usergroupSelectTeams = usergroupSelectTeams;
+
   bool? _usergroupShowUserStatus;
   bool? get usergroupShowUserStatus => _$this._usergroupShowUserStatus;
   set usergroupShowUserStatus(covariant bool? usergroupShowUserStatus) =>
@@ -13152,6 +13262,7 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
       _usergroupMultipleItems = $v.usergroupMultipleItems;
       _usergroupSelectUsers = $v.usergroupSelectUsers;
       _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupSelectTeams = $v.usergroupSelectTeams;
       _usergroupShowUserStatus = $v.usergroupShowUserStatus;
       _$v = null;
     }
@@ -13197,6 +13308,7 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
           usergroupMultipleItems: usergroupMultipleItems,
           usergroupSelectUsers: usergroupSelectUsers,
           usergroupSelectGroups: usergroupSelectGroups,
+          usergroupSelectTeams: usergroupSelectTeams,
           usergroupShowUserStatus: usergroupShowUserStatus,
         );
     replace(_$result);
@@ -16885,6 +16997,9 @@ abstract mixin class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInter
   bool? get usergroupSelectGroups;
   set usergroupSelectGroups(bool? usergroupSelectGroups);
 
+  bool? get usergroupSelectTeams;
+  set usergroupSelectTeams(bool? usergroupSelectTeams);
+
   bool? get showUserStatus;
   set showUserStatus(bool? showUserStatus);
 
@@ -16916,6 +17031,8 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
   @override
   final bool? usergroupSelectGroups;
   @override
+  final bool? usergroupSelectTeams;
+  @override
   final bool? showUserStatus;
   @override
   final String? description;
@@ -16937,6 +17054,7 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
       this.usergroupMultipleItems,
       this.usergroupSelectUsers,
       this.usergroupSelectGroups,
+      this.usergroupSelectTeams,
       this.showUserStatus,
       this.description,
       this.selectedViewIds,
@@ -16971,6 +17089,7 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
         usergroupMultipleItems == other.usergroupMultipleItems &&
         usergroupSelectUsers == other.usergroupSelectUsers &&
         usergroupSelectGroups == other.usergroupSelectGroups &&
+        usergroupSelectTeams == other.usergroupSelectTeams &&
         showUserStatus == other.showUserStatus &&
         description == other.description &&
         selectedViewIds == other.selectedViewIds &&
@@ -16987,6 +17106,7 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
     _$hash = $jc(_$hash, usergroupMultipleItems.hashCode);
     _$hash = $jc(_$hash, usergroupSelectUsers.hashCode);
     _$hash = $jc(_$hash, usergroupSelectGroups.hashCode);
+    _$hash = $jc(_$hash, usergroupSelectTeams.hashCode);
     _$hash = $jc(_$hash, showUserStatus.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
     _$hash = $jc(_$hash, selectedViewIds.hashCode);
@@ -17005,6 +17125,7 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
           ..add('usergroupMultipleItems', usergroupMultipleItems)
           ..add('usergroupSelectUsers', usergroupSelectUsers)
           ..add('usergroupSelectGroups', usergroupSelectGroups)
+          ..add('usergroupSelectTeams', usergroupSelectTeams)
           ..add('showUserStatus', showUserStatus)
           ..add('description', description)
           ..add('selectedViewIds', selectedViewIds)
@@ -17047,6 +17168,10 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
   set usergroupSelectGroups(covariant bool? usergroupSelectGroups) =>
       _$this._usergroupSelectGroups = usergroupSelectGroups;
 
+  bool? _usergroupSelectTeams;
+  bool? get usergroupSelectTeams => _$this._usergroupSelectTeams;
+  set usergroupSelectTeams(covariant bool? usergroupSelectTeams) => _$this._usergroupSelectTeams = usergroupSelectTeams;
+
   bool? _showUserStatus;
   bool? get showUserStatus => _$this._showUserStatus;
   set showUserStatus(covariant bool? showUserStatus) => _$this._showUserStatus = showUserStatus;
@@ -17081,6 +17206,7 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
       _usergroupMultipleItems = $v.usergroupMultipleItems;
       _usergroupSelectUsers = $v.usergroupSelectUsers;
       _usergroupSelectGroups = $v.usergroupSelectGroups;
+      _usergroupSelectTeams = $v.usergroupSelectTeams;
       _showUserStatus = $v.showUserStatus;
       _description = $v.description;
       _selectedViewIds = $v.selectedViewIds?.toBuilder();
@@ -17119,6 +17245,7 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
             usergroupMultipleItems: usergroupMultipleItems,
             usergroupSelectUsers: usergroupSelectUsers,
             usergroupSelectGroups: usergroupSelectGroups,
+            usergroupSelectTeams: usergroupSelectTeams,
             showUserStatus: showUserStatus,
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
@@ -23739,6 +23866,9 @@ abstract mixin class $Capabilities_TablesInterfaceBuilder {
   ListBuilder<String> get features;
   set features(ListBuilder<String>? features);
 
+  bool? get isCirclesEnabled;
+  set isCirclesEnabled(bool? isCirclesEnabled);
+
   ListBuilder<String> get columnTypes;
   set columnTypes(ListBuilder<String>? columnTypes);
 }
@@ -23753,6 +23883,8 @@ class _$Capabilities_Tables extends Capabilities_Tables {
   @override
   final BuiltList<String> features;
   @override
+  final bool? isCirclesEnabled;
+  @override
   final BuiltList<String> columnTypes;
 
   factory _$Capabilities_Tables([void Function(Capabilities_TablesBuilder)? updates]) =>
@@ -23763,6 +23895,7 @@ class _$Capabilities_Tables extends Capabilities_Tables {
       required this.version,
       required this.apiVersions,
       required this.features,
+      this.isCirclesEnabled,
       required this.columnTypes})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Tables', 'enabled');
@@ -23787,6 +23920,7 @@ class _$Capabilities_Tables extends Capabilities_Tables {
         version == other.version &&
         apiVersions == other.apiVersions &&
         features == other.features &&
+        isCirclesEnabled == other.isCirclesEnabled &&
         columnTypes == other.columnTypes;
   }
 
@@ -23797,6 +23931,7 @@ class _$Capabilities_Tables extends Capabilities_Tables {
     _$hash = $jc(_$hash, version.hashCode);
     _$hash = $jc(_$hash, apiVersions.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, isCirclesEnabled.hashCode);
     _$hash = $jc(_$hash, columnTypes.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -23809,6 +23944,7 @@ class _$Capabilities_Tables extends Capabilities_Tables {
           ..add('version', version)
           ..add('apiVersions', apiVersions)
           ..add('features', features)
+          ..add('isCirclesEnabled', isCirclesEnabled)
           ..add('columnTypes', columnTypes))
         .toString();
   }
@@ -23834,6 +23970,10 @@ class Capabilities_TablesBuilder
   ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
   set features(covariant ListBuilder<String>? features) => _$this._features = features;
 
+  bool? _isCirclesEnabled;
+  bool? get isCirclesEnabled => _$this._isCirclesEnabled;
+  set isCirclesEnabled(covariant bool? isCirclesEnabled) => _$this._isCirclesEnabled = isCirclesEnabled;
+
   ListBuilder<String>? _columnTypes;
   ListBuilder<String> get columnTypes => _$this._columnTypes ??= ListBuilder<String>();
   set columnTypes(covariant ListBuilder<String>? columnTypes) => _$this._columnTypes = columnTypes;
@@ -23849,6 +23989,7 @@ class Capabilities_TablesBuilder
       _version = $v.version;
       _apiVersions = $v.apiVersions.toBuilder();
       _features = $v.features.toBuilder();
+      _isCirclesEnabled = $v.isCirclesEnabled;
       _columnTypes = $v.columnTypes.toBuilder();
       _$v = null;
     }
@@ -23879,6 +24020,7 @@ class Capabilities_TablesBuilder
             version: BuiltValueNullFieldError.checkNotNull(version, r'Capabilities_Tables', 'version'),
             apiVersions: apiVersions.build(),
             features: features.build(),
+            isCirclesEnabled: isCirclesEnabled,
             columnTypes: columnTypes.build(),
           );
     } catch (_) {
@@ -23888,6 +24030,7 @@ class Capabilities_TablesBuilder
         apiVersions.build();
         _$failedField = 'features';
         features.build();
+
         _$failedField = 'columnTypes';
         columnTypes.build();
       } catch (e) {

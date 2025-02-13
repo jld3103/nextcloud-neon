@@ -363,7 +363,7 @@ void main() {
       ]),
     );
     expect(
-      roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
+      roomBloc.room.transformResult((e) => e.lastMessage?.chatMessage?.id),
       emitsInOrder([
         Result<int>.loading(),
         Result.success(null),
@@ -727,7 +727,7 @@ void main() {
       ]),
     );
     expect(
-      roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
+      roomBloc.room.transformResult((e) => e.lastMessage?.chatMessage?.id),
       emitsInOrder([
         Result<int>.loading(),
         Result.success(null),

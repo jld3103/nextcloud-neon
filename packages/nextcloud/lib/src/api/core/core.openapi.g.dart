@@ -207,6 +207,30 @@ final BuiltSet<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _$ocmOcmDiscoveryH
   _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true,
 ]);
 
+const SpreedCapabilities_Config_Conversations_ListStyle _$spreedCapabilitiesConfigConversationsListStyleTwoLines =
+    SpreedCapabilities_Config_Conversations_ListStyle._('twoLines');
+const SpreedCapabilities_Config_Conversations_ListStyle _$spreedCapabilitiesConfigConversationsListStyleCompact =
+    SpreedCapabilities_Config_Conversations_ListStyle._('compact');
+
+SpreedCapabilities_Config_Conversations_ListStyle _$valueOfSpreedCapabilities_Config_Conversations_ListStyle(
+    String name) {
+  switch (name) {
+    case 'twoLines':
+      return _$spreedCapabilitiesConfigConversationsListStyleTwoLines;
+    case 'compact':
+      return _$spreedCapabilitiesConfigConversationsListStyleCompact;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SpreedCapabilities_Config_Conversations_ListStyle>
+    _$spreedCapabilitiesConfigConversationsListStyleValues = BuiltSet<
+        SpreedCapabilities_Config_Conversations_ListStyle>(const <SpreedCapabilities_Config_Conversations_ListStyle>[
+  _$spreedCapabilitiesConfigConversationsListStyleTwoLines,
+  _$spreedCapabilitiesConfigConversationsListStyleCompact,
+]);
+
 const SystemtagsCapabilities_Systemtags_Enabled _$systemtagsCapabilitiesSystemtagsEnabled$true =
     SystemtagsCapabilities_Systemtags_Enabled._('\$true');
 
@@ -824,6 +848,10 @@ Serializer<DropAccountCapabilities_DropAccount_Delay> _$dropAccountCapabilitiesD
 Serializer<DropAccountCapabilities_DropAccount> _$dropAccountCapabilitiesDropAccountSerializer =
     _$DropAccountCapabilities_DropAccountSerializer();
 Serializer<DropAccountCapabilities> _$dropAccountCapabilitiesSerializer = _$DropAccountCapabilitiesSerializer();
+Serializer<FilesCapabilities_Files_ChunkedUpload> _$filesCapabilitiesFilesChunkedUploadSerializer =
+    _$FilesCapabilities_Files_ChunkedUploadSerializer();
+Serializer<FilesCapabilities_Files_FileConversions> _$filesCapabilitiesFilesFileConversionsSerializer =
+    _$FilesCapabilities_Files_FileConversionsSerializer();
 Serializer<FilesCapabilities_Files_DirectEditing> _$filesCapabilitiesFilesDirectEditingSerializer =
     _$FilesCapabilities_Files_DirectEditingSerializer();
 Serializer<FilesCapabilities_Files> _$filesCapabilitiesFilesSerializer = _$FilesCapabilities_FilesSerializer();
@@ -879,21 +907,21 @@ Serializer<ProvisioningApiCapabilities_ProvisioningApi> _$provisioningApiCapabil
     _$ProvisioningApiCapabilities_ProvisioningApiSerializer();
 Serializer<ProvisioningApiCapabilities> _$provisioningApiCapabilitiesSerializer =
     _$ProvisioningApiCapabilitiesSerializer();
-Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop>
-    _$sharebymailCapabilities0FilesSharingSharebymailUploadFilesDropSerializer =
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
-Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password>
-    _$sharebymailCapabilities0FilesSharingSharebymailPasswordSerializer =
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer();
-Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate>
-    _$sharebymailCapabilities0FilesSharingSharebymailExpireDateSerializer =
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
-Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail>
-    _$sharebymailCapabilities0FilesSharingSharebymailSerializer =
-    _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer();
-Serializer<SharebymailCapabilities0_FilesSharing> _$sharebymailCapabilities0FilesSharingSerializer =
-    _$SharebymailCapabilities0_FilesSharingSerializer();
-Serializer<SharebymailCapabilities0> _$sharebymailCapabilities0Serializer = _$SharebymailCapabilities0Serializer();
+Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop>
+    _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer =
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password>
+    _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer =
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer();
+Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate>
+    _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer =
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer();
+Serializer<SharebymailCapabilities_FilesSharing_Sharebymail>
+    _$sharebymailCapabilitiesFilesSharingSharebymailSerializer =
+    _$SharebymailCapabilities_FilesSharing_SharebymailSerializer();
+Serializer<SharebymailCapabilities_FilesSharing> _$sharebymailCapabilitiesFilesSharingSerializer =
+    _$SharebymailCapabilities_FilesSharingSerializer();
+Serializer<SharebymailCapabilities> _$sharebymailCapabilitiesSerializer = _$SharebymailCapabilitiesSerializer();
 Serializer<SpreedCapabilities_Config_Attachments> _$spreedCapabilitiesConfigAttachmentsSerializer =
     _$SpreedCapabilities_Config_AttachmentsSerializer();
 Serializer<SpreedCapabilities_Config_Call> _$spreedCapabilitiesConfigCallSerializer =
@@ -910,7 +938,7 @@ Serializer<SpreedCapabilities_Config_Signaling> _$spreedCapabilitiesConfigSignal
     _$SpreedCapabilities_Config_SignalingSerializer();
 Serializer<SpreedCapabilities_Config> _$spreedCapabilitiesConfigSerializer = _$SpreedCapabilities_ConfigSerializer();
 Serializer<SpreedCapabilities> _$spreedCapabilitiesSerializer = _$SpreedCapabilitiesSerializer();
-Serializer<SpreedPublicCapabilities0> _$spreedPublicCapabilities0Serializer = _$SpreedPublicCapabilities0Serializer();
+Serializer<SpreedPublicCapabilities> _$spreedPublicCapabilitiesSerializer = _$SpreedPublicCapabilitiesSerializer();
 Serializer<SystemtagsCapabilities_Systemtags> _$systemtagsCapabilitiesSystemtagsSerializer =
     _$SystemtagsCapabilities_SystemtagsSerializer();
 Serializer<SystemtagsCapabilities> _$systemtagsCapabilitiesSerializer = _$SystemtagsCapabilitiesSerializer();
@@ -934,6 +962,8 @@ Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs> _$ocsGetCapabilitiesRe
     _$OcsGetCapabilitiesResponseApplicationJson_OcsSerializer();
 Serializer<OcsGetCapabilitiesResponseApplicationJson> _$ocsGetCapabilitiesResponseApplicationJsonSerializer =
     _$OcsGetCapabilitiesResponseApplicationJsonSerializer();
+Serializer<PreviewPreviewGetMimeIconUrlHeaders> _$previewPreviewGetMimeIconUrlHeadersSerializer =
+    _$PreviewPreviewGetMimeIconUrlHeadersSerializer();
 Serializer<ProfileApiSetVisibilityRequestApplicationJson> _$profileApiSetVisibilityRequestApplicationJsonSerializer =
     _$ProfileApiSetVisibilityRequestApplicationJsonSerializer();
 Serializer<ProfileApiSetVisibilityResponseApplicationJson_Ocs>
@@ -1276,6 +1306,22 @@ Serializer<TranslationApiTranslateResponseApplicationJson_Ocs>
     _$TranslationApiTranslateResponseApplicationJson_OcsSerializer();
 Serializer<TranslationApiTranslateResponseApplicationJson> _$translationApiTranslateResponseApplicationJsonSerializer =
     _$TranslationApiTranslateResponseApplicationJsonSerializer();
+Serializer<TwoFactorApiStateResponseApplicationJson_Ocs> _$twoFactorApiStateResponseApplicationJsonOcsSerializer =
+    _$TwoFactorApiStateResponseApplicationJson_OcsSerializer();
+Serializer<TwoFactorApiStateResponseApplicationJson> _$twoFactorApiStateResponseApplicationJsonSerializer =
+    _$TwoFactorApiStateResponseApplicationJsonSerializer();
+Serializer<TwoFactorApiEnableRequestApplicationJson> _$twoFactorApiEnableRequestApplicationJsonSerializer =
+    _$TwoFactorApiEnableRequestApplicationJsonSerializer();
+Serializer<TwoFactorApiEnableResponseApplicationJson_Ocs> _$twoFactorApiEnableResponseApplicationJsonOcsSerializer =
+    _$TwoFactorApiEnableResponseApplicationJson_OcsSerializer();
+Serializer<TwoFactorApiEnableResponseApplicationJson> _$twoFactorApiEnableResponseApplicationJsonSerializer =
+    _$TwoFactorApiEnableResponseApplicationJsonSerializer();
+Serializer<TwoFactorApiDisableRequestApplicationJson> _$twoFactorApiDisableRequestApplicationJsonSerializer =
+    _$TwoFactorApiDisableRequestApplicationJsonSerializer();
+Serializer<TwoFactorApiDisableResponseApplicationJson_Ocs> _$twoFactorApiDisableResponseApplicationJsonOcsSerializer =
+    _$TwoFactorApiDisableResponseApplicationJson_OcsSerializer();
+Serializer<TwoFactorApiDisableResponseApplicationJson> _$twoFactorApiDisableResponseApplicationJsonSerializer =
+    _$TwoFactorApiDisableResponseApplicationJsonSerializer();
 Serializer<UnifiedSearchProvider> _$unifiedSearchProviderSerializer = _$UnifiedSearchProviderSerializer();
 Serializer<UnifiedSearchGetProvidersResponseApplicationJson_Ocs>
     _$unifiedSearchGetProvidersResponseApplicationJsonOcsSerializer =
@@ -4737,6 +4783,18 @@ class _$DavCapabilities_DavSerializer implements StructuredSerializer<DavCapabil
         ..add('bulkupload')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.absenceSupported;
+    if (value != null) {
+      result
+        ..add('absence-supported')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.absenceReplacement;
+    if (value != null) {
+      result
+        ..add('absence-replacement')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -4756,6 +4814,12 @@ class _$DavCapabilities_DavSerializer implements StructuredSerializer<DavCapabil
           break;
         case 'bulkupload':
           result.bulkupload = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'absence-supported':
+          result.absenceSupported = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'absence-replacement':
+          result.absenceReplacement = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -4950,6 +5014,107 @@ class _$DropAccountCapabilitiesSerializer implements StructuredSerializer<DropAc
   }
 }
 
+class _$FilesCapabilities_Files_ChunkedUploadSerializer
+    implements StructuredSerializer<FilesCapabilities_Files_ChunkedUpload> {
+  @override
+  final Iterable<Type> types = const [FilesCapabilities_Files_ChunkedUpload, _$FilesCapabilities_Files_ChunkedUpload];
+  @override
+  final String wireName = 'FilesCapabilities_Files_ChunkedUpload';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, FilesCapabilities_Files_ChunkedUpload object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'max_size',
+      serializers.serialize(object.maxSize, specifiedType: const FullType(int)),
+      'max_parallel_count',
+      serializers.serialize(object.maxParallelCount, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  FilesCapabilities_Files_ChunkedUpload deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = FilesCapabilities_Files_ChunkedUploadBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'max_size':
+          result.maxSize = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'max_parallel_count':
+          result.maxParallelCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$FilesCapabilities_Files_FileConversionsSerializer
+    implements StructuredSerializer<FilesCapabilities_Files_FileConversions> {
+  @override
+  final Iterable<Type> types = const [
+    FilesCapabilities_Files_FileConversions,
+    _$FilesCapabilities_Files_FileConversions
+  ];
+  @override
+  final String wireName = 'FilesCapabilities_Files_FileConversions';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, FilesCapabilities_Files_FileConversions object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'from',
+      serializers.serialize(object.from, specifiedType: const FullType(String)),
+      'to',
+      serializers.serialize(object.to, specifiedType: const FullType(String)),
+      'extension',
+      serializers.serialize(object.$extension, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  FilesCapabilities_Files_FileConversions deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = FilesCapabilities_Files_FileConversionsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'from':
+          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'to':
+          result.to = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'extension':
+          result.$extension = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$FilesCapabilities_Files_DirectEditingSerializer
     implements StructuredSerializer<FilesCapabilities_Files_DirectEditing> {
   @override
@@ -5034,6 +5199,19 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
         ..add('\$comment')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.chunkedUpload;
+    if (value != null) {
+      result
+        ..add('chunked_upload')
+        ..add(serializers.serialize(value, specifiedType: const FullType(FilesCapabilities_Files_ChunkedUpload)));
+    }
+    value = object.fileConversions;
+    if (value != null) {
+      result
+        ..add('file_conversions')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)])));
+    }
     return result;
   }
 
@@ -5073,6 +5251,16 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
         case 'forbidden_filename_extensions':
           result.forbiddenFilenameExtensions.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'chunked_upload':
+          result.chunkedUpload.replace(
+              serializers.deserialize(value, specifiedType: const FullType(FilesCapabilities_Files_ChunkedUpload))!
+                  as FilesCapabilities_Files_ChunkedUpload);
+          break;
+        case 'file_conversions':
+          result.fileConversions.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)]))!
+              as BuiltList<Object?>);
           break;
         case 'directEditing':
           result.directEditing.replace(
@@ -5428,6 +5616,12 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
         ..add('upload_files_drop')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.customTokens;
+    if (value != null) {
+      result
+        ..add('custom_tokens')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -5476,6 +5670,9 @@ class _$FilesSharingCapabilities_FilesSharing_PublicSerializer
           break;
         case 'upload_files_drop':
           result.uploadFilesDrop = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'custom_tokens':
+          result.customTokens = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -6031,7 +6228,13 @@ class _$FilesTrashbinCapabilities_FilesSerializer implements StructuredSerialize
       'undelete',
       serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.deleteFromTrash;
+    if (value != null) {
+      result
+        ..add('delete_from_trash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -6048,6 +6251,9 @@ class _$FilesTrashbinCapabilities_FilesSerializer implements StructuredSerialize
       switch (key) {
         case 'undelete':
           result.undelete = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'delete_from_trash':
+          result.deleteFromTrash = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -6379,19 +6585,19 @@ class _$ProvisioningApiCapabilitiesSerializer implements StructuredSerializer<Pr
   }
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
-    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop> {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer
+    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+    SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
   ];
   @override
-  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop';
+  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop object,
+      Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -6402,10 +6608,10 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSeriali
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+    final result = SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6423,19 +6629,18 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSeriali
   }
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer
-    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password> {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer
+    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password
+    SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
   ];
   @override
-  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_Password';
+  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_Password';
 
   @override
-  Iterable<Object?> serialize(
-      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_Password object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_Password object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -6448,10 +6653,10 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_Password deserialize(
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+    final result = SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6472,19 +6677,19 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer
   }
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
-    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate> {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer
+    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
+    SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+    _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   ];
   @override
-  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate';
+  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate object,
+      Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -6497,10 +6702,10 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate deserialize(
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+    final result = SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6521,18 +6726,18 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
   }
 }
 
-class _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer
-    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail> {
+class _$SharebymailCapabilities_FilesSharing_SharebymailSerializer
+    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities0_FilesSharing_Sharebymail,
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail
+    SharebymailCapabilities_FilesSharing_Sharebymail,
+    _$SharebymailCapabilities_FilesSharing_Sharebymail
   ];
   @override
-  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail';
+  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -6541,22 +6746,22 @@ class _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer
       serializers.serialize(object.sendPasswordByMail, specifiedType: const FullType(bool)),
       'upload_files_drop',
       serializers.serialize(object.uploadFilesDrop,
-          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop)),
+          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop)),
       'password',
       serializers.serialize(object.password,
-          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password)),
+          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password)),
       'expire_date',
       serializers.serialize(object.expireDate,
-          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate)),
+          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate)),
     ];
 
     return result;
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0_FilesSharing_SharebymailBuilder();
+    final result = SharebymailCapabilities_FilesSharing_SharebymailBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6572,18 +6777,18 @@ class _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer
           break;
         case 'upload_files_drop':
           result.uploadFilesDrop.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop))!
-              as SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop);
+                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop))!
+              as SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop);
           break;
         case 'password':
           result.password.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password))!
-              as SharebymailCapabilities0_FilesSharing_Sharebymail_Password);
+                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password))!
+              as SharebymailCapabilities_FilesSharing_Sharebymail_Password);
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate))!
-              as SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate);
+                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate))!
+              as SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate);
           break;
       }
     }
@@ -6592,29 +6797,29 @@ class _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer
   }
 }
 
-class _$SharebymailCapabilities0_FilesSharingSerializer
-    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing> {
+class _$SharebymailCapabilities_FilesSharingSerializer
+    implements StructuredSerializer<SharebymailCapabilities_FilesSharing> {
   @override
-  final Iterable<Type> types = const [SharebymailCapabilities0_FilesSharing, _$SharebymailCapabilities0_FilesSharing];
+  final Iterable<Type> types = const [SharebymailCapabilities_FilesSharing, _$SharebymailCapabilities_FilesSharing];
   @override
-  final String wireName = 'SharebymailCapabilities0_FilesSharing';
+  final String wireName = 'SharebymailCapabilities_FilesSharing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0_FilesSharing object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'sharebymail',
       serializers.serialize(object.sharebymail,
-          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail)),
+          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail)),
     ];
 
     return result;
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0_FilesSharingBuilder();
+    final result = SharebymailCapabilities_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6624,8 +6829,8 @@ class _$SharebymailCapabilities0_FilesSharingSerializer
       switch (key) {
         case 'sharebymail':
           result.sharebymail.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail))!
-              as SharebymailCapabilities0_FilesSharing_Sharebymail);
+                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail))!
+              as SharebymailCapabilities_FilesSharing_Sharebymail);
           break;
       }
     }
@@ -6634,27 +6839,30 @@ class _$SharebymailCapabilities0_FilesSharingSerializer
   }
 }
 
-class _$SharebymailCapabilities0Serializer implements StructuredSerializer<SharebymailCapabilities0> {
+class _$SharebymailCapabilitiesSerializer implements StructuredSerializer<SharebymailCapabilities> {
   @override
-  final Iterable<Type> types = const [SharebymailCapabilities0, _$SharebymailCapabilities0];
+  final Iterable<Type> types = const [SharebymailCapabilities, _$SharebymailCapabilities];
   @override
-  final String wireName = 'SharebymailCapabilities0';
+  final String wireName = 'SharebymailCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0 object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'files_sharing',
-      serializers.serialize(object.filesSharing, specifiedType: const FullType(SharebymailCapabilities0_FilesSharing)),
-    ];
-
+    final result = <Object?>[];
+    Object? value;
+    value = object.filesSharing;
+    if (value != null) {
+      result
+        ..add('files_sharing')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities_FilesSharing)));
+    }
     return result;
   }
 
   @override
-  SharebymailCapabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities0Builder();
+    final result = SharebymailCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -6664,8 +6872,8 @@ class _$SharebymailCapabilities0Serializer implements StructuredSerializer<Share
       switch (key) {
         case 'files_sharing':
           result.filesSharing.replace(
-              serializers.deserialize(value, specifiedType: const FullType(SharebymailCapabilities0_FilesSharing))!
-                  as SharebymailCapabilities0_FilesSharing);
+              serializers.deserialize(value, specifiedType: const FullType(SharebymailCapabilities_FilesSharing))!
+                  as SharebymailCapabilities_FilesSharing);
           break;
       }
     }
@@ -6753,7 +6961,31 @@ class _$SpreedCapabilities_Config_CallSerializer implements StructuredSerializer
       'can-enable-sip',
       serializers.serialize(object.canEnableSip, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.startWithoutMedia;
+    if (value != null) {
+      result
+        ..add('start-without-media')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.maxDuration;
+    if (value != null) {
+      result
+        ..add('max-duration')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.blurVirtualBackground;
+    if (value != null) {
+      result
+        ..add('blur-virtual-background')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.endToEndEncryption;
+    if (value != null) {
+      result
+        ..add('end-to-end-encryption')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -6800,6 +7032,18 @@ class _$SpreedCapabilities_Config_CallSerializer implements StructuredSerializer
         case 'can-enable-sip':
           result.canEnableSip = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
+        case 'start-without-media':
+          result.startWithoutMedia = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'max-duration':
+          result.maxDuration = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'blur-virtual-background':
+          result.blurVirtualBackground = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'end-to-end-encryption':
+          result.endToEndEncryption = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
       }
     }
 
@@ -6826,7 +7070,19 @@ class _$SpreedCapabilities_Config_ChatSerializer implements StructuredSerializer
       'typing-privacy',
       serializers.serialize(object.typingPrivacy, specifiedType: const FullType(int)),
     ];
-
+    Object? value;
+    value = object.hasTranslationTaskProviders;
+    if (value != null) {
+      result
+        ..add('has-translation-task-providers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.summaryThreshold;
+    if (value != null) {
+      result
+        ..add('summary-threshold')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -6850,8 +7106,15 @@ class _$SpreedCapabilities_Config_ChatSerializer implements StructuredSerializer
         case 'has-translation-providers':
           result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
+        case 'has-translation-task-providers':
+          result.hasTranslationTaskProviders =
+              serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'typing-privacy':
           result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'summary-threshold':
+          result.summaryThreshold = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -6877,7 +7140,26 @@ class _$SpreedCapabilities_Config_ConversationsSerializer
       'can-create',
       serializers.serialize(object.canCreate, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.forcePasswords;
+    if (value != null) {
+      result
+        ..add('force-passwords')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.listStyle;
+    if (value != null) {
+      result
+        ..add('list-style')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(SpreedCapabilities_Config_Conversations_ListStyle)));
+    }
+    value = object.descriptionLength;
+    if (value != null) {
+      result
+        ..add('description-length')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -6894,6 +7176,17 @@ class _$SpreedCapabilities_Config_ConversationsSerializer
       switch (key) {
         case 'can-create':
           result.canCreate = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'force-passwords':
+          result.forcePasswords = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'list-style':
+          result.listStyle = serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedCapabilities_Config_Conversations_ListStyle))
+              as SpreedCapabilities_Config_Conversations_ListStyle?;
+          break;
+        case 'description-length':
+          result.descriptionLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -7197,27 +7490,30 @@ class _$SpreedCapabilitiesSerializer implements StructuredSerializer<SpreedCapab
   }
 }
 
-class _$SpreedPublicCapabilities0Serializer implements StructuredSerializer<SpreedPublicCapabilities0> {
+class _$SpreedPublicCapabilitiesSerializer implements StructuredSerializer<SpreedPublicCapabilities> {
   @override
-  final Iterable<Type> types = const [SpreedPublicCapabilities0, _$SpreedPublicCapabilities0];
+  final Iterable<Type> types = const [SpreedPublicCapabilities, _$SpreedPublicCapabilities];
   @override
-  final String wireName = 'SpreedPublicCapabilities0';
+  final String wireName = 'SpreedPublicCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0 object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'spreed',
-      serializers.serialize(object.spreed, specifiedType: const FullType(SpreedCapabilities)),
-    ];
-
+    final result = <Object?>[];
+    Object? value;
+    value = object.spreed;
+    if (value != null) {
+      result
+        ..add('spreed')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SpreedCapabilities)));
+    }
     return result;
   }
 
   @override
-  SpreedPublicCapabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedPublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0Builder();
+    final result = SpreedPublicCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -7336,7 +7632,13 @@ class _$TablesCapabilities_TablesSerializer implements StructuredSerializer<Tabl
       'column_types',
       serializers.serialize(object.columnTypes, specifiedType: const FullType(BuiltList, [FullType(String)])),
     ];
-
+    Object? value;
+    value = object.isCirclesEnabled;
+    if (value != null) {
+      result
+        ..add('isCirclesEnabled')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -7364,6 +7666,9 @@ class _$TablesCapabilities_TablesSerializer implements StructuredSerializer<Tabl
         case 'features':
           result.features.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'isCirclesEnabled':
+          result.isCirclesEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'column_types':
           result.columnTypes.replace(serializers.deserialize(value,
@@ -7965,6 +8270,48 @@ class _$OcsGetCapabilitiesResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs))!
               as OcsGetCapabilitiesResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PreviewPreviewGetMimeIconUrlHeadersSerializer
+    implements StructuredSerializer<PreviewPreviewGetMimeIconUrlHeaders> {
+  @override
+  final Iterable<Type> types = const [PreviewPreviewGetMimeIconUrlHeaders, _$PreviewPreviewGetMimeIconUrlHeaders];
+  @override
+  final String wireName = 'PreviewPreviewGetMimeIconUrlHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PreviewPreviewGetMimeIconUrlHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.location;
+    if (value != null) {
+      result
+        ..add('location')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  PreviewPreviewGetMimeIconUrlHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PreviewPreviewGetMimeIconUrlHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'location':
+          result.location = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -9813,10 +10160,11 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
       serializers.serialize(object.description, specifiedType: const FullType(String)),
       'inputShape',
       serializers.serialize(object.inputShape,
-          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)])),
       'inputShapeEnumValues',
       serializers.serialize(object.inputShapeEnumValues,
-          specifiedType: const FullType(BuiltList, [
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
             FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)])
           ])),
       'inputShapeDefaults',
@@ -9825,10 +10173,11 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
               const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)])),
       'optionalInputShape',
       serializers.serialize(object.optionalInputShape,
-          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)])),
       'optionalInputShapeEnumValues',
       serializers.serialize(object.optionalInputShapeEnumValues,
-          specifiedType: const FullType(BuiltList, [
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
             FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)])
           ])),
       'optionalInputShapeDefaults',
@@ -9837,18 +10186,20 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
               BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)])),
       'outputShape',
       serializers.serialize(object.outputShape,
-          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)])),
       'outputShapeEnumValues',
       serializers.serialize(object.outputShapeEnumValues,
-          specifiedType: const FullType(BuiltList, [
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
             FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)])
           ])),
       'optionalOutputShape',
       serializers.serialize(object.optionalOutputShape,
-          specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)])),
       'optionalOutputShapeEnumValues',
       serializers.serialize(object.optionalOutputShapeEnumValues,
-          specifiedType: const FullType(BuiltList, [
+          specifiedType: const FullType(BuiltMap, [
+            FullType(String),
             FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)])
           ])),
     ];
@@ -9875,13 +10226,14 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
           break;
         case 'inputShape':
           result.inputShape.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]))!);
           break;
         case 'inputShapeEnumValues':
           result.inputShapeEnumValues.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
                 FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)])
-              ]))! as BuiltList<Object?>);
+              ]))!);
           break;
         case 'inputShapeDefaults':
           result.inputShapeDefaults.replace(serializers.deserialize(value,
@@ -9890,13 +10242,14 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
           break;
         case 'optionalInputShape':
           result.optionalInputShape.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]))!);
           break;
         case 'optionalInputShapeEnumValues':
           result.optionalInputShapeEnumValues.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
                 FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)])
-              ]))! as BuiltList<Object?>);
+              ]))!);
           break;
         case 'optionalInputShapeDefaults':
           result.optionalInputShapeDefaults.replace(serializers.deserialize(value,
@@ -9905,23 +10258,25 @@ class _$TaskProcessingTaskTypeSerializer implements StructuredSerializer<TaskPro
           break;
         case 'outputShape':
           result.outputShape.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]))!);
           break;
         case 'outputShapeEnumValues':
           result.outputShapeEnumValues.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
                 FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)])
-              ]))! as BuiltList<Object?>);
+              ]))!);
           break;
         case 'optionalOutputShape':
           result.optionalOutputShape.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(TaskProcessingShape)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]))!);
           break;
         case 'optionalOutputShapeEnumValues':
           result.optionalOutputShapeEnumValues.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
                 FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)])
-              ]))! as BuiltList<Object?>);
+              ]))!);
           break;
       }
     }
@@ -10205,6 +10560,24 @@ class _$TaskProcessingTaskSerializer implements StructuredSerializer<TaskProcess
         ..add('progress')
         ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
+    value = object.scheduledAt;
+    if (value != null) {
+      result
+        ..add('scheduledAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.startedAt;
+    if (value != null) {
+      result
+        ..add('startedAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.endedAt;
+    if (value != null) {
+      result
+        ..add('endedAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -10254,6 +10627,15 @@ class _$TaskProcessingTaskSerializer implements StructuredSerializer<TaskProcess
           break;
         case 'progress':
           result.progress = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          break;
+        case 'scheduledAt':
+          result.scheduledAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'startedAt':
+          result.startedAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'endedAt':
+          result.endedAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -14340,6 +14722,378 @@ class _$TranslationApiTranslateResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TranslationApiTranslateResponseApplicationJson_Ocs))!
               as TranslationApiTranslateResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiStateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TwoFactorApiStateResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiStateResponseApplicationJson_Ocs,
+    _$TwoFactorApiStateResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TwoFactorApiStateResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiStateResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiStateResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiStateResponseApplicationJsonSerializer
+    implements StructuredSerializer<TwoFactorApiStateResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiStateResponseApplicationJson,
+    _$TwoFactorApiStateResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TwoFactorApiStateResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiStateResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TwoFactorApiStateResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiStateResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TwoFactorApiStateResponseApplicationJson_Ocs))!
+              as TwoFactorApiStateResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiEnableRequestApplicationJsonSerializer
+    implements StructuredSerializer<TwoFactorApiEnableRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiEnableRequestApplicationJson,
+    _$TwoFactorApiEnableRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TwoFactorApiEnableRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiEnableRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'user',
+      serializers.serialize(object.user, specifiedType: const FullType(String)),
+      'providers',
+      serializers.serialize(object.providers, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiEnableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiEnableRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'user':
+          result.user = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'providers':
+          result.providers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiEnableResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TwoFactorApiEnableResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiEnableResponseApplicationJson_Ocs,
+    _$TwoFactorApiEnableResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TwoFactorApiEnableResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiEnableResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiEnableResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiEnableResponseApplicationJsonSerializer
+    implements StructuredSerializer<TwoFactorApiEnableResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiEnableResponseApplicationJson,
+    _$TwoFactorApiEnableResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TwoFactorApiEnableResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiEnableResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiEnableResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs))!
+              as TwoFactorApiEnableResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiDisableRequestApplicationJsonSerializer
+    implements StructuredSerializer<TwoFactorApiDisableRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiDisableRequestApplicationJson,
+    _$TwoFactorApiDisableRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TwoFactorApiDisableRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiDisableRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'user',
+      serializers.serialize(object.user, specifiedType: const FullType(String)),
+      'providers',
+      serializers.serialize(object.providers, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiDisableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiDisableRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'user':
+          result.user = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'providers':
+          result.providers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiDisableResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TwoFactorApiDisableResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiDisableResponseApplicationJson_Ocs,
+    _$TwoFactorApiDisableResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TwoFactorApiDisableResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiDisableResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiDisableResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TwoFactorApiDisableResponseApplicationJsonSerializer
+    implements StructuredSerializer<TwoFactorApiDisableResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TwoFactorApiDisableResponseApplicationJson,
+    _$TwoFactorApiDisableResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TwoFactorApiDisableResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TwoFactorApiDisableResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TwoFactorApiDisableResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs))!
+              as TwoFactorApiDisableResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -24272,6 +25026,12 @@ abstract mixin class $DavCapabilities_DavInterfaceBuilder {
 
   String? get bulkupload;
   set bulkupload(String? bulkupload);
+
+  bool? get absenceSupported;
+  set absenceSupported(bool? absenceSupported);
+
+  bool? get absenceReplacement;
+  set absenceReplacement(bool? absenceReplacement);
 }
 
 class _$DavCapabilities_Dav extends DavCapabilities_Dav {
@@ -24279,11 +25039,16 @@ class _$DavCapabilities_Dav extends DavCapabilities_Dav {
   final String chunking;
   @override
   final String? bulkupload;
+  @override
+  final bool? absenceSupported;
+  @override
+  final bool? absenceReplacement;
 
   factory _$DavCapabilities_Dav([void Function(DavCapabilities_DavBuilder)? updates]) =>
       (DavCapabilities_DavBuilder()..update(updates))._build();
 
-  _$DavCapabilities_Dav._({required this.chunking, this.bulkupload}) : super._() {
+  _$DavCapabilities_Dav._({required this.chunking, this.bulkupload, this.absenceSupported, this.absenceReplacement})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(chunking, r'DavCapabilities_Dav', 'chunking');
   }
 
@@ -24297,7 +25062,11 @@ class _$DavCapabilities_Dav extends DavCapabilities_Dav {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DavCapabilities_Dav && chunking == other.chunking && bulkupload == other.bulkupload;
+    return other is DavCapabilities_Dav &&
+        chunking == other.chunking &&
+        bulkupload == other.bulkupload &&
+        absenceSupported == other.absenceSupported &&
+        absenceReplacement == other.absenceReplacement;
   }
 
   @override
@@ -24305,6 +25074,8 @@ class _$DavCapabilities_Dav extends DavCapabilities_Dav {
     var _$hash = 0;
     _$hash = $jc(_$hash, chunking.hashCode);
     _$hash = $jc(_$hash, bulkupload.hashCode);
+    _$hash = $jc(_$hash, absenceSupported.hashCode);
+    _$hash = $jc(_$hash, absenceReplacement.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -24313,7 +25084,9 @@ class _$DavCapabilities_Dav extends DavCapabilities_Dav {
   String toString() {
     return (newBuiltValueToStringHelper(r'DavCapabilities_Dav')
           ..add('chunking', chunking)
-          ..add('bulkupload', bulkupload))
+          ..add('bulkupload', bulkupload)
+          ..add('absenceSupported', absenceSupported)
+          ..add('absenceReplacement', absenceReplacement))
         .toString();
   }
 }
@@ -24330,6 +25103,14 @@ class DavCapabilities_DavBuilder
   String? get bulkupload => _$this._bulkupload;
   set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
 
+  bool? _absenceSupported;
+  bool? get absenceSupported => _$this._absenceSupported;
+  set absenceSupported(covariant bool? absenceSupported) => _$this._absenceSupported = absenceSupported;
+
+  bool? _absenceReplacement;
+  bool? get absenceReplacement => _$this._absenceReplacement;
+  set absenceReplacement(covariant bool? absenceReplacement) => _$this._absenceReplacement = absenceReplacement;
+
   DavCapabilities_DavBuilder() {
     DavCapabilities_Dav._defaults(this);
   }
@@ -24339,6 +25120,8 @@ class DavCapabilities_DavBuilder
     if ($v != null) {
       _chunking = $v.chunking;
       _bulkupload = $v.bulkupload;
+      _absenceSupported = $v.absenceSupported;
+      _absenceReplacement = $v.absenceReplacement;
       _$v = null;
     }
     return this;
@@ -24364,6 +25147,8 @@ class DavCapabilities_DavBuilder
         _$DavCapabilities_Dav._(
           chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'DavCapabilities_Dav', 'chunking'),
           bulkupload: bulkupload,
+          absenceSupported: absenceSupported,
+          absenceReplacement: absenceReplacement,
         );
     replace(_$result);
     return _$result;
@@ -24848,6 +25633,269 @@ class DropAccountCapabilitiesBuilder
   }
 }
 
+abstract mixin class $FilesCapabilities_Files_ChunkedUploadInterfaceBuilder {
+  void replace($FilesCapabilities_Files_ChunkedUploadInterface other);
+  void update(void Function($FilesCapabilities_Files_ChunkedUploadInterfaceBuilder) updates);
+  int? get maxSize;
+  set maxSize(int? maxSize);
+
+  int? get maxParallelCount;
+  set maxParallelCount(int? maxParallelCount);
+}
+
+class _$FilesCapabilities_Files_ChunkedUpload extends FilesCapabilities_Files_ChunkedUpload {
+  @override
+  final int maxSize;
+  @override
+  final int maxParallelCount;
+
+  factory _$FilesCapabilities_Files_ChunkedUpload(
+          [void Function(FilesCapabilities_Files_ChunkedUploadBuilder)? updates]) =>
+      (FilesCapabilities_Files_ChunkedUploadBuilder()..update(updates))._build();
+
+  _$FilesCapabilities_Files_ChunkedUpload._({required this.maxSize, required this.maxParallelCount}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(maxSize, r'FilesCapabilities_Files_ChunkedUpload', 'maxSize');
+    BuiltValueNullFieldError.checkNotNull(
+        maxParallelCount, r'FilesCapabilities_Files_ChunkedUpload', 'maxParallelCount');
+  }
+
+  @override
+  FilesCapabilities_Files_ChunkedUpload rebuild(void Function(FilesCapabilities_Files_ChunkedUploadBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  FilesCapabilities_Files_ChunkedUploadBuilder toBuilder() =>
+      FilesCapabilities_Files_ChunkedUploadBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is FilesCapabilities_Files_ChunkedUpload &&
+        maxSize == other.maxSize &&
+        maxParallelCount == other.maxParallelCount;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, maxSize.hashCode);
+    _$hash = $jc(_$hash, maxParallelCount.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'FilesCapabilities_Files_ChunkedUpload')
+          ..add('maxSize', maxSize)
+          ..add('maxParallelCount', maxParallelCount))
+        .toString();
+  }
+}
+
+class FilesCapabilities_Files_ChunkedUploadBuilder
+    implements
+        Builder<FilesCapabilities_Files_ChunkedUpload, FilesCapabilities_Files_ChunkedUploadBuilder>,
+        $FilesCapabilities_Files_ChunkedUploadInterfaceBuilder {
+  _$FilesCapabilities_Files_ChunkedUpload? _$v;
+
+  int? _maxSize;
+  int? get maxSize => _$this._maxSize;
+  set maxSize(covariant int? maxSize) => _$this._maxSize = maxSize;
+
+  int? _maxParallelCount;
+  int? get maxParallelCount => _$this._maxParallelCount;
+  set maxParallelCount(covariant int? maxParallelCount) => _$this._maxParallelCount = maxParallelCount;
+
+  FilesCapabilities_Files_ChunkedUploadBuilder() {
+    FilesCapabilities_Files_ChunkedUpload._defaults(this);
+  }
+
+  FilesCapabilities_Files_ChunkedUploadBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _maxSize = $v.maxSize;
+      _maxParallelCount = $v.maxParallelCount;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant FilesCapabilities_Files_ChunkedUpload other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$FilesCapabilities_Files_ChunkedUpload;
+  }
+
+  @override
+  void update(void Function(FilesCapabilities_Files_ChunkedUploadBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  FilesCapabilities_Files_ChunkedUpload build() => _build();
+
+  _$FilesCapabilities_Files_ChunkedUpload _build() {
+    FilesCapabilities_Files_ChunkedUpload._validate(this);
+    final _$result = _$v ??
+        _$FilesCapabilities_Files_ChunkedUpload._(
+          maxSize: BuiltValueNullFieldError.checkNotNull(maxSize, r'FilesCapabilities_Files_ChunkedUpload', 'maxSize'),
+          maxParallelCount: BuiltValueNullFieldError.checkNotNull(
+              maxParallelCount, r'FilesCapabilities_Files_ChunkedUpload', 'maxParallelCount'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $FilesCapabilities_Files_FileConversionsInterfaceBuilder {
+  void replace($FilesCapabilities_Files_FileConversionsInterface other);
+  void update(void Function($FilesCapabilities_Files_FileConversionsInterfaceBuilder) updates);
+  String? get from;
+  set from(String? from);
+
+  String? get to;
+  set to(String? to);
+
+  String? get $extension;
+  set $extension(String? $extension);
+
+  String? get displayName;
+  set displayName(String? displayName);
+}
+
+class _$FilesCapabilities_Files_FileConversions extends FilesCapabilities_Files_FileConversions {
+  @override
+  final String from;
+  @override
+  final String to;
+  @override
+  final String $extension;
+  @override
+  final String displayName;
+
+  factory _$FilesCapabilities_Files_FileConversions(
+          [void Function(FilesCapabilities_Files_FileConversionsBuilder)? updates]) =>
+      (FilesCapabilities_Files_FileConversionsBuilder()..update(updates))._build();
+
+  _$FilesCapabilities_Files_FileConversions._(
+      {required this.from, required this.to, required this.$extension, required this.displayName})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(from, r'FilesCapabilities_Files_FileConversions', 'from');
+    BuiltValueNullFieldError.checkNotNull(to, r'FilesCapabilities_Files_FileConversions', 'to');
+    BuiltValueNullFieldError.checkNotNull($extension, r'FilesCapabilities_Files_FileConversions', '\$extension');
+    BuiltValueNullFieldError.checkNotNull(displayName, r'FilesCapabilities_Files_FileConversions', 'displayName');
+  }
+
+  @override
+  FilesCapabilities_Files_FileConversions rebuild(
+          void Function(FilesCapabilities_Files_FileConversionsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  FilesCapabilities_Files_FileConversionsBuilder toBuilder() =>
+      FilesCapabilities_Files_FileConversionsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is FilesCapabilities_Files_FileConversions &&
+        from == other.from &&
+        to == other.to &&
+        $extension == other.$extension &&
+        displayName == other.displayName;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, from.hashCode);
+    _$hash = $jc(_$hash, to.hashCode);
+    _$hash = $jc(_$hash, $extension.hashCode);
+    _$hash = $jc(_$hash, displayName.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'FilesCapabilities_Files_FileConversions')
+          ..add('from', from)
+          ..add('to', to)
+          ..add('\$extension', $extension)
+          ..add('displayName', displayName))
+        .toString();
+  }
+}
+
+class FilesCapabilities_Files_FileConversionsBuilder
+    implements
+        Builder<FilesCapabilities_Files_FileConversions, FilesCapabilities_Files_FileConversionsBuilder>,
+        $FilesCapabilities_Files_FileConversionsInterfaceBuilder {
+  _$FilesCapabilities_Files_FileConversions? _$v;
+
+  String? _from;
+  String? get from => _$this._from;
+  set from(covariant String? from) => _$this._from = from;
+
+  String? _to;
+  String? get to => _$this._to;
+  set to(covariant String? to) => _$this._to = to;
+
+  String? _$extension;
+  String? get $extension => _$this._$extension;
+  set $extension(covariant String? $extension) => _$this._$extension = $extension;
+
+  String? _displayName;
+  String? get displayName => _$this._displayName;
+  set displayName(covariant String? displayName) => _$this._displayName = displayName;
+
+  FilesCapabilities_Files_FileConversionsBuilder() {
+    FilesCapabilities_Files_FileConversions._defaults(this);
+  }
+
+  FilesCapabilities_Files_FileConversionsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _from = $v.from;
+      _to = $v.to;
+      _$extension = $v.$extension;
+      _displayName = $v.displayName;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant FilesCapabilities_Files_FileConversions other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$FilesCapabilities_Files_FileConversions;
+  }
+
+  @override
+  void update(void Function(FilesCapabilities_Files_FileConversionsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  FilesCapabilities_Files_FileConversions build() => _build();
+
+  _$FilesCapabilities_Files_FileConversions _build() {
+    FilesCapabilities_Files_FileConversions._validate(this);
+    final _$result = _$v ??
+        _$FilesCapabilities_Files_FileConversions._(
+          from: BuiltValueNullFieldError.checkNotNull(from, r'FilesCapabilities_Files_FileConversions', 'from'),
+          to: BuiltValueNullFieldError.checkNotNull(to, r'FilesCapabilities_Files_FileConversions', 'to'),
+          $extension: BuiltValueNullFieldError.checkNotNull(
+              $extension, r'FilesCapabilities_Files_FileConversions', '\$extension'),
+          displayName: BuiltValueNullFieldError.checkNotNull(
+              displayName, r'FilesCapabilities_Files_FileConversions', 'displayName'),
+        );
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $FilesCapabilities_Files_DirectEditingInterfaceBuilder {
   void replace($FilesCapabilities_Files_DirectEditingInterface other);
   void update(void Function($FilesCapabilities_Files_DirectEditingInterfaceBuilder) updates);
@@ -25002,6 +26050,12 @@ abstract mixin class $FilesCapabilities_FilesInterfaceBuilder {
   ListBuilder<String> get forbiddenFilenameExtensions;
   set forbiddenFilenameExtensions(ListBuilder<String>? forbiddenFilenameExtensions);
 
+  FilesCapabilities_Files_ChunkedUploadBuilder get chunkedUpload;
+  set chunkedUpload(FilesCapabilities_Files_ChunkedUploadBuilder? chunkedUpload);
+
+  ListBuilder<FilesCapabilities_Files_FileConversions> get fileConversions;
+  set fileConversions(ListBuilder<FilesCapabilities_Files_FileConversions>? fileConversions);
+
   FilesCapabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing);
 }
@@ -25022,6 +26076,10 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   @override
   final BuiltList<String> forbiddenFilenameExtensions;
   @override
+  final FilesCapabilities_Files_ChunkedUpload? chunkedUpload;
+  @override
+  final BuiltList<FilesCapabilities_Files_FileConversions>? fileConversions;
+  @override
   final FilesCapabilities_Files_DirectEditing directEditing;
 
   factory _$FilesCapabilities_Files([void Function(FilesCapabilities_FilesBuilder)? updates]) =>
@@ -25035,6 +26093,8 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
       required this.forbiddenFilenameBasenames,
       required this.forbiddenFilenameCharacters,
       required this.forbiddenFilenameExtensions,
+      this.chunkedUpload,
+      this.fileConversions,
       required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking');
@@ -25067,6 +26127,8 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
         forbiddenFilenameBasenames == other.forbiddenFilenameBasenames &&
         forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
         forbiddenFilenameExtensions == other.forbiddenFilenameExtensions &&
+        chunkedUpload == other.chunkedUpload &&
+        fileConversions == other.fileConversions &&
         directEditing == other.directEditing;
   }
 
@@ -25080,6 +26142,8 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
     _$hash = $jc(_$hash, forbiddenFilenameBasenames.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
     _$hash = $jc(_$hash, forbiddenFilenameExtensions.hashCode);
+    _$hash = $jc(_$hash, chunkedUpload.hashCode);
+    _$hash = $jc(_$hash, fileConversions.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -25095,6 +26159,8 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
           ..add('forbiddenFilenameBasenames', forbiddenFilenameBasenames)
           ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
           ..add('forbiddenFilenameExtensions', forbiddenFilenameExtensions)
+          ..add('chunkedUpload', chunkedUpload)
+          ..add('fileConversions', fileConversions)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -25139,6 +26205,18 @@ class FilesCapabilities_FilesBuilder
   set forbiddenFilenameExtensions(covariant ListBuilder<String>? forbiddenFilenameExtensions) =>
       _$this._forbiddenFilenameExtensions = forbiddenFilenameExtensions;
 
+  FilesCapabilities_Files_ChunkedUploadBuilder? _chunkedUpload;
+  FilesCapabilities_Files_ChunkedUploadBuilder get chunkedUpload =>
+      _$this._chunkedUpload ??= FilesCapabilities_Files_ChunkedUploadBuilder();
+  set chunkedUpload(covariant FilesCapabilities_Files_ChunkedUploadBuilder? chunkedUpload) =>
+      _$this._chunkedUpload = chunkedUpload;
+
+  ListBuilder<FilesCapabilities_Files_FileConversions>? _fileConversions;
+  ListBuilder<FilesCapabilities_Files_FileConversions> get fileConversions =>
+      _$this._fileConversions ??= ListBuilder<FilesCapabilities_Files_FileConversions>();
+  set fileConversions(covariant ListBuilder<FilesCapabilities_Files_FileConversions>? fileConversions) =>
+      _$this._fileConversions = fileConversions;
+
   FilesCapabilities_Files_DirectEditingBuilder? _directEditing;
   FilesCapabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= FilesCapabilities_Files_DirectEditingBuilder();
@@ -25159,6 +26237,8 @@ class FilesCapabilities_FilesBuilder
       _forbiddenFilenameBasenames = $v.forbiddenFilenameBasenames.toBuilder();
       _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
       _forbiddenFilenameExtensions = $v.forbiddenFilenameExtensions.toBuilder();
+      _chunkedUpload = $v.chunkedUpload?.toBuilder();
+      _fileConversions = $v.fileConversions?.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -25193,6 +26273,8 @@ class FilesCapabilities_FilesBuilder
             forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
             forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
             forbiddenFilenameExtensions: forbiddenFilenameExtensions.build(),
+            chunkedUpload: _chunkedUpload?.build(),
+            fileConversions: _fileConversions?.build(),
             directEditing: directEditing.build(),
           );
     } catch (_) {
@@ -25208,6 +26290,10 @@ class FilesCapabilities_FilesBuilder
         forbiddenFilenameCharacters.build();
         _$failedField = 'forbiddenFilenameExtensions';
         forbiddenFilenameExtensions.build();
+        _$failedField = 'chunkedUpload';
+        _chunkedUpload?.build();
+        _$failedField = 'fileConversions';
+        _fileConversions?.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {
@@ -25870,6 +26956,9 @@ abstract mixin class $FilesSharingCapabilities_FilesSharing_PublicInterfaceBuild
 
   bool? get uploadFilesDrop;
   set uploadFilesDrop(bool? uploadFilesDrop);
+
+  bool? get customTokens;
+  set customTokens(bool? customTokens);
 }
 
 class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabilities_FilesSharing_Public {
@@ -25891,6 +26980,8 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
   final bool? upload;
   @override
   final bool? uploadFilesDrop;
+  @override
+  final bool? customTokens;
 
   factory _$FilesSharingCapabilities_FilesSharing_Public(
           [void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? updates]) =>
@@ -25905,7 +26996,8 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
       this.expireDateRemote,
       this.sendMail,
       this.upload,
-      this.uploadFilesDrop})
+      this.uploadFilesDrop,
+      this.customTokens})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'FilesSharingCapabilities_FilesSharing_Public', 'enabled');
   }
@@ -25931,7 +27023,8 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
         expireDateRemote == other.expireDateRemote &&
         sendMail == other.sendMail &&
         upload == other.upload &&
-        uploadFilesDrop == other.uploadFilesDrop;
+        uploadFilesDrop == other.uploadFilesDrop &&
+        customTokens == other.customTokens;
   }
 
   @override
@@ -25946,6 +27039,7 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
     _$hash = $jc(_$hash, sendMail.hashCode);
     _$hash = $jc(_$hash, upload.hashCode);
     _$hash = $jc(_$hash, uploadFilesDrop.hashCode);
+    _$hash = $jc(_$hash, customTokens.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -25961,7 +27055,8 @@ class _$FilesSharingCapabilities_FilesSharing_Public extends FilesSharingCapabil
           ..add('expireDateRemote', expireDateRemote)
           ..add('sendMail', sendMail)
           ..add('upload', upload)
-          ..add('uploadFilesDrop', uploadFilesDrop))
+          ..add('uploadFilesDrop', uploadFilesDrop)
+          ..add('customTokens', customTokens))
         .toString();
   }
 }
@@ -26018,6 +27113,10 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
   set uploadFilesDrop(covariant bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
+  bool? _customTokens;
+  bool? get customTokens => _$this._customTokens;
+  set customTokens(covariant bool? customTokens) => _$this._customTokens = customTokens;
+
   FilesSharingCapabilities_FilesSharing_PublicBuilder() {
     FilesSharingCapabilities_FilesSharing_Public._defaults(this);
   }
@@ -26034,6 +27133,7 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
       _sendMail = $v.sendMail;
       _upload = $v.upload;
       _uploadFilesDrop = $v.uploadFilesDrop;
+      _customTokens = $v.customTokens;
       _$v = null;
     }
     return this;
@@ -26069,6 +27169,7 @@ class FilesSharingCapabilities_FilesSharing_PublicBuilder
             sendMail: sendMail,
             upload: upload,
             uploadFilesDrop: uploadFilesDrop,
+            customTokens: customTokens,
           );
     } catch (_) {
       late String _$failedField;
@@ -27414,16 +28515,21 @@ abstract mixin class $FilesTrashbinCapabilities_FilesInterfaceBuilder {
   void update(void Function($FilesTrashbinCapabilities_FilesInterfaceBuilder) updates);
   bool? get undelete;
   set undelete(bool? undelete);
+
+  bool? get deleteFromTrash;
+  set deleteFromTrash(bool? deleteFromTrash);
 }
 
 class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files {
   @override
   final bool undelete;
+  @override
+  final bool? deleteFromTrash;
 
   factory _$FilesTrashbinCapabilities_Files([void Function(FilesTrashbinCapabilities_FilesBuilder)? updates]) =>
       (FilesTrashbinCapabilities_FilesBuilder()..update(updates))._build();
 
-  _$FilesTrashbinCapabilities_Files._({required this.undelete}) : super._() {
+  _$FilesTrashbinCapabilities_Files._({required this.undelete, this.deleteFromTrash}) : super._() {
     BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete');
   }
 
@@ -27437,20 +28543,26 @@ class _$FilesTrashbinCapabilities_Files extends FilesTrashbinCapabilities_Files 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is FilesTrashbinCapabilities_Files && undelete == other.undelete;
+    return other is FilesTrashbinCapabilities_Files &&
+        undelete == other.undelete &&
+        deleteFromTrash == other.deleteFromTrash;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, undelete.hashCode);
+    _$hash = $jc(_$hash, deleteFromTrash.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'FilesTrashbinCapabilities_Files')..add('undelete', undelete)).toString();
+    return (newBuiltValueToStringHelper(r'FilesTrashbinCapabilities_Files')
+          ..add('undelete', undelete)
+          ..add('deleteFromTrash', deleteFromTrash))
+        .toString();
   }
 }
 
@@ -27464,6 +28576,10 @@ class FilesTrashbinCapabilities_FilesBuilder
   bool? get undelete => _$this._undelete;
   set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
+  bool? _deleteFromTrash;
+  bool? get deleteFromTrash => _$this._deleteFromTrash;
+  set deleteFromTrash(covariant bool? deleteFromTrash) => _$this._deleteFromTrash = deleteFromTrash;
+
   FilesTrashbinCapabilities_FilesBuilder() {
     FilesTrashbinCapabilities_Files._defaults(this);
   }
@@ -27472,6 +28588,7 @@ class FilesTrashbinCapabilities_FilesBuilder
     final $v = _$v;
     if ($v != null) {
       _undelete = $v.undelete;
+      _deleteFromTrash = $v.deleteFromTrash;
       _$v = null;
     }
     return this;
@@ -27496,6 +28613,7 @@ class FilesTrashbinCapabilities_FilesBuilder
     final _$result = _$v ??
         _$FilesTrashbinCapabilities_Files._(
           undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'FilesTrashbinCapabilities_Files', 'undelete'),
+          deleteFromTrash: deleteFromTrash,
         );
     replace(_$result);
     return _$result;
@@ -28370,41 +29488,40 @@ class ProvisioningApiCapabilitiesBuilder
   }
 }
 
-abstract mixin class $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
-  void replace($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface other);
-  void update(
-      void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
+abstract mixin class $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  void replace($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface other);
+  void update(void Function($SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
-    extends SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    extends SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop {
   @override
   final bool enabled;
 
-  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop(
-          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
-      (SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop(
+          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
+      (SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled');
+        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled');
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop rebuild(
-          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder) updates) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop rebuild(
+          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
-      SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
+      SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop && enabled == other.enabled;
+    return other is SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop && enabled == other.enabled;
   }
 
   @override
@@ -28417,28 +29534,28 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
+class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
     implements
-        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
+        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
+        $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._defaults(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._defaults(this);
   }
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -28448,34 +29565,34 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
+    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop _build() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop _build() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
     final _$result = _$v ??
-        _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
+        _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'),
+              enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'),
         );
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
-  void replace($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface other);
-  void update(void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
+abstract mixin class $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  void replace($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface other);
+  void update(void Function($SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -28483,38 +29600,38 @@ abstract mixin class $SharebymailCapabilities0_FilesSharing_Sharebymail_Password
   set enforced(bool? enforced);
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password
-    extends SharebymailCapabilities0_FilesSharing_Sharebymail_Password {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
+    extends SharebymailCapabilities_FilesSharing_Sharebymail_Password {
   @override
   final bool enabled;
   @override
   final bool enforced;
 
-  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password(
-          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
-      (SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_Password(
+          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
+      (SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced})
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled');
+        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced');
+        enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced');
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_Password rebuild(
-          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder) updates) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password rebuild(
+          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
-      SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
+      SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_Password &&
+    return other is SharebymailCapabilities_FilesSharing_Sharebymail_Password &&
         enabled == other.enabled &&
         enforced == other.enforced;
   }
@@ -28530,19 +29647,19 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_Password')
           ..add('enabled', enabled)
           ..add('enforced', enforced))
         .toString();
   }
 }
 
-class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder
+class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
     implements
-        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder>,
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password? _$v;
+        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder>,
+        $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -28552,11 +29669,11 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_Password._defaults(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_Password._defaults(this);
   }
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get _$this {
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -28567,36 +29684,36 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_Password other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
+    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_Password build() => _build();
+  SharebymailCapabilities_FilesSharing_Sharebymail_Password build() => _build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password _build() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_Password._validate(this);
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password _build() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_Password._validate(this);
     final _$result = _$v ??
-        _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password._(
+        _$SharebymailCapabilities_FilesSharing_Sharebymail_Password._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
+              enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled'),
           enforced: BuiltValueNullFieldError.checkNotNull(
-              enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced'),
+              enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced'),
         );
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
-  void replace($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface other);
-  void update(void Function($SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  void replace($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface other);
+  void update(void Function($SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -28604,38 +29721,38 @@ abstract mixin class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDa
   set enforced(bool? enforced);
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
-    extends SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    extends SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate {
   @override
   final bool enabled;
   @override
   final bool enforced;
 
-  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate(
-          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
-      (SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate(
+          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
+      (SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced})
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled');
+        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced');
+        enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced');
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate rebuild(
-          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder) updates) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate rebuild(
+          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
-      SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
+      SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate &&
+    return other is SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate &&
         enabled == other.enabled &&
         enforced == other.enforced;
   }
@@ -28651,19 +29768,19 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate')
           ..add('enabled', enabled)
           ..add('enforced', enforced))
         .toString();
   }
 }
 
-class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
+class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
     implements
-        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder>,
-        $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate? _$v;
+        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder>,
+        $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -28673,11 +29790,11 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._defaults(this);
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._defaults(this);
   }
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -28688,98 +29805,98 @@ class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
+    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate build() => _build();
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate build() => _build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate _build() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._validate(this);
+  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate _build() {
+    SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._validate(this);
     final _$result = _$v ??
-        _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._(
+        _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
+              enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
           enforced: BuiltValueNullFieldError.checkNotNull(
-              enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'),
+              enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced'),
         );
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder {
-  void replace($SharebymailCapabilities0_FilesSharing_SharebymailInterface other);
-  void update(void Function($SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder) updates);
+abstract mixin class $SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
+  void replace($SharebymailCapabilities_FilesSharing_SharebymailInterface other);
+  void update(void Function($SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
   bool? get sendPasswordByMail;
   set sendPasswordByMail(bool? sendPasswordByMail);
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
-  set uploadFilesDrop(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
+  set uploadFilesDrop(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get password;
-  set password(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? password);
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password;
+  set password(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password);
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
-  set expireDate(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
+  set expireDate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
 }
 
-class _$SharebymailCapabilities0_FilesSharing_Sharebymail extends SharebymailCapabilities0_FilesSharing_Sharebymail {
+class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapabilities_FilesSharing_Sharebymail {
   @override
   final bool enabled;
   @override
   final bool sendPasswordByMail;
   @override
-  final SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
+  final SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
   @override
-  final SharebymailCapabilities0_FilesSharing_Sharebymail_Password password;
+  final SharebymailCapabilities_FilesSharing_Sharebymail_Password password;
   @override
-  final SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate expireDate;
+  final SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate expireDate;
 
-  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail(
-          [void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? updates]) =>
-      (SharebymailCapabilities0_FilesSharing_SharebymailBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities_FilesSharing_Sharebymail(
+          [void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates]) =>
+      (SharebymailCapabilities_FilesSharing_SharebymailBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail._(
+  _$SharebymailCapabilities_FilesSharing_Sharebymail._(
       {required this.enabled,
       required this.sendPasswordByMail,
       required this.uploadFilesDrop,
       required this.password,
       required this.expireDate})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail');
+        sendPasswordByMail, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail');
     BuiltValueNullFieldError.checkNotNull(
-        uploadFilesDrop, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'uploadFilesDrop');
-    BuiltValueNullFieldError.checkNotNull(password, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'password');
+        uploadFilesDrop, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'uploadFilesDrop');
+    BuiltValueNullFieldError.checkNotNull(password, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'password');
     BuiltValueNullFieldError.checkNotNull(
-        expireDate, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'expireDate');
+        expireDate, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'expireDate');
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail rebuild(
-          void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder) updates) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail rebuild(
+          void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder toBuilder() =>
-      SharebymailCapabilities0_FilesSharing_SharebymailBuilder()..replace(this);
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder toBuilder() =>
+      SharebymailCapabilities_FilesSharing_SharebymailBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0_FilesSharing_Sharebymail &&
+    return other is SharebymailCapabilities_FilesSharing_Sharebymail &&
         enabled == other.enabled &&
         sendPasswordByMail == other.sendPasswordByMail &&
         uploadFilesDrop == other.uploadFilesDrop &&
@@ -28801,7 +29918,7 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail extends SharebymailCap
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail')
           ..add('enabled', enabled)
           ..add('sendPasswordByMail', sendPasswordByMail)
           ..add('uploadFilesDrop', uploadFilesDrop)
@@ -28811,12 +29928,12 @@ class _$SharebymailCapabilities0_FilesSharing_Sharebymail extends SharebymailCap
   }
 }
 
-class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
+class SharebymailCapabilities_FilesSharing_SharebymailBuilder
     implements
-        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail,
-            SharebymailCapabilities0_FilesSharing_SharebymailBuilder>,
-        $SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder {
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail? _$v;
+        Builder<SharebymailCapabilities_FilesSharing_Sharebymail,
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder>,
+        $SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
+  _$SharebymailCapabilities_FilesSharing_Sharebymail? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -28826,30 +29943,30 @@ class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
   bool? get sendPasswordByMail => _$this._sendPasswordByMail;
   set sendPasswordByMail(covariant bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
-  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
-      _$this._uploadFilesDrop ??= SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
+  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
+      _$this._uploadFilesDrop ??= SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
   set uploadFilesDrop(
-          covariant SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
+          covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
       _$this._uploadFilesDrop = uploadFilesDrop;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? _password;
-  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get password =>
-      _$this._password ??= SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder();
-  set password(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? password) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? _password;
+  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password =>
+      _$this._password ??= SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+  set password(covariant SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
       _$this._password = password;
 
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
-  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
-  set expireDate(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
+  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+  set expireDate(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail._defaults(this);
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder() {
+    SharebymailCapabilities_FilesSharing_Sharebymail._defaults(this);
   }
 
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get _$this {
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -28863,29 +29980,29 @@ class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail;
+    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing_Sharebymail build() => _build();
+  SharebymailCapabilities_FilesSharing_Sharebymail build() => _build();
 
-  _$SharebymailCapabilities0_FilesSharing_Sharebymail _build() {
-    SharebymailCapabilities0_FilesSharing_Sharebymail._validate(this);
-    _$SharebymailCapabilities0_FilesSharing_Sharebymail _$result;
+  _$SharebymailCapabilities_FilesSharing_Sharebymail _build() {
+    SharebymailCapabilities_FilesSharing_Sharebymail._validate(this);
+    _$SharebymailCapabilities_FilesSharing_Sharebymail _$result;
     try {
       _$result = _$v ??
-          _$SharebymailCapabilities0_FilesSharing_Sharebymail._(
+          _$SharebymailCapabilities_FilesSharing_Sharebymail._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled'),
+                enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'enabled'),
             sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
-                sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
+                sendPasswordByMail, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail'),
             uploadFilesDrop: uploadFilesDrop.build(),
             password: password.build(),
             expireDate: expireDate.build(),
@@ -28901,7 +30018,7 @@ class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
         expireDate.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'SharebymailCapabilities0_FilesSharing_Sharebymail', _$failedField, e.toString());
+            r'SharebymailCapabilities_FilesSharing_Sharebymail', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -28910,37 +30027,37 @@ class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
   }
 }
 
-abstract mixin class $SharebymailCapabilities0_FilesSharingInterfaceBuilder {
-  void replace($SharebymailCapabilities0_FilesSharingInterface other);
-  void update(void Function($SharebymailCapabilities0_FilesSharingInterfaceBuilder) updates);
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get sharebymail;
-  set sharebymail(SharebymailCapabilities0_FilesSharing_SharebymailBuilder? sharebymail);
+abstract mixin class $SharebymailCapabilities_FilesSharingInterfaceBuilder {
+  void replace($SharebymailCapabilities_FilesSharingInterface other);
+  void update(void Function($SharebymailCapabilities_FilesSharingInterfaceBuilder) updates);
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail;
+  set sharebymail(SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail);
 }
 
-class _$SharebymailCapabilities0_FilesSharing extends SharebymailCapabilities0_FilesSharing {
+class _$SharebymailCapabilities_FilesSharing extends SharebymailCapabilities_FilesSharing {
   @override
-  final SharebymailCapabilities0_FilesSharing_Sharebymail sharebymail;
+  final SharebymailCapabilities_FilesSharing_Sharebymail sharebymail;
 
-  factory _$SharebymailCapabilities0_FilesSharing(
-          [void Function(SharebymailCapabilities0_FilesSharingBuilder)? updates]) =>
-      (SharebymailCapabilities0_FilesSharingBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities_FilesSharing(
+          [void Function(SharebymailCapabilities_FilesSharingBuilder)? updates]) =>
+      (SharebymailCapabilities_FilesSharingBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0_FilesSharing._({required this.sharebymail}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(sharebymail, r'SharebymailCapabilities0_FilesSharing', 'sharebymail');
+  _$SharebymailCapabilities_FilesSharing._({required this.sharebymail}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sharebymail, r'SharebymailCapabilities_FilesSharing', 'sharebymail');
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing rebuild(void Function(SharebymailCapabilities0_FilesSharingBuilder) updates) =>
+  SharebymailCapabilities_FilesSharing rebuild(void Function(SharebymailCapabilities_FilesSharingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0_FilesSharingBuilder toBuilder() =>
-      SharebymailCapabilities0_FilesSharingBuilder()..replace(this);
+  SharebymailCapabilities_FilesSharingBuilder toBuilder() =>
+      SharebymailCapabilities_FilesSharingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0_FilesSharing && sharebymail == other.sharebymail;
+    return other is SharebymailCapabilities_FilesSharing && sharebymail == other.sharebymail;
   }
 
   @override
@@ -28953,28 +30070,28 @@ class _$SharebymailCapabilities0_FilesSharing extends SharebymailCapabilities0_F
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing')..add('sharebymail', sharebymail))
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing')..add('sharebymail', sharebymail))
         .toString();
   }
 }
 
-class SharebymailCapabilities0_FilesSharingBuilder
+class SharebymailCapabilities_FilesSharingBuilder
     implements
-        Builder<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder>,
-        $SharebymailCapabilities0_FilesSharingInterfaceBuilder {
-  _$SharebymailCapabilities0_FilesSharing? _$v;
+        Builder<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder>,
+        $SharebymailCapabilities_FilesSharingInterfaceBuilder {
+  _$SharebymailCapabilities_FilesSharing? _$v;
 
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder? _sharebymail;
-  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get sharebymail =>
-      _$this._sharebymail ??= SharebymailCapabilities0_FilesSharing_SharebymailBuilder();
-  set sharebymail(covariant SharebymailCapabilities0_FilesSharing_SharebymailBuilder? sharebymail) =>
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder? _sharebymail;
+  SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail =>
+      _$this._sharebymail ??= SharebymailCapabilities_FilesSharing_SharebymailBuilder();
+  set sharebymail(covariant SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
-  SharebymailCapabilities0_FilesSharingBuilder() {
-    SharebymailCapabilities0_FilesSharing._defaults(this);
+  SharebymailCapabilities_FilesSharingBuilder() {
+    SharebymailCapabilities_FilesSharing._defaults(this);
   }
 
-  SharebymailCapabilities0_FilesSharingBuilder get _$this {
+  SharebymailCapabilities_FilesSharingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _sharebymail = $v.sharebymail.toBuilder();
@@ -28984,25 +30101,25 @@ class SharebymailCapabilities0_FilesSharingBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0_FilesSharing other) {
+  void replace(covariant SharebymailCapabilities_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0_FilesSharing;
+    _$v = other as _$SharebymailCapabilities_FilesSharing;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0_FilesSharingBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities_FilesSharingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0_FilesSharing build() => _build();
+  SharebymailCapabilities_FilesSharing build() => _build();
 
-  _$SharebymailCapabilities0_FilesSharing _build() {
-    SharebymailCapabilities0_FilesSharing._validate(this);
-    _$SharebymailCapabilities0_FilesSharing _$result;
+  _$SharebymailCapabilities_FilesSharing _build() {
+    SharebymailCapabilities_FilesSharing._validate(this);
+    _$SharebymailCapabilities_FilesSharing _$result;
     try {
       _$result = _$v ??
-          _$SharebymailCapabilities0_FilesSharing._(
+          _$SharebymailCapabilities_FilesSharing._(
             sharebymail: sharebymail.build(),
           );
     } catch (_) {
@@ -29011,7 +30128,7 @@ class SharebymailCapabilities0_FilesSharingBuilder
         _$failedField = 'sharebymail';
         sharebymail.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SharebymailCapabilities0_FilesSharing', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SharebymailCapabilities_FilesSharing', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -29020,35 +30137,33 @@ class SharebymailCapabilities0_FilesSharingBuilder
   }
 }
 
-abstract mixin class $SharebymailCapabilities0InterfaceBuilder {
-  void replace($SharebymailCapabilities0Interface other);
-  void update(void Function($SharebymailCapabilities0InterfaceBuilder) updates);
-  SharebymailCapabilities0_FilesSharingBuilder get filesSharing;
-  set filesSharing(SharebymailCapabilities0_FilesSharingBuilder? filesSharing);
+abstract mixin class $SharebymailCapabilitiesInterfaceBuilder {
+  void replace($SharebymailCapabilitiesInterface other);
+  void update(void Function($SharebymailCapabilitiesInterfaceBuilder) updates);
+  SharebymailCapabilities_FilesSharingBuilder get filesSharing;
+  set filesSharing(SharebymailCapabilities_FilesSharingBuilder? filesSharing);
 }
 
-class _$SharebymailCapabilities0 extends SharebymailCapabilities0 {
+class _$SharebymailCapabilities extends SharebymailCapabilities {
   @override
-  final SharebymailCapabilities0_FilesSharing filesSharing;
+  final SharebymailCapabilities_FilesSharing? filesSharing;
 
-  factory _$SharebymailCapabilities0([void Function(SharebymailCapabilities0Builder)? updates]) =>
-      (SharebymailCapabilities0Builder()..update(updates))._build();
+  factory _$SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? updates]) =>
+      (SharebymailCapabilitiesBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities0._({required this.filesSharing}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(filesSharing, r'SharebymailCapabilities0', 'filesSharing');
-  }
+  _$SharebymailCapabilities._({this.filesSharing}) : super._();
 
   @override
-  SharebymailCapabilities0 rebuild(void Function(SharebymailCapabilities0Builder) updates) =>
+  SharebymailCapabilities rebuild(void Function(SharebymailCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities0Builder toBuilder() => SharebymailCapabilities0Builder()..replace(this);
+  SharebymailCapabilitiesBuilder toBuilder() => SharebymailCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities0 && filesSharing == other.filesSharing;
+    return other is SharebymailCapabilities && filesSharing == other.filesSharing;
   }
 
   @override
@@ -29061,64 +30176,64 @@ class _$SharebymailCapabilities0 extends SharebymailCapabilities0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0')..add('filesSharing', filesSharing)).toString();
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities')..add('filesSharing', filesSharing)).toString();
   }
 }
 
-class SharebymailCapabilities0Builder
+class SharebymailCapabilitiesBuilder
     implements
-        Builder<SharebymailCapabilities0, SharebymailCapabilities0Builder>,
-        $SharebymailCapabilities0InterfaceBuilder {
-  _$SharebymailCapabilities0? _$v;
+        Builder<SharebymailCapabilities, SharebymailCapabilitiesBuilder>,
+        $SharebymailCapabilitiesInterfaceBuilder {
+  _$SharebymailCapabilities? _$v;
 
-  SharebymailCapabilities0_FilesSharingBuilder? _filesSharing;
-  SharebymailCapabilities0_FilesSharingBuilder get filesSharing =>
-      _$this._filesSharing ??= SharebymailCapabilities0_FilesSharingBuilder();
-  set filesSharing(covariant SharebymailCapabilities0_FilesSharingBuilder? filesSharing) =>
+  SharebymailCapabilities_FilesSharingBuilder? _filesSharing;
+  SharebymailCapabilities_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??= SharebymailCapabilities_FilesSharingBuilder();
+  set filesSharing(covariant SharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
       _$this._filesSharing = filesSharing;
 
-  SharebymailCapabilities0Builder() {
-    SharebymailCapabilities0._defaults(this);
+  SharebymailCapabilitiesBuilder() {
+    SharebymailCapabilities._defaults(this);
   }
 
-  SharebymailCapabilities0Builder get _$this {
+  SharebymailCapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _filesSharing = $v.filesSharing.toBuilder();
+      _filesSharing = $v.filesSharing?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant SharebymailCapabilities0 other) {
+  void replace(covariant SharebymailCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities0;
+    _$v = other as _$SharebymailCapabilities;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities0Builder)? updates) {
+  void update(void Function(SharebymailCapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities0 build() => _build();
+  SharebymailCapabilities build() => _build();
 
-  _$SharebymailCapabilities0 _build() {
-    SharebymailCapabilities0._validate(this);
-    _$SharebymailCapabilities0 _$result;
+  _$SharebymailCapabilities _build() {
+    SharebymailCapabilities._validate(this);
+    _$SharebymailCapabilities _$result;
     try {
       _$result = _$v ??
-          _$SharebymailCapabilities0._(
-            filesSharing: filesSharing.build(),
+          _$SharebymailCapabilities._(
+            filesSharing: _filesSharing?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'filesSharing';
-        filesSharing.build();
+        _filesSharing?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SharebymailCapabilities0', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SharebymailCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -29269,6 +30384,18 @@ abstract mixin class $SpreedCapabilities_Config_CallInterfaceBuilder {
 
   bool? get canEnableSip;
   set canEnableSip(bool? canEnableSip);
+
+  bool? get startWithoutMedia;
+  set startWithoutMedia(bool? startWithoutMedia);
+
+  int? get maxDuration;
+  set maxDuration(int? maxDuration);
+
+  bool? get blurVirtualBackground;
+  set blurVirtualBackground(bool? blurVirtualBackground);
+
+  bool? get endToEndEncryption;
+  set endToEndEncryption(bool? endToEndEncryption);
 }
 
 class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
@@ -29292,6 +30419,14 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
   final bool sipDialoutEnabled;
   @override
   final bool canEnableSip;
+  @override
+  final bool? startWithoutMedia;
+  @override
+  final int? maxDuration;
+  @override
+  final bool? blurVirtualBackground;
+  @override
+  final bool? endToEndEncryption;
 
   factory _$SpreedCapabilities_Config_Call([void Function(SpreedCapabilities_Config_CallBuilder)? updates]) =>
       (SpreedCapabilities_Config_CallBuilder()..update(updates))._build();
@@ -29306,7 +30441,11 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
       required this.canUploadBackground,
       required this.sipEnabled,
       required this.sipDialoutEnabled,
-      required this.canEnableSip})
+      required this.canEnableSip,
+      this.startWithoutMedia,
+      this.maxDuration,
+      this.blurVirtualBackground,
+      this.endToEndEncryption})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Call', 'enabled');
     BuiltValueNullFieldError.checkNotNull(breakoutRooms, r'SpreedCapabilities_Config_Call', 'breakoutRooms');
@@ -29342,7 +30481,11 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
         canUploadBackground == other.canUploadBackground &&
         sipEnabled == other.sipEnabled &&
         sipDialoutEnabled == other.sipDialoutEnabled &&
-        canEnableSip == other.canEnableSip;
+        canEnableSip == other.canEnableSip &&
+        startWithoutMedia == other.startWithoutMedia &&
+        maxDuration == other.maxDuration &&
+        blurVirtualBackground == other.blurVirtualBackground &&
+        endToEndEncryption == other.endToEndEncryption;
   }
 
   @override
@@ -29358,6 +30501,10 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
     _$hash = $jc(_$hash, sipEnabled.hashCode);
     _$hash = $jc(_$hash, sipDialoutEnabled.hashCode);
     _$hash = $jc(_$hash, canEnableSip.hashCode);
+    _$hash = $jc(_$hash, startWithoutMedia.hashCode);
+    _$hash = $jc(_$hash, maxDuration.hashCode);
+    _$hash = $jc(_$hash, blurVirtualBackground.hashCode);
+    _$hash = $jc(_$hash, endToEndEncryption.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -29374,7 +30521,11 @@ class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
           ..add('canUploadBackground', canUploadBackground)
           ..add('sipEnabled', sipEnabled)
           ..add('sipDialoutEnabled', sipDialoutEnabled)
-          ..add('canEnableSip', canEnableSip))
+          ..add('canEnableSip', canEnableSip)
+          ..add('startWithoutMedia', startWithoutMedia)
+          ..add('maxDuration', maxDuration)
+          ..add('blurVirtualBackground', blurVirtualBackground)
+          ..add('endToEndEncryption', endToEndEncryption))
         .toString();
   }
 }
@@ -29427,6 +30578,23 @@ class SpreedCapabilities_Config_CallBuilder
   bool? get canEnableSip => _$this._canEnableSip;
   set canEnableSip(covariant bool? canEnableSip) => _$this._canEnableSip = canEnableSip;
 
+  bool? _startWithoutMedia;
+  bool? get startWithoutMedia => _$this._startWithoutMedia;
+  set startWithoutMedia(covariant bool? startWithoutMedia) => _$this._startWithoutMedia = startWithoutMedia;
+
+  int? _maxDuration;
+  int? get maxDuration => _$this._maxDuration;
+  set maxDuration(covariant int? maxDuration) => _$this._maxDuration = maxDuration;
+
+  bool? _blurVirtualBackground;
+  bool? get blurVirtualBackground => _$this._blurVirtualBackground;
+  set blurVirtualBackground(covariant bool? blurVirtualBackground) =>
+      _$this._blurVirtualBackground = blurVirtualBackground;
+
+  bool? _endToEndEncryption;
+  bool? get endToEndEncryption => _$this._endToEndEncryption;
+  set endToEndEncryption(covariant bool? endToEndEncryption) => _$this._endToEndEncryption = endToEndEncryption;
+
   SpreedCapabilities_Config_CallBuilder() {
     SpreedCapabilities_Config_Call._defaults(this);
   }
@@ -29444,6 +30612,10 @@ class SpreedCapabilities_Config_CallBuilder
       _sipEnabled = $v.sipEnabled;
       _sipDialoutEnabled = $v.sipDialoutEnabled;
       _canEnableSip = $v.canEnableSip;
+      _startWithoutMedia = $v.startWithoutMedia;
+      _maxDuration = $v.maxDuration;
+      _blurVirtualBackground = $v.blurVirtualBackground;
+      _endToEndEncryption = $v.endToEndEncryption;
       _$v = null;
     }
     return this;
@@ -29485,6 +30657,10 @@ class SpreedCapabilities_Config_CallBuilder
                 sipDialoutEnabled, r'SpreedCapabilities_Config_Call', 'sipDialoutEnabled'),
             canEnableSip:
                 BuiltValueNullFieldError.checkNotNull(canEnableSip, r'SpreedCapabilities_Config_Call', 'canEnableSip'),
+            startWithoutMedia: startWithoutMedia,
+            maxDuration: maxDuration,
+            blurVirtualBackground: blurVirtualBackground,
+            endToEndEncryption: endToEndEncryption,
           );
     } catch (_) {
       late String _$failedField;
@@ -29515,8 +30691,14 @@ abstract mixin class $SpreedCapabilities_Config_ChatInterfaceBuilder {
   bool? get hasTranslationProviders;
   set hasTranslationProviders(bool? hasTranslationProviders);
 
+  bool? get hasTranslationTaskProviders;
+  set hasTranslationTaskProviders(bool? hasTranslationTaskProviders);
+
   int? get typingPrivacy;
   set typingPrivacy(int? typingPrivacy);
+
+  int? get summaryThreshold;
+  set summaryThreshold(int? summaryThreshold);
 }
 
 class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
@@ -29527,7 +30709,11 @@ class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
   @override
   final bool hasTranslationProviders;
   @override
+  final bool? hasTranslationTaskProviders;
+  @override
   final int typingPrivacy;
+  @override
+  final int? summaryThreshold;
 
   factory _$SpreedCapabilities_Config_Chat([void Function(SpreedCapabilities_Config_ChatBuilder)? updates]) =>
       (SpreedCapabilities_Config_ChatBuilder()..update(updates))._build();
@@ -29536,7 +30722,9 @@ class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
       {required this.maxLength,
       required this.readPrivacy,
       required this.hasTranslationProviders,
-      required this.typingPrivacy})
+      this.hasTranslationTaskProviders,
+      required this.typingPrivacy,
+      this.summaryThreshold})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedCapabilities_Config_Chat', 'maxLength');
     BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy');
@@ -29559,7 +30747,9 @@ class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
         maxLength == other.maxLength &&
         readPrivacy == other.readPrivacy &&
         hasTranslationProviders == other.hasTranslationProviders &&
-        typingPrivacy == other.typingPrivacy;
+        hasTranslationTaskProviders == other.hasTranslationTaskProviders &&
+        typingPrivacy == other.typingPrivacy &&
+        summaryThreshold == other.summaryThreshold;
   }
 
   @override
@@ -29568,7 +30758,9 @@ class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
     _$hash = $jc(_$hash, maxLength.hashCode);
     _$hash = $jc(_$hash, readPrivacy.hashCode);
     _$hash = $jc(_$hash, hasTranslationProviders.hashCode);
+    _$hash = $jc(_$hash, hasTranslationTaskProviders.hashCode);
     _$hash = $jc(_$hash, typingPrivacy.hashCode);
+    _$hash = $jc(_$hash, summaryThreshold.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -29579,7 +30771,9 @@ class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
           ..add('maxLength', maxLength)
           ..add('readPrivacy', readPrivacy)
           ..add('hasTranslationProviders', hasTranslationProviders)
-          ..add('typingPrivacy', typingPrivacy))
+          ..add('hasTranslationTaskProviders', hasTranslationTaskProviders)
+          ..add('typingPrivacy', typingPrivacy)
+          ..add('summaryThreshold', summaryThreshold))
         .toString();
   }
 }
@@ -29603,9 +30797,18 @@ class SpreedCapabilities_Config_ChatBuilder
   set hasTranslationProviders(covariant bool? hasTranslationProviders) =>
       _$this._hasTranslationProviders = hasTranslationProviders;
 
+  bool? _hasTranslationTaskProviders;
+  bool? get hasTranslationTaskProviders => _$this._hasTranslationTaskProviders;
+  set hasTranslationTaskProviders(covariant bool? hasTranslationTaskProviders) =>
+      _$this._hasTranslationTaskProviders = hasTranslationTaskProviders;
+
   int? _typingPrivacy;
   int? get typingPrivacy => _$this._typingPrivacy;
   set typingPrivacy(covariant int? typingPrivacy) => _$this._typingPrivacy = typingPrivacy;
+
+  int? _summaryThreshold;
+  int? get summaryThreshold => _$this._summaryThreshold;
+  set summaryThreshold(covariant int? summaryThreshold) => _$this._summaryThreshold = summaryThreshold;
 
   SpreedCapabilities_Config_ChatBuilder() {
     SpreedCapabilities_Config_Chat._defaults(this);
@@ -29617,7 +30820,9 @@ class SpreedCapabilities_Config_ChatBuilder
       _maxLength = $v.maxLength;
       _readPrivacy = $v.readPrivacy;
       _hasTranslationProviders = $v.hasTranslationProviders;
+      _hasTranslationTaskProviders = $v.hasTranslationTaskProviders;
       _typingPrivacy = $v.typingPrivacy;
+      _summaryThreshold = $v.summaryThreshold;
       _$v = null;
     }
     return this;
@@ -29646,8 +30851,10 @@ class SpreedCapabilities_Config_ChatBuilder
               BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy'),
           hasTranslationProviders: BuiltValueNullFieldError.checkNotNull(
               hasTranslationProviders, r'SpreedCapabilities_Config_Chat', 'hasTranslationProviders'),
+          hasTranslationTaskProviders: hasTranslationTaskProviders,
           typingPrivacy:
               BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'SpreedCapabilities_Config_Chat', 'typingPrivacy'),
+          summaryThreshold: summaryThreshold,
         );
     replace(_$result);
     return _$result;
@@ -29659,17 +30866,34 @@ abstract mixin class $SpreedCapabilities_Config_ConversationsInterfaceBuilder {
   void update(void Function($SpreedCapabilities_Config_ConversationsInterfaceBuilder) updates);
   bool? get canCreate;
   set canCreate(bool? canCreate);
+
+  bool? get forcePasswords;
+  set forcePasswords(bool? forcePasswords);
+
+  SpreedCapabilities_Config_Conversations_ListStyle? get listStyle;
+  set listStyle(SpreedCapabilities_Config_Conversations_ListStyle? listStyle);
+
+  int? get descriptionLength;
+  set descriptionLength(int? descriptionLength);
 }
 
 class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Config_Conversations {
   @override
   final bool canCreate;
+  @override
+  final bool? forcePasswords;
+  @override
+  final SpreedCapabilities_Config_Conversations_ListStyle? listStyle;
+  @override
+  final int? descriptionLength;
 
   factory _$SpreedCapabilities_Config_Conversations(
           [void Function(SpreedCapabilities_Config_ConversationsBuilder)? updates]) =>
       (SpreedCapabilities_Config_ConversationsBuilder()..update(updates))._build();
 
-  _$SpreedCapabilities_Config_Conversations._({required this.canCreate}) : super._() {
+  _$SpreedCapabilities_Config_Conversations._(
+      {required this.canCreate, this.forcePasswords, this.listStyle, this.descriptionLength})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate');
   }
 
@@ -29685,20 +30909,31 @@ class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Confi
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedCapabilities_Config_Conversations && canCreate == other.canCreate;
+    return other is SpreedCapabilities_Config_Conversations &&
+        canCreate == other.canCreate &&
+        forcePasswords == other.forcePasswords &&
+        listStyle == other.listStyle &&
+        descriptionLength == other.descriptionLength;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, canCreate.hashCode);
+    _$hash = $jc(_$hash, forcePasswords.hashCode);
+    _$hash = $jc(_$hash, listStyle.hashCode);
+    _$hash = $jc(_$hash, descriptionLength.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Conversations')..add('canCreate', canCreate))
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Conversations')
+          ..add('canCreate', canCreate)
+          ..add('forcePasswords', forcePasswords)
+          ..add('listStyle', listStyle)
+          ..add('descriptionLength', descriptionLength))
         .toString();
   }
 }
@@ -29713,6 +30948,19 @@ class SpreedCapabilities_Config_ConversationsBuilder
   bool? get canCreate => _$this._canCreate;
   set canCreate(covariant bool? canCreate) => _$this._canCreate = canCreate;
 
+  bool? _forcePasswords;
+  bool? get forcePasswords => _$this._forcePasswords;
+  set forcePasswords(covariant bool? forcePasswords) => _$this._forcePasswords = forcePasswords;
+
+  SpreedCapabilities_Config_Conversations_ListStyle? _listStyle;
+  SpreedCapabilities_Config_Conversations_ListStyle? get listStyle => _$this._listStyle;
+  set listStyle(covariant SpreedCapabilities_Config_Conversations_ListStyle? listStyle) =>
+      _$this._listStyle = listStyle;
+
+  int? _descriptionLength;
+  int? get descriptionLength => _$this._descriptionLength;
+  set descriptionLength(covariant int? descriptionLength) => _$this._descriptionLength = descriptionLength;
+
   SpreedCapabilities_Config_ConversationsBuilder() {
     SpreedCapabilities_Config_Conversations._defaults(this);
   }
@@ -29721,6 +30969,9 @@ class SpreedCapabilities_Config_ConversationsBuilder
     final $v = _$v;
     if ($v != null) {
       _canCreate = $v.canCreate;
+      _forcePasswords = $v.forcePasswords;
+      _listStyle = $v.listStyle;
+      _descriptionLength = $v.descriptionLength;
       _$v = null;
     }
     return this;
@@ -29746,6 +30997,9 @@ class SpreedCapabilities_Config_ConversationsBuilder
         _$SpreedCapabilities_Config_Conversations._(
           canCreate:
               BuiltValueNullFieldError.checkNotNull(canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate'),
+          forcePasswords: forcePasswords,
+          listStyle: listStyle,
+          descriptionLength: descriptionLength,
         );
     replace(_$result);
     return _$result;
@@ -30513,35 +31767,33 @@ class SpreedCapabilitiesBuilder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0InterfaceBuilder {
-  void replace($SpreedPublicCapabilities0Interface other);
-  void update(void Function($SpreedPublicCapabilities0InterfaceBuilder) updates);
+abstract mixin class $SpreedPublicCapabilitiesInterfaceBuilder {
+  void replace($SpreedPublicCapabilitiesInterface other);
+  void update(void Function($SpreedPublicCapabilitiesInterfaceBuilder) updates);
   SpreedCapabilitiesBuilder get spreed;
   set spreed(SpreedCapabilitiesBuilder? spreed);
 }
 
-class _$SpreedPublicCapabilities0 extends SpreedPublicCapabilities0 {
+class _$SpreedPublicCapabilities extends SpreedPublicCapabilities {
   @override
-  final SpreedCapabilities spreed;
+  final SpreedCapabilities? spreed;
 
-  factory _$SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? updates]) =>
-      (SpreedPublicCapabilities0Builder()..update(updates))._build();
+  factory _$SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? updates]) =>
+      (SpreedPublicCapabilitiesBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0._({required this.spreed}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(spreed, r'SpreedPublicCapabilities0', 'spreed');
-  }
+  _$SpreedPublicCapabilities._({this.spreed}) : super._();
 
   @override
-  SpreedPublicCapabilities0 rebuild(void Function(SpreedPublicCapabilities0Builder) updates) =>
+  SpreedPublicCapabilities rebuild(void Function(SpreedPublicCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0Builder toBuilder() => SpreedPublicCapabilities0Builder()..replace(this);
+  SpreedPublicCapabilitiesBuilder toBuilder() => SpreedPublicCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0 && spreed == other.spreed;
+    return other is SpreedPublicCapabilities && spreed == other.spreed;
   }
 
   @override
@@ -30554,62 +31806,62 @@ class _$SpreedPublicCapabilities0 extends SpreedPublicCapabilities0 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0')..add('spreed', spreed)).toString();
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities')..add('spreed', spreed)).toString();
   }
 }
 
-class SpreedPublicCapabilities0Builder
+class SpreedPublicCapabilitiesBuilder
     implements
-        Builder<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder>,
-        $SpreedPublicCapabilities0InterfaceBuilder {
-  _$SpreedPublicCapabilities0? _$v;
+        Builder<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder>,
+        $SpreedPublicCapabilitiesInterfaceBuilder {
+  _$SpreedPublicCapabilities? _$v;
 
   SpreedCapabilitiesBuilder? _spreed;
   SpreedCapabilitiesBuilder get spreed => _$this._spreed ??= SpreedCapabilitiesBuilder();
   set spreed(covariant SpreedCapabilitiesBuilder? spreed) => _$this._spreed = spreed;
 
-  SpreedPublicCapabilities0Builder() {
-    SpreedPublicCapabilities0._defaults(this);
+  SpreedPublicCapabilitiesBuilder() {
+    SpreedPublicCapabilities._defaults(this);
   }
 
-  SpreedPublicCapabilities0Builder get _$this {
+  SpreedPublicCapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _spreed = $v.spreed.toBuilder();
+      _spreed = $v.spreed?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0 other) {
+  void replace(covariant SpreedPublicCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0;
+    _$v = other as _$SpreedPublicCapabilities;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0Builder)? updates) {
+  void update(void Function(SpreedPublicCapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0 build() => _build();
+  SpreedPublicCapabilities build() => _build();
 
-  _$SpreedPublicCapabilities0 _build() {
-    SpreedPublicCapabilities0._validate(this);
-    _$SpreedPublicCapabilities0 _$result;
+  _$SpreedPublicCapabilities _build() {
+    SpreedPublicCapabilities._validate(this);
+    _$SpreedPublicCapabilities _$result;
     try {
       _$result = _$v ??
-          _$SpreedPublicCapabilities0._(
-            spreed: spreed.build(),
+          _$SpreedPublicCapabilities._(
+            spreed: _spreed?.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'spreed';
-        spreed.build();
+        _spreed?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -30830,6 +32082,9 @@ abstract mixin class $TablesCapabilities_TablesInterfaceBuilder {
   ListBuilder<String> get features;
   set features(ListBuilder<String>? features);
 
+  bool? get isCirclesEnabled;
+  set isCirclesEnabled(bool? isCirclesEnabled);
+
   ListBuilder<String> get columnTypes;
   set columnTypes(ListBuilder<String>? columnTypes);
 }
@@ -30844,6 +32099,8 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
   @override
   final BuiltList<String> features;
   @override
+  final bool? isCirclesEnabled;
+  @override
   final BuiltList<String> columnTypes;
 
   factory _$TablesCapabilities_Tables([void Function(TablesCapabilities_TablesBuilder)? updates]) =>
@@ -30854,6 +32111,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
       required this.version,
       required this.apiVersions,
       required this.features,
+      this.isCirclesEnabled,
       required this.columnTypes})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled');
@@ -30878,6 +32136,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
         version == other.version &&
         apiVersions == other.apiVersions &&
         features == other.features &&
+        isCirclesEnabled == other.isCirclesEnabled &&
         columnTypes == other.columnTypes;
   }
 
@@ -30888,6 +32147,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
     _$hash = $jc(_$hash, version.hashCode);
     _$hash = $jc(_$hash, apiVersions.hashCode);
     _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, isCirclesEnabled.hashCode);
     _$hash = $jc(_$hash, columnTypes.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -30900,6 +32160,7 @@ class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
           ..add('version', version)
           ..add('apiVersions', apiVersions)
           ..add('features', features)
+          ..add('isCirclesEnabled', isCirclesEnabled)
           ..add('columnTypes', columnTypes))
         .toString();
   }
@@ -30927,6 +32188,10 @@ class TablesCapabilities_TablesBuilder
   ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
   set features(covariant ListBuilder<String>? features) => _$this._features = features;
 
+  bool? _isCirclesEnabled;
+  bool? get isCirclesEnabled => _$this._isCirclesEnabled;
+  set isCirclesEnabled(covariant bool? isCirclesEnabled) => _$this._isCirclesEnabled = isCirclesEnabled;
+
   ListBuilder<String>? _columnTypes;
   ListBuilder<String> get columnTypes => _$this._columnTypes ??= ListBuilder<String>();
   set columnTypes(covariant ListBuilder<String>? columnTypes) => _$this._columnTypes = columnTypes;
@@ -30942,6 +32207,7 @@ class TablesCapabilities_TablesBuilder
       _version = $v.version;
       _apiVersions = $v.apiVersions.toBuilder();
       _features = $v.features.toBuilder();
+      _isCirclesEnabled = $v.isCirclesEnabled;
       _columnTypes = $v.columnTypes.toBuilder();
       _$v = null;
     }
@@ -30972,6 +32238,7 @@ class TablesCapabilities_TablesBuilder
             version: BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version'),
             apiVersions: apiVersions.build(),
             features: features.build(),
+            isCirclesEnabled: isCirclesEnabled,
             columnTypes: columnTypes.build(),
           );
     } catch (_) {
@@ -30981,6 +32248,7 @@ class TablesCapabilities_TablesBuilder
         apiVersions.build();
         _$failedField = 'features';
         features.build();
+
         _$failedField = 'columnTypes';
         columnTypes.build();
       } catch (e) {
@@ -32555,6 +33823,97 @@ class OcsGetCapabilitiesResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder {
+  void replace($PreviewPreviewGetMimeIconUrlHeadersInterface other);
+  void update(void Function($PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder) updates);
+  String? get location;
+  set location(String? location);
+}
+
+class _$PreviewPreviewGetMimeIconUrlHeaders extends PreviewPreviewGetMimeIconUrlHeaders {
+  @override
+  final String? location;
+
+  factory _$PreviewPreviewGetMimeIconUrlHeaders([void Function(PreviewPreviewGetMimeIconUrlHeadersBuilder)? updates]) =>
+      (PreviewPreviewGetMimeIconUrlHeadersBuilder()..update(updates))._build();
+
+  _$PreviewPreviewGetMimeIconUrlHeaders._({this.location}) : super._();
+
+  @override
+  PreviewPreviewGetMimeIconUrlHeaders rebuild(void Function(PreviewPreviewGetMimeIconUrlHeadersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PreviewPreviewGetMimeIconUrlHeadersBuilder toBuilder() => PreviewPreviewGetMimeIconUrlHeadersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PreviewPreviewGetMimeIconUrlHeaders && location == other.location;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PreviewPreviewGetMimeIconUrlHeaders')..add('location', location)).toString();
+  }
+}
+
+class PreviewPreviewGetMimeIconUrlHeadersBuilder
+    implements
+        Builder<PreviewPreviewGetMimeIconUrlHeaders, PreviewPreviewGetMimeIconUrlHeadersBuilder>,
+        $PreviewPreviewGetMimeIconUrlHeadersInterfaceBuilder {
+  _$PreviewPreviewGetMimeIconUrlHeaders? _$v;
+
+  String? _location;
+  String? get location => _$this._location;
+  set location(covariant String? location) => _$this._location = location;
+
+  PreviewPreviewGetMimeIconUrlHeadersBuilder() {
+    PreviewPreviewGetMimeIconUrlHeaders._defaults(this);
+  }
+
+  PreviewPreviewGetMimeIconUrlHeadersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _location = $v.location;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PreviewPreviewGetMimeIconUrlHeaders other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PreviewPreviewGetMimeIconUrlHeaders;
+  }
+
+  @override
+  void update(void Function(PreviewPreviewGetMimeIconUrlHeadersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PreviewPreviewGetMimeIconUrlHeaders build() => _build();
+
+  _$PreviewPreviewGetMimeIconUrlHeaders _build() {
+    PreviewPreviewGetMimeIconUrlHeaders._validate(this);
+    final _$result = _$v ??
+        _$PreviewPreviewGetMimeIconUrlHeaders._(
+          location: location,
+        );
     replace(_$result);
     return _$result;
   }
@@ -37178,39 +38537,41 @@ abstract mixin class $TaskProcessingTaskTypeInterfaceBuilder {
   String? get description;
   set description(String? description);
 
-  ListBuilder<TaskProcessingShape> get inputShape;
-  set inputShape(ListBuilder<TaskProcessingShape>? inputShape);
+  MapBuilder<String, TaskProcessingShape> get inputShape;
+  set inputShape(MapBuilder<String, TaskProcessingShape>? inputShape);
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
-  set inputShapeEnumValues(ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues);
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues;
+  set inputShapeEnumValues(
+      MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues);
 
   MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults> get inputShapeDefaults;
   set inputShapeDefaults(MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? inputShapeDefaults);
 
-  ListBuilder<TaskProcessingShape> get optionalInputShape;
-  set optionalInputShape(ListBuilder<TaskProcessingShape>? optionalInputShape);
+  MapBuilder<String, TaskProcessingShape> get optionalInputShape;
+  set optionalInputShape(MapBuilder<String, TaskProcessingShape>? optionalInputShape);
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues;
   set optionalInputShapeEnumValues(
-      ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? optionalInputShapeEnumValues);
+      MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? optionalInputShapeEnumValues);
 
   MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults> get optionalInputShapeDefaults;
   set optionalInputShapeDefaults(
       MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>? optionalInputShapeDefaults);
 
-  ListBuilder<TaskProcessingShape> get outputShape;
-  set outputShape(ListBuilder<TaskProcessingShape>? outputShape);
+  MapBuilder<String, TaskProcessingShape> get outputShape;
+  set outputShape(MapBuilder<String, TaskProcessingShape>? outputShape);
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues;
   set outputShapeEnumValues(
-      ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? outputShapeEnumValues);
+      MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? outputShapeEnumValues);
 
-  ListBuilder<TaskProcessingShape> get optionalOutputShape;
-  set optionalOutputShape(ListBuilder<TaskProcessingShape>? optionalOutputShape);
+  MapBuilder<String, TaskProcessingShape> get optionalOutputShape;
+  set optionalOutputShape(MapBuilder<String, TaskProcessingShape>? optionalOutputShape);
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues;
   set optionalOutputShapeEnumValues(
-      ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>? optionalOutputShapeEnumValues);
+      MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>?
+          optionalOutputShapeEnumValues);
 }
 
 class _$TaskProcessingTaskType extends TaskProcessingTaskType {
@@ -37219,25 +38580,25 @@ class _$TaskProcessingTaskType extends TaskProcessingTaskType {
   @override
   final String description;
   @override
-  final BuiltList<TaskProcessingShape> inputShape;
+  final BuiltMap<String, TaskProcessingShape> inputShape;
   @override
-  final BuiltList<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> inputShapeEnumValues;
+  final BuiltMap<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> inputShapeEnumValues;
   @override
   final BuiltMap<String, TaskProcessingTaskType_InputShapeDefaults> inputShapeDefaults;
   @override
-  final BuiltList<TaskProcessingShape> optionalInputShape;
+  final BuiltMap<String, TaskProcessingShape> optionalInputShape;
   @override
-  final BuiltList<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> optionalInputShapeEnumValues;
+  final BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> optionalInputShapeEnumValues;
   @override
   final BuiltMap<String, TaskProcessingTaskType_OptionalInputShapeDefaults> optionalInputShapeDefaults;
   @override
-  final BuiltList<TaskProcessingShape> outputShape;
+  final BuiltMap<String, TaskProcessingShape> outputShape;
   @override
-  final BuiltList<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> outputShapeEnumValues;
+  final BuiltMap<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> outputShapeEnumValues;
   @override
-  final BuiltList<TaskProcessingShape> optionalOutputShape;
+  final BuiltMap<String, TaskProcessingShape> optionalOutputShape;
   @override
-  final BuiltList<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> optionalOutputShapeEnumValues;
+  final BuiltMap<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> optionalOutputShapeEnumValues;
 
   factory _$TaskProcessingTaskType([void Function(TaskProcessingTaskTypeBuilder)? updates]) =>
       (TaskProcessingTaskTypeBuilder()..update(updates))._build();
@@ -37349,15 +38710,16 @@ class TaskProcessingTaskTypeBuilder
   String? get description => _$this._description;
   set description(covariant String? description) => _$this._description = description;
 
-  ListBuilder<TaskProcessingShape>? _inputShape;
-  ListBuilder<TaskProcessingShape> get inputShape => _$this._inputShape ??= ListBuilder<TaskProcessingShape>();
-  set inputShape(covariant ListBuilder<TaskProcessingShape>? inputShape) => _$this._inputShape = inputShape;
+  MapBuilder<String, TaskProcessingShape>? _inputShape;
+  MapBuilder<String, TaskProcessingShape> get inputShape =>
+      _$this._inputShape ??= MapBuilder<String, TaskProcessingShape>();
+  set inputShape(covariant MapBuilder<String, TaskProcessingShape>? inputShape) => _$this._inputShape = inputShape;
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? _inputShapeEnumValues;
-  ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues =>
-      _$this._inputShapeEnumValues ??= ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>();
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? _inputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>> get inputShapeEnumValues =>
+      _$this._inputShapeEnumValues ??= MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>();
   set inputShapeEnumValues(
-          covariant ListBuilder<BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues) =>
+          covariant MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>? inputShapeEnumValues) =>
       _$this._inputShapeEnumValues = inputShapeEnumValues;
 
   MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? _inputShapeDefaults;
@@ -37366,18 +38728,18 @@ class TaskProcessingTaskTypeBuilder
   set inputShapeDefaults(covariant MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>? inputShapeDefaults) =>
       _$this._inputShapeDefaults = inputShapeDefaults;
 
-  ListBuilder<TaskProcessingShape>? _optionalInputShape;
-  ListBuilder<TaskProcessingShape> get optionalInputShape =>
-      _$this._optionalInputShape ??= ListBuilder<TaskProcessingShape>();
-  set optionalInputShape(covariant ListBuilder<TaskProcessingShape>? optionalInputShape) =>
+  MapBuilder<String, TaskProcessingShape>? _optionalInputShape;
+  MapBuilder<String, TaskProcessingShape> get optionalInputShape =>
+      _$this._optionalInputShape ??= MapBuilder<String, TaskProcessingShape>();
+  set optionalInputShape(covariant MapBuilder<String, TaskProcessingShape>? optionalInputShape) =>
       _$this._optionalInputShape = optionalInputShape;
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? _optionalInputShapeEnumValues;
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues =>
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>? _optionalInputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>> get optionalInputShapeEnumValues =>
       _$this._optionalInputShapeEnumValues ??=
-          ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>();
+          MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>();
   set optionalInputShapeEnumValues(
-          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>?
+          covariant MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>?
               optionalInputShapeEnumValues) =>
       _$this._optionalInputShapeEnumValues = optionalInputShapeEnumValues;
 
@@ -37389,29 +38751,31 @@ class TaskProcessingTaskTypeBuilder
               optionalInputShapeDefaults) =>
       _$this._optionalInputShapeDefaults = optionalInputShapeDefaults;
 
-  ListBuilder<TaskProcessingShape>? _outputShape;
-  ListBuilder<TaskProcessingShape> get outputShape => _$this._outputShape ??= ListBuilder<TaskProcessingShape>();
-  set outputShape(covariant ListBuilder<TaskProcessingShape>? outputShape) => _$this._outputShape = outputShape;
+  MapBuilder<String, TaskProcessingShape>? _outputShape;
+  MapBuilder<String, TaskProcessingShape> get outputShape =>
+      _$this._outputShape ??= MapBuilder<String, TaskProcessingShape>();
+  set outputShape(covariant MapBuilder<String, TaskProcessingShape>? outputShape) => _$this._outputShape = outputShape;
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? _outputShapeEnumValues;
-  ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues =>
-      _$this._outputShapeEnumValues ??= ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>();
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? _outputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>> get outputShapeEnumValues =>
+      _$this._outputShapeEnumValues ??= MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>();
   set outputShapeEnumValues(
-          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>? outputShapeEnumValues) =>
+          covariant MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>?
+              outputShapeEnumValues) =>
       _$this._outputShapeEnumValues = outputShapeEnumValues;
 
-  ListBuilder<TaskProcessingShape>? _optionalOutputShape;
-  ListBuilder<TaskProcessingShape> get optionalOutputShape =>
-      _$this._optionalOutputShape ??= ListBuilder<TaskProcessingShape>();
-  set optionalOutputShape(covariant ListBuilder<TaskProcessingShape>? optionalOutputShape) =>
+  MapBuilder<String, TaskProcessingShape>? _optionalOutputShape;
+  MapBuilder<String, TaskProcessingShape> get optionalOutputShape =>
+      _$this._optionalOutputShape ??= MapBuilder<String, TaskProcessingShape>();
+  set optionalOutputShape(covariant MapBuilder<String, TaskProcessingShape>? optionalOutputShape) =>
       _$this._optionalOutputShape = optionalOutputShape;
 
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>? _optionalOutputShapeEnumValues;
-  ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>> get optionalOutputShapeEnumValues =>
-      _$this._optionalOutputShapeEnumValues ??=
-          ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>();
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>? _optionalOutputShapeEnumValues;
+  MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>
+      get optionalOutputShapeEnumValues => _$this._optionalOutputShapeEnumValues ??=
+          MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>();
   set optionalOutputShapeEnumValues(
-          covariant ListBuilder<BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>?
+          covariant MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>?
               optionalOutputShapeEnumValues) =>
       _$this._optionalOutputShapeEnumValues = optionalOutputShapeEnumValues;
 
@@ -38093,6 +39457,15 @@ abstract mixin class $TaskProcessingTaskInterfaceBuilder {
 
   double? get progress;
   set progress(double? progress);
+
+  int? get scheduledAt;
+  set scheduledAt(int? scheduledAt);
+
+  int? get startedAt;
+  set startedAt(int? startedAt);
+
+  int? get endedAt;
+  set endedAt(int? endedAt);
 }
 
 class _$TaskProcessingTask extends TaskProcessingTask {
@@ -38118,6 +39491,12 @@ class _$TaskProcessingTask extends TaskProcessingTask {
   final int? completionExpectedAt;
   @override
   final double? progress;
+  @override
+  final int? scheduledAt;
+  @override
+  final int? startedAt;
+  @override
+  final int? endedAt;
 
   factory _$TaskProcessingTask([void Function(TaskProcessingTaskBuilder)? updates]) =>
       (TaskProcessingTaskBuilder()..update(updates))._build();
@@ -38133,7 +39512,10 @@ class _$TaskProcessingTask extends TaskProcessingTask {
       this.output,
       this.customId,
       this.completionExpectedAt,
-      this.progress})
+      this.progress,
+      this.scheduledAt,
+      this.startedAt,
+      this.endedAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'TaskProcessingTask', 'id');
     BuiltValueNullFieldError.checkNotNull(lastUpdated, r'TaskProcessingTask', 'lastUpdated');
@@ -38165,7 +39547,10 @@ class _$TaskProcessingTask extends TaskProcessingTask {
         output == _$dynamicOther.output &&
         customId == other.customId &&
         completionExpectedAt == other.completionExpectedAt &&
-        progress == other.progress;
+        progress == other.progress &&
+        scheduledAt == other.scheduledAt &&
+        startedAt == other.startedAt &&
+        endedAt == other.endedAt;
   }
 
   @override
@@ -38182,6 +39567,9 @@ class _$TaskProcessingTask extends TaskProcessingTask {
     _$hash = $jc(_$hash, customId.hashCode);
     _$hash = $jc(_$hash, completionExpectedAt.hashCode);
     _$hash = $jc(_$hash, progress.hashCode);
+    _$hash = $jc(_$hash, scheduledAt.hashCode);
+    _$hash = $jc(_$hash, startedAt.hashCode);
+    _$hash = $jc(_$hash, endedAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -38199,7 +39587,10 @@ class _$TaskProcessingTask extends TaskProcessingTask {
           ..add('output', output)
           ..add('customId', customId)
           ..add('completionExpectedAt', completionExpectedAt)
-          ..add('progress', progress))
+          ..add('progress', progress)
+          ..add('scheduledAt', scheduledAt)
+          ..add('startedAt', startedAt)
+          ..add('endedAt', endedAt))
         .toString();
   }
 }
@@ -38252,6 +39643,18 @@ class TaskProcessingTaskBuilder
   double? get progress => _$this._progress;
   set progress(covariant double? progress) => _$this._progress = progress;
 
+  int? _scheduledAt;
+  int? get scheduledAt => _$this._scheduledAt;
+  set scheduledAt(covariant int? scheduledAt) => _$this._scheduledAt = scheduledAt;
+
+  int? _startedAt;
+  int? get startedAt => _$this._startedAt;
+  set startedAt(covariant int? startedAt) => _$this._startedAt = startedAt;
+
+  int? _endedAt;
+  int? get endedAt => _$this._endedAt;
+  set endedAt(covariant int? endedAt) => _$this._endedAt = endedAt;
+
   TaskProcessingTaskBuilder() {
     TaskProcessingTask._defaults(this);
   }
@@ -38270,6 +39673,9 @@ class TaskProcessingTaskBuilder
       _customId = $v.customId;
       _completionExpectedAt = $v.completionExpectedAt;
       _progress = $v.progress;
+      _scheduledAt = $v.scheduledAt;
+      _startedAt = $v.startedAt;
+      _endedAt = $v.endedAt;
       _$v = null;
     }
     return this;
@@ -38306,6 +39712,9 @@ class TaskProcessingTaskBuilder
             customId: customId,
             completionExpectedAt: completionExpectedAt,
             progress: progress,
+            scheduledAt: scheduledAt,
+            startedAt: startedAt,
+            endedAt: endedAt,
           );
     } catch (_) {
       late String _$failedField;
@@ -48516,6 +49925,960 @@ class TranslationApiTranslateResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'TranslationApiTranslateResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TwoFactorApiStateResponseApplicationJson_OcsInterface other);
+  void update(void Function($TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  MapBuilder<String, bool> get data;
+  set data(MapBuilder<String, bool>? data);
+}
+
+class _$TwoFactorApiStateResponseApplicationJson_Ocs extends TwoFactorApiStateResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltMap<String, bool> data;
+
+  factory _$TwoFactorApiStateResponseApplicationJson_Ocs(
+          [void Function(TwoFactorApiStateResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TwoFactorApiStateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TwoFactorApiStateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TwoFactorApiStateResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TwoFactorApiStateResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson_Ocs rebuild(
+          void Function(TwoFactorApiStateResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder toBuilder() =>
+      TwoFactorApiStateResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiStateResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiStateResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TwoFactorApiStateResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TwoFactorApiStateResponseApplicationJson_Ocs, TwoFactorApiStateResponseApplicationJson_OcsBuilder>,
+        $TwoFactorApiStateResponseApplicationJson_OcsInterfaceBuilder {
+  _$TwoFactorApiStateResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  MapBuilder<String, bool>? _data;
+  MapBuilder<String, bool> get data => _$this._data ??= MapBuilder<String, bool>();
+  set data(covariant MapBuilder<String, bool>? data) => _$this._data = data;
+
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder() {
+    TwoFactorApiStateResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiStateResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiStateResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiStateResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson_Ocs build() => _build();
+
+  _$TwoFactorApiStateResponseApplicationJson_Ocs _build() {
+    TwoFactorApiStateResponseApplicationJson_Ocs._validate(this);
+    _$TwoFactorApiStateResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiStateResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiStateResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiStateResponseApplicationJsonInterfaceBuilder {
+  void replace($TwoFactorApiStateResponseApplicationJsonInterface other);
+  void update(void Function($TwoFactorApiStateResponseApplicationJsonInterfaceBuilder) updates);
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TwoFactorApiStateResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TwoFactorApiStateResponseApplicationJson extends TwoFactorApiStateResponseApplicationJson {
+  @override
+  final TwoFactorApiStateResponseApplicationJson_Ocs ocs;
+
+  factory _$TwoFactorApiStateResponseApplicationJson(
+          [void Function(TwoFactorApiStateResponseApplicationJsonBuilder)? updates]) =>
+      (TwoFactorApiStateResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TwoFactorApiStateResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TwoFactorApiStateResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson rebuild(
+          void Function(TwoFactorApiStateResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiStateResponseApplicationJsonBuilder toBuilder() =>
+      TwoFactorApiStateResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiStateResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiStateResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TwoFactorApiStateResponseApplicationJsonBuilder
+    implements
+        Builder<TwoFactorApiStateResponseApplicationJson, TwoFactorApiStateResponseApplicationJsonBuilder>,
+        $TwoFactorApiStateResponseApplicationJsonInterfaceBuilder {
+  _$TwoFactorApiStateResponseApplicationJson? _$v;
+
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder? _ocs;
+  TwoFactorApiStateResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TwoFactorApiStateResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TwoFactorApiStateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TwoFactorApiStateResponseApplicationJsonBuilder() {
+    TwoFactorApiStateResponseApplicationJson._defaults(this);
+  }
+
+  TwoFactorApiStateResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiStateResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiStateResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiStateResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiStateResponseApplicationJson build() => _build();
+
+  _$TwoFactorApiStateResponseApplicationJson _build() {
+    TwoFactorApiStateResponseApplicationJson._validate(this);
+    _$TwoFactorApiStateResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiStateResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiStateResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder {
+  void replace($TwoFactorApiEnableRequestApplicationJsonInterface other);
+  void update(void Function($TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder) updates);
+  String? get user;
+  set user(String? user);
+
+  ListBuilder<String> get providers;
+  set providers(ListBuilder<String>? providers);
+}
+
+class _$TwoFactorApiEnableRequestApplicationJson extends TwoFactorApiEnableRequestApplicationJson {
+  @override
+  final String user;
+  @override
+  final BuiltList<String> providers;
+
+  factory _$TwoFactorApiEnableRequestApplicationJson(
+          [void Function(TwoFactorApiEnableRequestApplicationJsonBuilder)? updates]) =>
+      (TwoFactorApiEnableRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TwoFactorApiEnableRequestApplicationJson._({required this.user, required this.providers}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(user, r'TwoFactorApiEnableRequestApplicationJson', 'user');
+    BuiltValueNullFieldError.checkNotNull(providers, r'TwoFactorApiEnableRequestApplicationJson', 'providers');
+  }
+
+  @override
+  TwoFactorApiEnableRequestApplicationJson rebuild(
+          void Function(TwoFactorApiEnableRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiEnableRequestApplicationJsonBuilder toBuilder() =>
+      TwoFactorApiEnableRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiEnableRequestApplicationJson && user == other.user && providers == other.providers;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jc(_$hash, providers.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiEnableRequestApplicationJson')
+          ..add('user', user)
+          ..add('providers', providers))
+        .toString();
+  }
+}
+
+class TwoFactorApiEnableRequestApplicationJsonBuilder
+    implements
+        Builder<TwoFactorApiEnableRequestApplicationJson, TwoFactorApiEnableRequestApplicationJsonBuilder>,
+        $TwoFactorApiEnableRequestApplicationJsonInterfaceBuilder {
+  _$TwoFactorApiEnableRequestApplicationJson? _$v;
+
+  String? _user;
+  String? get user => _$this._user;
+  set user(covariant String? user) => _$this._user = user;
+
+  ListBuilder<String>? _providers;
+  ListBuilder<String> get providers => _$this._providers ??= ListBuilder<String>();
+  set providers(covariant ListBuilder<String>? providers) => _$this._providers = providers;
+
+  TwoFactorApiEnableRequestApplicationJsonBuilder() {
+    TwoFactorApiEnableRequestApplicationJson._defaults(this);
+  }
+
+  TwoFactorApiEnableRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _user = $v.user;
+      _providers = $v.providers.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiEnableRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiEnableRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiEnableRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiEnableRequestApplicationJson build() => _build();
+
+  _$TwoFactorApiEnableRequestApplicationJson _build() {
+    TwoFactorApiEnableRequestApplicationJson._validate(this);
+    _$TwoFactorApiEnableRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiEnableRequestApplicationJson._(
+            user: BuiltValueNullFieldError.checkNotNull(user, r'TwoFactorApiEnableRequestApplicationJson', 'user'),
+            providers: providers.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'providers';
+        providers.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiEnableRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TwoFactorApiEnableResponseApplicationJson_OcsInterface other);
+  void update(void Function($TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  MapBuilder<String, bool> get data;
+  set data(MapBuilder<String, bool>? data);
+}
+
+class _$TwoFactorApiEnableResponseApplicationJson_Ocs extends TwoFactorApiEnableResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltMap<String, bool> data;
+
+  factory _$TwoFactorApiEnableResponseApplicationJson_Ocs(
+          [void Function(TwoFactorApiEnableResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TwoFactorApiEnableResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TwoFactorApiEnableResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TwoFactorApiEnableResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TwoFactorApiEnableResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson_Ocs rebuild(
+          void Function(TwoFactorApiEnableResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder toBuilder() =>
+      TwoFactorApiEnableResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiEnableResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiEnableResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TwoFactorApiEnableResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TwoFactorApiEnableResponseApplicationJson_Ocs, TwoFactorApiEnableResponseApplicationJson_OcsBuilder>,
+        $TwoFactorApiEnableResponseApplicationJson_OcsInterfaceBuilder {
+  _$TwoFactorApiEnableResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  MapBuilder<String, bool>? _data;
+  MapBuilder<String, bool> get data => _$this._data ??= MapBuilder<String, bool>();
+  set data(covariant MapBuilder<String, bool>? data) => _$this._data = data;
+
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder() {
+    TwoFactorApiEnableResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiEnableResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiEnableResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiEnableResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson_Ocs build() => _build();
+
+  _$TwoFactorApiEnableResponseApplicationJson_Ocs _build() {
+    TwoFactorApiEnableResponseApplicationJson_Ocs._validate(this);
+    _$TwoFactorApiEnableResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiEnableResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiEnableResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder {
+  void replace($TwoFactorApiEnableResponseApplicationJsonInterface other);
+  void update(void Function($TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder) updates);
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TwoFactorApiEnableResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TwoFactorApiEnableResponseApplicationJson extends TwoFactorApiEnableResponseApplicationJson {
+  @override
+  final TwoFactorApiEnableResponseApplicationJson_Ocs ocs;
+
+  factory _$TwoFactorApiEnableResponseApplicationJson(
+          [void Function(TwoFactorApiEnableResponseApplicationJsonBuilder)? updates]) =>
+      (TwoFactorApiEnableResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TwoFactorApiEnableResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TwoFactorApiEnableResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson rebuild(
+          void Function(TwoFactorApiEnableResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiEnableResponseApplicationJsonBuilder toBuilder() =>
+      TwoFactorApiEnableResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiEnableResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiEnableResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TwoFactorApiEnableResponseApplicationJsonBuilder
+    implements
+        Builder<TwoFactorApiEnableResponseApplicationJson, TwoFactorApiEnableResponseApplicationJsonBuilder>,
+        $TwoFactorApiEnableResponseApplicationJsonInterfaceBuilder {
+  _$TwoFactorApiEnableResponseApplicationJson? _$v;
+
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder? _ocs;
+  TwoFactorApiEnableResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TwoFactorApiEnableResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TwoFactorApiEnableResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TwoFactorApiEnableResponseApplicationJsonBuilder() {
+    TwoFactorApiEnableResponseApplicationJson._defaults(this);
+  }
+
+  TwoFactorApiEnableResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiEnableResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiEnableResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiEnableResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiEnableResponseApplicationJson build() => _build();
+
+  _$TwoFactorApiEnableResponseApplicationJson _build() {
+    TwoFactorApiEnableResponseApplicationJson._validate(this);
+    _$TwoFactorApiEnableResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiEnableResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiEnableResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder {
+  void replace($TwoFactorApiDisableRequestApplicationJsonInterface other);
+  void update(void Function($TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder) updates);
+  String? get user;
+  set user(String? user);
+
+  ListBuilder<String> get providers;
+  set providers(ListBuilder<String>? providers);
+}
+
+class _$TwoFactorApiDisableRequestApplicationJson extends TwoFactorApiDisableRequestApplicationJson {
+  @override
+  final String user;
+  @override
+  final BuiltList<String> providers;
+
+  factory _$TwoFactorApiDisableRequestApplicationJson(
+          [void Function(TwoFactorApiDisableRequestApplicationJsonBuilder)? updates]) =>
+      (TwoFactorApiDisableRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TwoFactorApiDisableRequestApplicationJson._({required this.user, required this.providers}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(user, r'TwoFactorApiDisableRequestApplicationJson', 'user');
+    BuiltValueNullFieldError.checkNotNull(providers, r'TwoFactorApiDisableRequestApplicationJson', 'providers');
+  }
+
+  @override
+  TwoFactorApiDisableRequestApplicationJson rebuild(
+          void Function(TwoFactorApiDisableRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiDisableRequestApplicationJsonBuilder toBuilder() =>
+      TwoFactorApiDisableRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiDisableRequestApplicationJson && user == other.user && providers == other.providers;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, user.hashCode);
+    _$hash = $jc(_$hash, providers.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiDisableRequestApplicationJson')
+          ..add('user', user)
+          ..add('providers', providers))
+        .toString();
+  }
+}
+
+class TwoFactorApiDisableRequestApplicationJsonBuilder
+    implements
+        Builder<TwoFactorApiDisableRequestApplicationJson, TwoFactorApiDisableRequestApplicationJsonBuilder>,
+        $TwoFactorApiDisableRequestApplicationJsonInterfaceBuilder {
+  _$TwoFactorApiDisableRequestApplicationJson? _$v;
+
+  String? _user;
+  String? get user => _$this._user;
+  set user(covariant String? user) => _$this._user = user;
+
+  ListBuilder<String>? _providers;
+  ListBuilder<String> get providers => _$this._providers ??= ListBuilder<String>();
+  set providers(covariant ListBuilder<String>? providers) => _$this._providers = providers;
+
+  TwoFactorApiDisableRequestApplicationJsonBuilder() {
+    TwoFactorApiDisableRequestApplicationJson._defaults(this);
+  }
+
+  TwoFactorApiDisableRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _user = $v.user;
+      _providers = $v.providers.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiDisableRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiDisableRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiDisableRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiDisableRequestApplicationJson build() => _build();
+
+  _$TwoFactorApiDisableRequestApplicationJson _build() {
+    TwoFactorApiDisableRequestApplicationJson._validate(this);
+    _$TwoFactorApiDisableRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiDisableRequestApplicationJson._(
+            user: BuiltValueNullFieldError.checkNotNull(user, r'TwoFactorApiDisableRequestApplicationJson', 'user'),
+            providers: providers.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'providers';
+        providers.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiDisableRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TwoFactorApiDisableResponseApplicationJson_OcsInterface other);
+  void update(void Function($TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  MapBuilder<String, bool> get data;
+  set data(MapBuilder<String, bool>? data);
+}
+
+class _$TwoFactorApiDisableResponseApplicationJson_Ocs extends TwoFactorApiDisableResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltMap<String, bool> data;
+
+  factory _$TwoFactorApiDisableResponseApplicationJson_Ocs(
+          [void Function(TwoFactorApiDisableResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TwoFactorApiDisableResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TwoFactorApiDisableResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TwoFactorApiDisableResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TwoFactorApiDisableResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson_Ocs rebuild(
+          void Function(TwoFactorApiDisableResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder toBuilder() =>
+      TwoFactorApiDisableResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiDisableResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiDisableResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TwoFactorApiDisableResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TwoFactorApiDisableResponseApplicationJson_Ocs, TwoFactorApiDisableResponseApplicationJson_OcsBuilder>,
+        $TwoFactorApiDisableResponseApplicationJson_OcsInterfaceBuilder {
+  _$TwoFactorApiDisableResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  MapBuilder<String, bool>? _data;
+  MapBuilder<String, bool> get data => _$this._data ??= MapBuilder<String, bool>();
+  set data(covariant MapBuilder<String, bool>? data) => _$this._data = data;
+
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder() {
+    TwoFactorApiDisableResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiDisableResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiDisableResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiDisableResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson_Ocs build() => _build();
+
+  _$TwoFactorApiDisableResponseApplicationJson_Ocs _build() {
+    TwoFactorApiDisableResponseApplicationJson_Ocs._validate(this);
+    _$TwoFactorApiDisableResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiDisableResponseApplicationJson_Ocs._(
+            meta: meta.build(),
+            data: data.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TwoFactorApiDisableResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder {
+  void replace($TwoFactorApiDisableResponseApplicationJsonInterface other);
+  void update(void Function($TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder) updates);
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TwoFactorApiDisableResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TwoFactorApiDisableResponseApplicationJson extends TwoFactorApiDisableResponseApplicationJson {
+  @override
+  final TwoFactorApiDisableResponseApplicationJson_Ocs ocs;
+
+  factory _$TwoFactorApiDisableResponseApplicationJson(
+          [void Function(TwoFactorApiDisableResponseApplicationJsonBuilder)? updates]) =>
+      (TwoFactorApiDisableResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TwoFactorApiDisableResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TwoFactorApiDisableResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson rebuild(
+          void Function(TwoFactorApiDisableResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TwoFactorApiDisableResponseApplicationJsonBuilder toBuilder() =>
+      TwoFactorApiDisableResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TwoFactorApiDisableResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TwoFactorApiDisableResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TwoFactorApiDisableResponseApplicationJsonBuilder
+    implements
+        Builder<TwoFactorApiDisableResponseApplicationJson, TwoFactorApiDisableResponseApplicationJsonBuilder>,
+        $TwoFactorApiDisableResponseApplicationJsonInterfaceBuilder {
+  _$TwoFactorApiDisableResponseApplicationJson? _$v;
+
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder? _ocs;
+  TwoFactorApiDisableResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TwoFactorApiDisableResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TwoFactorApiDisableResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TwoFactorApiDisableResponseApplicationJsonBuilder() {
+    TwoFactorApiDisableResponseApplicationJson._defaults(this);
+  }
+
+  TwoFactorApiDisableResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TwoFactorApiDisableResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TwoFactorApiDisableResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TwoFactorApiDisableResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TwoFactorApiDisableResponseApplicationJson build() => _build();
+
+  _$TwoFactorApiDisableResponseApplicationJson _build() {
+    TwoFactorApiDisableResponseApplicationJson._validate(this);
+    _$TwoFactorApiDisableResponseApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$TwoFactorApiDisableResponseApplicationJson._(
+            ocs: ocs.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TwoFactorApiDisableResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

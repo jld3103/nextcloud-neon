@@ -237,6 +237,8 @@ class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPr
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesInterface {
   bool get undelete;
+  @BuiltValueField(wireName: 'delete_from_trash')
+  bool? get deleteFromTrash;
 
   /// Rebuilds the instance.
   ///

@@ -1,0 +1,16 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/files/required",
+    "value": [
+      "$comment",
+      "bigfilechunking",
+      "blacklisted_files",
+      "forbidden_filenames",
+      "forbidden_filename_basenames",
+      "forbidden_filename_characters",
+      "forbidden_filename_extensions",
+      "directEditing"
+    ]
+  }
+]

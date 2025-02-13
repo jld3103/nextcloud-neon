@@ -12,9 +12,9 @@ void main() {
     FakeNeonStorage.setup();
   });
 
-  for (final type in spreed.ActorType.values) {
-    final avatarMatcher = type == spreed.ActorType.users ? findsOne : findsNothing;
-    final iconMatcher = type == spreed.ActorType.users ? findsNothing : findsOne;
+  for (final type in spreed.ActorTypes.values) {
+    final avatarMatcher = type == spreed.ActorTypes.users ? findsOne : findsNothing;
+    final iconMatcher = type == spreed.ActorTypes.users ? findsNothing : findsOne;
 
     testWidgets('$type', (tester) async {
       final account = MockAccount();

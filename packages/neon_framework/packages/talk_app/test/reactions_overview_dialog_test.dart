@@ -35,19 +35,19 @@ void main() {
     when(() => chatMessage.systemMessage).thenReturn('');
 
     final reaction1 = MockReaction();
-    when(() => reaction1.actorType).thenReturn(spreed.ActorType.users);
+    when(() => reaction1.actorType).thenReturn(spreed.ActorTypes.users);
     when(() => reaction1.actorId).thenReturn('user1');
     when(() => reaction1.actorDisplayName).thenReturn('User One');
     when(() => reaction1.timestamp).thenReturn(60);
 
     final reaction2 = MockReaction();
-    when(() => reaction2.actorType).thenReturn(spreed.ActorType.users);
+    when(() => reaction2.actorType).thenReturn(spreed.ActorTypes.users);
     when(() => reaction2.actorId).thenReturn('user2');
     when(() => reaction2.actorDisplayName).thenReturn('User Two');
     when(() => reaction2.timestamp).thenReturn(120);
 
     final reaction3 = MockReaction();
-    when(() => reaction3.actorType).thenReturn(spreed.ActorType.users);
+    when(() => reaction3.actorType).thenReturn(spreed.ActorTypes.users);
     when(() => reaction3.actorId).thenReturn('user3');
     when(() => reaction3.actorDisplayName).thenReturn('User Three');
     when(() => reaction3.timestamp).thenReturn(180);

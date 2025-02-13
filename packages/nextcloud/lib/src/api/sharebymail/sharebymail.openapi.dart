@@ -16,55 +16,53 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
-import 'package:dynamite_runtime/built_value.dart' as _i3;
-import 'package:dynamite_runtime/utils.dart' as _i1;
-import 'package:meta/meta.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:meta/meta.dart' as _i1;
 
 part 'sharebymail.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-sealed class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+sealed class $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
-    void Function($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    void Function($Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _defaults($Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  static void _validate($Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
 }
 
-abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+abstract class Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
-            Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
-  /// Creates a new Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
-  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
-    void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
-  ]) = _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
+        $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        Built<Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+            Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
+  factory Capabilities_FilesSharing_Sharebymail_UploadFilesDrop([
+    void Function(Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$Capabilities_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
-  const Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._();
+  const Capabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -75,125 +73,60 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
-  static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer;
+  /// Serializer for Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.
+  static Serializer<Capabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$capabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
+  static void _defaults(Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
+  static void _validate(Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
-  bool get enabled;
-  bool get enforced;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_PasswordInterface rebuild(
-    void Function($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
-}
-
-abstract class Capabilities0_FilesSharing_Sharebymail_Password
-    implements
-        $Capabilities0_FilesSharing_Sharebymail_PasswordInterface,
-        Built<Capabilities0_FilesSharing_Sharebymail_Password, Capabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
-  /// Creates a new Capabilities0_FilesSharing_Sharebymail_Password object using the builder pattern.
-  factory Capabilities0_FilesSharing_Sharebymail_Password([
-    void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
-  ]) = _$Capabilities0_FilesSharing_Sharebymail_Password;
-
-  // coverage:ignore-start
-  const Capabilities0_FilesSharing_Sharebymail_Password._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Capabilities0_FilesSharing_Sharebymail_Password.
-  static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
-      _$capabilities0FilesSharingSharebymailPasswordSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_PasswordInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+sealed class $Capabilities_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
-    void Function($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    void Function($Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
-  $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _defaults($Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  static void _validate($Capabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
 }
 
-abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
+abstract class Capabilities_FilesSharing_Sharebymail_Password
     implements
-        $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<Capabilities0_FilesSharing_Sharebymail_ExpireDate,
-            Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
-  /// Creates a new Capabilities0_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
-  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate([
-    void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
-  ]) = _$Capabilities0_FilesSharing_Sharebymail_ExpireDate;
+        $Capabilities_FilesSharing_Sharebymail_PasswordInterface,
+        Built<Capabilities_FilesSharing_Sharebymail_Password, Capabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Sharebymail_Password object using the builder pattern.
+  factory Capabilities_FilesSharing_Sharebymail_Password([
+    void Function(Capabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$Capabilities_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
-  const Capabilities0_FilesSharing_Sharebymail_ExpireDate._();
+  const Capabilities_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -204,65 +137,130 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Capabilities0_FilesSharing_Sharebymail_ExpireDate.
-  static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$capabilities0FilesSharingSharebymailExpireDateSerializer;
+  /// Serializer for Capabilities_FilesSharing_Sharebymail_Password.
+  static Serializer<Capabilities_FilesSharing_Sharebymail_Password> get serializer =>
+      _$capabilitiesFilesSharingSharebymailPasswordSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  static void _defaults(Capabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
-    $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  static void _validate(Capabilities_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_PasswordInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Capabilities0_FilesSharing_SharebymailInterface {
+sealed class $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+  bool get enabled;
+  bool get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    void Function($Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_FilesSharing_Sharebymail_ExpireDate
+    implements
+        $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface,
+        Built<Capabilities_FilesSharing_Sharebymail_ExpireDate,
+            Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
+  factory Capabilities_FilesSharing_Sharebymail_ExpireDate([
+    void Function(Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$Capabilities_FilesSharing_Sharebymail_ExpireDate;
+
+  // coverage:ignore-start
+  const Capabilities_FilesSharing_Sharebymail_ExpireDate._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_FilesSharing_Sharebymail_ExpireDate.
+  static Serializer<Capabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$capabilitiesFilesSharingSharebymailExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $Capabilities_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
   @BuiltValueField(wireName: 'upload_files_drop')
-  Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  Capabilities0_FilesSharing_Sharebymail_Password get password;
+  Capabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  Capabilities_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
-  Capabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  Capabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $Capabilities0_FilesSharing_SharebymailInterface rebuild(
-    void Function($Capabilities0_FilesSharing_SharebymailInterfaceBuilder) updates,
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $Capabilities_FilesSharing_SharebymailInterface rebuild(
+    void Function($Capabilities_FilesSharing_SharebymailInterfaceBuilder) updates,
   );
 
-  /// Converts the instance to a builder [$Capabilities0_FilesSharing_SharebymailInterfaceBuilder].
-  $Capabilities0_FilesSharing_SharebymailInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_SharebymailInterfaceBuilder].
+  $Capabilities_FilesSharing_SharebymailInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _defaults($Capabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  static void _validate($Capabilities_FilesSharing_SharebymailInterfaceBuilder b) {}
 }
 
-abstract class Capabilities0_FilesSharing_Sharebymail
+abstract class Capabilities_FilesSharing_Sharebymail
     implements
-        $Capabilities0_FilesSharing_SharebymailInterface,
-        Built<Capabilities0_FilesSharing_Sharebymail, Capabilities0_FilesSharing_SharebymailBuilder> {
-  /// Creates a new Capabilities0_FilesSharing_Sharebymail object using the builder pattern.
-  factory Capabilities0_FilesSharing_Sharebymail([void Function(Capabilities0_FilesSharing_SharebymailBuilder)? b]) =
-      _$Capabilities0_FilesSharing_Sharebymail;
+        $Capabilities_FilesSharing_SharebymailInterface,
+        Built<Capabilities_FilesSharing_Sharebymail, Capabilities_FilesSharing_SharebymailBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Sharebymail object using the builder pattern.
+  factory Capabilities_FilesSharing_Sharebymail([void Function(Capabilities_FilesSharing_SharebymailBuilder)? b]) =
+      _$Capabilities_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
-  const Capabilities0_FilesSharing_Sharebymail._();
+  const Capabilities_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -273,56 +271,53 @@ abstract class Capabilities0_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Capabilities0_FilesSharing_Sharebymail.
-  static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
-      _$capabilities0FilesSharingSharebymailSerializer;
+  /// Serializer for Capabilities_FilesSharing_Sharebymail.
+  static Serializer<Capabilities_FilesSharing_Sharebymail> get serializer =>
+      _$capabilitiesFilesSharingSharebymailSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0_FilesSharing_SharebymailBuilder b) {
-    $Capabilities0_FilesSharing_SharebymailInterface._defaults(b);
+  static void _defaults(Capabilities_FilesSharing_SharebymailBuilder b) {
+    $Capabilities_FilesSharing_SharebymailInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0_FilesSharing_SharebymailBuilder b) {
-    $Capabilities0_FilesSharing_SharebymailInterface._validate(b);
+  static void _validate(Capabilities_FilesSharing_SharebymailBuilder b) {
+    $Capabilities_FilesSharing_SharebymailInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Capabilities0_FilesSharingInterface {
-  Capabilities0_FilesSharing_Sharebymail get sharebymail;
+sealed class $Capabilities_FilesSharingInterface {
+  Capabilities_FilesSharing_Sharebymail get sharebymail;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharingInterfaceBuilder].
-  $Capabilities0_FilesSharingInterface rebuild(void Function($Capabilities0_FilesSharingInterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharingInterfaceBuilder].
+  $Capabilities_FilesSharingInterface rebuild(void Function($Capabilities_FilesSharingInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$Capabilities0_FilesSharingInterfaceBuilder].
-  $Capabilities0_FilesSharingInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$Capabilities_FilesSharingInterfaceBuilder].
+  $Capabilities_FilesSharingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _defaults($Capabilities_FilesSharingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0_FilesSharingInterfaceBuilder b) {}
+  static void _validate($Capabilities_FilesSharingInterfaceBuilder b) {}
 }
 
-abstract class Capabilities0_FilesSharing
-    implements
-        $Capabilities0_FilesSharingInterface,
-        Built<Capabilities0_FilesSharing, Capabilities0_FilesSharingBuilder> {
-  /// Creates a new Capabilities0_FilesSharing object using the builder pattern.
-  factory Capabilities0_FilesSharing([void Function(Capabilities0_FilesSharingBuilder)? b]) =
-      _$Capabilities0_FilesSharing;
+abstract class Capabilities_FilesSharing
+    implements $Capabilities_FilesSharingInterface, Built<Capabilities_FilesSharing, Capabilities_FilesSharingBuilder> {
+  /// Creates a new Capabilities_FilesSharing object using the builder pattern.
+  factory Capabilities_FilesSharing([void Function(Capabilities_FilesSharingBuilder)? b]) = _$Capabilities_FilesSharing;
 
   // coverage:ignore-start
-  const Capabilities0_FilesSharing._();
+  const Capabilities_FilesSharing._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -333,52 +328,52 @@ abstract class Capabilities0_FilesSharing
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Capabilities0_FilesSharing.
-  static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
+  /// Serializer for Capabilities_FilesSharing.
+  static Serializer<Capabilities_FilesSharing> get serializer => _$capabilitiesFilesSharingSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0_FilesSharingBuilder b) {
-    $Capabilities0_FilesSharingInterface._defaults(b);
+  static void _defaults(Capabilities_FilesSharingBuilder b) {
+    $Capabilities_FilesSharingInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0_FilesSharingBuilder b) {
-    $Capabilities0_FilesSharingInterface._validate(b);
+  static void _validate(Capabilities_FilesSharingBuilder b) {
+    $Capabilities_FilesSharingInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Capabilities0Interface {
+sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
-  Capabilities0_FilesSharing get filesSharing;
+  Capabilities_FilesSharing? get filesSharing;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Capabilities0InterfaceBuilder].
-  $Capabilities0Interface rebuild(void Function($Capabilities0InterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$Capabilities0InterfaceBuilder].
-  $Capabilities0InterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Capabilities0InterfaceBuilder b) {}
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Capabilities0InterfaceBuilder b) {}
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
-  /// Creates a new Capabilities0 object using the builder pattern.
-  factory Capabilities0([void Function(Capabilities0Builder)? b]) = _$Capabilities0;
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
-  const Capabilities0._();
+  const Capabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -388,113 +383,17 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for Capabilities0.
-  static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
+  /// Serializer for Capabilities.
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Capabilities0Builder b) {
-    $Capabilities0Interface._defaults(b);
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Capabilities0Builder b) {
-    $Capabilities0Interface._validate(b);
-  }
-}
-
-typedef Capabilities = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
-
-/// Serialization extension for `Capabilities`.
-extension $CapabilitiesExtension on Capabilities {
-  /// Serializer for Capabilities.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Capabilities> get serializer => $7f1b9936cf688676379074249fff891bExtension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static Capabilities fromJson(Object? json) => $7f1b9936cf688676379074249fff891bExtension._fromJson(json);
-}
-
-typedef _$7f1b9936cf688676379074249fff891b = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $7f1b9936cf688676379074249fff891bExtension on _$7f1b9936cf688676379074249fff891b {
-  List<dynamic> get _values => [builtListNever, capabilities0];
-  List<String> get _names => const ['builtListNever', 'capabilities0'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i1.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i1.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$7f1b9936cf688676379074249fff891b> get _serializer =>
-      const _$7f1b9936cf688676379074249fff891bSerializer();
-  static _$7f1b9936cf688676379074249fff891b _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$7f1b9936cf688676379074249fff891bSerializer implements PrimitiveSerializer<_$7f1b9936cf688676379074249fff891b> {
-  const _$7f1b9936cf688676379074249fff891bSerializer();
-
-  @override
-  Iterable<Type> get types => const [_$7f1b9936cf688676379074249fff891b];
-
-  @override
-  String get wireName => r'_$7f1b9936cf688676379074249fff891b';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$7f1b9936cf688676379074249fff891b object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListNever;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
-    }
-    value = object.capabilities0;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(Capabilities0))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$7f1b9936cf688676379074249fff891b deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<Never>? builtListNever;
-    try {
-      builtListNever = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>;
-    } catch (_) {}
-    Capabilities0? capabilities0;
-    try {
-      capabilities0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(Capabilities0),
-      )! as Capabilities0;
-    } catch (_) {}
-    return (builtListNever: builtListNever, capabilities0: capabilities0);
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
   }
 }
 
@@ -503,47 +402,45 @@ class _$7f1b9936cf688676379074249fff891bSerializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i2.visibleForTesting
+@_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities0), Capabilities0Builder.new)
-      ..add(Capabilities0.serializer)
-      ..addBuilderFactory(const FullType(Capabilities0_FilesSharing), Capabilities0_FilesSharingBuilder.new)
-      ..add(Capabilities0_FilesSharing.serializer)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
+      ..add(Capabilities_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(Capabilities0_FilesSharing_Sharebymail),
-        Capabilities0_FilesSharing_SharebymailBuilder.new,
+        const FullType(Capabilities_FilesSharing_Sharebymail),
+        Capabilities_FilesSharing_SharebymailBuilder.new,
       )
-      ..add(Capabilities0_FilesSharing_Sharebymail.serializer)
+      ..add(Capabilities_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
-        const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
-        Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
+        const FullType(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+        Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
       )
-      ..add(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..add(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
-        const FullType(Capabilities0_FilesSharing_Sharebymail_Password),
-        Capabilities0_FilesSharing_Sharebymail_PasswordBuilder.new,
+        const FullType(Capabilities_FilesSharing_Sharebymail_Password),
+        Capabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
       )
-      ..add(Capabilities0_FilesSharing_Sharebymail_Password.serializer)
+      ..add(Capabilities_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
-        const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate),
-        Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
+        const FullType(Capabilities_FilesSharing_Sharebymail_ExpireDate),
+        Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
-      ..add(Capabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($7f1b9936cf688676379074249fff891bExtension._serializer))
+      ..add(Capabilities_FilesSharing_Sharebymail_ExpireDate.serializer))
     .build();
 
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i2.visibleForTesting
+@_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$7f1b9936cf688676379074249fff891b}))
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i2.DynamiteDoubleSerializer())
+      ..addPlugin(_i3.StandardJsonPlugin())
+      ..addPlugin(const _i2.HeaderPlugin())
+      ..addPlugin(const _i2.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

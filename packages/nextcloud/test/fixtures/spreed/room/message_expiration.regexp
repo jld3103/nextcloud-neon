@@ -3,7 +3,7 @@ accept: application/json
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":"","password":""\}
 POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/message-expiration
 accept: application/json
 authorization: Bearer mock

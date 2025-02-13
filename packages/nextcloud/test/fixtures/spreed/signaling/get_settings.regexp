@@ -3,7 +3,7 @@ accept: application/json
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":"","password":""\}
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/settings\?token=[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock

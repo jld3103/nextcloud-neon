@@ -6532,6 +6532,8 @@ sealed class $UserDetailsInterface {
   UserDetailsScope? get headlineScope;
   String get id;
   String get language;
+  int? get firstLoginTimestamp;
+  int? get lastLoginTimestamp;
   int get lastLogin;
   String get locale;
   String get manager;
@@ -6545,6 +6547,8 @@ sealed class $UserDetailsInterface {
   String get profileEnabled;
   @BuiltValueField(wireName: 'profile_enabledScope')
   UserDetailsScope? get profileEnabledScope;
+  String? get pronouns;
+  UserDetailsScope? get pronounsScope;
   UserDetailsQuota get quota;
   String get role;
   UserDetailsScope? get roleScope;

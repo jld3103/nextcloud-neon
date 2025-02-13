@@ -2010,6 +2010,10 @@ abstract class UpcomingEventsGetEventsResponseApplicationJson
 sealed class $Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
+  @BuiltValueField(wireName: 'absence-supported')
+  bool? get absenceSupported;
+  @BuiltValueField(wireName: 'absence-replacement')
+  bool? get absenceReplacement;
 
   /// Rebuilds the instance.
   ///
