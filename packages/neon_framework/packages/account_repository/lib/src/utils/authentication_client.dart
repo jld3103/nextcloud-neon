@@ -16,6 +16,7 @@ class AuthenticationClient {
     required this.appPassword,
     required this.clientFlowLoginV2,
     required this.users,
+    required this.wipe,
   });
 
   final $core.$Client core;
@@ -25,6 +26,8 @@ class AuthenticationClient {
   final $core.$ClientFlowLoginV2Client clientFlowLoginV2;
 
   final $provisioning_api.$UsersClient users;
+
+  final $core.$WipeClient wipe;
 }
 
 /// Extension for getting the [AuthenticationClient].
@@ -38,5 +41,6 @@ extension AuthenticationClientExtension on NextcloudClient {
         appPassword: core.appPassword,
         clientFlowLoginV2: core.clientFlowLoginV2,
         users: provisioningApi.users,
+        wipe: core.wipe,
       );
 }

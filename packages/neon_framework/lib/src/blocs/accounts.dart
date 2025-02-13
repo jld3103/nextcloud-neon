@@ -111,6 +111,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       for (final app in allAppImplementations) {
         app.blocsCache.pruneAgainst(accounts);
       }
+      unawaited(checkRemoteWipe(accounts));
     });
   }
 
@@ -129,6 +130,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final weatherStatusBlocs = AccountCache<WeatherStatusBloc>();
   final maintenanceModeBlocs = AccountCache<MaintenanceModeBloc>();
   final referencesBlocs = AccountCache<ReferencesBloc>();
+  final remoteWipeChecks = <Account>{};
 
   @override
   void dispose() {
@@ -154,7 +156,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   @override
   Future<void> removeAccount(Account account) async {
     try {
-      await _accountRepository.logOut(account.id);
+      await _accountRepository.logOut(account);
     } on DeleteCredentialsFailure catch (error, stackTrace) {
       log.info(
         'Error deleting the app password.',
@@ -228,4 +230,45 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
         account: account,
         capabilities: getCapabilitiesBlocFor(account).capabilities,
       );
+
+  Future<void> checkRemoteWipe(BuiltList<Account> accounts) async {
+    for (final account in accounts) {
+      // Only check each account once per app start
+      if (remoteWipeChecks.contains(account)) {
+        return;
+      }
+      remoteWipeChecks.add(account);
+
+      log.finer('Checking remote wipe status for account ${account.id}.');
+
+      try {
+        final wipe = await _accountRepository.getRemoteWipeStatus(account);
+        if (!wipe) {
+          return;
+        }
+
+        log.finer('Wiping account ${account.id}.');
+
+        await removeAccount(account);
+
+        try {
+          await _accountRepository.postRemoteWipeSuccess(account);
+        } on PostRemoteWipeSuccessFailure catch (error, stackTrace) {
+          log.finer(
+            'Failed to post remote wipe success for account ${account.id}.',
+            error,
+            stackTrace,
+          );
+        }
+
+        log.finer('Wiped account ${account.id}.');
+      } on GetRemoteWipeStatusFailure catch (error, stackTrace) {
+        log.finer(
+          'Failed to get remote wipe status for account ${account.id}.',
+          error,
+          stackTrace,
+        );
+      }
+    }
+  }
 }

@@ -70,6 +70,22 @@ final class DeleteCredentialsFailure extends AccountFailure {
   const DeleteCredentialsFailure(super.error);
 }
 
+/// {@template get_remote_wipe_status_failure}
+/// Thrown when getting the device remote wipe status fails.
+/// {@endtemplate}
+final class GetRemoteWipeStatusFailure extends AccountFailure {
+  /// {@macro get_remote_wipe_status_failure}
+  const GetRemoteWipeStatusFailure(super.error);
+}
+
+/// {@template post_remote_wipe_success_failure}
+/// Thrown when posting the device remote wipe success fails.
+/// {@endtemplate}
+final class PostRemoteWipeSuccessFailure extends AccountFailure {
+  /// {@macro post_remote_wipe_success_failure}
+  const PostRemoteWipeSuccessFailure(super.error);
+}
+
 /// {@template account_repository}
 /// A repository that manages the account data.
 /// {@endtemplate}
@@ -275,20 +291,15 @@ class AccountRepository {
   /// Logs out the user from the server.
   ///
   /// May throw a [DeleteCredentialsFailure].
-  Future<void> logOut(String accountID) async {
+  Future<void> logOut(Account account) async {
     final value = _accounts.value;
 
-    Account? account;
     final accounts = value.accounts.rebuild((b) {
-      account = b.remove(accountID);
+      b.remove(account.id);
     });
 
-    if (account == null) {
-      return;
-    }
-
     var active = value.active;
-    if (active == accountID) {
+    if (active == account.id) {
       active = accounts.keys.firstOrNull;
     }
 
@@ -300,7 +311,7 @@ class AccountRepository {
     _accounts.add((active: active, accounts: accounts));
 
     try {
-      await account?.client.authentication.appPassword.deleteAppPassword();
+      await account.client.authentication.appPassword.deleteAppPassword();
     } on http.ClientException catch (error, stackTrace) {
       Error.throwWithStackTrace(DeleteCredentialsFailure(error), stackTrace);
     }
@@ -325,5 +336,54 @@ class AccountRepository {
 
     _accounts.add((active: accountID, accounts: value.accounts));
     await _storage.saveLastAccount(accountID);
+  }
+
+  /// Gets the device remote wipe status.
+  ///
+  /// May throw a [GetRemoteWipeStatusFailure].
+  Future<bool> getRemoteWipeStatus(Account account) async {
+    final client = buildUnauthenticatedClient(
+      httpClient: _httpClient,
+      userAgent: _userAgent,
+      serverURL: account.credentials.serverURL,
+    );
+
+    try {
+      final response = await client.authentication.wipe.checkWipe(
+        $body: core.WipeCheckWipeRequestApplicationJson(
+          (b) => b..token = account.credentials.appPassword,
+        ),
+      );
+
+      // This is always true, as otherwise 404 is returned, but just to be safe in the future use the returned value.
+      return response.body.wipe;
+    } on http.ClientException catch (error, stackTrace) {
+      if (error case DynamiteStatusCodeException() when error.statusCode == 404) {
+        return false;
+      }
+
+      Error.throwWithStackTrace(GetRemoteWipeStatusFailure(error), stackTrace);
+    }
+  }
+
+  /// Posts the remote wipe success.
+  ///
+  /// May throw a [PostRemoteWipeSuccessFailure].
+  Future<void> postRemoteWipeSuccess(Account account) async {
+    final client = buildUnauthenticatedClient(
+      httpClient: _httpClient,
+      userAgent: _userAgent,
+      serverURL: account.credentials.serverURL,
+    );
+
+    try {
+      await client.authentication.wipe.wipeDone(
+        $body: core.WipeWipeDoneRequestApplicationJson(
+          (b) => b..token = account.credentials.appPassword,
+        ),
+      );
+    } on http.ClientException catch (error, stackTrace) {
+      Error.throwWithStackTrace(PostRemoteWipeSuccessFailure(error), stackTrace);
+    }
   }
 }

@@ -4,6 +4,7 @@ import 'package:account_repository/account_repository.dart';
 import 'package:account_repository/src/testing/testing.dart';
 import 'package:account_repository/src/utils/authentication_client.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value_test/matcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
@@ -38,6 +39,14 @@ class _ClientFlowLoginV2ClientMock extends Mock implements core.$ClientFlowLogin
 
 class _UsersClientMock extends Mock implements provisioning_api.$UsersClient {}
 
+class _WipeClientMock extends Mock implements core.$WipeClient {}
+
+class _WipeCheckResponseMock extends Mock implements core.WipeCheckWipeResponseApplicationJson {}
+
+class _FakeWipeCheckRequest extends Fake implements core.WipeCheckWipeRequestApplicationJson {}
+
+class _FakeWipeDoneRequest extends Fake implements core.WipeWipeDoneRequestApplicationJson {}
+
 class _AccountStorageMock extends Mock implements AccountStorage {}
 
 typedef _AccountStream = ({BuiltList<Account> accounts, Account? active});
@@ -50,10 +59,13 @@ void main() {
   late core.$AppPasswordClient appPassword;
   late core.$ClientFlowLoginV2Client clientFlowLoginV2;
   late provisioning_api.$UsersClient users;
+  late core.$WipeClient wipe;
 
   setUpAll(() {
     registerFallbackValue(_FakeUri());
     registerFallbackValue(_FakePollRequest());
+    registerFallbackValue(_FakeWipeCheckRequest());
+    registerFallbackValue(_FakeWipeDoneRequest());
     MockNeonStorage();
   });
 
@@ -62,12 +74,14 @@ void main() {
     appPassword = _AppPasswordClientMock();
     clientFlowLoginV2 = _ClientFlowLoginV2ClientMock();
     users = _UsersClientMock();
+    wipe = _WipeClientMock();
 
     mockedClient = AuthenticationClient(
       core: coreClient,
       appPassword: appPassword,
       clientFlowLoginV2: clientFlowLoginV2,
       users: users,
+      wipe: wipe,
     );
 
     storage = _AccountStorageMock();
@@ -506,7 +520,8 @@ void main() {
         when(() => appPassword.deleteAppPassword()).thenAnswer(
           (_) async => _DynamiteResponseMock<core.AppPasswordDeleteAppPasswordResponseApplicationJson, void>(),
         );
-        await repository.logOut(credentialsList.first.id);
+        final accounts = await repository.accounts.first;
+        await repository.logOut(accounts.accounts.first);
 
         await expectLater(
           repository.accounts,
@@ -522,24 +537,12 @@ void main() {
         verify(() => storage.saveCredentials(any(that: equals([credentialsList[1]])))).called(1);
       });
 
-      test('tries to remove invalid  account', () async {
-        when(() => appPassword.deleteAppPassword()).thenThrow(http.ClientException(''));
-
-        await expectLater(
-          repository.logOut('invalid'),
-          completes,
-        );
-
-        verifyNever(() => appPassword.deleteAppPassword());
-        verifyNever(() => storage.saveLastAccount(any()));
-        verifyNever(() => storage.saveCredentials(any()));
-      });
-
       test('rethrows http exceptions as `DeleteCredentialsFailure`', () async {
         when(() => appPassword.deleteAppPassword()).thenThrow(http.ClientException(''));
 
+        final accounts = await repository.accounts.first;
         await expectLater(
-          repository.logOut(credentialsList.first.id),
+          repository.logOut(accounts.accounts.first),
           throwsA(isA<DeleteCredentialsFailure>().having((e) => e.error, 'error', isA<http.ClientException>())),
         );
 
@@ -596,6 +599,128 @@ void main() {
         );
 
         verify(() => storage.saveLastAccount(credentialsList[1].id)).called(1);
+      });
+    });
+
+    group('getRemoteWipeStatus', () {
+      group('retrieves remote wipe status from server', () {
+        test('should wipe', () async {
+          final wipeCheckResponse = _WipeCheckResponseMock();
+          when(() => wipeCheckResponse.wipe).thenReturn(true);
+          final response = _DynamiteResponseMock<_WipeCheckResponseMock, void>();
+          when(() => response.body).thenReturn(wipeCheckResponse);
+
+          when(() => wipe.checkWipe($body: any(named: r'$body'))).thenAnswer((_) async => response);
+
+          await expectLater(
+            repository.getRemoteWipeStatus(accountsList.first),
+            completion(true),
+          );
+
+          verify(
+            () => wipe.checkWipe(
+              $body: any(
+                named: r'$body',
+                that: isA<core.WipeCheckWipeRequestApplicationJson>().having(
+                  (b) => b.token,
+                  'token',
+                  'appPassword',
+                ),
+              ),
+            ),
+          ).called(1);
+        });
+
+        test('should not wipe', () async {
+          when(() => wipe.checkWipe($body: any(named: r'$body')))
+              .thenThrow(DynamiteStatusCodeException(http.Response('', 404)));
+
+          await expectLater(
+            repository.getRemoteWipeStatus(accountsList.first),
+            completion(false),
+          );
+
+          verify(
+            () => wipe.checkWipe(
+              $body: any(
+                named: r'$body',
+                that: isA<core.WipeCheckWipeRequestApplicationJson>().having(
+                  (b) => b.token,
+                  'token',
+                  'appPassword',
+                ),
+              ),
+            ),
+          ).called(1);
+        });
+      });
+
+      test('rethrows http exceptions as `GetRemoteWipeStatusFailure`', () async {
+        when(() => wipe.checkWipe($body: any(named: r'$body'))).thenThrow(http.ClientException(''));
+
+        await expectLater(
+          repository.getRemoteWipeStatus(accountsList.first),
+          throwsA(isA<GetRemoteWipeStatusFailure>().having((e) => e.error, 'error', isA<http.ClientException>())),
+        );
+
+        verify(
+          () => wipe.checkWipe(
+            $body: any(
+              named: r'$body',
+              that: isA<core.WipeCheckWipeRequestApplicationJson>().having(
+                (b) => b.token,
+                'token',
+                'appPassword',
+              ),
+            ),
+          ),
+        ).called(1);
+      });
+    });
+
+    group('postRemoteWipeSuccess', () {
+      test('posts remote wipe success server', () async {
+        final response = _DynamiteResponseMock<JsonObject, void>();
+        when(() => response.body).thenReturn(JsonObject(''));
+
+        when(() => wipe.wipeDone($body: any(named: r'$body'))).thenAnswer((_) async => response);
+
+        await repository.postRemoteWipeSuccess(accountsList.first);
+
+        verify(
+          () => wipe.wipeDone(
+            $body: any(
+              named: r'$body',
+              that: isA<core.WipeWipeDoneRequestApplicationJson>().having(
+                (b) => b.token,
+                'token',
+                'appPassword',
+              ),
+            ),
+          ),
+        ).called(1);
+      });
+
+      test('rethrows http exceptions as `PostRemoteWipeSuccessFailure`', () async {
+        when(() => wipe.wipeDone($body: any(named: r'$body'))).thenThrow(http.ClientException(''));
+
+        await expectLater(
+          repository.postRemoteWipeSuccess(accountsList.first),
+          throwsA(isA<PostRemoteWipeSuccessFailure>().having((e) => e.error, 'error', isA<http.ClientException>())),
+        );
+
+        verify(
+          () => wipe.wipeDone(
+            $body: any(
+              named: r'$body',
+              that: isA<core.WipeWipeDoneRequestApplicationJson>().having(
+                (b) => b.token,
+                'token',
+                'appPassword',
+              ),
+            ),
+          ),
+        ).called(1);
       });
     });
   });
