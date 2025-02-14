@@ -22,7 +22,7 @@ dependencies:
   nextcloud: ^8.1.0
 
 dev_dependencies:
-  custom_lint: ^0.7.0
+  custom_lint: ^0.7.3
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
