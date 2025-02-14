@@ -87,3 +87,30 @@ jobs:
         run: |
           ./tool/generate-specs.sh
           git --no-pager diff --exit-code
+
+  assets:
+    name: Assets
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
+      - name: Submodules
+        run: git submodule update --init --depth 0
+
+      - name: Install inkscape, imagemagick, exiftool
+        run: sudo apt install -y inkscape imagemagick exiftool --no-install-recommends
+      - name: Install dart
+        uses: dart-lang/setup-dart@0a8a0fc875eb934c15d08629302413c671d3f672 # v1
+        with:
+          sdk: 3.5
+      - name: Setup
+        run: ./tool/setup.sh
+
+      - name: Generate assets
+        run: |
+          ./tool/generate-assets.sh
+          # The changes to this file are not stable, so we have to ignore them before checking if anything else changed.
+          git checkout packages/neon_framework/example/web/index.html
+          git --no-pager diff --exit-code
