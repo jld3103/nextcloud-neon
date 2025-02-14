@@ -59,9 +59,9 @@ jobs:
 
       - name: F-Droid nightly
         run: |
-          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk app-arm64-v8a-debug.apk
-          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk app-armeabi-v7a-debug.apk
-          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-x86_64-release.apk app-x86_64-debug.apk
+          mv packages/neon_framework/example/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk app-arm64-v8a-debug.apk
+          mv packages/neon_framework/example/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk app-armeabi-v7a-debug.apk
+          mv packages/neon_framework/example/build/app/outputs/flutter-apk/app-x86_64-release.apk app-x86_64-debug.apk
 
           sudo apt-get update && sudo apt-get install apksigner python3-pip --no-install-recommends
           python -m venv venv && source venv/bin/activate
